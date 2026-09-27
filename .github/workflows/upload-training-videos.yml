@@ -1,0 +1,27 @@
+name: upload-training-videos
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload multiskill videos to training-videos release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/up
+          find multiskill -type f -name "总纲课.mp4" | sort | while IFS= read -r f; do
+            sep="$(basename "$(dirname "$f")")"
+            cp "$f" "/tmp/up/${sep}-总纲课.mp4"
+            echo "prepared ${sep}-总纲课.mp4"
+          done
+          echo "count: $(ls /tmp/up | wc -l)"
+          gh release upload training-videos /tmp/up/*.mp4 --clobber
+          echo "UPLOAD DONE"
+          gh release view training-videos --json assets --jq ".assets | length"
