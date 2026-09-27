@@ -77,7 +77,7 @@ h1.doc-title{font-size:24px;color:var(--blue);border-bottom:2px solid var(--line
 
 <script>
 var BASE=17;
-function fontAdj(d){BASE=Math.min(24,Math.max(13,BASE+d));document.querySelector('.md').style.fontSize=BASE+'px';}
+function fontAdj(d){BASE=Math.min(24,Math.max(13,BASE+d));var m=document.querySelector('.md');if(m)m.style.fontSize=BASE+'px';}
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function joinPath(base,rel){
   if(/^(https?:|data:|#|mailto:)/.test(rel))return rel;
@@ -176,6 +176,7 @@ function load(){
       el.innerHTML='<h1 class="doc-title">'+doc.split('/').pop()+'</h1><div class="md"><pre style="white-space:pre-wrap">'+esc(txt)+'</pre></div>';
     }else{
       var t1=txt.match(/^#\s+(.+)$/m);
+      if(/^#\s/.test(txt)){var nl=txt.indexOf('\n');txt=nl>=0?txt.slice(nl+1):'';}
       var body=renderMD(txt,dir);
       var extra='';
       if(/multiskill\/[^/]+\/[^/]+\/项目总纲\.md$/.test(doc)){
