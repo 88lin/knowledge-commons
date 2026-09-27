@@ -33,7 +33,7 @@
 | 模块 | 内容 | 位置 |
 |------|------|------|
 |  **保姆级中文教程**（20 章 + 附录） | 从"什么是文件"讲到 AWS/容器/自动化/安全/机房管理/装机/编译原理/锐捷云平台，每步带命令、输出示例、排错指南与练习答案 | [`docs/tutorial/`](docs/tutorial/) |
-|  **视频课**（62 集） | 机房管理 15 集 · 保姆级教程 18 集 · 进阶专题 29 集；App 内全离线播放 | [Releases 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) |
+|  **视频课**（62 集） | 机房管理 15 集 · 保姆级教程 18 集 · 进阶专题 29 集；已随库内置 `videos/`（门户/阅读器内直接播放），另有 Releases 打包下载 | [Releases 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) |
 |  **精通之路**（7 篇） | 从"级联话术"到母语级能力的训练体系：全景地图 / 五级阶梯 / 领域修炼 / 架构模式 / 全平台 / 365 天训练系统 | [`docs/mastery/`](docs/mastery/) |
 |  **计算机母语之路**（5 篇） | 《计算机系统要素》《C Primer Plus》《思考快与慢》《编译原理》《高级编译器》五书共生学习体系（24 个月路线） | [`docs/cs-mastery/`](docs/cs-mastery/) |
 |  **知识体系**（12 章） | Linux / 网络 / 企业服务 / OpenStack / AWS / 容器 / IaC / 可观测 / 安全 / 前沿 / 竞赛 / 认证 | [`docs/knowledge/`](docs/knowledge/) |
@@ -47,6 +47,9 @@
 |  **全技能精通库（55 篇）** | 世界技能大赛六大领域约 50 个赛项：项目总纲 · 精通路线图与能力域图解 · 十题交互模拟训练 · 中文解说总纲课视频 | [`multiskill/`](multiskill/) |
 
 ## 🚀 四种使用方式
+
+**⭐ 浏览器打开分类门户（新 · 推荐）**
+仓库根目录的 [`index.html`](index.html) 是一个仿政务教育网站风格的**归类式分类门户**：报头 + 频道导航 + 分类板块（保姆级教程 / 视频课堂 / 知识体系 / 机房管理 / 精通之路 / 冲刺备考 / 国际赛题 / 全技能库 / 模拟实训 / 学习资源），支持全站搜索。点开任意 Markdown 图文会用 [`viewer.html`](viewer.html) 渲染（含目录、代码块、表格、赛项图解与视频内嵌）。本地直接双击 `index.html` 即可用（阅读器需本地服务器支持，如 `python3 -m http.server`）；配套的 [`resources.html`](resources.html) 提供 713 条 B 站精选资源的分组浏览与搜索。
 
 **① 装 App（推荐手机党）**
 从 [**Releases 页面**](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) 下载 `CloudStudy-Full.apk`（唯一完整版 · 411 MB）→ 安装 → 打开「云计算学习」。
@@ -65,7 +68,10 @@
 
 ```
 worldskills-cloud/
-├── app/  # 学习引擎源码（段位体系 / 资源库）· APK 见 Releases
+├── index.html  #  ⭐ 分类门户首页（政务教育网风格 · 归类导航 + 全站搜索）
+├── viewer.html  #  图文阅读器（Markdown 渲染 · 目录 · 图解/视频自动内嵌）
+├── resources.html  #  B 站精选资源库（分组 + 搜索）
+├── app/  # 学习引擎源码（段位体系 / 资源库 / 门户数据 portal-data.js）
 ├── lab/  # 模拟实训室引擎（22 场景 + 4 套模拟赛卷）
 ├── docs/  # 教程与知识体系（Markdown 源）
 │  ├── tutorial/  #  20 章保姆级教程 + 附录
@@ -77,6 +83,7 @@ worldskills-cloud/
 │  └── official/  #  WSOS 官方标准（中 / 英）
 ├── exam/
 │  └── korea-zh/  # 韩国赛题中文翻译（题面 + 评分标准）
+├── multiskill/  # 全技能精通库（6 领域 50 赛项：总纲/图解/模拟训练/总纲课视频）
 ├── tools/  # 构建工具链（页面生成器 / APK 构建 / 小工具）
 ├── video-factory/  # 视频课生成流水线（Markdown → 视频课）
 ├── video-ext/  # 进阶视频课总览
