@@ -6,6 +6,7 @@ name: embed-course-videos
 #   video-ext/videos/ext/<epc|epk|epm|epo|epq|eps>*.mp4 + covers/*.png
 # 文档（09-视频课总览 / 98-视频课-总览 / video-ext/00-总览）内的 <video src> 相对路径
 # 与本目录结构一一对应，视频就位后门户 / Pages / 阅读器内即可直接播放。
+# v2: 修复 ffmpeg 未安装问题 + 封面生成容错（个别失败不阻塞整体）
 on:
   workflow_dispatch:
   push:
@@ -42,20 +43,49 @@ jobs:
           mkdir -p docs/room/videos/covers
           mkdir -p docs/tutorial/videos/course/covers
           mkdir -p video-ext/videos/ext/covers
-           for f in /tmp/v/room/*.mp4; do n=$(basename "$f"); n=${n#room-}; cp "$f" "docs/room/videos/$n"; done
+          for f in /tmp/v/room/*.mp4; do n=$(basename "$f"); n=${n#room-}; cp "$f" "docs/room/videos/$n"; done
           for f in /tmp/v/course/*.mp4; do n=$(basename "$f"); n=${n#course-}; cp "$f" "docs/tutorial/videos/course/$n"; done
           for f in /tmp/v/ext/*.mp4; do n=$(basename "$f"); n=${n#ext-}; cp "$f" "video-ext/videos/ext/$n"; done
           echo "room: $(ls docs/room/videos/*.mp4 | wc -l)"
           echo "course: $(ls docs/tutorial/videos/course/*.mp4 | wc -l)"
           echo "ext: $(ls video-ext/videos/ext/*.mp4 | wc -l)"
 
-      - name: Generate covers (ffmpeg frame @2s)
+      - name: Install ffmpeg
         run: |
-          set -euo pipefail
-          for f in docs/room/videos/*.mp4; do n=$(basename "$f" .mp4); ffmpeg -hide_banner -loglevel error -ss 2 -i "$f" -frames:v 1 -vf scale=640:-1 -y "docs/room/videos/covers/$n.png"; done
-          for f in docs/tutorial/videos/course/*.mp4; do n=$(basename "$f" .mp4); ffmpeg -hide_banner -loglevel error -ss 2 -i "$f" -frames:v 1 -vf scale=640:-1 -y "docs/tutorial/videos/course/covers/$n.png"; done
-          for f in video-ext/videos/ext/*.mp4; do n=$(basename "$f" .mp4); ffmpeg -hide_banner -loglevel error -ss 2 -i "$f" -frames:v 1 -vf scale=640:-1 -y "video-ext/videos/ext/covers/$n.png"; done
-          echo "covers: $(find docs/room/videos/covers docs/tutorial/videos/course/covers video-ext/videos/ext/covers -name '*.png' | wc -l)"
+          sudo apt-get update -qq > /dev/null 2>&1
+          sudo apt-get install -y -qq ffmpeg > /dev/null 2>&1
+          which ffmpeg && ffmpeg -version | head -1
+
+      - name: Generate covers (ffmpeg frame @2s, tolerant)
+        run: |
+          set -uo pipefail
+          ok=0; fail=0
+          for f in docs/room/videos/*.mp4; do
+            n=$(basename "$f" .mp4)
+            if ffmpeg -hide_banner -loglevel error -ss 2 -i "$f" -frames:v 1 -vf scale=640:-2 -y "docs/room/videos/covers/$n.png"; then
+              ok=$((ok+1))
+            else
+              fail=$((fail+1)); echo "cover fail: $f"
+            fi
+          done
+          for f in docs/tutorial/videos/course/*.mp4; do
+            n=$(basename "$f" .mp4)
+            if ffmpeg -hide_banner -loglevel error -ss 2 -i "$f" -frames:v 1 -vf scale=640:-2 -y "docs/tutorial/videos/course/covers/$n.png"; then
+              ok=$((ok+1))
+            else
+              fail=$((fail+1)); echo "cover fail: $f"
+            fi
+          done
+          for f in video-ext/videos/ext/*.mp4; do
+            n=$(basename "$f" .mp4)
+            if ffmpeg -hide_banner -loglevel error -ss 2 -i "$f" -frames:v 1 -vf scale=640:-2 -y "video-ext/videos/ext/covers/$n.png"; then
+              ok=$((ok+1))
+            else
+              fail=$((fail+1)); echo "cover fail: $f"
+            fi
+          done
+          echo "covers ok=$ok fail=$fail"
+          find docs/room/videos/covers docs/tutorial/videos/course/covers video-ext/videos/ext/covers -name '*.png' | wc -l
 
       - name: Verify counts
         run: |
@@ -73,7 +103,8 @@ jobs:
           git config user.name "course-videos-bot"
           git config user.email "actions@users.noreply.github.com"
           git add docs/room/videos docs/tutorial/videos video-ext/videos
+          git diff --cached --stat | tail -3
           git commit -m "视频课内置：62 集（room 15 / course 18 / ext 29）放入 videos/ 目录，门户/阅读器内直接播放（含封面）"
-          git pull --rebase origin main
-          git push origin main
+          git pull --rebase origin main || true
+          git push origin main || { git pull --rebase origin main; git push origin main; }
           echo "PUSH OK"
