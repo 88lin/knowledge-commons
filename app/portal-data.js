@@ -1,4 +1,3 @@
-/* 自动生成：全站内容分类数据 */
 window.PORTAL_DATA=[
 {"p":"docs/README-总导航.md","t":"世界技能大赛云计算 · 从零到极致学习体系","s":8179}
 ,{"p":"docs/cs-mastery/00-总纲-五书共生体系.md","t":"计算机母语之路 · 总纲：五本书的共生体系","s":12072}
@@ -66,67 +65,67 @@ window.PORTAL_DATA=[
 ,{"p":"docs/tutorial/97-视频课-全讲义.md","t":"📖 保姆级教程 · 视频课全台词讲义","s":147049}
 ,{"p":"docs/tutorial/98-视频课-总览.md","t":"🎬 保姆级教程 · 视频课（18 集）","s":7509}
 ,{"p":"docs/tutorial/README-教程总览.md","t":"《世界技能大赛云计算 · 保姆级中文教程》完整版","s":5410}
-,{"p":"exam/korea-zh/2021_jibang_day1_day1_grad.txt","t":"2021_jibang_day1_day1_grad.txt","s":11924}
-,{"p":"exam/korea-zh/2021_jibang_day1_day1_mission.txt","t":"2021_jibang_day1_day1_mission.txt","s":8085}
-,{"p":"exam/korea-zh/2021_korea_day1_day1_grad.txt","t":"2021_korea_day1_day1_grad.txt","s":17138}
-,{"p":"exam/korea-zh/2021_korea_day1_day1_mission.txt","t":"2021_korea_day1_day1_mission.txt","s":8002}
-,{"p":"exam/korea-zh/2021_korea_day2_day2_grad.txt","t":"2021_korea_day2_day2_grad.txt","s":15410}
-,{"p":"exam/korea-zh/2021_korea_day2_day2_mission.txt","t":"2021_korea_day2_day2_mission.txt","s":7055}
-,{"p":"exam/korea-zh/2021_korea_day3_day3_grad.txt","t":"2021_korea_day3_day3_grad.txt","s":12330}
-,{"p":"exam/korea-zh/2021_korea_day3_day3_mission.txt","t":"2021_korea_day3_day3_mission.txt","s":5462}
-,{"p":"exam/korea-zh/2022_jibang_day1_day1_grad.txt","t":"2022_jibang_day1_day1_grad.txt","s":7127}
-,{"p":"exam/korea-zh/2022_jibang_day1_day1_mission.txt","t":"2022_jibang_day1_day1_mission.txt","s":3252}
-,{"p":"exam/korea-zh/2022_jibang_day2_day2_grad.txt","t":"2022_jibang_day2_day2_grad.txt","s":3760}
-,{"p":"exam/korea-zh/2022_jibang_day2_day2_mission.txt","t":"2022_jibang_day2_day2_mission.txt","s":3396}
-,{"p":"exam/korea-zh/2022_korea_day1_day1_grad.txt","t":"2022_korea_day1_day1_grad.txt","s":14099}
-,{"p":"exam/korea-zh/2022_korea_day1_day1_mission.txt","t":"2022_korea_day1_day1_mission.txt","s":9302}
-,{"p":"exam/korea-zh/2022_korea_day2_day2_grad.txt","t":"2022_korea_day2_day2_grad.txt","s":12424}
-,{"p":"exam/korea-zh/2022_korea_day2_day2_mission.txt","t":"2022_korea_day2_day2_mission.txt","s":6759}
-,{"p":"exam/korea-zh/2022_korea_day3_day3_grad.txt","t":"2022_korea_day3_day3_grad.txt","s":4056}
-,{"p":"exam/korea-zh/2022_korea_day3_day3_mission.txt","t":"2022_korea_day3_day3_mission.txt","s":4449}
-,{"p":"exam/korea-zh/2023_jibang_day1_day1_grad.txt","t":"2023_jibang_day1_day1_grad.txt","s":16585}
-,{"p":"exam/korea-zh/2023_jibang_day1_day1_mission.txt","t":"2023_jibang_day1_day1_mission.txt","s":6051}
-,{"p":"exam/korea-zh/2023_jibang_day2_day2_grad.txt","t":"2023_jibang_day2_day2_grad.txt","s":11257}
-,{"p":"exam/korea-zh/2023_jibang_day2_day2_mission.txt","t":"2023_jibang_day2_day2_mission.txt","s":4850}
-,{"p":"exam/korea-zh/2023_korea_day1_day1_grad.txt","t":"set default region of aws cli","s":21692}
-,{"p":"exam/korea-zh/2023_korea_day1_day1_mission.txt","t":"2023_korea_day1_day1_mission.txt","s":12141}
-,{"p":"exam/korea-zh/2023_korea_day2_day2_grad.txt","t":"set default region of aws cli","s":19371}
-,{"p":"exam/korea-zh/2023_korea_day2_day2_mission.txt","t":"2023_korea_day2_day2_mission.txt","s":10175}
-,{"p":"exam/korea-zh/2023_korea_day3_day3_grad.txt","t":"2023_korea_day3_day3_grad.txt","s":5184}
-,{"p":"exam/korea-zh/2023_korea_day3_day3_mission.txt","t":"2023_korea_day3_day3_mission.txt","s":6626}
-,{"p":"exam/korea-zh/2024_jibang_day1_day1_grad.txt","t":"2024_jibang_day1_day1_grad.txt","s":23487}
-,{"p":"exam/korea-zh/2024_jibang_day1_day1_mission.txt","t":"2024_jibang_day1_day1_mission.txt","s":9588}
-,{"p":"exam/korea-zh/2024_jibang_day2_day2_grad.txt","t":"2024_jibang_day2_day2_grad.txt","s":17971}
-,{"p":"exam/korea-zh/2024_jibang_day2_day2_mission.txt","t":"2024_jibang_day2_day2_mission.txt","s":6915}
-,{"p":"exam/korea-zh/2024_korea_day1_day1_grad.txt","t":"2024_korea_day1_day1_grad.txt","s":29399}
-,{"p":"exam/korea-zh/2024_korea_day1_day1_mission.txt","t":"2024_korea_day1_day1_mission.txt","s":15711}
-,{"p":"exam/korea-zh/2024_korea_day2_day2_grad.txt","t":"2024_korea_day2_day2_grad.txt","s":35179}
-,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_busan_2_busan_2_mission.txt","t":"2024_korea_day2_day2_mission_busan_2_busan_2_mission.txt","s":3407}
-,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_chungnam_1_chungnam_1_mission.txt","t":"2024_korea_day2_day2_mission_chungnam_1_chungnam_1_mission.txt","s":2162}
-,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_daejeon_3_daejeon_3_mission.txt","t":"2024_korea_day2_day2_mission_daejeon_3_daejeon_3_mission.txt","s":3063}
-,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_extra_1_extra_1_mission.txt","t":"2024_korea_day2_day2_mission_extra_1_extra_1_mission.txt","s":3055}
-,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_extra_2_extra_2_mission.txt","t":"2024_korea_day2_day2_mission_extra_2_extra_2_mission.txt","s":3212}
-,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_gwangju_3_gwangju_3_mission.txt","t":"2024_korea_day2_day2_mission_gwangju_3_gwangju_3_mission.txt","s":3752}
-,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_jeju_3_jeju_3_mission.txt","t":"2024_korea_day2_day2_mission_jeju_3_jeju_3_mission.txt","s":2880}
-,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_kyungpook_3_kyungpook_3_mission.txt","t":"2024_korea_day2_day2_mission_kyungpook_3_kyungpook_3_mission.txt","s":2460}
-,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_seoul_1_seoul_1_mission.txt","t":"2024_korea_day2_day2_mission_seoul_1_seoul_1_mission.txt","s":2887}
-,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_seoul_3_seoul_3_mission.txt","t":"2024_korea_day2_day2_mission_seoul_3_seoul_3_mission.txt","s":2215}
-,{"p":"exam/korea-zh/2024_korea_day3_day3_grad.txt","t":"2024_korea_day3_day3_grad.txt","s":16744}
-,{"p":"exam/korea-zh/2024_korea_day3_day3_mission.txt","t":"2024_korea_day3_day3_mission.txt","s":6898}
-,{"p":"exam/korea-zh/2025_jibang_day1_day1_grad_day1_grad.txt","t":"2025_jibang_day1_day1_grad_day1_grad.txt","s":12690}
-,{"p":"exam/korea-zh/2025_jibang_day1_day1_mission.txt","t":"2025_jibang_day1_day1_mission.txt","s":7857}
-,{"p":"exam/korea-zh/2025_jibang_day2_day2_grad_day2_grad.txt","t":"2025_jibang_day2_day2_grad_day2_grad.txt","s":16398}
-,{"p":"exam/korea-zh/2025_jibang_day2_day2_mission.txt","t":"2025_jibang_day2_day2_mission.txt","s":9265}
-,{"p":"exam/korea-zh/2025原件_1과제-문제_vf.hwpx.txt","t":"Source: /var/minis/shared/worldskills-cloud/github-repos/wsc","s":48926}
-,{"p":"exam/korea-zh/2025原件_2025년_전국대회_3과제_문제지_v1.0.1.hwp.txt","t":"2025原件_2025년_전국대회_3과제_문제지_v1.0.1.hwp.txt","s":9076}
-,{"p":"exam/korea-zh/2025原件_2025년_전국대회_3과제_채점기준표_v1.0.1.hwp.txt","t":"Source: /var/minis/shared/worldskills-cloud/github-repos/202","s":21588}
-,{"p":"exam/korea-zh/2025原件_경북_1과제_과제지_vf.hwpx.txt","t":"Source: /var/minis/shared/worldskills-cloud/github-repos/wsc","s":50956}
-,{"p":"exam/korea-zh/2025原件_경북_2과제_과제지_vf.hwp.txt","t":"Source: /var/minis/shared/worldskills-cloud/github-repos/wsc","s":16803}
-,{"p":"exam/korea-zh/2025原件_클라우드컴퓨팅_2과제_과제지_v2.hwp.txt","t":"Source: /var/minis/shared/worldskills-cloud/github-repos/wsc","s":8638}
-,{"p":"exam/korea-zh/2025原件_클라우드컴퓨팅_제1과제_vf.hwp.txt","t":"Source: /var/minis/shared/worldskills-cloud/github-repos/wsc","s":15907}
-,{"p":"exam/korea-zh/2025原件_클라우드컴퓨팅_제2과제_문제지_vf.hwp.txt","t":"2025原件_클라우드컴퓨팅_제2과제_문제지_vf.hwp.txt","s":9202}
+,{"p":"exam/korea-zh/2021_jibang_day1_day1_grad.txt","t":"2021 地方技能竞赛 · 第1天 · 评分标准","s":11924}
+,{"p":"exam/korea-zh/2021_jibang_day1_day1_mission.txt","t":"2021 地方技能竞赛 · 第1天 · 试题","s":8085}
+,{"p":"exam/korea-zh/2021_korea_day1_day1_grad.txt","t":"2021 第56届全国技能竞赛 · 第1天 · 评分标准","s":17138}
+,{"p":"exam/korea-zh/2021_korea_day1_day1_mission.txt","t":"2021 第56届全国技能竞赛 · 第1天 · 试题","s":8002}
+,{"p":"exam/korea-zh/2021_korea_day2_day2_grad.txt","t":"2021 第56届全国技能竞赛 · 第2天 · 评分标准","s":15410}
+,{"p":"exam/korea-zh/2021_korea_day2_day2_mission.txt","t":"2021 第56届全国技能竞赛 · 第2天 · 试题","s":7055}
+,{"p":"exam/korea-zh/2021_korea_day3_day3_grad.txt","t":"2021 第56届全国技能竞赛 · 第3天 · 评分标准","s":12330}
+,{"p":"exam/korea-zh/2021_korea_day3_day3_mission.txt","t":"2021 第56届全国技能竞赛 · 第3天 · 试题","s":5462}
+,{"p":"exam/korea-zh/2022_jibang_day1_day1_grad.txt","t":"2022 地方技能竞赛 · 第1天 · 评分标准","s":7127}
+,{"p":"exam/korea-zh/2022_jibang_day1_day1_mission.txt","t":"2022 地方技能竞赛 · 第1天 · 试题","s":3252}
+,{"p":"exam/korea-zh/2022_jibang_day2_day2_grad.txt","t":"2022 地方技能竞赛 · 第2天 · 评分标准","s":3760}
+,{"p":"exam/korea-zh/2022_jibang_day2_day2_mission.txt","t":"2022 地方技能竞赛 · 第2天 · 试题","s":3396}
+,{"p":"exam/korea-zh/2022_korea_day1_day1_grad.txt","t":"2022 第57届全国技能竞赛 · 第1天 · 评分标准","s":14099}
+,{"p":"exam/korea-zh/2022_korea_day1_day1_mission.txt","t":"2022 第57届全国技能竞赛 · 第1天 · 试题","s":9302}
+,{"p":"exam/korea-zh/2022_korea_day2_day2_grad.txt","t":"2022 第57届全国技能竞赛 · 第2天 · 评分标准","s":12424}
+,{"p":"exam/korea-zh/2022_korea_day2_day2_mission.txt","t":"2022 第57届全国技能竞赛 · 第2天 · 试题","s":6759}
+,{"p":"exam/korea-zh/2022_korea_day3_day3_grad.txt","t":"2022 第57届全国技能竞赛 · 第3天 · 评分标准","s":4056}
+,{"p":"exam/korea-zh/2022_korea_day3_day3_mission.txt","t":"2022 第57届全国技能竞赛 · 第3天 · 试题","s":4449}
+,{"p":"exam/korea-zh/2023_jibang_day1_day1_grad.txt","t":"2023 地方技能竞赛 · 第1天 · 评分标准","s":16585}
+,{"p":"exam/korea-zh/2023_jibang_day1_day1_mission.txt","t":"2023 地方技能竞赛 · 第1天 · 试题","s":6051}
+,{"p":"exam/korea-zh/2023_jibang_day2_day2_grad.txt","t":"2023 地方技能竞赛 · 第2天 · 评分标准","s":11257}
+,{"p":"exam/korea-zh/2023_jibang_day2_day2_mission.txt","t":"2023 地方技能竞赛 · 第2天 · 试题","s":4850}
+,{"p":"exam/korea-zh/2023_korea_day1_day1_grad.txt","t":"2023 第58届全国技能竞赛 · 第1天 · 评分标准","s":21692}
+,{"p":"exam/korea-zh/2023_korea_day1_day1_mission.txt","t":"2023 第58届全国技能竞赛 · 第1天 · 试题","s":12141}
+,{"p":"exam/korea-zh/2023_korea_day2_day2_grad.txt","t":"2023 第58届全国技能竞赛 · 第2天 · 评分标准","s":19371}
+,{"p":"exam/korea-zh/2023_korea_day2_day2_mission.txt","t":"2023 第58届全国技能竞赛 · 第2天 · 试题","s":10175}
+,{"p":"exam/korea-zh/2023_korea_day3_day3_grad.txt","t":"2023 第58届全国技能竞赛 · 第3天 · 评分标准","s":5184}
+,{"p":"exam/korea-zh/2023_korea_day3_day3_mission.txt","t":"2023 第58届全国技能竞赛 · 第3天 · 试题","s":6626}
+,{"p":"exam/korea-zh/2024_jibang_day1_day1_grad.txt","t":"2024 地方技能竞赛 · 第1天 · 评分标准","s":23487}
+,{"p":"exam/korea-zh/2024_jibang_day1_day1_mission.txt","t":"2024 地方技能竞赛 · 第1天 · 试题","s":9588}
+,{"p":"exam/korea-zh/2024_jibang_day2_day2_grad.txt","t":"2024 地方技能竞赛 · 第2天 · 评分标准","s":17971}
+,{"p":"exam/korea-zh/2024_jibang_day2_day2_mission.txt","t":"2024 地方技能竞赛 · 第2天 · 试题","s":6915}
+,{"p":"exam/korea-zh/2024_korea_day1_day1_grad.txt","t":"2024 第59届全国技能竞赛 · 第1天 · 评分标准","s":29399}
+,{"p":"exam/korea-zh/2024_korea_day1_day1_mission.txt","t":"2024 第59届全国技能竞赛 · 第1天 · 试题","s":15711}
+,{"p":"exam/korea-zh/2024_korea_day2_day2_grad.txt","t":"2024 第59届全国技能竞赛 · 第2天 · 评分标准","s":35179}
+,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_busan_2_busan_2_mission.txt","t":"2024 釜山赛区（2）· 第2天 · 试题","s":3407}
+,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_chungnam_1_chungnam_1_mission.txt","t":"2024 忠南赛区（1）· 第2天 · 试题","s":2162}
+,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_daejeon_3_daejeon_3_mission.txt","t":"2024 大田赛区（3）· 第2天 · 试题","s":3063}
+,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_extra_1_extra_1_mission.txt","t":"2024 加试（一）· 第2天 · 试题","s":3055}
+,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_extra_2_extra_2_mission.txt","t":"2024 加试（二）· 第2天 · 试题","s":3212}
+,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_gwangju_3_gwangju_3_mission.txt","t":"2024 光州赛区（3）· 第2天 · 试题","s":3752}
+,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_jeju_3_jeju_3_mission.txt","t":"2024 济州赛区（3）· 第2天 · 试题","s":2880}
+,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_kyungpook_3_kyungpook_3_mission.txt","t":"2024 庆北赛区（3）· 第2天 · 试题","s":2460}
+,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_seoul_1_seoul_1_mission.txt","t":"2024 首尔赛区（1）· 第2天 · 试题","s":2887}
+,{"p":"exam/korea-zh/2024_korea_day2_day2_mission_seoul_3_seoul_3_mission.txt","t":"2024 首尔赛区（3）· 第2天 · 试题","s":2215}
+,{"p":"exam/korea-zh/2024_korea_day3_day3_grad.txt","t":"2024 第59届全国技能竞赛 · 第3天 · 评分标准","s":16744}
+,{"p":"exam/korea-zh/2024_korea_day3_day3_mission.txt","t":"2024 第59届全国技能竞赛 · 第3天 · 试题","s":6898}
+,{"p":"exam/korea-zh/2025_jibang_day1_day1_grad_day1_grad.txt","t":"2025 地方技能竞赛 · 第1天 · 评分标准","s":12690}
+,{"p":"exam/korea-zh/2025_jibang_day1_day1_mission.txt","t":"2025 地方技能竞赛 · 第1天 · 试题","s":7857}
+,{"p":"exam/korea-zh/2025_jibang_day2_day2_grad_day2_grad.txt","t":"2025 地方技能竞赛 · 第2天 · 评分标准","s":16398}
+,{"p":"exam/korea-zh/2025_jibang_day2_day2_mission.txt","t":"2025 地方技能竞赛 · 第2天 · 试题","s":9265}
+,{"p":"exam/korea-zh/2025原件_1과제-문제_vf.hwpx.txt","t":"2025 全国技能竞赛（光州） · 第1任务 · 题面（原件译）","s":48926}
+,{"p":"exam/korea-zh/2025原件_2025년_전국대회_3과제_문제지_v1.0.1.hwp.txt","t":"2025 全国技能大赛 · 第3任务 · 题面（原件译）","s":9076}
+,{"p":"exam/korea-zh/2025原件_2025년_전국대회_3과제_채점기준표_v1.0.1.hwp.txt","t":"2025 全国技能大赛 · 第3任务 · 评分标准（原件译）","s":21588}
+,{"p":"exam/korea-zh/2025原件_경북_1과제_과제지_vf.hwpx.txt","t":"2025 全国技能竞赛（庆北） · 第1任务 · 题面（原件译）","s":50956}
+,{"p":"exam/korea-zh/2025原件_경북_2과제_과제지_vf.hwp.txt","t":"2025 全国技能竞赛（庆北） · 第2任务 · 题面（原件译）","s":16803}
+,{"p":"exam/korea-zh/2025原件_클라우드컴퓨팅_2과제_과제지_v2.hwp.txt","t":"2025 全国技能竞赛（忠南） · 第2任务 · 题面（原件译）","s":8638}
+,{"p":"exam/korea-zh/2025原件_클라우드컴퓨팅_제1과제_vf.hwp.txt","t":"2025 全国技能竞赛（京畿） · 第1任务 · 题面（原件译）","s":15907}
+,{"p":"exam/korea-zh/2025原件_클라우드컴퓨팅_제2과제_문제지_vf.hwp.txt","t":"2025 全国技能竞赛 · 第2任务 · 题面（原件译）","s":9202}
 ,{"p":"lab/README.md","t":"lab/ — 应用内模拟实训引擎（模拟实训室）","s":1894}
-,{"p":"lab/standalone.html","t":"standalone.html","s":4352}
+,{"p":"lab/standalone.html","t":"模拟实训室 · 独立版页面（standalone）","s":4352}
 ,{"p":"multiskill/01-信息与通信技术/IT网络系统管理/实训包/mission.md","t":"🔥 模拟赛题 · 网络系统管理（世赛风格）","s":4462}
 ,{"p":"multiskill/01-信息与通信技术/IT网络系统管理/实训包/参考答案.md","t":"🔒 网络系统管理 · 参考答案","s":2926}
 ,{"p":"multiskill/01-信息与通信技术/IT网络系统管理/模拟训练.html","t":"模拟训练.html","s":12765}
@@ -143,7 +142,7 @@ window.PORTAL_DATA=[
 ,{"p":"multiskill/01-信息与通信技术/网站技术/项目总纲.md","t":"网站技术（Web Technologies）· 项目精通总纲","s":13506}
 ,{"p":"multiskill/01-信息与通信技术/网络安全/模拟训练.html","t":"模拟训练.html","s":12538}
 ,{"p":"multiskill/01-信息与通信技术/网络安全/项目总纲.md","t":"网络安全（Cyber Security）· 项目精通总纲","s":14935}
-,{"p":"multiskill/01-信息与通信技术/网络布线/实训包/quiz.html","t":"quiz.html","s":16196}
+,{"p":"multiskill/01-信息与通信技术/网络布线/实训包/quiz.html","t":"网络布线 · 判读专项测验页","s":16196}
 ,{"p":"multiskill/01-信息与通信技术/网络布线/实训包/判读专项-测试报告.md","t":"🔍 判读专项 · 测试报告与 OTDR（8 题，每题 5 分共 40 分）","s":2336}
 ,{"p":"multiskill/01-信息与通信技术/网络布线/实训包/学习路线.md","t":"🧭 信息网络布线 · 学习路线（4 周入门 → 可参赛体感）","s":2022}
 ,{"p":"multiskill/01-信息与通信技术/网络布线/实训包/实操-链路质量测量.md","t":"🔬 实操 · 链路质量测量（WSL 模拟，10 分）","s":2922}

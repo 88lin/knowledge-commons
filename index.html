@@ -283,13 +283,12 @@ fill('list-sprint',byNo(pick('docs/sprint/')).concat(pick('docs/').filter(functi
 var off=pick('docs/official/');
 fill('list-official',off.map(function(x){var zh=/zh/.test(x.p);return {t:'WSOS 2026 云计算职业标准'+(zh?'（中文版）':'（英文原文）'),h:V(x.p),tags:[[zh?'中文':'English','']]};}),'',null);
 /* 视频课堂 */
-var rel='https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest';
 fill('vgrid',[
  '<div class="vcard"><h3>📹 机房管理视频课（15 集）</h3><p>把《机房管理修炼体系》讲成看得见的画面：供电 / 制冷 / PXE 装机 / 应急演练，约 98 分钟。</p><a class="vbtn" href="'+V('docs/room/09-视频课总览.md')+'">课程表与正片 ›</a>　<a class="vbtn alt" href="'+V('docs/room/10-视频课全讲义.md')+'">全讲义</a></div>',
  '<div class="vcard"><h3>📹 保姆级教程视频课（18 集）</h3><p>与 20 章教程配套：每章一集，命令演示 + 输出讲解，零基础跟练。</p><a class="vbtn" href="'+V('docs/tutorial/98-视频课-总览.md')+'">课程表与正片 ›</a>　<a class="vbtn alt" href="'+V('docs/tutorial/97-视频课-全讲义.md')+'">全讲义</a></div>',
  '<div class="vcard"><h3>📹 进阶专题视频课（29 集）</h3><p>AWS / 容器 / 自动化 / 安全等进阶专题，通往竞赛水平的专项训练。</p><a class="vbtn" href="'+V('video-ext/00-总览.md')+'">总览与图解 ›</a>　<a class="vbtn alt" href="'+V('video-ext/01-图解册.md')+'">图解册</a></div>',
  '<div class="vcard"><h3>🎬 赛项总纲课（50 个赛项 · 中文解说）</h3><p>六大领域约 50 个赛项，每个赛项一集中文解说总纲课，全库内可直接播放。</p><a class="vbtn" href="#sec-multi">前往全技能库 ›</a></div>',
- '<div class="vcard"><h3>⬇️ 离线视频打包下载</h3><p>62 集视频课打包 training-videos.zip（约 120 MB）+ 50 个赛项总纲课，均可在 Releases 下载。</p><a class="vbtn" href="'+rel+'" target="_blank" rel="noopener">前往 Releases ›</a></div>'
+ '<div class="vcard"><h3>⬇️ 视频下载</h3><p>50 个赛项总纲课（含打包 zip，约 115 MB）与 62 集视频课原片（已内置本库，门户内直接播放），均可前往 Releases 下载。</p><a class="vbtn" href="https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/training-videos" target="_blank" rel="noopener">50 总纲课 ›</a>　<a class="vbtn alt" href="https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v2.0" target="_blank" rel="noopener">62 集原片 ›</a></div>'
 ]);
 /* 国际赛题按年份 */
 var ex=pick('exam/');
@@ -299,10 +298,8 @@ var examHtml='';
 Object.keys(years).sort().forEach(function(y){
   examHtml+='<div class="year-hd">'+y+' 年（'+years[y].length+' 份）</div><div class="links">';
   examHtml+=years[y].map(function(x){
-    var grad=/grad/.test(x.p);
-    var day=(x.p.match(/day(\d)/)||[])[1]||'';
-    var name=x.p.replace(/^.*\//,'').replace(/\.txt$/,'');
-    return '<a href="'+V(x.p)+'"><span class="dot"></span><span class="lt">'+name+'</span><span class="tag '+(grad?'v':'')+'">'+(grad?'评分标准':'题面')+'</span></a>';
+    var grad=/grad|채점기준/.test(x.p);
+    return '<a href="'+V(x.p)+'"><span class="dot"></span><span class="lt">'+x.t+'</span><span class="tag '+(grad?'v':'')+'">'+(grad?'评分标准':'题面')+'</span></a>';
   }).join('');
   examHtml+='</div>';
 });
