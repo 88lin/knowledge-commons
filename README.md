@@ -4,9 +4,11 @@
 > 第 48 届世界技能大赛 2026 年 9 月在中国 · 上海举办
 >
 > 由**山东工业技师学院学生**在自学过程中独立整理开发：
-> **20 章保姆级教程 + 62 集视频课 + 59 份国际赛题中文库 + 55 篇全技能库 + 全功能离线 App**
+> **20 章保姆级教程 + 62 集视频课 + 59 份国际赛题中文库 + 50 赛项全技能库 + 全功能离线 App**
 >
 > **一个仓库，从零基础到竞赛水平。全部免费。**
+>
+> 🌐 **在线使用**：<https://taimabenji.github.io/worldskills-cloud/>
 
 ![学习中心首页](assets/screen-home.jpg)
 ![导航与分组](assets/screen-nav.jpg)
@@ -40,16 +42,16 @@
 |  **机房管理修炼体系**（11 篇） | 从供电制冷到 PXE 装机、应急演练、职业路线的完整机房之路 | [`docs/room/`](docs/room/) |
 |  **韩国赛题中文库**（59 份） | 2021–2025 韩国技能竞赛云计算真题：题面 + 评分标准（全中文翻译，评分命令可直接照用） | [`exam/korea-zh/`](exam/korea-zh/) |
 |  **模拟实训室** | 22 个实战场景 + 4 套模拟赛卷，浏览器内真操作、自动评分 | [`lab/`](lab/) |
-|  **资源库**（760 条） | B站精选学习视频：装机 / 计算机 / 编译原理 / 进阶，支持搜索 / 已看 / 收藏 | 内置 App 与 study.html |
+|  **资源库**（713 条） | B站精选学习视频：装机 / 计算机 / 编译原理 / 进阶，支持搜索 / 已看 / 收藏 | 内置 App 与 study.html |
 |  **离线学习中心** | 单文件 `study.html`：3200+ 篇资料全文检索、阅读进度记忆、扁平简约界面、完全离线 | [Releases 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) |
 |  **安卓 App（411 MB · 唯一版本）** | 62 集视频课 + 教程 / 题库 / 资源库 / 实训室全部内置，安装即用、完全离线 | [Releases 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) |
 |  **Windows 版（13 MB）** | 单文件 `CloudStudy.exe`，双击自动释放学习中心并用浏览器打开，免安装 | [Releases 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) |
-|  **全技能精通库（55 篇）** | 世界技能大赛六大领域约 50 个赛项：项目总纲 · 精通路线图与能力域图解 · 十题交互模拟训练 · 中文解说总纲课视频 | [`multiskill/`](multiskill/) |
+|  **全技能精通库（六大领域 · 50 赛项）** | 世界技能大赛六大领域约 50 个赛项：项目总纲 · 精通路线图与能力域图解 · 十题交互模拟训练 · 中文解说总纲课视频 | [`multiskill/`](multiskill/) |
 
 ## 🚀 四种使用方式
 
-**⭐ 浏览器打开分类门户（新 · 推荐）**
-仓库根目录的 [`index.html`](index.html) 是一个仿政务教育网站风格的**归类式分类门户**：报头 + 频道导航 + 分类板块（保姆级教程 / 视频课堂 / 知识体系 / 机房管理 / 精通之路 / 冲刺备考 / 国际赛题 / 全技能库 / 模拟实训 / 学习资源），支持全站搜索。点开任意 Markdown 图文会用 [`viewer.html`](viewer.html) 渲染（含目录、代码块、表格、赛项图解与视频内嵌）。本地直接双击 `index.html` 即可用（阅读器需本地服务器支持，如 `python3 -m http.server`）；配套的 [`resources.html`](resources.html) 提供 713 条 B 站精选资源的分组浏览与搜索。
+**⭐ 在线打开分类门户（新 · 推荐）**
+👉 **<https://taimabenji.github.io/worldskills-cloud/>** —— 已上线 GitHub Pages，浏览器直接打开即用：**[分类门户](https://taimabenji.github.io/worldskills-cloud/)**（仿政务教育网站风格：报头 + 频道导航 + 分类板块：保姆级教程 / 视频课堂 / 知识体系 / 机房管理 / 精通之路 / 冲刺备考 / 国际赛题 / 全技能库 / 模拟实训 / 学习资源，支持全站搜索）· **[图文阅读器](https://taimabenji.github.io/worldskills-cloud/viewer.html)**（目录 / 代码块 / 表格 / 赛项图解与视频内嵌）· **[B 站精选资源库](https://taimabenji.github.io/worldskills-cloud/resources.html)**（713 条，分组 + 搜索）。仓库根目录的 [`index.html`](index.html) / [`viewer.html`](viewer.html) / [`resources.html`](resources.html) 即同一套页面源码，本地双击 `index.html` 亦可用（阅读器需本地服务器，如 `python3 -m http.server`）。
 
 **① 装 App（推荐手机党）**
 从 [**Releases 页面**](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) 下载 `CloudStudy-Full.apk`（唯一完整版 · 411 MB）→ 安装 → 打开「云计算学习」。
@@ -130,7 +132,7 @@ python3 tools/build_liquid.py
 
 - [x] 保姆级教程 20 章 + 附录（含装机、编译原理、锐捷云平台）
 - [x] 视频课 62 集（机房管理 / 保姆级教程 / 进阶专题）
-- [x] 资源库：760 条 B站精选
+- [x] 资源库：713 条 B站精选
 - [x] 段位体系 + 模拟实训室（22 场景 / 4 套模拟赛卷）
 - [x] 界面重塑 v3（扁平简约、白卡片、分区导航、沉浸阅读）
 - [x] Windows 版 CloudStudy.exe（单文件免安装）
