@@ -1,0 +1,79 @@
+name: embed-course-videos
+
+# 把 62 集视频课（room / course / ext）内置进仓库对应 videos/ 目录：
+#   docs/room/videos/ep01..15.mp4            + covers/ep01..15.png
+#   docs/tutorial/videos/course/ep00..17.mp4 + covers/ep00..17.png
+#   video-ext/videos/ext/<epc|epk|epm|epo|epq|eps>*.mp4 + covers/*.png
+# 文档（09-视频课总览 / 98-视频课-总览 / video-ext/00-总览）内的 <video src> 相对路径
+# 与本目录结构一一对应，视频就位后门户 / Pages / 阅读器内即可直接播放。
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/embed-course-videos.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  embed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Download 62 videos from v2.0 release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/v/room /tmp/v/course /tmp/v/ext
+          gh release download v2.0 -R "$GITHUB_REPOSITORY" --pattern 'room-*.mp4'   -D /tmp/v/room
+          gh release download v2.0 -R "$GITHUB_REPOSITORY" --pattern 'course-*.mp4' -D /tmp/v/course
+          gh release download v2.0 -R "$GITHUB_REPOSITORY" --pattern 'ext-*.mp4'    -D /tmp/v/ext
+          echo "downloaded: room=$(ls /tmp/v/room | wc -l) course=$(ls /tmp/v/course | wc -l) ext=$(ls /tmp/v/ext | wc -l)"
+          du -sh /tmp/v/room /tmp/v/course /tmp/v/ext
+
+      - name: Place videos into repo paths
+        run: |
+          set -euo pipefail
+          mkdir -p docs/room/videos/covers
+          mkdir -p docs/tutorial/videos/course/covers
+          mkdir -p video-ext/videos/ext/covers
+           for f in /tmp/v/room/*.mp4; do n=$(basename "$f"); n=${n#room-}; cp "$f" "docs/room/videos/$n"; done
+          for f in /tmp/v/course/*.mp4; do n=$(basename "$f"); n=${n#course-}; cp "$f" "docs/tutorial/videos/course/$n"; done
+          for f in /tmp/v/ext/*.mp4; do n=$(basename "$f"); n=${n#ext-}; cp "$f" "video-ext/videos/ext/$n"; done
+          echo "room: $(ls docs/room/videos/*.mp4 | wc -l)"
+          echo "course: $(ls docs/tutorial/videos/course/*.mp4 | wc -l)"
+          echo "ext: $(ls video-ext/videos/ext/*.mp4 | wc -l)"
+
+      - name: Generate covers (ffmpeg frame @2s)
+        run: |
+          set -euo pipefail
+          for f in docs/room/videos/*.mp4; do n=$(basename "$f" .mp4); ffmpeg -hide_banner -loglevel error -ss 2 -i "$f" -frames:v 1 -vf scale=640:-1 -y "docs/room/videos/covers/$n.png"; done
+          for f in docs/tutorial/videos/course/*.mp4; do n=$(basename "$f" .mp4); ffmpeg -hide_banner -loglevel error -ss 2 -i "$f" -frames:v 1 -vf scale=640:-1 -y "docs/tutorial/videos/course/covers/$n.png"; done
+          for f in video-ext/videos/ext/*.mp4; do n=$(basename "$f" .mp4); ffmpeg -hide_banner -loglevel error -ss 2 -i "$f" -frames:v 1 -vf scale=640:-1 -y "video-ext/videos/ext/covers/$n.png"; done
+          echo "covers: $(find docs/room/videos/covers docs/tutorial/videos/course/covers video-ext/videos/ext/covers -name '*.png' | wc -l)"
+
+      - name: Verify counts
+        run: |
+          set -euo pipefail
+          r=$(ls docs/room/videos/*.mp4 | wc -l)
+          c=$(ls docs/tutorial/videos/course/*.mp4 | wc -l)
+          e=$(ls video-ext/videos/ext/*.mp4 | wc -l)
+          echo "videos total: $((r+c+e))"
+          [ "$r" -eq 15 ] && [ "$c" -eq 18 ] && [ "$e" -eq 29 ]
+          du -sh docs/room/videos docs/tutorial/videos video-ext/videos
+
+      - name: Commit and push
+        run: |
+          set -euo pipefail
+          git config user.name "course-videos-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/room/videos docs/tutorial/videos video-ext/videos
+          git commit -m "视频课内置：62 集（room 15 / course 18 / ext 29）放入 videos/ 目录，门户/阅读器内直接播放（含封面）"
+          git pull --rebase origin main
+          git push origin main
+          echo "PUSH OK"
