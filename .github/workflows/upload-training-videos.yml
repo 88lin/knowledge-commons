@@ -10,18 +10,41 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Upload multiskill videos to training-videos release
+      - name: Clean broken assets
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          set -euo pipefail
+          for n in "IT.-.mp4" "3D.-.mp4" "-.mp4" "test-probe.mp4"; do
+            gh release delete-asset training-videos "$n" -y 2>/dev/null || true
+          done
+          echo "clean done"
+          gh release view training-videos --json assets --jq ".assets | length"
+      - name: Upload all videos (curl raw body, UTF-8 name via query)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
           mkdir -p /tmp/up
           find multiskill -type f -name "总纲课.mp4" | sort | while IFS= read -r f; do
             sep="$(basename "$(dirname "$f")")"
             cp "$f" "/tmp/up/${sep}-总纲课.mp4"
-            echo "prepared ${sep}-总纲课.mp4"
           done
-          echo "count: $(ls /tmp/up | wc -l)"
-          gh release upload training-videos /tmp/up/*.mp4 --clobber
-          echo "UPLOAD DONE"
+          echo "prepared: $(ls /tmp/up | wc -l)"
+          ok=0; fail=0
+          for f in /tmp/up/*.mp4; do
+            nm="$(basename "$f")"
+            enc="$(python3 -c "import sys,urllib.parse;print(urllib.parse.quote(sys.argv[1]))" "$nm")"
+            if curl -sS --fail-with-body -X POST \
+                 -H "Authorization: Bearer $GH_TOKEN" \
+                 -H "Accept: application/vnd.github+json" \
+                 -H "Content-Type: video/mp4" \
+                 --data-binary @"$f" \
+                 "https://uploads.github.com/repos/TaiMaBenJi/worldskills-cloud/releases/395469584/assets?name=$enc" \
+                 -o /tmp/resp.json; then
+              ok=$((ok+1)); echo "OK $nm"
+            else
+              fail=$((fail+1)); echo "FAIL $nm"; head -c 300 /tmp/resp.json 2>/dev/null || true; echo
+            fi
+          done
+          echo "UPLOAD DONE ok=$ok fail=$fail"
           gh release view training-videos --json assets --jq ".assets | length"
