@@ -1,4 +1,4 @@
-# 全民学习中心 · Learn For All
+# 知识公社 · Knowledge Commons
 
 > **让每一个人都能免费学习。** 竞赛真题 · 升学考试 · 公务员 · 红色经典 · 职业技能 —— 一个完全离线的学习中心。
 >
@@ -7,7 +7,7 @@
 一个公益性质的开源学习项目：把散落在各处的公开学习资源收集、分类、写好学习路线，
 装进同一个 App / 网站里，让"不知道去哪里学"的人也能立刻开始。
 
-**网页版（无需安装）**：https://taimabenji.github.io/learn-for-all/learn/
+**网页版（无需安装）**：https://taimabenji.github.io/knowledge-commons/learn/
 **下载 App**：见 [Releases](../../releases)（Android APK / iOS IPA / Windows EXE）
 
 ---
@@ -35,7 +35,7 @@
 ## 目录结构
 
 ```
-├── learn/          # 全民学习中心（门户 + 竞赛/升学/公考/红色经典/路线）
+├── learn/          # 知识公社（门户 + 竞赛/升学/公考/红色经典/路线）
 ├── study.html      # 资料中心（全技能库 / 视频课 / 真题库 · 单文件应用）
 ├── videos/         # 视频课（62 集）与图解
 ├── multiskill/     # 世界技能大赛 50 赛项学习包
