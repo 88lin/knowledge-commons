@@ -111,3 +111,7 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace}
 .searchbar input{flex:1;min-width:0;border:1px solid var(--line,#e3dccf);background:#fffdf8;border-radius:10px;padding:11px 12px;font-size:14.5px;color:var(--ink,#2a251e);outline:none;font-family:var(--serif,serif)}
 .searchbar input:focus{border-color:var(--red,#9e2b25)}
 .searchbar button{border:none;background:var(--red,#9e2b25);color:#fff;border-radius:10px;padding:0 16px;font-size:14.5px;font-family:var(--serif,serif);cursor:pointer}
+
+/* 世赛行内链接组 */
+.lk{display:inline-flex;gap:6px;flex:none}
+.lk a{display:inline-block;border:1px solid var(--line);border-radius:4px;padding:2px 9px;font-size:12.5px;font-family:var(--serif);color:var(--red-dk);background:#fff}
