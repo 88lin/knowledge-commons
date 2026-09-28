@@ -1,68 +1,107 @@
+/* 万卷书院 · 视觉系统（古典书院） */
 :root{
-  --blue:#1d5fd6; --blue-dk:#14418f; --blue-tint:#eef4ff; --blue-line:#d8e4fb;
-  --red:#cf2a3a; --red-dk:#a81f2d; --gold:#c79a3b;
-  --ink:#182338; --dim:#5d6b81; --dim2:#8a97ad;
-  --bg:#f5f7fb; --card:#ffffff; --line:#e7ecf5;
+  --ink:#2b2620; --ink2:#4d463c; --dim:#7c7466; --dim2:#9a927f;
+  --paper:#faf7f0; --card:#fffdf8; --line:#e6dfd0; --line2:#efe9dc;
+  --red:#9e2b25; --red-dk:#7c1f1a; --gold:#a4884a; --blue:#3d5a75;
+  --serif:"Songti SC","Noto Serif CJK SC","Source Han Serif SC","SimSun",serif;
 }
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:var(--bg);color:var(--ink);font:15.5px/1.8 -apple-system,"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif}
-a{color:var(--blue);text-decoration:none}
-/* 顶端细红条（唯一的重色，政府网站身份） */
-.topbar{background:linear-gradient(90deg,#cf2a3a,#a81f2d);color:#fff;font-size:12px;padding:6px 16px;display:flex;gap:8px;align-items:center;letter-spacing:.3px}
-.topbar .dot{width:6px;height:6px;border-radius:50%;background:#ffd166;flex:none}
-/* Hero：白底通透 + 一片极淡的蓝 */
-header.hero{background:radial-gradient(1100px 300px at 90% -80px,#e8f0ff 0%,rgba(255,255,255,0) 62%),#fff;color:var(--ink);padding:28px 20px 22px;border-bottom:1px solid var(--line)}
-header.hero .kicker{color:var(--red);font-size:11.5px;letter-spacing:3px;font-weight:700}
-header.hero h1{margin:8px 0 6px;font-size:26px;letter-spacing:.5px;font-weight:800}
-header.hero p{margin:2px 0;color:var(--dim);font-size:14px}
-header.hero .badges{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
-header.hero .badges span{background:var(--blue-tint);color:var(--blue);border:1px solid var(--blue-line);border-radius:999px;padding:4px 12px;font-size:12.5px}
-/* 导航：白底蓝胶囊 */
-nav.tabs{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);display:flex;overflow-x:auto;gap:6px;padding:8px 10px}
-nav.tabs a{flex:none;padding:7px 15px;font-size:13.5px;color:var(--dim);border-radius:999px;font-weight:600}
-nav.tabs a.on{background:var(--blue);color:#fff}
-.wrap{max-width:860px;margin:0 auto;padding:6px 14px 72px}
-section{margin-top:4px}
-h2.sec{font-size:18px;margin:26px 0 12px;padding-left:11px;border-left:4px solid var(--blue);line-height:1.35}
-h3.sub{font-size:15.5px;margin:18px 0 8px;color:var(--blue-dk)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 1px 2px rgba(24,35,56,.03)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:15.5px/1.85 -apple-system,"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+  -webkit-tap-highlight-color:transparent}
+a{color:var(--red-dk);text-decoration:none}
+b,strong{font-weight:700}
+
+/* 顶栏（朱砂） */
+.topbar{background:var(--red);color:#f7efe2;font-size:12.5px;padding:8px 16px;display:flex;gap:8px;align-items:center;letter-spacing:1px;font-family:var(--serif)}
+.topbar .dot{width:7px;height:7px;background:#e8c8a0;transform:rotate(45deg)}
+
+/* 院名区 */
+header.hero{background:var(--card);border-bottom:1px solid var(--line);padding:30px 20px 24px;text-align:center}
+header.hero .kicker{color:var(--red);font-size:13px;letter-spacing:6px;font-family:var(--serif)}
+header.hero h1{margin:12px 0 8px;font-size:30px;letter-spacing:8px;font-weight:700;font-family:var(--serif)}
+header.hero p{margin:4px 0;color:var(--ink2);font-size:14px}
+header.hero .badges{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+header.hero .badges span{border:1px solid var(--line);background:#fbf8f1;color:var(--ink2);border-radius:4px;padding:3px 11px;font-size:12.5px;font-family:var(--serif)}
+/* 引文 */
+header.hero .motto{margin-top:16px;padding:10px 14px;border-top:1px solid var(--line2);border-bottom:1px solid var(--line2);display:inline-block;color:var(--ink2);font-size:13.5px;font-family:var(--serif);letter-spacing:1px}
+header.hero .motto i{font-style:normal;color:var(--red)}
+
+/* 导航（书卷签条） */
+nav.tabs{position:sticky;top:0;z-index:50;background:var(--card);border-bottom:1px solid var(--line);display:flex;overflow-x:auto;gap:2px;padding:0 8px}
+nav.tabs a{flex:none;padding:12px 14px 10px;font-size:14px;color:var(--dim);border-bottom:3px solid transparent;font-family:var(--serif);letter-spacing:2px}
+nav.tabs a.on{color:var(--red-dk);border-bottom-color:var(--red);font-weight:700}
+
+.wrap{max-width:860px;margin:0 auto;padding:6px 16px 80px}
+h2.sec{font-size:19px;margin:30px 0 14px;font-family:var(--serif);letter-spacing:2px;font-weight:700;color:var(--ink);display:flex;align-items:center;gap:10px}
+h2.sec::before{content:"";width:9px;height:9px;background:var(--red);flex:none}
+h3.sub{font-size:15.5px;margin:18px 0 8px;color:var(--red-dk);font-family:var(--serif)}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:18px;box-shadow:0 1px 0 rgba(64,48,24,.04)}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(max-width:560px){.grid{grid-template-columns:1fr}}
-/* 卡片模块 */
-.mod{display:block;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;color:var(--ink)}
-.mod:active{background:#fbfcff}
-.mod b{font-size:16px}
+
+/* 门类卡片 */
+.mod{display:block;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px;position:relative}
+.mod:active{background:#fbf7ee}
+.mod b{font-size:16.5px;font-family:var(--serif);letter-spacing:1px;color:var(--ink)}
 .mod .desc{color:var(--dim);font-size:13px;margin:6px 0 8px;line-height:1.75}
-.mod .meta{font-size:12px;color:var(--dim2)}
-.mod .ico{width:42px;height:42px;border-radius:13px;background:var(--blue-tint);display:flex;align-items:center;justify-content:center;font-size:21px;margin-bottom:10px}
-.mod.red .ico{background:#fdeef0}.mod.green .ico{background:#eafaf3}.mod.gold .ico{background:#fdf6e7}
-/* 大按钮 */
-.actionbar{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 2px}
-.actbtn{flex:1;min-width:160px;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#1d5fd6,#14418f);color:#fff;border-radius:14px;padding:15px 16px;font-size:15px;font-weight:700}
-.actbtn.ghost{background:#fff;color:var(--blue);border:1.5px solid var(--blue-line)}
+.mod .meta{font-size:12px;color:var(--dim2);font-family:var(--serif)}
+/* 印章 */
+.seal,.mod .ico{width:42px;height:42px;background:var(--red);color:#fdf6ea;border-radius:5px;
+  display:flex;align-items:center;justify-content:center;font-size:21px;font-weight:700;
+  font-family:var(--serif);margin-bottom:12px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35), inset 0 0 0 4px var(--red)}
+.mod.green .ico{background:#4c6b4f;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35), inset 0 0 0 4px #4c6b4f}
+.mod.gold .ico{background:var(--gold);box-shadow:inset 0 0 0 2px rgba(255,255,255,.35), inset 0 0 0 4px var(--gold)}
+.mod.red .ico{background:var(--red)}
+.mod.blue .ico{background:var(--blue);box-shadow:inset 0 0 0 2px rgba(255,255,255,.35), inset 0 0 0 4px var(--blue)}
+
+/* 按钮 */
+.actionbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px}
+.actbtn{flex:1;min-width:150px;display:flex;align-items:center;justify-content:center;
+  background:var(--red);color:#fdf6ea;border-radius:6px;padding:15px;
+  font-size:16px;font-family:var(--serif);letter-spacing:4px;font-weight:700}
+.actbtn:active{background:var(--red-dk)}
+.actbtn.ghost{background:var(--card);color:var(--red-dk);border:1.5px solid var(--red)}
+.btn{display:inline-block;margin:4px 8px 4px 0;background:var(--card);color:var(--red-dk);
+  border:1.5px solid var(--red);border-radius:6px;padding:10px 18px;font-size:14.5px;font-family:var(--serif);letter-spacing:2px}
+.btn.red{background:var(--red);color:#fdf6ea}
+.btn.ghost{background:transparent;border-color:var(--line);color:var(--ink2)}
+
 /* 列表 */
 .list{list-style:none;margin:6px 0;padding:0}
-.list li{border-bottom:1px dashed var(--line);padding:10px 2px;display:flex;gap:8px;align-items:baseline}
-.list li:last-child{border-bottom:0}
-.list .t{flex:1;min-width:0}
-.list .n{color:var(--dim2);font-size:12px;flex:none}
-/* 按钮 */
-.btn{display:inline-block;background:var(--blue);color:#fff;border-radius:10px;padding:8px 16px;font-size:13.5px;margin:4px 8px 4px 0}
-.btn.red{background:var(--red)} .btn.ghost{background:#fff;color:var(--blue);border:1px solid var(--blue-line)}
-/* 搜索框 */
-input.search{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;font-size:14.5px;background:#fff;outline:none}
-input.search:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(29,95,214,.08)}
-.small{font-size:12.5px;color:var(--dim2)}
-footer.note{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);color:var(--dim2);font-size:12px;line-height:2}
-.pill{background:#fff;border:1px solid var(--line);border-radius:13px;padding:11px 13px;margin:8px 0;font-size:13.5px}
-.pill b{color:var(--blue-dk)}
-.pager{display:flex;gap:10px;align-items:center;margin-top:12px}
-.pager button{border:1px solid var(--blue-line);background:#fff;color:var(--blue);border-radius:9px;padding:7px 15px;font-size:13px}
-.pager button:disabled{opacity:.4}
-/* 题库结果行 */
-.rs-item{padding:9px 2px;border-bottom:1px dashed var(--line);font-size:13.5px;display:flex;gap:8px}
-.rs-item .idx{color:var(--dim2);flex:none;min-width:46px}
-.rs-item .rate{color:var(--gold);flex:none;font-size:12px}
-.rs-item .tags{color:var(--dim2);font-size:11.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.chip{display:inline-block;background:var(--blue-tint);color:var(--blue);border:1px solid var(--blue-line);border-radius:999px;padding:2px 10px;font-size:12px;margin:2px 6px 2px 0}
-.chip.red{background:#fdeef0;color:var(--red);border-color:#f6d2d8}
+.list li{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;
+  padding:13px 2px;border-bottom:1px solid var(--line2)}
+.list li:last-child{border-bottom:none}
+.list .t{flex:1;font-size:15px}
+.list .n{flex:none;color:var(--dim);font-size:12.5px;border:1px solid var(--line);border-radius:4px;padding:2px 9px;font-family:var(--serif)}
+.small{font-size:12.5px;color:var(--dim);line-height:1.75}
+
+/* 引文块 */
+.quote{background:#fbf5ea;border-left:4px solid var(--red);border-radius:0 6px 6px 0;padding:14px 16px;margin:12px 0;font-family:var(--serif);font-size:15px;line-height:2}
+.quote .src{display:block;text-align:right;color:var(--dim);font-size:12.5px;margin-top:6px}
+
+/* 搜索 */
+.search{width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:6px;background:#fff;font-size:15px;color:var(--ink);outline:none;font-family:inherit}
+.search:focus{border-color:var(--red)}
+.pager{display:flex;gap:10px;align-items:center;margin:12px 0;flex-wrap:wrap}
+.pager button{border:1.5px solid var(--red);background:var(--card);color:var(--red-dk);border-radius:6px;padding:8px 16px;font-size:13.5px;font-family:var(--serif)}
+
+/* 课程外观 */
+.pill{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:12px 14px;margin:10px 0;font-size:14px;line-height:1.9}
+.rs-item{padding:11px 2px;border-bottom:1px solid var(--line2);font-size:13.5px;display:flex;gap:10px;align-items:baseline}
+.rs-item .idx{color:var(--dim2);font-family:var(--serif);flex:none;min-width:52px}
+.rs-item .rate{color:var(--red-dk);flex:none;font-family:var(--serif)}
+.rs-item .tags{color:var(--dim);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.note{color:var(--dim);font-size:12px;line-height:2;border-top:1px solid var(--line);margin-top:34px;padding-top:14px;font-family:var(--serif)}
+pre{background:#241f19;color:#f0e8d8;padding:12px 14px;border-radius:6px;overflow-x:auto;font-size:12.5px;line-height:1.7}
+code{font-family:ui-monospace,Menlo,Consolas,monospace}
+.pill b{color:var(--red-dk)}
+.goal{background:#fbf5ea;border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:10px 14px;font-size:13.5px;margin:10px 0}
+.check{background:#f6f4ec;border:1px dashed var(--line);border-radius:6px;padding:10px 14px;font-size:13.5px;margin:10px 0}
+.lesson h3{font-size:17.5px;margin:28px 0 10px;color:var(--red-dk);font-family:var(--serif);letter-spacing:1px}
+.lesson h4{font-size:14.5px;margin:14px 0 6px;color:var(--ink);font-family:var(--serif)}
+.lesson ul,.lesson ol{padding-left:22px}
+.lesson li{margin:4px 0}
+.toc-mini{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.toc-mini a{border:1px solid var(--line);border-radius:4px;padding:5px 12px;font-size:12.5px;font-family:var(--serif);color:var(--red-dk);background:#fff}
