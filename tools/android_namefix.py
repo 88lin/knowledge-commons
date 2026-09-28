@@ -78,13 +78,19 @@ if html is not None:
             idx = k + len(new)
 sys.stderr.write('namefix: study.html replacements=%d\n' % repl_html)
 
-# ② 其它文本条目：分段替换
+# ② 其它文本条目：先全路径替换，再分段替换（仅路径上下文，保护正文与文档 id）
+import re as _re
 repl_other = 0
 for fn, txt in list(texts.items()):
     orig = txt
-    for old, new in seg_map.items():
+    for old, new in sorted(pairs.items(), key=lambda x: -len(x[0])):
         if old in txt:
             txt = txt.replace(old, new)
+    for old, new in seg_map.items():
+        if old not in txt:
+            continue
+        pat = '(?<=[=/"\'(,\\s+`])' + _re.escape(old) + '(?=[/"\')\\s#?,+`]|$)'
+        txt = _re.sub(pat, lambda m, n=new: n, txt)
     texts[fn] = txt
     if txt != orig:
         repl_other += 1
