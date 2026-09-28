@@ -44,7 +44,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          for id in $(gh api "repos/TaiMaBenJi/worldskills-cloud/releases/395469584/assets?per_page=100" --jq ".[] | .id"); do
+          for id in $(gh api "repos/TaiMaBenJi/knowledge-commons/releases/395469584/assets?per_page=100" --jq ".[] | .id"); do
             gh api -X DELETE "repos/TaiMaBenJi/worldskills-cloud/releases/assets/$id" || true
           done
           echo "cleaned"
