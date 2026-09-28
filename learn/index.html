@@ -17,6 +17,7 @@
 </header>
 <nav class="tabs">
   <a class="on" href="index.html">首页</a>
+  <a href="archive.html">总目</a>
   <a href="courses.html">课程</a>
   <a href="contest.html">竞赛</a>
   <a href="exams.html">升学</a>
@@ -27,6 +28,10 @@
 </nav>
 
 <div class="wrap">
+  <form class="searchbar" onsubmit="location.href='search.html?q='+encodeURIComponent(this.q.value);return false;">
+    <input name="q" placeholder="全站检索：课程 · 篇目 · 资料…" autocomplete="off">
+    <button type="submit">检索</button>
+  </form>
   <div class="actionbar">
     <a class="actbtn" href="courses.html">开始学习 · 课程直通</a>
     <a class="actbtn ghost" href="../study.html">资料中心 · 全内容</a>
