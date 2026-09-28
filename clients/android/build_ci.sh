@@ -49,9 +49,11 @@ build_one() {
 
   echo "[$V] merge dex"
   python3 tools/add_dex.py build/ci/out.apk build/ci/classes.dex build/ci/unsigned.apk
+  echo "[$V] namefix (ASCII 化非 ASCII 资源名 + 改写 study.html 引用)"
+  python3 tools/android_namefix.py build/ci/unsigned.apk build/ci/unsigned-named.apk
 
   echo "[$V] zipalign + sign"
-  "$ZIPALIGN" -f 4 build/ci/unsigned.apk build/ci/aligned.apk
+  "$ZIPALIGN" -f 4 build/ci/unsigned-named.apk build/ci/aligned.apk
   "$APKSIGNER" sign --ks build/ks.jks \
     --ks-pass "pass:$ANDROID_KS_PASS" --key-pass "pass:$ANDROID_KS_PASS" \
     --ks-key-alias cloudstudy \
