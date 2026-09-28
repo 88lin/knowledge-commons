@@ -36,10 +36,11 @@ build_one() {
     mkdir -p "build/ci/assets/$(dirname "$f")"
     cp "$f" "build/ci/assets/$(dirname "$f")/"
   done
+  cp -R learn build/ci/assets/
   echo "[$V] assets = $(du -sh build/ci/assets | cut -f1)"
 
-  echo "[$V] smali -> dex"
-  java -jar tools/jars/smali.jar assemble build/ci/smali -o build/ci/classes.dex
+  echo "[$V] dex (prebuilt · 与真机验证版一致)"
+  cp tools/prebuilt/classes.dex build/ci/classes.dex
   ls -la build/ci/classes.dex
 
   echo "[$V] aapt2 compile + link"
