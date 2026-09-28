@@ -105,3 +105,9 @@ code{font-family:ui-monospace,Menlo,Consolas,monospace}
 .lesson li{margin:4px 0}
 .toc-mini{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
 .toc-mini a{border:1px solid var(--line);border-radius:4px;padding:5px 12px;font-size:12.5px;font-family:var(--serif);color:var(--red-dk);background:#fff}
+
+/* ---- 检索框（知识公社） ---- */
+.searchbar{display:flex;gap:8px;margin:12px 0 4px}
+.searchbar input{flex:1;min-width:0;border:1px solid var(--line,#e3dccf);background:#fffdf8;border-radius:10px;padding:11px 12px;font-size:14.5px;color:var(--ink,#2a251e);outline:none;font-family:var(--serif,serif)}
+.searchbar input:focus{border-color:var(--red,#9e2b25)}
+.searchbar button{border:none;background:var(--red,#9e2b25);color:#fff;border-radius:10px;padding:0 16px;font-size:14.5px;font-family:var(--serif,serif);cursor:pointer}
