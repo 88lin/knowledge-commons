@@ -58,9 +58,9 @@ build_one() {
   "$APKSIGNER" sign --ks build/ks.jks \
     --ks-pass "pass:$ANDROID_KS_PASS" --key-pass "pass:$ANDROID_KS_PASS" \
     --ks-key-alias cloudstudy \
-    --out "dist/CloudStudy-v3.0-android-$V.apk" build/ci/aligned.apk
-  "$APKSIGNER" verify "dist/CloudStudy-v3.0-android-$V.apk"
-  ls -la "dist/CloudStudy-v3.0-android-$V.apk"
+    --out "dist/zhishi-gongshe-v3.0-android-$V.apk" build/ci/aligned.apk
+  "$APKSIGNER" verify "dist/zhishi-gongshe-v3.0-android-$V.apk"
+  ls -la "dist/zhishi-gongshe-v3.0-android-$V.apk"
 }
 
 build_one "$VARIANT"
