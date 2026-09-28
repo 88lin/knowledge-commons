@@ -142,14 +142,40 @@ GROUPS = [
  (G_CS,'计算机母语','#1da851'),
  (G_K,'知识体系','#c99700'),
  (G_RM,'机房管理','#5ac8fa'),
- (G_VEXT,'🎬 进阶视频课','#8944d6'),
+ (G_VEXT,'进阶视频课','#8944d6'),
  (G_I,'资料索引','#1a6fe8'),
  (G_OFF,'官方标准','#d97706'),
  (G_EXL,'世界赛真题','#db2777'),
- (G_EXKZ,'🇰🇷 韩国真题（中文）','#db2777'),
+ (G_EXKZ,'韩国真题（中文）','#db2777'),
  (G_EXK,'韩国真题（原文对照）','#6b7280'),
  (G_EXC,'中国国赛真题','#5e5ce6'),
 ]
+
+# ---- 全技能库：世界技能大赛六大领域 50 个赛项 ----
+MS_CATS = [
+ ('01-信息与通信技术','信息与通信技术','#2b5cd9'),
+ ('02-制造与工程技术','制造与工程技术','#0f9d6c'),
+ ('03-建筑与工程技术','建筑与工程技术','#d97706'),
+ ('04-创意艺术与时尚','创意艺术与时尚','#db2777'),
+ ('05-社会与个人服务','社会与个人服务','#5e5ce6'),
+ ('06-运输与物流','运输与物流','#5ac8fa'),
+]
+MS_GROUPS = []
+for _ci,(_mdir,_mname,_mcolor) in enumerate(MS_CATS):
+    _mg = 'ms%d' % _ci
+    MS_GROUPS.append((_mg,_mname,_mcolor))
+    _mp = os.path.join(BASE,'multiskill',_mdir)
+    if os.path.isdir(_mp):
+        for _d in sorted(os.listdir(_mp)):
+            _f = os.path.join(_mp,_d,'项目总纲.md')
+            if os.path.exists(_f):
+                DOCS.append((_mg,_d+' · 从零到精通','multiskill/%s/%s/项目总纲.md' % (_mdir,_d), None))
+_ms_readme = os.path.join(BASE,'multiskill','README.md')
+if os.path.exists(_ms_readme):
+    MS_GROUPS.insert(0,('msnav','全技能库导航','#182338'))
+    DOCS.append(('msnav','全技能库 · 六大领域 50 个赛项总导航','multiskill/README.md', None))
+GROUPS = GROUPS + MS_GROUPS
+MS_ORDER = (['msnav'] if os.path.exists(_ms_readme) else []) + [g[0] for g in MS_GROUPS]
 
 # ---- github-repos documents + code files (grouped by repo, embedded) ----
 from collections import OrderedDict
@@ -446,7 +472,7 @@ def _mk_nav_group(gkey, gtitle, gcolor, items):
 _ng_map = {g[0]: g for g in nav_groups}
 COURSE_ORDER = [G_T, G_M, G_CS, G_K, G_RM, G_VEXT]
 EXAM_ORDER = [G_SPRINT, G_EXL, G_EXKZ, G_EXC, G_OFF, G_I]
-_arch_keys = [g[0] for g in nav_groups if g[0] not in COURSE_ORDER and g[0] not in EXAM_ORDER]
+_arch_keys = [g[0] for g in nav_groups if g[0] not in COURSE_ORDER and g[0] not in EXAM_ORDER and g[0] not in MS_ORDER]
 _arch_repo_n = len([k for k in _arch_keys if k.startswith('repo_')])
 
 def _mk_nav_sec(sec, title, sub, keys, closed=False):
@@ -456,9 +482,10 @@ def _mk_nav_sec(sec, title, sub, keys, closed=False):
             '<span class="cnt">%d 组</span><span class="sub">%s</span></button>'
             '<div class="sec-body">%s</div></div>') % (' closed' if closed else '', sec, title, n, sub, inner)
 
-nav_html = (_mk_nav_sec('course', '📚 主线课程', '从这里一章一章读', COURSE_ORDER)
-            + _mk_nav_sec('exam', '🧪 实战与真题', '考试 · 真题 · 标准', EXAM_ORDER)
-            + _mk_nav_sec('archive', '🗂 资料档案', '原始资料包 · 供检索', _arch_keys, closed=True))
+nav_html = (_mk_nav_sec('course', '主线课程', '从这里一章一章读', COURSE_ORDER)
+            + _mk_nav_sec('ms', '全技能库 · 50 个赛项', '世界技能大赛六大领域 · 从零到精通', MS_ORDER)
+            + _mk_nav_sec('exam', '实战与真题', '考试 · 真题 · 标准', EXAM_ORDER)
+            + _mk_nav_sec('archive', '资料档案', '原始资料包 · 供检索', _arch_keys, closed=True))
 
 total_docs = len(docs_js)
 
@@ -487,7 +514,8 @@ home_html = (
     '<div class="home-quick">' + _home_quick + '</div>'
     '<div id="recent-slot"></div>'
     '<div id="grow-slot"></div>'
-    '<button class="home-card small archive-entry" data-doclink="__archive__"><b>🗂 资料档案库 · 真题 / 官方标准 / %d 个原始资料包</b></button>' % _arch_repo_n
+    '<button class="home-card small" data-doclink="multiskill_README_md"><b>全技能库 · 世界技能大赛六大领域 50 个赛项从零到精通（总纲 图解 模拟训练 视频）</b></button>'
+    + '<button class="home-card small archive-entry" data-doclink="__archive__"><b>🗂 资料档案库 · 真题 / 官方标准 / %d 个原始资料包</b></button>' % _arch_repo_n
 )
 
 # ---- 资料档案页（33xx 篇原始资料不再堆在首页，收纳到此页） ----
@@ -514,6 +542,60 @@ archive_html = (
 docs_js = {'__home__': {'t': '🏠 首页 · 从今天开始', 'g': '主页', 'html': home_html, 'm': 2, 'c': '#1a6fe8'},
            '__archive__': {'t': '🗂 资料档案库', 'g': '资料档案', 'html': archive_html, 'm': 3, 'c': '#6b7280'},
            **docs_js}
+
+# ---- 全技能库文档原生装配：图解内嵌 + 视频内联 + 模拟训练直链 ----
+import base64 as _b64
+_MS_MODE = os.environ.get('VIDEO_MODE', 'external')
+_MS_ASSETS = _MS_MODE in ('assets', 'relative')
+_MS_NESTED = _MS_MODE == 'relative'  # relative=全平台统一相对引用（Web/APK/iOS/桌面通用）
+_SIM_BASE_ONLINE = 'https://cdn.jsdelivr.net/gh/TaiMaBenJi/worldskills-cloud@main/multiskill/'
+_SIM_GH = 'https://github.com/TaiMaBenJi/worldskills-cloud/blob/main/multiskill/'
+def _ms_decorate(did, skill, catdir):
+    d = docs_js[did]
+    h = d['html']
+    i = h.find('配套资源')
+    if i >= 0:
+        j = h.rfind('<h2', 0, i)
+        if j >= 0: h = h[:j]
+    parts = []
+    _ro = os.path.join(BASE,'multiskill',catdir,skill,'图-精通路线图.svg')
+    _co = os.path.join(BASE,'multiskill',catdir,skill,'图-核心能力域.svg')
+    for _tag, _p in (('精通路线图',_ro),('核心能力域',_co)):
+        if os.path.exists(_p):
+            _data = _b64.b64encode(open(_p,'rb').read()).decode()
+            parts.append('<h2>%s</h2><p><img alt="%s" src="data:image/svg+xml;base64,%s"></p>' % (_tag,_tag,_data))
+    if _MS_ASSETS:
+        _vp = os.path.join(BASE,'multiskill',catdir,skill,'总纲课.mp4')
+        if _MS_NESTED:
+            _simref = 'multiskill/%s/%s/模拟训练.html' % (catdir, skill)
+            _vidref = 'multiskill/%s/%s/总纲课.mp4' % (catdir, skill)
+            parts.append('<h2>模拟训练</h2><p><a href="%s" class="inlink">打开模拟训练（十题交互评分，返回键回到总纲）</a></p>' % _simref)
+            if os.path.exists(_vp):
+                parts.append('<h2>总纲课视频</h2><p><video controls preload="metadata" style="width:100%%;border-radius:12px;background:#000" src="%s"></video></p>' % _vidref)
+        else:
+            parts.append('<h2>模拟训练</h2><p><a href="multiskill-sim/%s.html" class="inlink">打开模拟训练（十题交互评分，返回键回到总纲）</a></p>' % skill)
+            if os.path.exists(_vp):
+                parts.append('<h2>总纲课视频</h2><p><video controls preload="metadata" style="width:100%%;border-radius:12px;background:#000" src="multiskill-video/%s.mp4"></video></p>' % skill)
+    else:
+        _simurl = _SIM_BASE_ONLINE + catdir + '/' + skill + '/' + '%E6%A8%A1%E6%8B%9F%E8%AE%AD%E7%BB%83.html'
+        _vidurl = _SIM_GH + catdir + '/' + skill + '/' + '%E6%80%BB%E7%BA%B2%E8%AF%BE.mp4'
+        parts.append('<h2>模拟训练</h2><p><a href="' + _simurl + '" class="inlink">在线模拟训练（十题交互评分）</a></p>')
+        parts.append('<h2>总纲课视频</h2><p><a href="' + _vidurl + '" class="inlink">观看总纲课视频（中文解说）</a></p>')
+    parts.append('<p style="color:var(--dim);font-size:12.5px">赛项标准以世界技能组织官方文件为准。</p>')
+    d['html'] = h + ''.join(parts)
+    d['m'] = max(2, d['m'])
+for _mdir,_mname,_mcolor in MS_CATS:
+    _mp = os.path.join(BASE,'multiskill',_mdir)
+    if not os.path.isdir(_mp): continue
+    for _d in sorted(os.listdir(_mp)):
+        _did = ('multiskill/%s/%s/项目总纲.md' % (_mdir,_d)).replace('/','_').replace('.','_')
+        if _did in docs_js:
+            _ms_decorate(_did, _d, _mdir)
+if 'msnav' in [g[0] for g in nav_groups]:
+    _did = 'multiskill_README_md'
+    if _did in docs_js:
+        docs_js[_did]['t'] = '全技能库 · 六大领域 50 个赛项总导航'
+print('multiskill decorated: 50 skills, assets mode =', _MS_ASSETS)
 
 page = f'''<!DOCTYPE html>
 <html lang="zh-CN">

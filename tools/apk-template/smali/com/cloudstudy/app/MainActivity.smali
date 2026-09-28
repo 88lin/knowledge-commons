@@ -2,6 +2,8 @@
 .super Landroid/app/Activity;
 .source "MainActivity.java"
 
+.field private webView:Landroid/webkit/WebView;
+
 
 # direct methods
 .method public constructor <init>()V
@@ -19,9 +21,15 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
+    const/4 v2, 0x1
+
+    invoke-static {v2}, Landroid/webkit/WebView;->setWebContentsDebuggingEnabled(Z)V
+
     new-instance v0, Landroid/webkit/WebView;
 
     invoke-direct {v0, p0}, Landroid/webkit/WebView;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/cloudstudy/app/MainActivity;->webView:Landroid/webkit/WebView;
 
     invoke-virtual {v0}, Landroid/webkit/WebView;->getSettings()Landroid/webkit/WebSettings;
 
@@ -49,9 +57,74 @@
 
     invoke-virtual {p0, v0}, Lcom/cloudstudy/app/MainActivity;->setContentView(Landroid/view/View;)V
 
+    new-instance v1, Lcom/cloudstudy/app/InAppClient;
+
+    invoke-direct {v1}, Lcom/cloudstudy/app/InAppClient;-><init>()V
+
+    invoke-virtual {v0, v1}, Landroid/webkit/WebView;->setWebViewClient(Landroid/webkit/WebViewClient;)V
+
     const-string v1, "file:///android_asset/study.html"
 
     invoke-virtual {v0, v1}, Landroid/webkit/WebView;->loadUrl(Ljava/lang/String;)V
 
+    return-void
+.end method
+
+.method public onBackPressed()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/cloudstudy/app/MainActivity;->webView:Landroid/webkit/WebView;
+
+    if-eqz v0, :fin
+
+    new-instance v1, Lcom/cloudstudy/app/BackCb;
+
+    invoke-direct {v1, p0}, Lcom/cloudstudy/app/BackCb;-><init>(Landroid/app/Activity;)V
+
+    const-string v2, "window.__bk?window.__bk():0"
+
+    invoke-virtual {v0, v2, v1}, Landroid/webkit/WebView;->evaluateJavascript(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
+
+    return-void
+
+    :fin
+    invoke-super {p0}, Landroid/app/Activity;->onBackPressed()V
+
+    return-void
+.end method
+
+.method protected onPause()V
+    .locals 3
+
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
+
+    iget-object v0, p0, Lcom/cloudstudy/app/MainActivity;->webView:Landroid/webkit/WebView;
+
+    if-eqz v0, :eop
+
+    invoke-virtual {v0}, Landroid/webkit/WebView;->onPause()V
+
+    const-string v1, "document.querySelectorAll('video').forEach(function(v){try{v.pause()}catch(e){}});0"
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroid/webkit/WebView;->evaluateJavascript(Ljava/lang/String;Landroid/webkit/ValueCallback;)V
+
+    :eop
+    return-void
+.end method
+
+.method protected onResume()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
+
+    iget-object v0, p0, Lcom/cloudstudy/app/MainActivity;->webView:Landroid/webkit/WebView;
+
+    if-eqz v0, :eor
+
+    invoke-virtual {v0}, Landroid/webkit/WebView;->onResume()V
+
+    :eor
     return-void
 .end method

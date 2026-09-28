@@ -1,0 +1,59 @@
+# CloudStudy iOS · XcodeGen 工程定义（云端 unsigned IPA 构建用）
+# 生成: xcodegen generate   构建: xcodebuild -project CloudStudy.xcodeproj -scheme CloudStudy
+name: CloudStudy
+options:
+  bundleIdPrefix: com.cloudstudy
+  deploymentTarget:
+    iOS: "14.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    CODE_SIGNING_ALLOWED: "NO"
+    CODE_SIGNING_REQUIRED: "NO"
+    CODE_SIGN_IDENTITY: ""
+    ENABLE_USER_SCRIPT_SANDBOXING: "NO"
+
+targets:
+  CloudStudy:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources
+      - path: Info.plist
+        buildPhase: none
+      - path: Resources/study.html
+        buildPhase: resources
+      - path: Resources/videos
+        type: folder
+      - path: Resources/multiskill
+        type: folder
+    info:
+      path: Info.plist
+      properties:
+        CFBundleDisplayName: 云计算学习
+        CFBundleName: CloudStudy
+        CFBundleShortVersionString: "3.0"
+        CFBundleVersion: "30"
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UIRequiresFullScreen: false
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cloudstudy.app
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SWIFT_VERSION: "5.0"
+        ENABLE_BITCODE: "NO"
+
+schemes:
+  CloudStudy:
+    build:
+      targets:
+        CloudStudy: all
+    run:
+      config: Release
