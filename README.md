@@ -44,8 +44,8 @@
 |  **模拟实训室** | 22 个实战场景 + 4 套模拟赛卷，浏览器内真操作、自动评分 | [`lab/`](lab/) |
 |  **资源库**（713 条） | B站精选学习视频：装机 / 计算机 / 编译原理 / 进阶，支持搜索 / 已看 / 收藏 | 内置 App 与 study.html |
 |  **离线学习中心（单文件）** | `study.html`（14.1 MB）：3200+ 篇资料全文检索、阅读进度记忆、扁平简约界面、完全离线 | [v3.0 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0) |
-|  **Android App** | `CloudStudy-v3.0-android-full.apk`（506 MB · 全视频离线版）/ `-lite.apk`（9 MB · 文档+图解+模拟训练） | [v3.0 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0) |
-|  **iOS App** | `CloudStudy-v3.0-ios-*-unsigned.ipa`（免签名 IPA，用 Sideloadly / AltStore 以自己 Apple ID 侧载） | [v3.0 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0) |
+|  **Android App** | `CloudStudy-v3.0-android-full.apk`（506 MB · 全视频离线版） | [v3.0 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0) |
+|  **iOS App** | `CloudStudy-v3.0-ios-full-unsigned.ipa`（506 MB · 免签名 IPA，用 Sideloadly / AltStore 以自己 Apple ID 侧载） | [v3.0 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0) |
 |  **Windows 版（14.2 MB）** | 单文件 `CloudStudy-v3.0-windows-x64.exe`，双击自动释放学习中心并用浏览器打开，免安装 | [v3.0 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0) |
 |  **全技能精通库（六大领域 · 50 赛项）** | 世界技能大赛六大领域约 50 个赛项：项目总纲 · 精通路线图与能力域图解 · 十题交互模拟训练 · 中文解说总纲课视频 | [`multiskill/`](multiskill/) |
 
@@ -58,9 +58,9 @@
 👉 **<https://taimabenji.github.io/worldskills-cloud/>** —— GitHub Pages 直接打开：**[分类门户](https://taimabenji.github.io/worldskills-cloud/)**（仿政务教育网站风格：报头 + 频道导航 + 分类板块，支持全站搜索）· **[图文阅读器](https://taimabenji.github.io/worldskills-cloud/viewer.html)**（目录 / 代码块 / 表格 / 赛项图解与视频内嵌）· **[B 站精选资源库](https://taimabenji.github.io/worldskills-cloud/resources.html)**（713 条）。本地双击 `index.html` 亦可用（阅读器需本地服务器，如 `python3 -m http.server`）。
 
 **① 手机装 App**
-- **Android**：下载 `CloudStudy-v3.0-android-full.apk`（506 MB · 全视频离线）或 `-lite.apk`（9 MB）→ 安装即用。
+- **Android**：下载 `CloudStudy-v3.0-android-full.apk`（506 MB · 全视频离线）→ 安装即用。
   > 系统提示"未知来源/风险应用"属正常侧载提示。
-- **iOS**：下载 `CloudStudy-v3.0-ios-*-unsigned.ipa` → 用电脑端 Sideloadly（或 AltStore）以自己 Apple ID 重签侧载 → 「设置 → 通用 → VPN与设备管理」信任证书。
+- **iOS**：下载 `CloudStudy-v3.0-ios-full-unsigned.ipa` → 用电脑端 Sideloadly（或 AltStore）以自己 Apple ID 重签侧载 → 「设置 → 通用 → VPN与设备管理」信任证书。
   > 免签名 IPA 受 Apple 限制必须经侧载工具安装；免费 Apple ID 签名 7 天有效，可一键续签。
 
 **② 浏览器打开学习中心**
@@ -110,8 +110,8 @@ GitHub → **Actions** → 选择工作流 → **Run workflow**：
 
 | 工作流 | 产物 | 输入 |
 |---|---|---|
-| `build-android` | `CloudStudy-v3.0-android-{lite,full}.apk` | `variant`: lite / full / both |
-| `build-ios` | `CloudStudy-v3.0-ios-{lite,full}-unsigned.ipa`（macOS 运行器，免签名） | `variant`: lite / full |
+| `build-android` | `CloudStudy-v3.0-android-full.apk`（完整版） | `upload_release`：填 `v3.0` 自动上传 |
+| `build-ios` | `CloudStudy-v3.0-ios-full-unsigned.ipa`（macOS 运行器，免签名 · 完整版） | `upload_release`：填 `v3.0` 自动上传 |
 | `build-windows` | `CloudStudy-v3.0-windows-x64.exe`（zig 交叉编译） | — |
 
 填 `upload_release: v3.0` 即自动上传到 Releases；四端工程源码在 [`clients/`](clients/)（含 iOS 侧载说明）。

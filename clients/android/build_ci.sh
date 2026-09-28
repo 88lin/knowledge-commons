@@ -1,9 +1,9 @@
 #!/bin/sh
 # CloudStudy · Android APK 云端构建脚本（GitHub Actions ubuntu 运行器）
-# 用法: sh clients/android/build_ci.sh lite|full|both
+# 用法: sh clients/android/build_ci.sh   （构建完整版：全视频离线）
 # 依赖: 仓库内 study.html（统一内容）+ videos/ + multiskill/ + tools/ 材料 + secrets 签名
 set -eu
-VARIANT="${1:-lite}"
+VARIANT="full"
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 cd "$ROOT"
 mkdir -p dist build
@@ -30,22 +30,12 @@ build_one() {
   cp -r tools/apk-template/res/. build/ci/res/
   cp study.html build/ci/assets/study.html
 
-  if [ "$V" = "full" ]; then
-    mkdir -p build/ci/assets/videos
-    cp -R videos/. build/ci/assets/videos/
-    find multiskill \( -name '*.mp4' -o -name '模拟训练.html' \) -print | while IFS= read -r f; do
-      mkdir -p "build/ci/assets/$(dirname "$f")"
-      cp "$f" "build/ci/assets/$(dirname "$f")/"
-    done
-  else
-    # lite：文档 + 图解 gallery + 50 个模拟训练（不含视频，约 +6MB）
-    mkdir -p build/ci/assets/videos/gallery
-    cp -R videos/gallery/. build/ci/assets/videos/gallery/ 2>/dev/null || true
-    find multiskill -name '模拟训练.html' -print | while IFS= read -r f; do
-      mkdir -p "build/ci/assets/$(dirname "$f")"
-      cp "$f" "build/ci/assets/$(dirname "$f")/"
-    done
-  fi
+  mkdir -p build/ci/assets/videos
+  cp -R videos/. build/ci/assets/videos/
+  find multiskill \( -name '*.mp4' -o -name '模拟训练.html' \) -print | while IFS= read -r f; do
+    mkdir -p "build/ci/assets/$(dirname "$f")"
+    cp "$f" "build/ci/assets/$(dirname "$f")/"
+  done
   echo "[$V] assets = $(du -sh build/ci/assets | cut -f1)"
 
   echo "[$V] smali -> dex"
@@ -70,12 +60,7 @@ build_one() {
   ls -la "dist/CloudStudy-v3.0-android-$V.apk"
 }
 
-case "$VARIANT" in
-  lite) build_one lite ;;
-  full) build_one full ;;
-  both) build_one lite; build_one full ;;
-  *) echo "未知 variant: $VARIANT"; exit 1 ;;
-esac
+build_one "$VARIANT"
 
 rm -f build/ks.jks
 echo "===== dist ====="

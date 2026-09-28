@@ -10,10 +10,9 @@
 
 | 输入 | 说明 |
 |---|---|
-| `variant` | `lite`（仅文档，约 15MB）/ `full`（含全部视频，约 500MB） |
 | `upload_release` | 填 Release tag（如 `v3.0`）则构建完成后自动上传到 Releases |
 
-产物：`CloudStudy-v3.0-ios-unsigned.ipa`（artifact 或 Release 附件）。
+产物：`CloudStudy-v3.0-ios-full-unsigned.ipa`（artifact 或 Release 附件）。
 
 ## 本机侧载（iOS 设备）
 
@@ -25,7 +24,7 @@
 ## 本机构建（macOS）
 
 ```sh
-sh clients/ios/stage.sh full         # 或 lite
+sh clients/ios/stage.sh               # 铺入完整版资源（视频+图解+模拟训练）
 brew install xcodegen
 cd clients/ios && xcodegen generate
 xcodebuild -project CloudStudy.xcodeproj -scheme CloudStudy \

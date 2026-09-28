@@ -4,12 +4,11 @@
 
 ## 云端构建（推荐）
 
-Actions → **build-android** → Run workflow：`variant` 选 `lite`/`full`/`both`，
-`upload_release` 填 `v3.0` 等 tag 则自动传 Releases。
+Actions → **build-android** → Run workflow，`upload_release` 填 `v3.0` 等 tag 则自动传 Releases（构建完整版）。
 
 构建细节（`build_ci.sh`，全部在 ubuntu 运行器完成）：
 
-1. 铺 assets：`study.html`（+ full 时 `videos/`、`multiskill/**/{总纲课.mp4,模拟训练.html}`）
+1. 铺 assets：`study.html` + `videos/` + `multiskill/**/{总纲课.mp4,模拟训练.html}`
 2. `smali.jar` 汇编 `tools/apk-template/smali` → `classes.dex`
 3. SDK `aapt2 compile/link`（`-0 mp4` 视频直通不压缩）
 4. `tools/add_dex.py` 合并 dex 进 APK
@@ -24,5 +23,5 @@ Actions → **build-android** → Run workflow：`variant` 选 `lite`/`full`/`bo
 
 ```sh
 ANDROID_HOME=/path/to/sdk ANDROID_KS_B64="$(base64 -w0 ks.jks)" ANDROID_KS_PASS=... \
-  sh clients/android/build_ci.sh lite
+  sh clients/android/build_ci.sh
 ```

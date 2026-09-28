@@ -3,11 +3,6 @@ name: build-android
 on:
   workflow_dispatch:
     inputs:
-      variant:
-        description: 'lite=仅文档 / full=全视频离线 / both=两者都出'
-        type: choice
-        default: lite
-        options: [lite, full, both]
       upload_release:
         description: '上传到 Release tag（可留空，如 v3.0）'
         type: string
@@ -30,12 +25,12 @@ jobs:
           ANDROID_KS_PASS: ${{ secrets.ANDROID_KS_PASS }}
         run: |
           test -n "$ANDROID_KS_B64" || { echo "缺少 secrets.ANDROID_KS_B64"; exit 1; }
-          sh clients/android/build_ci.sh "${{ inputs.variant }}"
+          sh clients/android/build_ci.sh
 
       - name: 上传 artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CloudStudy-APK-${{ inputs.variant }}
+          name: CloudStudy-APK
           path: dist/*.apk
           compression-level: 0
 

@@ -3,11 +3,6 @@ name: build-ios
 on:
   workflow_dispatch:
     inputs:
-      variant:
-        description: '内容版本 lite=仅文档 / full=全视频离线'
-        type: choice
-        default: lite
-        options: [lite, full]
       upload_release:
         description: '上传到 Release tag（可留空，如 v3.0）'
         type: string
@@ -24,8 +19,8 @@ jobs:
       - name: 检出
         uses: actions/checkout@v4
 
-      - name: 铺资源（${{ inputs.variant }}）
-        run: sh clients/ios/stage.sh "${{ inputs.variant }}"
+      - name: 铺资源
+        run: sh clients/ios/stage.sh
 
       - name: 安装 XcodeGen
         run: |
@@ -51,14 +46,14 @@ jobs:
           test -n "$APP"
           rm -rf ipa && mkdir -p ipa/Payload
           cp -R "$APP" ipa/Payload/
-          python3 pack_ipa.py ipa "CloudStudy-v3.0-ios-${{ inputs.variant }}-unsigned.ipa"
+          python3 pack_ipa.py ipa "CloudStudy-v3.0-ios-full-unsigned.ipa"
           ls -la *.ipa
 
       - name: 上传 artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CloudStudy-iOS-${{ inputs.variant }}
-          path: clients/ios/CloudStudy-v3.0-ios-${{ inputs.variant }}-unsigned.ipa
+          name: CloudStudy-iOS
+          path: clients/ios/CloudStudy-v3.0-ios-full-unsigned.ipa
           compression-level: 0
 
       - name: 上传到 Release
