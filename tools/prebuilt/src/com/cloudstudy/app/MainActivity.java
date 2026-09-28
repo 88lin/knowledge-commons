@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
         wv.setWebChromeClient(new WebChrome(this, wv));
 
         setContentView(wv);
-        wv.loadUrl("file:///android_asset/study.html");
+        wv.loadUrl("file:///android_asset/learn/index.html");
     }
 
     @Override
