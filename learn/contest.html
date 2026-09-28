@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>竞赛真题中心 · 全民学习中心</title>
+<title>竞赛真题中心 · 知识公社</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,11 +15,13 @@
 </header>
 <nav class="tabs">
   <a href="index.html">首页</a>
-  <a class="on" href="contest.html">竞赛真题</a>
-  <a href="exams.html">升学考试</a>
-  <a href="gongkao.html">公务员</a>
-  <a href="red.html">红色经典</a>
-  <a href="paths.html">学习路线</a>
+  <a href="courses.html">课程</a>
+  <a class="on" href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a>
+  <a href="gongkao.html">公考</a>
+  <a href="red.html">红色</a>
+  <a href="paths.html">路线</a>
+  <a href="about.html">简章</a>
 </nav>
 
 <div class="wrap">
@@ -59,24 +61,24 @@
   <section>
     <h2 class="sec">蓝桥杯 / 天梯赛 / 其他赛事</h2>
     <div class="grid">
-      <div class="card"><h3 class="sub">🔷 蓝桥杯</h3>
+      <div class="card"><h3 class="sub"> 蓝桥杯</h3>
         <p class="small">全国软件和信息技术专业人才大赛。本地收录真题题解与代码：</p>
         <ul class="list">
           <li><span class="t"><a href="files/lanqiao/index.html">历年省赛/国赛真题题解（Python 版）</a></span><span class="n">本地</span></li>
           <li><span class="t"><a href="https://dasai.lanqiao.cn/">蓝桥杯大赛官网</a></span><span class="n">官方</span></li>
         </ul></div>
-      <div class="card"><h3 class="sub">🪜 天梯赛（GPLT）</h3>
+      <div class="card"><h3 class="sub"> 天梯赛（GPLT）</h3>
         <p class="small">团体程序设计天梯赛。本地收录近年真题解析笔记：</p>
         <ul class="list">
           <li><span class="t"><a href="files/tianti/index.html">历年真题答案解析与备考笔记</a></span><span class="n">本地</span></li>
           <li><span class="t"><a href="https://gplt.patest.cn/">天梯赛官网</a></span><span class="n">官方</span></li>
         </ul></div>
-      <div class="card"><h3 class="sub">📐 数学建模（美赛 MCM/ICM · 国赛）</h3>
+      <div class="card"><h3 class="sub"> 数学建模（美赛 MCM/ICM · 国赛）</h3>
         <ul class="list">
           <li><span class="t"><a href="https://www.mcm.edu.cn/">全国大学生数学建模竞赛官网</a></span><span class="n">官方</span></li>
           <li><span class="t"><a href="https://www.comap.com/">COMAP · 美国大学生数学建模竞赛</a></span><span class="n">官方</span></li>
         </ul></div>
-      <div class="card"><h3 class="sub">🛡 CTF 网络安全竞赛</h3>
+      <div class="card"><h3 class="sub"> CTF 网络安全竞赛</h3>
         <ul class="list">
           <li><span class="t"><a href="https://ctftime.org/">CTFtime · 全球赛事日历与题解</a></span><span class="n">聚合</span></li>
           <li><span class="t"><a href="https://buuoj.cn/">BUUCTF 在线靶场</a></span><span class="n">题库</span></li>
@@ -98,7 +100,7 @@
 
   <footer class="note">
     资料来自公开渠道（ICPC/Kattis 官方公开题源、开源社区仓库等），仅供学习交流；版权归原作者所有。
-    <br><a href="index.html">← 返回学习中心</a> · <a href="../study.html">App 首页</a>
+    <br><a href="index.html">← 返回首页</a> · <a href="../study.html">App 首页</a>
   </footer>
 </div>
 
@@ -121,7 +123,7 @@
     if(cp>pages)cp=pages;
     var seg=arr.slice((cp-1)*PAGE,cp*PAGE);
     cfList.innerHTML=seg.map(function(p){
-      var rating=p[3]?('★'+p[3]):'';
+      var rating=p[3]?(''+p[3]):'';
       return '<a class="rs-item" href="https://codeforces.com/problemset/problem/'+p[0]+'/'+p[1]+'" target="_blank">'
         +'<span class="idx">'+p[0]+p[1]+'</span>'
         +'<span class="t" style="flex:1;min-width:0"><span style="display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(p[2]||'')+'</span>'
