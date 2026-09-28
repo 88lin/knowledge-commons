@@ -1,0 +1,45 @@
+name: build-android
+# CloudStudy · Android APK（ubuntu 运行器，用仓库自带 apk-template + 材料）
+on:
+  workflow_dispatch:
+    inputs:
+      upload_release:
+        description: '上传到 Release tag（可留空，如 v3.0）'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 构建 APK
+        env:
+          ANDROID_KS_B64: ${{ secrets.ANDROID_KS_B64 }}
+          ANDROID_KS_PASS: ${{ secrets.ANDROID_KS_PASS }}
+        run: |
+          test -n "$ANDROID_KS_B64" || { echo "缺少 secrets.ANDROID_KS_B64"; exit 1; }
+          sh clients/android/build_ci.sh
+
+      - name: 上传 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CloudStudy-APK
+          path: dist/*.apk
+          compression-level: 0
+
+      - name: 上传到 Release
+        if: inputs.upload_release != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ inputs.upload_release }}"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
+            || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "CloudStudy $TAG" --notes "多端统一发布（Android / iOS / Windows / Web）" || true
+          gh release upload "$TAG" dist/*.apk --clobber -R "$GITHUB_REPOSITORY"

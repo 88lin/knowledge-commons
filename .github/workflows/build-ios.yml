@@ -1,0 +1,67 @@
+name: build-ios
+# CloudStudy · iOS 免签名 IPA（macOS 运行器）—— 与 APK/EXE/Web 同一内容源
+on:
+  workflow_dispatch:
+    inputs:
+      upload_release:
+        description: '上传到 Release tag（可留空，如 v3.0）'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 铺资源
+        run: sh clients/ios/stage.sh
+
+      - name: 安装 XcodeGen
+        run: |
+          HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_NO_INSTALL_CLEANUP=1 brew install xcodegen || brew install xcodegen
+          xcodegen --version
+
+      - name: 生成工程
+        run: cd clients/ios && xcodegen generate
+
+      - name: 编译（免签名）
+        run: |
+          cd clients/ios
+          xcodebuild -project CloudStudy.xcodeproj -scheme CloudStudy \
+            -configuration Release -sdk iphoneos -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            build
+
+      - name: 打包 unsigned IPA
+        run: |
+          cd clients/ios
+          APP="$(find build/Build/Products/Release-iphoneos -maxdepth 1 -name '*.app' | head -1)"
+          echo "APP=$APP"
+          test -n "$APP"
+          rm -rf ipa && mkdir -p ipa/Payload
+          cp -R "$APP" ipa/Payload/
+          python3 pack_ipa.py ipa "CloudStudy-v3.0-ios-full-unsigned.ipa"
+          ls -la *.ipa
+
+      - name: 上传 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CloudStudy-iOS
+          path: clients/ios/CloudStudy-v3.0-ios-full-unsigned.ipa
+          compression-level: 0
+
+      - name: 上传到 Release
+        if: inputs.upload_release != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ inputs.upload_release }}"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
+            || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "CloudStudy $TAG" --notes "多端统一发布（Android / iOS / Windows / Web）" || true
+          gh release upload "$TAG" clients/ios/*.ipa --clobber -R "$GITHUB_REPOSITORY"

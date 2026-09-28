@@ -1,0 +1,46 @@
+name: build-windows
+# CloudStudy · Windows 单文件 EXE（内嵌 study.html；zig 交叉编译，ubuntu 运行器）
+on:
+  workflow_dispatch:
+    inputs:
+      upload_release:
+        description: '上传到 Release tag（可留空，如 v3.0）'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 安装 zig 0.13.0
+        run: |
+          curl -fL --retry 3 -o /tmp/zig.tar.xz https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz
+          tar -C /tmp -xf /tmp/zig.tar.xz
+          echo "/tmp/zig-linux-x86_64-0.13.0" >> "$GITHUB_PATH"
+
+      - name: 构建 EXE
+        run: sh clients/windows/build.sh study.html dist/CloudStudy-v3.0-windows-x64.exe
+
+      - name: 上传 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CloudStudy-Windows
+          path: dist/*.exe
+          compression-level: 0
+
+      - name: 上传到 Release
+        if: inputs.upload_release != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ inputs.upload_release }}"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
+            || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "CloudStudy $TAG" --notes "多端统一发布（Android / iOS / Windows / Web）" || true
+          gh release upload "$TAG" dist/*.exe --clobber -R "$GITHUB_REPOSITORY"

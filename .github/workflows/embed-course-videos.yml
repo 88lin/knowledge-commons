@@ -1,0 +1,75 @@
+name: embed-course-videos
+
+# v3 迁移：把 v2 落位的视频从"文档相对目录"移动到"仓库根 videos/"
+# 依据：阅读器（viewer.html）对 src 以 "videos/" 开头的路径**原样保留**（相对站点根解析），
+# 且既有素材结构（shared videos/：ep01..15 + course/ + ext/ + 各自 covers/）即根级布局。
+# 本流水线为一次性迁移（幂等：源目录不存在则跳过）。git 层面为 rename，blob 复用、推送极快。
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/embed-course-videos.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Move videos to repo-root videos/
+        run: |
+          set -euo pipefail
+          move_tree() {
+            src="$1"; dst="$2"; ext="$3"
+            [ -d "$src" ] || { echo "skip (absent): $src"; return 0; }
+            mkdir -p "$dst"
+            n=0
+            while IFS= read -r f; do
+              git mv "$f" "$dst/$(basename "$f")"
+              n=$((n+1))
+            done < <(find "$src" -maxdepth 1 -name "*.$ext")
+            echo "moved $n files: $src -> $dst"
+          }
+          move_tree docs/room/videos videos mp4
+          move_tree docs/room/videos/covers videos/covers png
+          move_tree docs/tutorial/videos/course videos/course mp4
+          move_tree docs/tutorial/videos/course/covers videos/course/covers png
+          move_tree video-ext/videos/ext videos/ext mp4
+          move_tree video-ext/videos/ext/covers videos/ext/covers png
+          # 清理空目录
+          rmdir docs/room/videos/covers docs/room/videos \
+                docs/tutorial/videos/course/covers docs/tutorial/videos/course docs/tutorial/videos \
+                video-ext/videos/ext/covers video-ext/videos/ext video-ext/videos 2>/dev/null || true
+          echo "=== root videos/ ==="
+          echo "mp4: $(find videos -name '*.mp4' | wc -l)  png: $(find videos -name '*.png' | wc -l)"
+          echo "room: $(ls videos/*.mp4 | wc -l) / course: $(ls videos/course/*.mp4 | wc -l) / ext: $(ls videos/ext/*.mp4 | wc -l)"
+
+      - name: Verify
+        run: |
+          set -euo pipefail
+          r=$(ls videos/*.mp4 | wc -l)
+          c=$(ls videos/course/*.mp4 | wc -l)
+          e=$(ls videos/ext/*.mp4 | wc -l)
+          p=$(find videos -name '*.png' | wc -l)
+          echo "videos=$((r+c+e)) covers=$p"
+          [ "$r" -eq 15 ] && [ "$c" -eq 18 ] && [ "$e" -eq 29 ] && [ "$p" -eq 62 ]
+          [ ! -d docs/room/videos ] && [ ! -d docs/tutorial/videos ] && [ ! -d video-ext/videos ]
+          echo "residual dirs check OK"
+
+      - name: Commit and push
+        run: |
+          set -euo pipefail
+          git config user.name "course-videos-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --stat | tail -5
+          git commit -m "视频课内置 v3：落位调整为仓库根 videos/（与阅读器 videos/ 前缀解析及既有素材结构一致）"
+          git pull --rebase origin main || true
+          git push origin main || { git pull --rebase origin main; git push origin main; }
+          echo "PUSH OK"

@@ -1,0 +1,67 @@
+name: upload-training-videos
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build zip + numbered files + notes
+        run: |
+          set -euo pipefail
+          pip install pypinyin -q 2>/dev/null || true
+          mkdir -p /tmp/zipflat /tmp/up
+          i=0
+          : > /tmp/notes.md
+          echo "## 视频下载说明" >> /tmp/notes.md
+          echo "" >> /tmp/notes.md
+          echo "**方式一（推荐）**：下载 training-videos.zip —— 解压后为 50 个中文名文件（如 云计算-总纲课.mp4）" >> /tmp/notes.md
+          echo "" >> /tmp/notes.md
+          echo "**方式二**：下方编号单文件（编号↔赛项对照见下表）" >> /tmp/notes.md
+          echo "" >> /tmp/notes.md
+          echo "| 编号 | 赛项 | 文件 |" >> /tmp/notes.md
+          echo "|---|---|---|" >> /tmp/notes.md
+          while IFS= read -r f; do
+            sep="$(basename "$(dirname "$f")")"
+            cp "$f" "/tmp/zipflat/${sep}-总纲课.mp4"
+          done < <(find multiskill -type f -name '总纲课.mp4' | sort)
+          while IFS= read -r f; do
+            i=$((i+1))
+            nn="$(printf "%02d" $i)"
+            sep="$(basename "$(dirname "$f")")"
+            py="$(python3 -c "import sys;from pypinyin import lazy_pinyin;print('-'.join(lazy_pinyin(sys.argv[1])))" "$sep" 2>/dev/null || echo "item$i")"
+            cp "$f" "/tmp/up/${nn}-${py}.mp4"
+            echo "| ${nn} | ${sep} | ${nn}-${py}.mp4 |" >> /tmp/notes.md
+          done < <(find multiskill -type f -name '总纲课.mp4' | sort)
+          (cd /tmp/zipflat && zip -0 -q -r /tmp/up/training-videos.zip .)
+          ls -la /tmp/up/training-videos.zip
+          echo "total files: $(ls /tmp/up | wc -l)"
+      - name: Clean old assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for id in $(gh api "repos/TaiMaBenJi/worldskills-cloud/releases/395469584/assets?per_page=100" --jq ".[] | .id"); do
+            gh api -X DELETE "repos/TaiMaBenJi/worldskills-cloud/releases/assets/$id" || true
+          done
+          echo "cleaned"
+      - name: Upload all
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          gh release upload training-videos /tmp/up/training-videos.zip --clobber
+          ok=0; fail=0
+          for f in /tmp/up/[0-9][0-9]-*.mp4; do
+            if gh release upload training-videos "$f" --clobber; then ok=$((ok+1)); else fail=$((fail+1)); echo "FAIL $f"; fi
+          done
+          echo "UPLOAD DONE ok=$ok fail=$fail"
+      - name: Update notes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release edit training-videos --notes-file /tmp/notes.md
+          gh release view training-videos --json assets --jq ".assets | length"
