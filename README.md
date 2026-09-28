@@ -43,25 +43,31 @@
 |  **韩国赛题中文库**（59 份） | 2021–2025 韩国技能竞赛云计算真题：题面 + 评分标准（全中文翻译，评分命令可直接照用） | [`exam/korea-zh/`](exam/korea-zh/) |
 |  **模拟实训室** | 22 个实战场景 + 4 套模拟赛卷，浏览器内真操作、自动评分 | [`lab/`](lab/) |
 |  **资源库**（713 条） | B站精选学习视频：装机 / 计算机 / 编译原理 / 进阶，支持搜索 / 已看 / 收藏 | 内置 App 与 study.html |
-|  **离线学习中心** | 单文件 `study.html`：3200+ 篇资料全文检索、阅读进度记忆、扁平简约界面、完全离线 | [Releases 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) |
-|  **安卓 App（508 MB · 唯一版本）** | 62 集视频课 + 教程 / 题库 / 资源库 / 实训室全部内置，安装即用、完全离线 | [Releases 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) |
-|  **Windows 版（14.2 MB）** | 单文件 `CloudStudy.exe`，双击自动释放学习中心并用浏览器打开，免安装 | [Releases 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) |
+|  **离线学习中心（单文件）** | `study.html`（14.2 MB）：3200+ 篇资料全文检索、阅读进度记忆、扁平简约界面、完全离线 | [v3.0 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0) |
+|  **Android App** | `CloudStudy-v3.0-android-full.apk`（500 MB · 全视频离线版）/ `-lite.apk`（3 MB · 文档+模拟训练） | [v3.0 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0) |
+|  **iOS App** | `CloudStudy-v3.0-ios-*-unsigned.ipa`（免签名 IPA，用 Sideloadly / AltStore 以自己 Apple ID 侧载） | [v3.0 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0) |
+|  **Windows 版（14.2 MB）** | 单文件 `CloudStudy-v3.0-windows-x64.exe`，双击自动释放学习中心并用浏览器打开，免安装 | [v3.0 下载](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0) |
 |  **全技能精通库（六大领域 · 50 赛项）** | 世界技能大赛六大领域约 50 个赛项：项目总纲 · 精通路线图与能力域图解 · 十题交互模拟训练 · 中文解说总纲课视频 | [`multiskill/`](multiskill/) |
 
-## 🚀 四种使用方式
+## 🚀 多端使用（一个内容源 · 四端统一发布）
 
-**⭐ 在线打开分类门户（新 · 推荐）**
-👉 **<https://taimabenji.github.io/worldskills-cloud/>** —— 已上线 GitHub Pages，浏览器直接打开即用：**[分类门户](https://taimabenji.github.io/worldskills-cloud/)**（仿政务教育网站风格：报头 + 频道导航 + 分类板块：保姆级教程 / 视频课堂 / 知识体系 / 机房管理 / 精通之路 / 冲刺备考 / 国际赛题 / 全技能库 / 模拟实训 / 学习资源，支持全站搜索）· **[图文阅读器](https://taimabenji.github.io/worldskills-cloud/viewer.html)**（目录 / 代码块 / 表格 / 赛项图解与视频内嵌）· **[B 站精选资源库](https://taimabenji.github.io/worldskills-cloud/resources.html)**（713 条，分组 + 搜索）。仓库根目录的 [`index.html`](index.html) / [`viewer.html`](viewer.html) / [`resources.html`](resources.html) 即同一套页面源码，本地双击 `index.html` 亦可用（阅读器需本地服务器，如 `python3 -m http.server`）。
+> Android / iOS / Windows / Web 由 GitHub Actions 从**同一份内容**（`study.html` + `videos/` + `multiskill/`）构建，
+> 版本统一为 **v3.0**，全部在 [**Releases · v3.0 多端统一版**](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0)。
 
-**① 装 App（推荐手机党）**
-从 [**Releases 页面**](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) 下载 `CloudStudy-Full.apk`（唯一完整版 · 508 MB）→ 安装 → 打开「云计算学习」。
-> 视频课、题库、资源库、实训室全部内置，无需联网；安装时系统提示"未知来源/风险应用"属正常侧载提示。
+**⭐ 在线打开分类门户（推荐 · 零安装）**
+👉 **<https://taimabenji.github.io/worldskills-cloud/>** —— GitHub Pages 直接打开：**[分类门户](https://taimabenji.github.io/worldskills-cloud/)**（仿政务教育网站风格：报头 + 频道导航 + 分类板块，支持全站搜索）· **[图文阅读器](https://taimabenji.github.io/worldskills-cloud/viewer.html)**（目录 / 代码块 / 表格 / 赛项图解与视频内嵌）· **[B 站精选资源库](https://taimabenji.github.io/worldskills-cloud/resources.html)**（713 条）。本地双击 `index.html` 亦可用（阅读器需本地服务器，如 `python3 -m http.server`）。
+
+**① 手机装 App**
+- **Android**：下载 `CloudStudy-v3.0-android-full.apk`（500 MB · 全视频离线）或 `-lite.apk`（3 MB）→ 安装即用。
+  > 系统提示"未知来源/风险应用"属正常侧载提示。
+- **iOS**：下载 `CloudStudy-v3.0-ios-*-unsigned.ipa` → 用电脑端 Sideloadly（或 AltStore）以自己 Apple ID 重签侧载 → 「设置 → 通用 → VPN与设备管理」信任证书。
+  > 免签名 IPA 受 Apple 限制必须经侧载工具安装；免费 Apple ID 签名 7 天有效，可一键续签。
 
 **② 浏览器打开学习中心**
-从 [**Releases 页面**](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) 下载 `study.html`（14.2 MB 单文件）→ 任意浏览器直接打开。
+从 [v3.0 Release](https://github.com/TaiMaBenJi/worldskills-cloud/releases/tag/v3.0) 下载 `study.html`（单文件）→ 任意浏览器直接打开；或在线版：<https://taimabenji.github.io/worldskills-cloud/study.html>。
 
 **③ Windows 双击即用**
-从 [**Releases 页面**](https://github.com/TaiMaBenJi/worldskills-cloud/releases/latest) 下载 `CloudStudy.exe` → 双击 → 自动打开学习中心（免安装，内嵌最新界面）。
+下载 `CloudStudy-v3.0-windows-x64.exe` → 双击 → 自动打开学习中心（免安装，单文件）。
 
 **④ 直接读文档**
 从 [`docs/tutorial/00-开始之前`](docs/tutorial/00-开始之前-零基础先读我.md) 开始，按顺序阅读。
@@ -70,9 +76,14 @@
 
 ```
 worldskills-cloud/
-├── index.html  #  ⭐ 分类门户首页（政务教育网风格 · 归类导航 + 全站搜索）
+├── study.html  #  ⭐ 单文件学习中心（Web 版；与 Android/iOS/Windows 同一内容源）
+├── index.html  #  分类门户首页（政务教育网风格 · 归类导航 + 全站搜索）
 ├── viewer.html  #  图文阅读器（Markdown 渲染 · 目录 · 图解/视频自动内嵌）
 ├── resources.html  #  B 站精选资源库（分组 + 搜索）
+├── clients/  #  四端统一工程（android 构建脚本 / ios XcodeGen 工程 / windows zig 源码）
+├── .github/workflows/  #  云端构建流水线（build-android / build-ios / build-windows）
+├── videos/  #  视频课 62 集 + 图解 gallery（相对路径，各端同构引用）
+├── multiskill/  #  全技能精通库（6 领域 50 赛项：总纲/图解/模拟训练/总纲课视频）
 ├── app/  # 学习引擎源码（段位体系 / 资源库 / 门户数据 portal-data.js）
 ├── lab/  # 模拟实训室引擎（22 场景 + 4 套模拟赛卷）
 ├── docs/  # 教程与知识体系（Markdown 源）
@@ -85,8 +96,7 @@ worldskills-cloud/
 │  └── official/  #  WSOS 官方标准（中 / 英）
 ├── exam/
 │  └── korea-zh/  # 韩国赛题中文翻译（题面 + 评分标准）
-├── multiskill/  # 全技能精通库（6 领域 50 赛项：总纲/图解/模拟训练/总纲课视频）
-├── tools/  # 构建工具链（页面生成器 / APK 构建 / 小工具）
+├── tools/  # 构建工具链（页面生成器 / APK 构建材料 / 小工具）
 ├── video-factory/  # 视频课生成流水线（Markdown → 视频课）
 ├── video-ext/  # 进阶视频课总览
 └── assets/  # 截图
@@ -94,26 +104,32 @@ worldskills-cloud/
 
 ## 🔧 自行构建
 
+### 云端一键出包（推荐 · 四端统一）
+
+GitHub → **Actions** → 选择工作流 → **Run workflow**：
+
+| 工作流 | 产物 | 输入 |
+|---|---|---|
+| `build-android` | `CloudStudy-v3.0-android-{lite,full}.apk` | `variant`: lite / full / both |
+| `build-ios` | `CloudStudy-v3.0-ios-{lite,full}-unsigned.ipa`（macOS 运行器，免签名） | `variant`: lite / full |
+| `build-windows` | `CloudStudy-v3.0-windows-x64.exe`（zig 交叉编译） | — |
+
+填 `upload_release: v3.0` 即自动上传到 Releases；四端工程源码在 [`clients/`](clients/)（含 iOS 侧载说明）。
+
 ### 重新生成学习中心（study.html）
 
 ```bash
 # 环境：Python 3 + Pillow；依赖 Markdown 库
 pip install markdown pillow
-# 将 docs/exam 下的资料按 tools/build_liquid.py 内的路径约定放置后：
-python3 tools/build_liquid.py
+# VIDEO_MODE=relative 生成"全平台统一相对引用"版本（Web/APK/iOS/桌面通用）
+VIDEO_MODE=relative LIQ_OUT=study.html python3 tools/build_liquid.py
 ```
 
-### 构建安卓 App
+### 构建安卓 App（本机 / 历史流程）
 
-`tools/rebuild_full.sh`（唯一完整版 · 一键构建脚本）展示完整流程：
-1. 生成 `study.html` → 放入 `assets/`
-2. 编写 `AndroidManifest.xml` + 最小 WebView Activity（smali 模板见 `tools/apk-template/`）
-3. 用 `smali.jar` 汇编 classes.dex
-4. 用 `aapt2 compile/link` 打包资源与页面
-5. 合并 dex → 用 `uber-apk-signer` 签名（或你的自有密钥）
-6. `adb install -r` 安装
-
-> 模板（`tools/apk-template/`）包含可直接复用的 Manifest、MainActivity.smali 与图标。
+`tools/rebuild_full.sh`（一键构建脚本）与 `clients/android/build_ci.sh`（云端同款）展示完整流程：
+生成 `study.html` → 铺 assets（含视频）→ `smali.jar` 汇编 dex → `aapt2 compile/link` → 合并 dex → `apksigner` 签名。
+模板（`tools/apk-template/`）包含可直接复用的 Manifest、Activity 源码与图标。
 
 ## 🙏 内容来源与致谢
 
@@ -135,7 +151,7 @@ python3 tools/build_liquid.py
 - [x] 资源库：713 条 B站精选
 - [x] 段位体系 + 模拟实训室（22 场景 / 4 套模拟赛卷）
 - [x] 界面重塑 v3（扁平简约、白卡片、分区导航、沉浸阅读）
-- [x] Windows 版 CloudStudy.exe（单文件免安装）
+- [x] **多端统一 v3.0：Android APK / iOS IPA / Windows EXE / Web 同源同版 · 云端流水线一键出包**
 - [ ] 收录更多国家/地区赛题（中 / 英 / 日 / 葡…）
 - [ ] B站课程下载队列收尾（约 15 门大课）
 
