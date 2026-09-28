@@ -51,9 +51,8 @@ jobs:
           test -n "$APP"
           rm -rf ipa && mkdir -p ipa/Payload
           cp -R "$APP" ipa/Payload/
-          (cd ipa && zip -qry "../CloudStudy-v3.0-ios-${{ inputs.variant }}-unsigned.ipa" Payload)
+          python3 pack_ipa.py ipa "CloudStudy-v3.0-ios-${{ inputs.variant }}-unsigned.ipa"
           ls -la *.ipa
-          du -sh *.ipa
 
       - name: 上传 artifact
         uses: actions/upload-artifact@v4

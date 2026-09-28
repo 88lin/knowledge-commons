@@ -32,7 +32,7 @@ xcodebuild -project CloudStudy.xcodeproj -scheme CloudStudy \
   -configuration Release -sdk iphoneos -derivedDataPath build \
   CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
 mkdir -p ipa/Payload && cp -R build/Build/Products/Release-iphoneos/CloudStudy.app ipa/Payload/
-(cd ipa && zip -qry ../CloudStudy.ipa Payload)
+python3 pack_ipa.py ipa CloudStudy.ipa    # 中文文件名带 UTF-8 标志，侧载工具兼容
 ```
 
 ## 说明
