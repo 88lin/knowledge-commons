@@ -11,6 +11,7 @@ mkdir -p "$IOS/Resources/videos" "$IOS/Resources/multiskill"
 
 # 1) 单文件学习中心
 cp -f study.html "$IOS/Resources/study.html"
+cp -R learn "$IOS/Resources/learn"
 
 # 2) 内容资产：全量（视频课 + 全技能库视频与模拟训练 + 图解）
 cp -R videos/. "$IOS/Resources/videos/"
