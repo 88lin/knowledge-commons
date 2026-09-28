@@ -20,8 +20,6 @@ targets:
     platform: iOS
     sources:
       - path: Sources
-      - path: Info.plist
-        buildPhase: none
       - path: Resources/study.html
         buildPhase: resources
       - path: Resources/videos
