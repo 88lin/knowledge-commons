@@ -7893,6 +7893,12 @@ try{ if(current==='__home__'){ renderRoute(); renderHero(); updateNavPct(); } }c
 <button id="tocBtn" onclick="toggleToc()" title="目录">目录</button>
 <div id="tocPanel"></div>
 <div id="resView"></div>
+<script>/* cs-fullscreen-helper */
+(function(){ document.addEventListener('dblclick', function(e){ var t=e.target; var v = t && t.closest ? t.closest('video') : null; if(!v) return; try{ if(v.requestFullscreen) v.requestFullscreen(); else if(v.webkitEnterFullscreen) v.webkitEnterFullscreen(); }catch(err){} }, true); })();
+</script>
+<script>/* cs-arena-boot */
+(function(){var tries=0;function add(){try{var arch=document.querySelector('.archive-entry');if(arch&&arch.parentNode){if(!document.querySelector('.cs-arena-entry')){var b=document.createElement('button');b.className='home-card small qk-arena cs-arena-entry';b.innerHTML='<b>\u{1F3EB} 全民学习中心 \u00b7 竞赛真题 / 升学考试 / 公务员 / 红色经典</b>';b.onclick=function(){location.href='learn/index.html';};arch.parentNode.insertBefore(b,arch);}return;}}catch(e){}if(++tries<80)setTimeout(add,250);}add();})();
+</script>
 <script>
 (function(){
   document.addEventListener('error', function(e){
