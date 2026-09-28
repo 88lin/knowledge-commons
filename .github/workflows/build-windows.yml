@@ -26,12 +26,12 @@ jobs:
           echo "/tmp/zig-linux-x86_64-0.13.0" >> "$GITHUB_PATH"
 
       - name: 构建 EXE
-        run: sh clients/windows/build.sh study.html dist/CloudStudy-v3.0-windows-x64.exe
+        run: sh clients/windows/build.sh study.html dist/zhishi-gongshe-v3.0-windows-x64.exe
 
       - name: 上传 artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CloudStudy-Windows
+          name: zhishi-gongshe-Windows
           path: dist/*.exe
           compression-level: 0
 
@@ -42,5 +42,5 @@ jobs:
         run: |
           TAG="${{ inputs.upload_release }}"
           gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
-            || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "CloudStudy $TAG" --notes "多端统一发布（Android / iOS / Windows / Web）" || true
+            || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "知识公社 $TAG · 多端统一版" --notes "多端统一发布（Android / iOS / Windows / Web）" || true
           gh release upload "$TAG" dist/*.exe --clobber -R "$GITHUB_REPOSITORY"
