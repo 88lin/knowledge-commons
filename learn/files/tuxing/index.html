@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>图推真题库 · 公务员图形推理刷题（国考真题 / 立体拼合 / 解析 / 思考方向 / 技巧）</title>
+<meta name="description" content="公务员考试图形推理真题刷题站：350+ 道历年公考真题（历年真题精选、2018–2024 国考行测图推、立体拼合专项），逐题配套参考答案与原创解题思路、思考方向与技巧点拨，支持题图标注、顺序/随机练习、分类专练、错题本、经验总结与 GOAT 限时挑战。">
+<meta name="keywords" content="图形推理,图形推理题库,公务员考试,国考行测,行测判断推理,空间重构,立体拼合,折纸盒,截面图,三视图,图推真题,图推技巧,行测刷题">
+<meta property="og:title" content="图推真题库 · 公务员图形推理刷题">
+<meta property="og:description" content="350+ 道图形推理真题，逐题解析、思考方向与技巧点拨，支持题图标注、错题本与 GOAT 限时挑战。">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="zh_CN">
+<meta name="theme-color" content="#134b6e">
+<!--
+  统计代码接入位（上线后填写 ID 即可，留空不加载、不发起任何请求）：
+  百度统计：在 https://tongji.baidu.com 添加网站后，把 hm.js? 后面的 ID 填入 BAIDU_HM_ID
+  Google Analytics：把 G-XXXXXXXXXX 填入 GA_ID
+-->
+<script>
+var BAIDU_HM_ID = '';
+var GA_ID = '';
+(function(){
+  if(BAIDU_HM_ID){var h=document.createElement('script');h.async=true;
+    h.src='https://hm.baidu.com/hm.js?'+BAIDU_HM_ID;document.head.appendChild(h);}
+  if(GA_ID){var g=document.createElement('script');g.async=true;
+    g.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(g);
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+    window.gtag=gtag;gtag('js',new Date());gtag('config',GA_ID);}
+})();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23134b6e'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='2'%3E%3Crect x='7' y='7' width='5' height='5'/%3E%3Crect x='13.5' y='7' width='5' height='5'/%3E%3Crect x='20' y='7' width='5' height='5'/%3E%3Crect x='7' y='13.5' width='5' height='5'/%3E%3Ccircle cx='16' cy='16' r='2.2' fill='%23d4a017' stroke='none'/%3E%3Crect x='20' y='13.5' width='5' height='5'/%3E%3Crect x='7' y='20' width='5' height='5'/%3E%3Crect x='13.5' y='20' width='5' height='5'/%3E%3Crect x='20' y='20' width='5' height='5'/%3E%3C/g%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#22303f; --ink2:#51606f; --paper:#f5f2ea; --card:#ffffff; --line:#e5dfd1;
+  --blue:#134b6e; --blue2:#1d6aa0; --blue-soft:#e8f1f7;
+  --green:#1e8a5b; --green-soft:#e6f4ec; --red:#c0392b; --red-soft:#fbeae8;
+  --gold:#c8920a; --gold-soft:#faf2dd; --ink-soft:#eef1f4;
+  --shadow:0 2px 10px rgba(30,50,70,.07); --shadow2:0 8px 28px rgba(30,50,70,.12);
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",-apple-system,"Segoe UI",sans-serif;
+  background:var(--paper); color:var(--ink); line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+a{color:var(--blue2);text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+
+/* ===== 顶栏 ===== */
+.topbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .wrap{display:flex;align-items:center;gap:18px;height:58px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--blue);white-space:nowrap;cursor:pointer}
+.brand svg{width:30px;height:30px;flex:none}
+.brand small{display:block;font-size:11px;font-weight:500;color:var(--ink2);letter-spacing:.08em}
+.nav{display:flex;gap:4px;margin-left:8px}
+.nav button{padding:7px 14px;border-radius:9px;font-size:15px;color:var(--ink2);font-weight:600}
+.nav button:hover{background:var(--ink-soft);color:var(--ink)}
+.nav button.on{background:var(--blue);color:#fff}
+.nav-spacer{flex:1}
+.goat-nav{background:linear-gradient(135deg,#e7b93c,#c8920a);color:#3a2a02;font-weight:800;padding:8px 16px;border-radius:10px;box-shadow:0 2px 8px rgba(200,146,10,.35);font-size:14px;white-space:nowrap}
+.goat-nav:hover{filter:brightness(1.05)}
+
+/* ===== 通用 ===== */
+.section-title{font-size:20px;font-weight:800;margin:26px 0 14px;display:flex;align-items:center;gap:10px}
+.section-title::before{content:"";width:5px;height:20px;border-radius:3px;background:var(--blue)}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:13px;color:var(--ink2);cursor:pointer;user-select:none;white-space:nowrap}
+.chip:hover{border-color:var(--blue2);color:var(--blue)}
+.chip.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.chip .num{opacity:.65;font-size:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:10px 20px;border-radius:11px;font-size:15px;font-weight:700;background:var(--blue);color:#fff;box-shadow:var(--shadow);transition:.15s}
+.btn:hover{filter:brightness(1.08)}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{border-color:var(--blue2);color:var(--blue)}
+.btn.gold{background:linear-gradient(135deg,#e7b93c,#c8920a);color:#3a2a02;box-shadow:0 3px 12px rgba(200,146,10,.4)}
+.btn.big{padding:14px 30px;font-size:17px;border-radius:13px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.muted{color:var(--ink2);font-size:13px}
+
+/* ===== 首页 ===== */
+.hero{background:linear-gradient(135deg,#103e5e,#1d6aa0);color:#fff;border-radius:0 0 26px 26px;padding:46px 0 54px;margin-bottom:8px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:300px;height:300px;border:26px solid rgba(255,255,255,.06);border-radius:50%}
+.hero h1{font-size:32px;font-weight:900;letter-spacing:.02em}
+.hero p{margin-top:12px;font-size:16px;opacity:.92;max-width:680px}
+.hero .badges{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+.hero .badges span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);padding:5px 13px;border-radius:999px;font-size:13px}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 6px}
+.stat{background:var(--card);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.stat b{font-size:28px;color:var(--blue);display:block;line-height:1.2}
+.stat span{font-size:13px;color:var(--ink2)}
+.stat.gold b{color:var(--gold)}
+.mode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+.mode-card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);cursor:pointer;border:1px solid transparent;transition:.18s;display:block;width:100%;text-align:left;position:relative;overflow:hidden}
+.mode-card:hover{transform:translateY(-3px);box-shadow:var(--shadow2);border-color:var(--blue2)}
+.mode-card .ico{width:44px;height:44px;border-radius:12px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.mode-card .ico svg{width:24px;height:24px;stroke:var(--blue);fill:none;stroke-width:1.8}
+.mode-card h3{font-size:17px;font-weight:800;margin-bottom:5px}
+.mode-card p{font-size:13px;color:var(--ink2)}
+.mode-card.goat-card{background:linear-gradient(135deg,#20242b,#3a3f49);color:#fff}
+.mode-card.goat-card .ico{background:rgba(231,185,60,.18)}
+.mode-card.goat-card .ico svg{stroke:#e7b93c}
+.mode-card.goat-card p{color:#c9ccd2}
+.mode-card .tag-goat{position:absolute;right:-30px;top:14px;transform:rotate(40deg);background:linear-gradient(135deg,#e7b93c,#c8920a);color:#3a2a02;font-size:11px;font-weight:800;padding:3px 36px}
+.cat-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:12px}
+.cat-tile{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:13px 10px;text-align:center;cursor:pointer;transition:.15s}
+.cat-tile:hover{border-color:var(--blue2);background:var(--blue-soft)}
+.cat-tile b{display:block;font-size:14px;color:var(--blue)}
+.cat-tile span{font-size:12px;color:var(--ink2)}
+.foot-note{margin:40px 0 30px;padding:18px 22px;background:var(--card);border-radius:var(--radius);border:1px dashed var(--line);font-size:13px;color:var(--ink2)}
+.ad-slot{margin:18px 0;min-height:0}
+.ad-slot .ad-inner{background:repeating-linear-gradient(45deg,#faf8f2,#faf8f2 12px,#f3efe4 12px,#f3efe4 24px);border:1px dashed var(--line);border-radius:10px;text-align:center;color:#9aa3ad;font-size:12px;padding:12px}
+
+/* ===== 题库列表 ===== */
+.filter-bar{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin:18px 0}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.filter-row+.filter-row{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line)}
+.filter-row .lab{font-size:13px;font-weight:700;color:var(--ink2);margin-right:2px}
+.q-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:16px 0 30px}
+.q-card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer;border:2px solid transparent;transition:.15s;display:flex;flex-direction:column}
+.q-card:hover{border-color:var(--blue2);transform:translateY(-2px)}
+.q-card.done-ok{border-color:var(--green)}
+.q-card.done-no{border-color:var(--red)}
+.q-card .thumb{height:150px;display:flex;align-items:center;justify-content:center;background:#fff;overflow:hidden;padding:6px}
+.q-card .thumb img{max-height:100%;max-width:100%;object-fit:contain}
+.q-card .meta{padding:8px 11px 10px;border-top:1px solid var(--line)}
+.q-card .meta .t{font-size:13px;font-weight:700;display:flex;justify-content:space-between;gap:6px}
+.q-card .meta .s{font-size:11.5px;color:var(--ink2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.q-card .state{font-size:11px;font-weight:700}
+.q-card .state.ok{color:var(--green)} .q-card .state.no{color:var(--red)}
+.q-card .star{color:var(--gold);font-size:14px}
+.empty-tip{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--ink2)}
+
+/* ===== 做题页 ===== */
+.quiz-head{display:flex;align-items:center;gap:14px;margin:16px 0}
+.quiz-head .prog{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.quiz-head .prog i{display:block;height:100%;background:linear-gradient(90deg,#1d6aa0,#35a0d6);border-radius:99px;transition:width .3s}
+.quiz-head .count{font-weight:800;font-size:15px;white-space:nowrap}
+.quiz-head .exit{font-size:13px;color:var(--ink2)}
+.quiz-head .exit:hover{color:var(--red)}
+.q-paper{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px;margin-bottom:14px}
+.q-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tag{font-size:12px;padding:3px 10px;border-radius:6px;font-weight:600}
+.tag.cat{background:var(--blue-soft);color:var(--blue)}
+.tag.src{background:var(--ink-soft);color:var(--ink2)}
+.tag.fmt{background:var(--gold-soft);color:var(--gold)}
+.q-imgbox{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;text-align:center;cursor:zoom-in;max-height:62vh;overflow:auto}
+.q-imgbox img{margin:0 auto;max-width:100%}
+.opts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0 6px}
+.opt{display:flex;align-items:center;gap:11px;padding:14px 16px;border-radius:12px;border:2px solid var(--line);background:var(--card);font-size:17px;font-weight:700;transition:.12s;text-align:left}
+.opt:hover{border-color:var(--blue2);background:var(--blue-soft)}
+.opt .k{width:32px;height:32px;border-radius:50%;background:var(--ink-soft);display:flex;align-items:center;justify-content:center;font-size:16px;flex:none}
+.opt.right{border-color:var(--green);background:var(--green-soft)}
+.opt.right .k{background:var(--green);color:#fff}
+.opt.wrong{border-color:var(--red);background:var(--red-soft)}
+.opt.wrong .k{background:var(--red);color:#fff}
+.opt.disabled{pointer-events:none;opacity:.85}
+.opt.miss{border-color:var(--green);border-style:dashed}
+.quiz-actions{display:flex;gap:10px;justify-content:space-between;align-items:center;margin:14px 0}
+.quiz-actions .l,.quiz-actions .r{display:flex;gap:9px}
+.icon-btn{width:42px;height:42px;border-radius:11px;border:1px solid var(--line);background:var(--card);display:inline-flex;align-items:center;justify-content:center}
+.icon-btn:hover{border-color:var(--blue2);color:var(--blue)}
+.icon-btn.faved{color:var(--gold);border-color:var(--gold);background:var(--gold-soft)}
+.icon-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.9}
+
+/* 解析面板 */
+.analysis{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:24px;animation:slidein .3s ease}
+@keyframes slidein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.ans-banner{display:flex;align-items:center;gap:16px;padding:16px 22px;flex-wrap:wrap}
+.ans-banner.ok{background:var(--green-soft)} .ans-banner.no{background:var(--red-soft)}
+.ans-banner .big{font-size:20px;font-weight:900}
+.ans-banner.ok .big{color:var(--green)} .ans-banner.no .big{color:var(--red)}
+.ans-banner .pill{font-size:13px;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.7);font-weight:700}
+.accbar{flex:1;min-width:180px}
+.accbar .lab{font-size:12px;color:var(--ink2);display:flex;justify-content:space-between}
+.accbar .track{height:8px;background:#fff;border-radius:99px;overflow:hidden;margin-top:3px;border:1px solid var(--line)}
+.accbar .track i{display:block;height:100%;background:linear-gradient(90deg,#3aa76d,#1e8a5b)}
+.an-block{padding:16px 22px;border-top:1px dashed var(--line)}
+.an-block h4{font-size:15px;font-weight:800;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.an-block h4 .n{width:22px;height:22px;border-radius:7px;background:var(--blue);color:#fff;font-size:13px;display:inline-flex;align-items:center;justify-content:center}
+.an-block h4 .n.gold{background:var(--gold)}
+.an-block h4 .n.green{background:var(--green)}
+.an-block p,.an-block li{font-size:14.5px;color:#33414f}
+.an-block ol,.an-block ul{padding-left:20px;margin-top:4px}
+.an-block li{margin:4px 0}
+.an-block .raw{white-space:pre-wrap;background:#faf8f2;border:1px solid var(--line);border-radius:10px;padding:12px 15px;font-size:14.5px;line-height:1.8;color:#33414f}
+.tip-box{background:var(--gold-soft);border:1px solid #ecd9a4;border-radius:10px;padding:12px 15px;font-size:14px}
+.think-box{background:var(--blue-soft);border:1px solid #c9ddeb;border-radius:10px;padding:12px 15px;font-size:14px}
+
+/* ===== GOAT ===== */
+.goat-wrap{max-width:760px;margin:0 auto;padding:20px 0 50px}
+.goat-panel{background:linear-gradient(160deg,#22272f,#333943);border-radius:20px;padding:34px 30px;color:#f2f3f5;box-shadow:var(--shadow2);text-align:center}
+.goat-panel .crown{font-size:54px}
+.goat-panel h2{font-size:27px;font-weight:900;background:linear-gradient(135deg,#f3d27a,#d99b12);-webkit-background-clip:text;background-clip:text;color:transparent;margin:8px 0}
+.goat-rules{text-align:left;background:rgba(255,255,255,.06);border-radius:14px;padding:16px 20px;margin:18px 0;font-size:14.5px;line-height:2}
+.goat-rules li{margin:7px 0;list-style:none}
+.goat-rules li::before{content:"▸ ";color:#e7b93c;font-weight:900}
+.goat-hud{display:flex;align-items:center;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.lives{font-size:20px;letter-spacing:3px;color:#e0645a}
+.lives .dead{color:#555c66}
+.streak{background:rgba(231,185,60,.16);color:#f0c75e;font-weight:800;padding:6px 14px;border-radius:999px;font-size:15px}
+.gscore{margin-left:auto;font-weight:900;font-size:18px;color:#f0c75e}
+.timerbar{height:10px;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden;margin-bottom:16px}
+.timerbar i{display:block;height:100%;background:linear-gradient(90deg,#52c98a,#e7b93c 60%,#e0645a);transition:width .2s linear}
+.goat-q{background:#fff;color:var(--ink);border-radius:16px;padding:16px}
+.goat-q .q-imgbox{max-height:46vh;border:none;padding:6px}
+.goat-q .opts{grid-template-columns:repeat(2,1fr)}
+.goat-q .opt{padding:12px 14px;font-size:16px}
+.goat-over{text-align:center}
+.goat-over .rank{font-size:40px;font-weight:900;margin:10px 0;background:linear-gradient(135deg,#f3d27a,#d99b12);-webkit-background-clip:text;background-clip:text;color:transparent}
+.goat-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.goat-stats div{background:rgba(255,255,255,.07);border-radius:12px;padding:14px}
+.goat-stats b{display:block;font-size:24px;color:#f0c75e}
+.goat-stats span{font-size:12.5px;color:#b9bec6}
+.review-list{text-align:left;margin-top:16px;display:grid;gap:8px}
+.review-item{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.06);padding:9px 14px;border-radius:10px;cursor:pointer;font-size:14px}
+.review-item:hover{background:rgba(255,255,255,.12)}
+.review-item .rk{width:24px;height:24px;border-radius:50%;background:#e0645a;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center;flex:none;font-weight:800}
+
+/* ===== 技巧页 ===== */
+.tree{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 26px;margin:18px 0}
+.tree-flow{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap;margin-top:14px}
+.tree-node{flex:1;min-width:150px;border-radius:12px;padding:14px 16px;color:#fff;font-size:14px;font-weight:700;display:flex;flex-direction:column;gap:4px}
+.tree-node small{font-weight:500;font-size:12.5px;opacity:.92}
+.tree-node.t1{background:#4a6f86}.tree-node.t2{background:#2f7d9e}.tree-node.t3{background:#1d6aa0}.tree-node.t4{background:#134b6e}
+.tree-arrow{display:flex;align-items:center;color:var(--ink2);font-size:20px}
+.method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:14px 0 30px}
+.method-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.method-card h3{padding:14px 18px;font-size:16px;font-weight:800;color:#fff;display:flex;align-items:center;gap:9px}
+.method-card h3 .dot{width:9px;height:9px;border-radius:50%;background:#fff;opacity:.85}
+.method-card .bd{padding:14px 18px}
+.method-card .row{margin-bottom:11px}
+.method-card .row b{font-size:13.5px;color:var(--blue);display:block;margin-bottom:3px}
+.method-card .row p{font-size:13.5px;color:#3a4754}
+.mc-position h3{background:#2f7d9e}.mc-style h3{background:#7a5cad}.mc-sym h3{background:#b85c7a}
+.mc-quzhi h3{background:#5d8a66}.mc-special h3{background:#a07b3d}.mc-face h3{background:#1d6aa0}
+.mc-line h3{background:#3d7a99}.mc-stroke h3{background:#455a64}.mc-point h3{background:#5b7fa6}
+.mc-angle h3{background:#c0743a}.mc-element h3{background:#6d7b8d}.mc-space h3{background:#103e5e}.mc-other h3{background:#5f6b77}
+.method-card.span2{grid-column:1/-1}
+
+/* ===== 灯箱 ===== */
+#lightbox{position:fixed;inset:0;background:rgba(15,22,30,.92);z-index:100;display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+#lightbox.show{display:flex}
+#lightbox img{max-width:100%;max-height:100%;background:#fff;border-radius:8px;box-shadow:0 10px 50px rgba(0,0,0,.5)}
+#lightbox .close{position:fixed;top:18px;right:26px;color:#fff;font-size:34px;cursor:pointer}
+
+.toast{position:fixed;left:50%;bottom:40px;transform:translateX(-50%) translateY(20px);background:rgba(20,30,42,.94);color:#fff;padding:11px 22px;border-radius:10px;font-size:14px;opacity:0;transition:.25s;z-index:200;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ===== 题图标注 ===== */
+.q-imgbox{cursor:default}
+.q-canvas-wrap{position:relative;display:inline-block;max-width:100%;text-align:center}
+.q-canvas-wrap img{margin:0 auto;max-width:100%}
+.mark-canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair}
+.mark-canvas.eraser{cursor:cell}
+.mark-bar{display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:10px}
+.mark-bar .tool{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:9px;border:1px solid var(--line);background:var(--card);font-size:13.5px;font-weight:600;color:var(--ink2)}
+.mark-bar .tool svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.9}
+.mark-bar .tool.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.mark-bar .tool.eraser.on{background:var(--gold);border-color:var(--gold);color:#3a2a02}
+.mark-bar .tool.ghost:hover{border-color:var(--blue2);color:var(--blue)}
+.mark-bar .hint{font-size:12px;color:#9aa3ad}
+.goat-q .mark-bar{margin-top:6px}
+.goat-q .mark-bar .tool{padding:5px 10px;font-size:12.5px}
+
+/* ===== 随机题量选择 ===== */
+.mode-wrap{position:relative;display:flex}
+.mode-wrap .mode-card{width:100%}
+.random-pick{display:none;position:absolute;left:50%;bottom:14px;transform:translateX(-50%);background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 30px rgba(20,40,60,.18);padding:8px;z-index:5;gap:8px}
+.random-pick.open{display:flex}
+.random-pick button{background:var(--blue);color:#fff;border-radius:8px;padding:7px 16px;font-size:13.5px;font-weight:700;white-space:nowrap}
+.random-pick button:hover{background:var(--blue2)}
+
+/* ===== 小广告槽 ===== */
+.ad-mini{margin:16px auto 0;max-width:760px;background:repeating-linear-gradient(45deg,#faf8f2,#faf8f2 12px,#f3efe4 12px,#f3efe4 24px);border:1px dashed var(--line);border-radius:10px;text-align:center;color:#a6adb5;font-size:12px;padding:14px}
+
+/* ===== 经验总结 / 设置 ===== */
+.notes-layout{display:grid;grid-template-columns:230px 1fr;gap:18px;margin:18px 0 30px;align-items:start}
+.notes-side{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:12px;position:sticky;top:74px}
+.notes-side .nt{font-size:13px;font-weight:800;color:var(--ink2);padding:8px 10px}
+.notes-side button{display:block;width:100%;text-align:left;padding:9px 12px;border-radius:9px;font-size:14px;color:var(--ink);background:none}
+.notes-side button:hover{background:var(--ink-soft)}
+.notes-side button.on{background:var(--blue);color:#fff;font-weight:700}
+.notes-side button .badge{float:right;font-size:11.5px;opacity:.7}
+.notes-main{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px}
+.notes-main h3{font-size:17px;font-weight:800;margin-bottom:4px}
+.notes-main .save-tip{font-size:12.5px;color:var(--green);margin-bottom:10px;min-height:18px}
+.notes-main textarea{width:100%;min-height:340px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14.5px;line-height:1.8;font-family:inherit;resize:vertical;outline:none}
+.notes-main textarea:focus{border-color:var(--blue2)}
+.notes-actions{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.wrong-hint{margin-top:14px;font-size:13px;color:var(--ink2);background:var(--blue-soft);border-radius:10px;padding:10px 14px}
+.settings-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px;margin:18px 0}
+.settings-card h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.settings-card p{font-size:13.5px;color:var(--ink2);margin-bottom:12px}
+.settings-card .row{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ===== 页脚 ===== */
+.site-footer{border-top:1px solid var(--line);background:var(--card);margin-top:40px;padding:22px 0 30px;font-size:13px;color:var(--ink2)}
+.site-footer .wrap{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.site-footer a{color:var(--ink2)}
+.site-footer a:hover{color:var(--blue)}
+
+/* ===== 手机底部导航 ===== */
+.tabbar{display:none}
+@media (max-width:900px){
+  body{padding-bottom:64px}
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);border-top:1px solid var(--line);backdrop-filter:blur(8px);padding:4px 0 calc(6px + env(safe-area-inset-bottom))}
+  .tabbar button{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--ink2);font-weight:600;background:none}
+  .tabbar button svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8}
+  .tabbar button.on{color:var(--blue)}
+  .tabbar button.goat{color:var(--gold)}
+  .notes-layout{grid-template-columns:1fr}
+  .notes-side{position:static;display:flex;overflow-x:auto;gap:6px;padding:8px}
+  .notes-side .nt{display:none}
+  .notes-side button{white-space:nowrap;width:auto}
+  .mark-bar{gap:6px}
+  .mark-bar .tool{padding:6px 10px;font-size:12.5px}
+  .mark-bar .hint{display:none}
+  .q-imgbox{padding:8px}
+  .quiz-head{gap:8px}
+  .quiz-head .count{font-size:12.5px}
+  .quiz-head .exit{white-space:nowrap}
+  .site-footer .wrap{gap:8px 14px}
+  .site-footer span{word-break:break-all}
+  .q-tags{gap:6px}
+  .tag{font-size:11px;padding:3px 8px}
+}
+
+@media (max-width:900px){
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .mode-grid{grid-template-columns:repeat(2,1fr)}
+  .cat-grid{grid-template-columns:repeat(4,1fr)}
+  .cat-grid > :last-child{grid-column:1 / -1}
+  .q-grid{grid-template-columns:repeat(2,1fr)}
+  .opts{grid-template-columns:repeat(2,1fr)}
+  .method-grid{grid-template-columns:1fr}
+  .nav{display:none}
+}
+@media (max-width:560px){
+  .hero h1{font-size:24px}
+  .mode-grid{grid-template-columns:1fr}
+  .q-grid{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  .goat-q .opts{grid-template-columns:1fr}
+  .q-paper{padding:14px}
+  .an-block{padding:14px 16px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand" onclick="location.hash='#/home'">
+      <svg viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#134b6e"/><g fill="none" stroke="#fff" stroke-width="1.6"><rect x="7" y="7" width="5" height="5"/><rect x="13.5" y="7" width="5" height="5"/><rect x="20" y="7" width="5" height="5"/><rect x="7" y="13.5" width="5" height="5"/><circle cx="16" cy="16" r="2" fill="#d4a017" stroke="none"/><rect x="20" y="13.5" width="5" height="5"/><rect x="7" y="20" width="5" height="5"/><rect x="13.5" y="20" width="5" height="5"/><rect x="20" y="20" width="5" height="5"/></g></svg>
+      <div>图推真题库<small>GONGKAO GRAPHIC REASONING</small></div>
+    </div>
+    <nav class="nav" id="nav">
+      <button data-route="#/home">首页</button>
+      <button data-route="#/list">题库</button>
+      <button data-route="#/methods">技巧</button>
+      <button data-route="#/wrong">错题本</button>
+      <button data-route="#/notes">经验</button>
+    </nav>
+    <div class="nav-spacer"></div>
+    <button class="goat-nav" onclick="location.hash='#/goat'">GOAT 挑战</button>
+  </div>
+</header>
+<main class="wrap" id="app"></main>
+<footer class="site-footer">
+  <div class="wrap">
+    <span>图推真题库 · 题目选自历年公考公开真题，解题思路为本站原创整理，仅供学习交流</span>
+    <span style="flex:1"></span>
+    <a href="#/privacy">隐私政策</a>
+    <a href="#/notes">学习数据管理</a>
+  </div>
+</footer>
+<nav class="tabbar" id="tabbar">
+  <button data-route="#/home"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg>首页</button>
+  <button data-route="#/list"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>题库</button>
+  <button data-route="#/goat" class="goat"><svg viewBox="0 0 24 24"><path d="M3 8l4 3.5L12 5l5 6.5L21 8l-1.7 10H4.7L3 8z"/><path d="M4.7 18h14.6"/></svg>GOAT</button>
+  <button data-route="#/wrong"><svg viewBox="0 0 24 24"><path d="M12 8v5M12 16.5v.5M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>错题</button>
+  <button data-route="#/notes"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>经验</button>
+</nav>
+<div id="lightbox"><span class="close">×</span><img alt="题目大图"></div>
+<div class="toast" id="toast"></div>
+<input type="file" id="importFile" accept="application/json,.json" style="display:none">
+
+<script src="assets/data.js"></script>
+<script>
+/* ============================================================
+ * 分类元数据：思考方向 / 技巧点拨（本站原创整理
+ * 图形推理章节：位置、样式、属性、特殊、数量、空间重构）
+ * ============================================================ */
+var CATS = {
+  position:{name:'位置规律', mc:'mc-position',
+    think:'元素组成基本相同，优先考虑位置规律。先判断动的是谁：整体图形方向变化→旋转/翻转；个别元素位置移动→平移。多个元素分别移动，要“拆开看、标号看”。',
+    tip:'平移看两点：方向（上下、左右、斜向、顺/逆时针绕圈）与步数（恒定、递增）；旋转记方向+角度（45°、90°、180°）；左右翻转沿竖轴对称、上下翻转沿横轴对称。黑块走不动时考虑两格重合。'},
+  style:{name:'样式规律', mc:'mc-style',
+    think:'元素组成相似，优先考虑样式规律：相同元素重复出现→遍历；相同线条重复出现→加减同异；轮廓与分割相同、黑块数量不成规律→黑白运算。',
+    tip:'遍历＝“缺啥补啥”；求同去掉不同线条、求异去掉相同线条，可只比对局部线条快速验证；黑白运算按对应位置写“黑+白=？”等式，直接从问号处反推最快。'},
+  symmetry:{name:'属性·对称', mc:'mc-sym',
+    think:'图形规整、出现“等腰”元素→轴对称；出现平行四边形、S/N/Z 及其变形→中心对称；存在两条互相垂直的对称轴→既是轴对称又是中心对称。',
+    tip:'画出对称轴后按顺序细化：①对称轴方向是否在旋转；②对称轴数量有无规律；③轴与图形本身的关系（过点/过线/穿几个面、是否与某条线重合）。分组题常考最大面、最小面的对称性。'},
+  quzhi:{name:'属性·曲直开闭', mc:'mc-quzhi',
+    think:'出现明显的圆、弧等全曲线图，优先考虑曲直性；出现生活化图形、粗线条图形，优先考虑开闭性。',
+    tip:'曲直性分清：全直、全曲、曲+直（上曲下直、内曲外直等）；开闭性看有无封闭区域。二者常与对称性、面数量复合，单一看不出规律时主动叠加。'},
+  special:{name:'特殊规律', mc:'mc-special',
+    think:'题干多幅图都出现两个或多个封闭图形连在一起→图形间关系；每幅图都出现小黑点、小白点、箭头等小元素→功能元素。',
+    tip:'图形间关系：相离 / 相交于点 / 相交于线（看相交边数量、长短、整体还是局部）/ 相交于面（看相交面形状）。功能元素标记的是：点（直直、曲曲、曲直交点）、线（直/曲、最长/最短）、角（直/锐/钝、最大/最小）、面（最大/最小、重合/单独）。'},
+  face:{name:'数量·面', mc:'mc-face',
+    think:'图形被分割、封闭面明显（“窟窿”多），或生活化、粗线条图形中有明显留白区域，优先数面。',
+    tip:'先数所有面的总数；无唯一答案时细化：①面的形状（三角形、四边形）；②有没有长得一样的面（“双胞胎/多胞胎”）；③最大面、最小面的形状与属性。高频复合考法：面数量＝外框直线数。'},
+  line:{name:'数量·线', mc:'mc-line',
+    think:'多边形、单一直线反复出现→数直线；全曲线图、圆、弧较多→数曲线。',
+    tip:'直线按折点分段数，曲线按平滑弧线数（一个圆弧算一条）；可只数横线、竖线或外框线；线数量无规律时立刻转向笔画数，或与面数量复合验证。'},
+  stroke:{name:'数量·笔画', mc:'mc-stroke',
+    think:'出现五角星、“日”字、“田”字及其变形、圆相切/圆相交、多端点图形、明显可一笔画成的图形，优先数笔画。',
+    tip:'连通图奇点数为 0 或 2 → 一笔画；连通图笔画数＝奇点数÷2（奇点必为偶数个，所有端点都是奇点，别漏数）；图形不连通时，各部分笔画数分别算再相加。'},
+  point:{name:'数量·点', mc:'mc-point',
+    think:'线条交叉明显（“大树杈”）、图形相切较多，优先数点。',
+    tip:'按顺序数：交点、切点、曲直交点；出现外框（如圆、多边形）时，分开数框上交点与框内交点；题干多处“相切”动作，优先数切点。'},
+  angle:{name:'数量·角', mc:'mc-angle',
+    think:'出现较多直角、十字、垂直结构，或锐角/钝角被明显改造时，优先数角。',
+    tip:'通常只数小于 180° 的角，开口图形的“缺口角”不数；近年直角考查频率高，遇到十字、L 形、垂直折线先数直角，再数锐角。'},
+  element:{name:'数量·素', mc:'mc-element',
+    think:'出现多个独立小元素→看元素的种类与个数；生活化/粗线条图形、黑白球连不成线→看部分数（线条连在一起算一个部分）。',
+    tip:'素的考法：元素种类、元素个数、相同元素的位置替换。黑白球先数黑块个数：个数相同想位置平移，个数不同想黑白运算或部分数（黑球几部分、白球几部分）。'},
+  space:{name:'空间重构', mc:'mc-space',
+    think:'折纸盒不靠“脑补”，用排除法：①先找相对面，相对面同时出现直接排除；②再看相邻面，用公共边、公共点、画边法逐一排除。三视图看投影，截面看刀切轮廓，立体拼合数凹凸块。',
+    tip:'相对面：同行/同列隔一个面、“Z”字形两端（要紧靠 Z 的中间线）。公共边：平面图中构成直角的两条边是同一条边；四个面连成一排，两头的两条边是同一条边。画边法“三同”：同一个面、同一个起点、同一个方向描边标号，对不上即排除。'},
+  other:{name:'复合 / 其他', mc:'mc-other',
+    think:'单一规律选不出唯一答案时，主动考虑复合考法，按“先属性、后数量；先整体、后局部”的顺序逐项排查。',
+    tip:'常见复合：对称性＋数面、面数量＝外框直线数、数量规律＋位置旋转、最大面属性＋面数量。把已验证的规律写在草稿上，避免在同一规律上反复打转。'}
+};
+var CAT_ORDER = ['position','style','symmetry','quzhi','special','face','line','stroke','point','angle','element','space','other'];
+
+/* 广告位：粘贴百度联盟/AdSense 代码到对应槽位即可启用，留空则不显示
+ * top   ：首页顶部横幅（728×90 / 320×50 自适应）
+ * a1    ：做题页解析面板下方（信息流/横幅）
+ * small ：各练习模式页、完成页、GOAT 页的小槽（300×250 或自适应）
+ */
+var AD_SLOTS = {top:'', a1:'', small:''};
+function adSlot(name, cls){
+  var code = AD_SLOTS[name];
+  if(!code) return '';
+  return '<div class="'+(cls==='mini'?'ad-mini':'ad-slot')+'">'+code+'</div>';
+}
+
+/* ============================================================
+ * 本地存储
+ * ============================================================ */
+var STORE = {
+  get:function(k,d){try{var v=JSON.parse(localStorage.getItem('tx_'+k));return v==null?d:v;}catch(e){return d;}},
+  set:function(k,v){try{localStorage.setItem('tx_'+k,JSON.stringify(v));}catch(e){}}
+};
+var REC = { ans: STORE.get('ans',{}), fav: STORE.get('fav',[]), goat: STORE.get('goat',{best:0,streak:0,rank:''}), notes: STORE.get('notes',{}) };
+function saveAns(){STORE.set('ans',REC.ans);}
+function saveFav(){STORE.set('fav',REC.fav);}
+function saveNotes(){STORE.set('notes',REC.notes);}
+function wrongIds(){return Object.keys(REC.ans).filter(function(id){return REC.ans[id].ok===0;});}
+function doneCount(){return Object.keys(REC.ans).length;}
+function correctCount(){return Object.keys(REC.ans).filter(function(id){return REC.ans[id].ok===1;}).length;}
+function accRate(){var d=doneCount();return d?Math.round(correctCount()/d*100):0;}
+function byId(id){return QMAP[id];}
+
+/* ============================================================
+ * 工具
+ * ============================================================ */
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function toast(msg){var t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},1800);}
+var QMAP = {}; QDATA.forEach(function(q){QMAP[q.id]=q;});
+function catCount(c){return QDATA.filter(function(q){return q.cat===c;}).length;}
+function stateMark(q){var r=REC.ans[q.id];if(!r)return '';return r.ok?'<span class="state ok">已答对</span>':'<span class="state no">待巩固</span>';}
+
+/* ============================================================
+ * 题图标注（画笔 / 橡皮 / 清空，标注按题保存于本机）
+ * ============================================================ */
+var MARKPAPER = STORE.get('marks', {});
+function saveMarks(){STORE.set('marks', MARKPAPER);}
+function markIcons(){
+  var pen='<svg viewBox="0 0 24 24"><path d="M16.5 3.5l4 4L7 21l-4 1 1-4z"/></svg>';
+  var era='<svg viewBox="0 0 24 24"><path d="M16 3l5 5-9 9H7l-4-4z"/><path d="M9 21h12"/></svg>';
+  var cls='<svg viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>';
+  var zoom='<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>';
+  return '<div class="mark-bar" data-markbar>'+
+    '<button type="button" class="tool pen on" data-tool="pen">'+pen+'画笔</button>'+
+    '<button type="button" class="tool eraser" data-tool="eraser">'+era+'橡皮</button>'+
+    '<button type="button" class="tool ghost" data-act="clear">'+cls+'清空标注</button>'+
+    '<button type="button" class="tool ghost" data-act="zoom">'+zoom+'放大看图</button>'+
+    '<span class="hint">可直接在题图上勾画，标注自动保存在本机</span></div>';
+}
+function initCanvas(wrap, qid){
+  var img=wrap.querySelector('img'), cv=wrap.querySelector('.mark-canvas');
+  var bar=wrap.parentNode.querySelector('[data-markbar]')||document.querySelector('[data-markbar]');
+  var tool='pen', drawing=false, last=null;
+  function sync(){
+    var r=img.getBoundingClientRect();
+    cv.style.left=img.offsetLeft+'px';cv.style.top=img.offsetTop+'px';
+    cv.style.width=img.offsetWidth+'px';cv.style.height=img.offsetHeight+'px';
+    cv.width=img.offsetWidth;cv.height=img.offsetHeight;
+    var ctx=cv.getContext('2d');ctx.lineCap='round';ctx.lineJoin='round';
+    ctx.lineWidth=2.6;ctx.strokeStyle='#d92b2b';
+    redraw();
+  }
+  function redraw(){
+    var ctx=cv.getContext('2d');ctx.clearRect(0,0,cv.width,cv.height);
+    if(MARKPAPER[qid]){var im=new Image();im.onload=function(){ctx.drawImage(im,0,0,cv.width,cv.height);};im.src=MARKPAPER[qid];}
+  }
+  function pos(e){var r=cv.getBoundingClientRect();return {x:(e.clientX-r.left),y:(e.clientY-r.top)};}
+  cv.addEventListener('pointerdown',function(e){
+    drawing=true;last=pos(e);cv.setPointerCapture(e.pointerId);
+    var ctx=cv.getContext('2d');
+    if(tool==='eraser'){ctx.globalCompositeOperation='destination-out';ctx.lineWidth=16;}
+    else{ctx.globalCompositeOperation='source-over';ctx.lineWidth=2.6;ctx.strokeStyle='#d92b2b';}
+    ctx.beginPath();ctx.moveTo(last.x,last.y);
+  });
+  cv.addEventListener('pointermove',function(e){
+    if(!drawing)return;var p=pos(e),ctx=cv.getContext('2d');
+    ctx.lineTo(p.x,p.y);ctx.stroke();last=p;
+  });
+  function end(){
+    if(!drawing)return;drawing=false;
+    MARKPAPER[qid]=cv.toDataURL('image/png');saveMarks();
+  }
+  cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+  img.addEventListener('load',sync);
+  setTimeout(sync,60);window.addEventListener('resize',sync);
+  if(bar){
+    bar.querySelectorAll('[data-tool]').forEach(function(b){
+      b.onclick=function(){
+        tool=b.getAttribute('data-tool');
+        bar.querySelectorAll('[data-tool]').forEach(function(x){x.classList.toggle('on',x===b);});
+        cv.classList.toggle('eraser',tool==='eraser');
+      };
+    });
+    var clr=bar.querySelector('[data-act=clear]');if(clr)clr.onclick=function(){
+      delete MARKPAPER[qid];saveMarks();
+      cv.getContext('2d').clearRect(0,0,cv.width,cv.height);toast('标注已清空');
+    };
+    var zb=bar.querySelector('[data-act=zoom]');if(zb)zb.onclick=function(){zoom(img.src);};
+  }
+}
+
+/* ============================================================
+ * 学习数据 导出 / 导入 / 清零
+ * ============================================================ */
+function exportData(){
+  var payload={version:1,time:new Date().toISOString(),
+    ans:REC.ans,fav:REC.fav,goat:REC.goat,notes:REC.notes,marks:MARKPAPER};
+  var blob=new Blob([JSON.stringify(payload,null,1)],{type:'application/json'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  var d=new Date();var pad=function(n){return String(n).padStart(2,'0');};
+  a.download='图推学习记录_'+d.getFullYear()+pad(d.getMonth()+1)+pad(d.getDate())+'.json';
+  document.body.appendChild(a);a.click();a.remove();
+  toast('学习记录已导出');
+}
+function importData(file){
+  var reader=new FileReader();
+  reader.onload=function(){
+    try{
+      var data=JSON.parse(reader.result);
+      if(!confirm('导入将与本机现有记录合并（同题以导入记录为准），确定继续？'))return;
+      REC.ans=Object.assign({},REC.ans,data.ans||{});
+      REC.fav=Array.from(new Set((REC.fav||[]).concat(data.fav||[])));
+      if(data.goat&&(data.goat.best||0)>(REC.goat.best||0))REC.goat=data.goat;
+      REC.notes=Object.assign({},REC.notes,data.notes||{});
+      MARKPAPER=Object.assign({},MARKPAPER,data.marks||{});
+      saveAns();saveFav();STORE.set('goat',REC.goat);saveNotes();saveMarks();
+      toast('导入完成');route();
+    }catch(e){alert('文件格式不正确，导入失败');}
+  };
+  reader.readAsText(file);
+}
+function resetAllData(){
+  if(!confirm('将清空本机全部做题记录、收藏、GOAT 成绩、经验总结与题图标注，且不可恢复，确定吗？'))return;
+  ['ans','fav','goat','notes','marks'].forEach(function(k){localStorage.removeItem('tx_'+k);});
+  REC.ans={};REC.fav=[];REC.goat={best:0,streak:0,rank:''};REC.notes={};MARKPAPER={};
+  toast('全部学习数据已清空');route();
+}
+
+/* ============================================================
+ * 路由
+ * ============================================================ */
+var app = document.getElementById('app');
+function route(){
+  document.onkeydown=null;
+  if(G&&G.phase==='play'&&(location.hash||'#/home').indexOf('#/goat')!==0){clearInterval(G.timer);G.phase='idle';}
+  var h = location.hash || '#/home';
+  document.querySelectorAll('#nav button').forEach(function(b){b.classList.toggle('on', b.getAttribute('data-route')===h.split('?')[0]);});
+  document.querySelectorAll('#tabbar button').forEach(function(b){b.classList.toggle('on', b.getAttribute('data-route')===h.split('?')[0]);});
+  var parts = h.replace('#/','').split('?');
+  var view = parts[0] || 'home', qs = parts[1]||'';
+  var params = {}; qs.split('&').filter(Boolean).forEach(function(kv){var p=kv.split('=');params[decodeURIComponent(p[0])]=decodeURIComponent(p[1]||'');});
+  window.scrollTo(0,0);
+  if(view==='home') renderHome();
+  else if(view==='list') renderList(params);
+  else if(view==='quiz') renderQuiz(params);
+  else if(view==='methods') renderMethods();
+  else if(view==='wrong') renderWrongFav('wrong');
+  else if(view==='fav') renderWrongFav('fav');
+  else if(view==='goat') renderGoat();
+  else if(view==='notes') renderNotes();
+  else if(view==='privacy') renderPrivacy();
+  else renderHome();
+}
+window.addEventListener('hashchange', route);
+document.querySelectorAll('#nav button, #tabbar button').forEach(function(b){
+  b.addEventListener('click',function(){location.hash=b.getAttribute('data-route');});
+});
+document.getElementById('importFile').addEventListener('change',function(e){
+  if(e.target.files&&e.target.files[0])importData(e.target.files[0]);e.target.value='';
+});
+
+/* ============================================================
+ * 首页
+ * ============================================================ */
+function renderHome(){
+  var goat = REC.goat;
+  app.innerHTML =
+  '<div class="hero"><div class="wrap">'+
+    '<h1>图形推理真题库</h1>'+
+    '<p>'+QDATA.length+' 道公考图形推理真题（历年真题精选、2018–2024 国考行测图推、立体拼合专项），逐题配套<b>参考答案、原创解题思路、思考方向、技巧点拨</b>，可在题图上直接勾画标注，先判规律再看解析，把“图形感”练成条件反射。</p>'+
+    '<div class="badges"><span>'+QDATA.length+' 道真题</span><span>13 类规律</span><span>逐题解析</span><span>题图标注</span><span>错题本</span><span>GOAT 限时挑战</span></div>'+
+  '</div></div>'+
+  '<div class="wrap">'+
+    adSlot('top')+
+    '<div class="stats-row">'+
+      '<div class="stat"><b>'+doneCount()+'</b><span>已练习题数</span></div>'+
+      '<div class="stat"><b>'+accRate()+'%</b><span>累计正确率</span></div>'+
+      '<div class="stat"><b>'+wrongIds().length+'</b><span>错题本待巩固</span></div>'+
+      '<div class="stat gold"><b>'+(goat.best||0)+'</b><span>GOAT 最高分'+(goat.rank?'（'+goat.rank+'）':'')+'</span></div>'+
+    '</div>'+
+    '<div class="section-title">选择练习模式</div>'+
+    '<div class="mode-grid">'+
+      '<button class="mode-card" onclick="startSeq()"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3>顺序练习</h3><p>按题目顺序刷完全部 '+QDATA.length+' 题，适合系统过一遍。</p></button>'+
+      '<div class="mode-wrap"><button class="mode-card" onclick="document.getElementById(\'randomPick\').classList.toggle(\'open\')"><div class="ico"><svg viewBox="0 0 24 24"><path d="M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7M21 16v5h-5M16 21l-7-7M3 8V3h5M8 3l7 7"/></svg></div><h3>随机练习</h3><p>随机抽题，可选 10 / 20 / 50 题，随时来一组。</p></button><div class="random-pick" id="randomPick"><button type="button" onclick="startRandom(10)">10 题</button><button type="button" onclick="startRandom(20)">20 题</button><button type="button" onclick="startRandom(50)">50 题</button></div></div>'+
+      '<button class="mode-card" onclick="location.hash=\'#/list\'"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><h3>题库 / 分类专练</h3><p>按规律、题组、题型筛选，专练薄弱考点。</p></button>'+
+      '<button class="mode-card" onclick="startWrong()"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 8v5M12 16.5v.5M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div><h3>错题重练</h3><p>'+wrongIds().length+' 道错题，攻克为止。</p></button>'+
+      '<button class="mode-card" onclick="location.hash=\'#/fav\'"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg></div><h3>我的收藏</h3><p>'+REC.fav.length+' 道收藏题，重点回看。</p></button>'+
+      '<button class="mode-card goat-card" onclick="location.hash=\'#/goat\'"><span class="tag-goat">硬核</span><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 18h18M5 18a7 7 0 0 1 14 0M3 18v-3a4 4 0 0 1 4-4 5 5 0 0 1 10 0 4 4 0 0 1 4 4v3M9 11V8M15 11V8"/></svg></div><h3>GOAT 挑战</h3><p>45 秒一题、三条命、连击加分，冲击图推之王。</p></button>'+
+    '</div>'+
+    '<div class="section-title">按规律专练</div>'+
+    '<div class="cat-grid">'+
+      CAT_ORDER.map(function(c){return '<div class="cat-tile" onclick="location.hash=\'#/list?cat='+c+'\'"><b>'+CATS[c].name+'</b><span>'+catCount(c)+' 题</span></div>';}).join('')+
+    '</div>'+
+    '<div class="section-title">先学方法再刷题</div>'+
+    '<button class="mode-card" style="display:flex;gap:18px;align-items:center;text-align:left" onclick="location.hash=\'#/methods\'"><div class="ico" style="margin:0"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div><div><h3>图形推理解题方法大全</h3><p>一张图记住判断顺序：相同看位置、相似看样式、不同先属性后数量；含六大规律特征图、空间重构画边法。</p></div></button>'+
+    adSlot('small','mini')+
+    '<div class="foot-note">题源说明：本题库题目选自历年公务员考试公开真题（含 2018–2024 年国考《行测》图形推理、各地公考真题及立体拼合专项题）；参考答案以公开真题答案为准，“解题思路 / 思考方向 / 技巧点拨”均为本站原创编写，仅供学习交流使用。部分真题官方未公布解析，仅提供参考答案。作答记录仅保存在本机浏览器，可在“经验”页导出备份。</div>'+
+  '</div>';
+}
+function startSeq(){location.hash='#/quiz?mode=seq&ids='+encodeURIComponent(QDATA.map(function(q){return q.id;}).join(','));}
+function startRandom(n){n=n||20;location.hash='#/quiz?mode=random&ids='+encodeURIComponent(shuffle(QDATA).slice(0,n).map(function(q){return q.id;}).join(','));}
+function startWrong(){var w=wrongIds();if(!w.length){toast('错题本是空的，继续保持');return;}location.hash='#/quiz?mode=wrong&ids='+encodeURIComponent(w.join(','));}
+
+/* ============================================================
+ * 题库列表
+ * ============================================================ */
+var LIST_FILTER = {cat:'', g:'', fmt:'', kw:''};
+function renderList(params){
+  if(params.cat) LIST_FILTER.cat = params.cat==='all'?'':params.cat;
+  var groups = {}; QDATA.forEach(function(q){groups[q.g]=1;});
+  function filtered(){
+    return QDATA.filter(function(q){
+      if(LIST_FILTER.cat && q.cat!==LIST_FILTER.cat) return false;
+      if(LIST_FILTER.g && q.g!==LIST_FILTER.g) return false;
+      if(LIST_FILTER.fmt && q.fmt!==LIST_FILTER.fmt) return false;
+      if(LIST_FILTER.kw){var k=LIST_FILTER.kw;if((q.src||'').indexOf(k)<0 && q.id.indexOf(k)<0) return false;}
+      return true;
+    });
+  }
+  function paint(){
+    var list = filtered();
+    var grid = document.getElementById('qgrid');
+    if(!list.length){grid.innerHTML='<div class="empty-tip">没有符合条件的题目</div>';return;}
+    grid.innerHTML = list.map(function(q){
+      var r=REC.ans[q.id], cls=r?(r.ok?'done-ok':'done-no'):'';
+      var fav=REC.fav.indexOf(q.id)>=0?'fav':'';
+      return '<div class="q-card '+cls+' '+fav+'" onclick="openFromList(\''+q.id+'\')">'+
+        '<div class="thumb"><img loading="lazy" src="'+q.img+'" alt="'+q.id+'"></div>'+
+        '<div class="meta"><div class="t"><span>'+q.g+' · 第 '+q.n+' 题</span><span class="star '+(fav?'':'" style="visibility:hidden')+'">★</span></div>'+
+        '<div class="s">'+esc(q.src||CATS[q.cat].name)+'</div>'+
+        '<div class="s" style="display:flex;justify-content:space-between"><span>'+CATS[q.cat].name+'</span>'+stateMark(q)+'</div></div></div>';
+    }).join('');
+    document.getElementById('qcount').textContent='共 '+list.length+' 题';
+  }
+  app.innerHTML =
+  '<div class="filter-bar">'+
+    '<div class="filter-row"><span class="lab">规律</span>'+
+      '<span class="chip '+(!LIST_FILTER.cat?'on':'')+'" onclick="LIST_FILTER.cat=\'\';paintList()">全部</span>'+
+      CAT_ORDER.map(function(c){return '<span class="chip '+(LIST_FILTER.cat===c?'on':'')+'" onclick="LIST_FILTER.cat=\''+c+'\';paintList()">'+CATS[c].name+'<span class="num">'+catCount(c)+'</span></span>';}).join('')+
+    '</div>'+
+    '<div class="filter-row"><span class="lab">题组</span>'+
+      '<span class="chip '+(!LIST_FILTER.g?'on':'')+'" data-g="">全部</span>'+
+      Object.keys(groups).map(function(g){return '<span class="chip '+(LIST_FILTER.g===g?'on':'')+'" data-g="'+g+'">'+g+'</span>';}).join('')+
+    '</div>'+
+    '<div class="filter-row"><span class="lab">题型</span>'+
+      ['常规','分组分类','选非题'].map(function(f){return '<span class="chip '+(LIST_FILTER.fmt===f?'on':'')+'" data-fmt="'+f+'">'+f+'</span>';}).join('')+
+      '<span class="chip" style="margin-left:auto"><input id="kw" placeholder="搜年份/来源，如 2022、国家" style="border:none;outline:none;background:transparent;width:170px;font-size:13px"></span>'+
+    '</div>'+
+  '</div>'+
+  '<div style="display:flex;align-items:center;gap:12px;margin:18px 2px 0"><div class="section-title" style="margin:0">题库</div><span class="muted" id="qcount"></span><div style="flex:1"></div><button class="btn ghost" onclick="startFiltered()">开始练习本筛选结果</button></div>'+
+  '<div class="q-grid" id="qgrid"></div>'+
+  adSlot('small','mini');
+  window.paintList = paint;
+  app.querySelectorAll('[data-g]').forEach(function(el){el.onclick=function(){LIST_FILTER.g=el.getAttribute('data-g');paint();};});
+  app.querySelectorAll('[data-fmt]').forEach(function(el){el.onclick=function(){var v=el.getAttribute('data-fmt');LIST_FILTER.fmt=LIST_FILTER.fmt===v?'':v;paint();};});
+  var kw=document.getElementById('kw');kw.value=LIST_FILTER.kw;
+  kw.oninput=function(){LIST_FILTER.kw=kw.value.trim();paint();};
+  window._filtered = filtered;
+  paint();
+}
+function startFiltered(){var ids=window._filtered().map(function(q){return q.id;});if(!ids.length){toast('当前筛选没有题目');return;}location.hash='#/quiz?mode=filter&ids='+encodeURIComponent(ids.join(','));}
+function openFromList(id){
+  // 用“全部题库顺序中从该题开始”的方式进入
+  var all=QDATA.map(function(q){return q.id;});
+  var i=all.indexOf(id);
+  location.hash='#/quiz?mode=seq&pos='+i+'&ids='+encodeURIComponent(all.join(','));
+}
+
+/* ============================================================
+ * 做题页
+ * ============================================================ */
+var S = null;
+function svgIcon(d){return '<svg viewBox="0 0 24 24">'+d+'</svg>';}
+var ICONS = {
+  prev:'<path d="M15 18l-6-6 6-6"/>', next:'<path d="M9 6l6 6-6 6"/>',
+  fav:'<path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/>',
+  list:'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>'
+};
+function renderQuiz(params){
+  var ids=(params.ids||'').split(',').filter(Boolean);
+  if(!ids.length || !QMAP[ids[0]]){location.hash='#/home';return;}
+  if(!S || S.ids.join(',')!==ids.join(',')){
+    S={ids:ids,pos:Math.min(parseInt(params.pos||'0',10)||0,ids.length-1),mode:params.mode||'seq',picks:{}};
+  } else {S.pos=Math.min(parseInt(params.pos||String(S.pos),10)||0,ids.length-1);}
+  var q=byId(S.ids[S.pos]);
+  var pick=S.picks[q.id];
+  var answered=!!pick;
+  var fav=REC.fav.indexOf(q.id)>=0;
+  var modeName={seq:'顺序练习',random:'随机练习',wrong:'错题重练',filter:'筛选练习',fav:'收藏练习'}[S.mode]||'练习';
+  app.innerHTML=
+  '<div class="quiz-head">'+
+    '<button class="exit" onclick="location.hash=\'#/list\'">← 退出</button>'+
+    '<div class="prog"><i style="width:'+((S.pos+1)/S.ids.length*100)+'%"></i></div>'+
+    '<div class="count">'+modeName+'　'+(S.pos+1)+' / '+S.ids.length+'</div>'+
+  '</div>'+
+  '<div class="q-paper">'+
+    '<div class="q-tags"><span class="tag cat">'+CATS[q.cat].name+'</span>'+
+      (q.src?'<span class="tag src">'+esc(q.src)+'</span>':'')+
+      (q.fmt!=='常规'?'<span class="tag fmt">'+q.fmt+'</span>':'')+
+      '<span class="tag src">'+esc(q.g)+' 第'+q.n+'题</span></div>'+
+    '<div class="q-imgbox"><div class="q-canvas-wrap"><img src="'+q.img+'" alt="第'+q.n+'题"><canvas class="mark-canvas"></canvas></div>'+markIcons()+'</div>'+
+    '<div class="opts">'+
+      ['A','B','C','D'].map(function(k){
+        var cls='';
+        if(answered){
+          cls='disabled';
+          if(k===q.ans) cls+=' right';
+          if(k===pick && k!==q.ans) cls+=' wrong';
+        }
+        return '<button class="opt '+cls+'" data-k="'+k+'" onclick="pickOpt(\''+k+'\')"><span class="k">'+k+'</span><span>'+({A:'选项 A',B:'选项 B',C:'选项 C',D:'选项 D'}[k])+'</span></button>';
+      }).join('')+
+    '</div>'+
+    '<div class="quiz-actions">'+
+      '<div class="l"><button class="icon-btn '+(fav?'faved':'')+'" title="收藏" onclick="toggleFav(\''+q.id+'\')" id="favbtn">'+(fav?'<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:currentColor">'+ICONS.fav+'</svg>':'<svg viewBox="0 0 24 24">'+ICONS.fav+'</svg>')+'</button></div>'+
+      '<div class="r">'+
+        '<button class="btn ghost" '+(S.pos===0?'disabled':'')+' onclick="goQuiz(-1)">上一题</button>'+
+        (S.pos===S.ids.length-1?'<button class="btn" onclick="finishQuiz()">完成本组</button>':'<button class="btn" onclick="goQuiz(1)">下一题 →</button>')+
+      '</div></div>'+
+  '</div>'+
+  '<div id="analysisSlot"></div>';
+  initCanvas(app.querySelector('.q-canvas-wrap'), q.id);
+  if(answered) showAnalysis(q, pick, false);
+  document.onkeydown=function(e){
+    if(e.key>='1'&&e.key<='4'&&!answered){pickOpt(['A','B','C','D'][parseInt(e.key,10)-1]);}
+    var k=e.key.toLowerCase();
+    if(k==='a'&&!answered)pickOpt('A'); if(k==='b'&&!answered)pickOpt('B'); if(k==='c'&&!answered)pickOpt('C'); if(k==='d'&&!answered)pickOpt('D');
+    if(e.key==='ArrowRight'&&S.pos<S.ids.length-1)goQuiz(1);
+    if(e.key==='ArrowLeft'&&S.pos>0)goQuiz(-1);
+  };
+}
+function pickOpt(k){
+  if(!S)return;
+  var q=byId(S.ids[S.pos]);
+  if(S.picks[q.id])return;
+  S.picks[q.id]=k;
+  var ok=k===q.ans;
+  REC.ans[q.id]={pick:k,ok:ok?1:0,t:Date.now()};
+  saveAns();
+  // 重新渲染选项颜色
+  app.querySelectorAll('.opt').forEach(function(b){
+    b.classList.add('disabled');
+    if(b.getAttribute('data-k')===q.ans)b.classList.add('right');
+    if(b.getAttribute('data-k')===k && !ok)b.classList.add('wrong');
+  });
+  showAnalysis(q,k,true);
+  if(!ok)toast('已加入错题本');
+}
+function showAnalysis(q,pick,animate){
+  var ok=pick===q.ans, meta=CATS[q.cat];
+  var acc='';
+  if(q.acc){var v=parseFloat(q.acc);acc='<div class="accbar"><div class="lab"><span>题库正确率</span><span>'+q.acc+'</span></div><div class="track"><i style="width:'+v+'%"></i></div></div>';}
+  document.getElementById('analysisSlot').innerHTML=
+  '<div class="analysis"'+(animate?'':' style="animation:none"')+'>'+
+    '<div class="ans-banner '+(ok?'ok':'no')+'">'+
+      '<span class="big">'+(ok?'回答正确':'回答错误')+'</span>'+
+      '<span class="pill">正确答案：'+q.ans+'</span>'+
+      (pick?'<span class="pill">你的答案：'+pick+'</span>':'')+
+      (q.trap?'<span class="pill">易错项：'+q.trap+'</span>':'')+
+      acc+
+    '</div>'+
+    '<div class="an-block"><h4><span class="n">1</span>思考方向（先判考点）</h4><div class="think-box">'+meta.think+'</div></div>'+
+    '<div class="an-block"><h4><span class="n green">2</span>解题思路（原创讲解）</h4><div class="raw">'+esc(q.exp)+'</div></div>'+
+    '<div class="an-block"><h4><span class="n gold">3</span>技巧点拨</h4><div class="tip-box">'+meta.tip+'</div></div>'+
+    (q.cat==='space'?'<div class="an-block"><p class="muted">空间重构系统方法（相对面 / 公共边 / 画边法）见 <a href="#/methods">技巧页「空间重构」</a>。</p></div>':'')+
+  '</div>'+adSlot('a1');
+  document.getElementById('analysisSlot').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function goQuiz(d){
+  if(!S)return;
+  S.pos+=d;
+  location.hash='#/quiz?mode='+S.mode+'&pos='+S.pos+'&ids='+encodeURIComponent(S.ids.join(','));
+  renderQuiz({mode:S.mode,pos:String(S.pos),ids:S.ids.join(',')});
+}
+function toggleFav(id){
+  var i=REC.fav.indexOf(id);
+  if(i>=0){REC.fav.splice(i,1);toast('已取消收藏');}else{REC.fav.push(id);toast('已收藏');}
+  saveFav();
+  var btn=document.getElementById('favbtn');
+  if(btn){btn.classList.toggle('faved',REC.fav.indexOf(id)>=0);
+    btn.innerHTML=REC.fav.indexOf(id)>=0?'<svg viewBox="0 0 24 24" style="fill:currentColor;stroke:currentColor">'+ICONS.fav+'</svg>':'<svg viewBox="0 0 24 24">'+ICONS.fav+'</svg>';}
+}
+function finishQuiz(){
+  var picks=S.ids.filter(function(id){return S.picks[id];});
+  var right=picks.filter(function(id){return S.picks[id]===byId(id).ans;}).length;
+  var mode=S.mode;
+  S=null;
+  app.innerHTML='<div class="q-paper" style="text-align:center;padding:60px 30px;margin-top:40px">'+
+    '<div><svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="#1d6aa0" stroke-width="1.8" stroke-linecap="round" style="display:inline-block"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.4l2.4 2.4 4.6-5.2"/></svg></div><h2 style="font-size:24px;margin:12px 0">本组练习完成</h2>'+
+    '<p style="font-size:17px;color:var(--ink2)">作答 <b style="color:var(--blue)">'+picks.length+'</b> 题，答对 <b style="color:var(--green)">'+right+'</b> 题，正确率 <b style="color:var(--blue)">'+(picks.length?Math.round(right/picks.length*100):0)+'%</b></p>'+
+    '<div style="margin-top:24px;display:flex;gap:12px;justify-content:center">'+
+      (mode==='wrong'?'':'<button class="btn ghost" onclick="startWrong()">去错题重练</button>')+
+      '<button class="btn ghost" onclick="location.hash=\'#/list\'">返回题库</button>'+
+      '<button class="btn" onclick="location.hash=\'#/home\'">回首页</button></div>'+
+      adSlot('small','mini')+'</div>';
+  window.scrollTo(0,0);
+}
+
+/* ============================================================
+ * 错题本 / 收藏
+ * ============================================================ */
+function renderWrongFav(kind){
+  var ids = kind==='wrong'?wrongIds():REC.fav.slice();
+  var title = kind==='wrong'?'错题本':'我的收藏';
+  if(!ids.length){
+    app.innerHTML='<div class="q-paper" style="text-align:center;padding:70px 30px;margin-top:40px"><h2>'+title+'</h2><p class="muted" style="margin:12px 0 22px">'+(kind==='wrong'?'还没有错题，去刷一组题吧':'还没有收藏题目，做题时点星标收藏')+'</p><button class="btn" onclick="location.hash=\'#/home\'">去做题</button></div>';
+    return;
+  }
+  var list=ids.map(byId).filter(Boolean);
+  app.innerHTML=
+  '<div class="section-title">'+title+'（'+list.length+' 题）</div>'+
+  '<div style="margin:0 0 16px;display:flex;gap:10px">'+
+    '<button class="btn" onclick="startListIds(\''+kind+'\')">'+(kind==='wrong'?'开始错题重练':'练习收藏题')+'</button>'+
+    (kind==='wrong'?'<button class="btn ghost" onclick="clearWrong()">清空错题记录</button>':'')+
+  '</div>'+
+  '<div class="q-grid">'+list.map(function(q){
+    var r=REC.ans[q.id],cls=r?(r.ok?'done-ok':'done-no'):'';
+    return '<div class="q-card '+cls+'" onclick="startListAt(\''+q.id+'\','+JSON.stringify(ids).replace(/"/g,'&quot;')+')">'+
+      '<div class="thumb"><img loading="lazy" src="'+q.img+'" alt="'+q.id+'"></div>'+
+      '<div class="meta"><div class="t"><span>'+q.g+' · 第 '+q.n+' 题</span></div>'+
+      '<div class="s">'+esc(q.src||CATS[q.cat].name)+'</div>'+
+      '<div class="s" style="display:flex;justify-content:space-between"><span>'+CATS[q.cat].name+'</span>'+stateMark(q)+'</div></div></div>';
+  }).join('')+'</div>';
+}
+function startListIds(kind){
+  var ids=kind==='wrong'?wrongIds():REC.fav.slice();
+  if(!ids.length)return;
+  location.hash='#/quiz?mode='+kind+'&ids='+encodeURIComponent(ids.join(','));
+}
+function startListAt(id,ids){location.hash='#/quiz?mode=seq&pos='+ids.indexOf(id)+'&ids='+encodeURIComponent(ids.join(','));}
+function clearWrong(){
+  if(!confirm('确定清空全部错题记录吗？（不会删除做题统计之外的其他数据）'))return;
+  wrongIds().forEach(function(id){delete REC.ans[id];});
+  saveAns();toast('错题记录已清空');renderWrongFav('wrong');
+}
+
+/* ============================================================
+ * 技巧页
+ * ============================================================ */
+var METHODS = {
+  position:{feat:'元素组成基本相同',sign:'图形骨架一致，只是位置、方向在变',pts:['平移：方向看直线（上下、左右、斜对角线）与绕圈（顺、逆时针）；步数看恒定、递增','旋转：方向（顺/逆时针）＋角度（30°、45°、60°、90°、180°）','翻转：左右翻转两图沿竖轴对称，上下翻转两图沿横轴对称','多元素分别平移，分别标号；16 宫格黑白块可分内、外圈分别看']},
+  style:{feat:'元素组成相似',sign:'相同元素或相同线条重复出现、外轮廓相同',pts:['遍历：相同元素重复出现，按“缺啥补啥”补齐位置、形状、数量','加减同异：相加/相减；求异＝去同存异；求同＝去异存同','黑白运算：轮廓与分割相同、黑块数量不成规律时，按对应位置列“黑＋白＝？”','复合考法：先旋转/翻转再求异，注意比对局部线条']},
+  symmetry:{feat:'元素组成不同，且图形规整',sign:'等腰图形；平行四边形，S、N、Z 及其变形；两条垂直对称轴',pts:['轴对称：沿一条直线折叠两边完全重合，特征图是“等腰”图形','中心对称：旋转 180° 与原图重合，特征图是平行四边形、S/N/Z 变形','轴＋中心：存在两条互相垂直的对称轴','细化考法：对称轴的方向与数量；轴与图形的点、线、面关系；最大面/最小面的对称性']},
+  quzhi:{feat:'元素组成不同，出现圆弧或生活化、粗线条图形',sign:'全曲线图、圆、弧；粗线条、实物简笔画',pts:['曲直性：全直线、全曲线、曲＋直（上曲下直、内曲外直等）','开闭性：全封闭、全开放、半封闭半开放','常与对称性、数面复合考查，单一规律无答案时主动叠加']},
+  special:{feat:'多个封闭图形相连，或出现小黑点、箭头',sign:'两三个图形挨在一起；每幅图都有黑点、白点、箭头',pts:['图形间关系：相离；相交于点；相交于线；相交于面','相交于线：数相交边数量，看长/短、整体/局部','相交于面：看相交面的形状','功能元素：标记点（直直/曲曲/曲直交点）、线（直曲、最长最短）、角（直锐钝、最大最小）、面（最大最小、重合单独）']},
+  face:{feat:'图形被分割、封闭面明显',sign:'“窟窿”多；生活化、粗线条图形中有留白',pts:['先数所有面的总数（等差、周期、和差）','再看面的形状：三角形、四边形的数量','看相同面：“双胞胎面”“多胞胎面”','看最大面、最小面的形状与属性（对称、曲直）','高频复合：面数量＝外框直线数量']},
+  line:{feat:'单一线条、多边形反复出现',sign:'多边形、单一直线→直线；圆、弧、全曲线→曲线',pts:['直线按折点分段数；曲线按平滑弧线数（一个圆弧算一条）','可只数横线、竖线、平行线或外框线','线数量无规律立刻转笔画数','常与面数量、位置规律复合']},
+  stroke:{feat:'笔画特征图明显',sign:'五角星，“日”“田”及其变形，圆相切/相交，多端点图形',pts:['一笔画：图形全部连通 且 奇点数为 0 或 2','多笔画：连通图笔画数＝奇点数 ÷ 2（奇点一定是偶数个）','奇点＝发出奇数条线的点，所有端点都是奇点，必须数上','图形不连通：每部分笔画数分别算，再相加']},
+  point:{feat:'线条交叉明显、相切较多',sign:'“大树杈”、十字交叉、圆与线相切',pts:['数交点：直直交点、曲曲交点、曲直交点','数切点：题干反复出现相切动作','有外框时分开数：框上交点、框内交点','点数量常与曲直性、内外框结合考查']},
+  angle:{feat:'直角、锐角、钝角明显',sign:'十字、L 形、垂直折线、被“掰开”的角',pts:['优先数直角（近年高频），再数锐角、钝角','只数小于 180° 的角；开口处的缺口角不数','图形出现折线改造（加一条线、掰一个口），多为数角']},
+  element:{feat:'多个独立小元素、黑白球',sign:'小图案重复出现；生活化粗线条图形；黑白球/黑白块',pts:['元素种类、元素个数','部分数：线条连在一起算一个部分（生活化、粗线条图形高频）','相同元素的位置替换（如最长元素依次顺时针移动）','黑白球：先数黑块个数——相同想位置，不同想黑白运算或黑/白部分数']},
+  space:{feat:'立体图形、纸盒展开图、三视图、截面、拼合',sign:'六面体展开图、立体小方块、圆柱圆锥截面',pts:['相对面：同行或同列隔一个面；“Z”字形两端（紧靠 Z 中间线）；相对面同时出现的选项直接排除','公共边：平面图中构成直角的两条边是同一条边；四个面连成一排，两头两条边是同一条边','公共点：相邻三个面的公共点唯一，发出的线条数要一致','画边法“三同”：同一面、同一起点（唯一点/边）、同一方向描边标号，对不上即排除','三视图：正视图、俯视图、侧视图，看不见的轮廓画虚线','截面题：平面刀切出的轮廓，记住立方体切不出直角三角形、圆柱斜切是椭圆等常见结论','立体拼合：分层/分列数方块，凹凸块互补，数量对不上直接排除']},
+  other:{feat:'单一规律无唯一答案',sign:'规律复合、答案纠结',pts:['按“相同→位置、相似→样式、不同→先属性后数量”的总顺序重走一遍','常见复合：对称＋数面、面数量＝外框直线数、数量＋位置旋转','先整体后局部：整体规律不行，再看最大面、特殊元素、局部小黑块','把已验证规律写在草稿上，避免重复排查']}
+};
+function renderMethods(){
+  app.innerHTML=
+  '<div class="section-title">图形推理 · 解题方法大全</div>'+
+  '<div class="tree">'+
+    '<b style="font-size:16px">总纲：拿到一道题，先看“元素组成”，三秒定方向</b>'+
+    '<div class="tree-flow">'+
+      '<div class="tree-node t1">元素组成<big>相同</big><small>图形骨架一致，只是位置在变</small></div>'+
+      '<div class="tree-arrow">→</div><div class="tree-node t2">位置规律<small>平移 · 旋转 · 翻转</small></div>'+
+      '<div class="tree-arrow">→</div>'+
+      '<div class="tree-node t3">元素组成<big>相似</big><small>相同元素/线条重复</small></div>'+
+      '<div class="tree-arrow">→</div><div class="tree-node t2">样式规律<small>遍历 · 加减同异 · 黑白运算</small></div>'+
+    '</div>'+
+    '<div class="tree-flow" style="margin-top:10px">'+
+      '<div class="tree-node t3">元素组成<big>不同</big><small>先属性，后数量</small></div>'+
+      '<div class="tree-arrow">→</div><div class="tree-node t2">属性规律<small>对称性 → 曲直性 → 开闭性</small></div>'+
+      '<div class="tree-arrow">→</div><div class="tree-node t2">数量规律<small>面 → 线（含笔画）→ 点 → 角 → 素</small></div>'+
+      '<div class="tree-arrow">→</div><div class="tree-node t4">立体图形<small>空间重构</small></div>'+
+      '<div class="tree-arrow">→</div><div class="tree-node t4">相对面 · 公共边<br>画边法 · 三视图截面</div>'+
+    '</div>'+
+    '<p class="muted" style="margin-top:12px">分组分类题：把六个图形的共同特征（对称方式、笔画数、面数量、功能元素位置等）分别列出，自然分成两组；选非题（“不能/无法”）先把能折成、能截出的选项逐一验证。</p>'+
+  '</div>'+
+  '<div class="section-title">六大规律 · 特征图与解题技巧</div>'+
+  '<div class="method-grid">'+
+    CAT_ORDER.map(function(c){
+      var m=METHODS[c], d=CATS[c];
+      return '<div class="method-card '+d.mc+(c==='space'?' span2':'')+'"><h3><span class="dot"></span>'+d.name+'</h3><div class="bd">'+
+        '<div class="row"><b>图形特征</b><p>'+m.feat+'</p></div>'+
+        '<div class="row"><b>特征图 / 信号</b><p>'+m.sign+'</p></div>'+
+        '<div class="row"><b>考点与解题步骤</b><ul>'+m.pts.map(function(p){return '<li>'+p+'</li>';}).join('')+'</ul></div>'+
+        '<button class="btn ghost" style="padding:6px 14px;font-size:13px" onclick="location.hash=\'#/list?cat='+c+'\'">去练'+d.name+'（'+catCount(c)+'题）</button>'+
+      '</div></div>';
+    }).join('')+
+  '</div>'+
+  '<div class="foot-note">以上方法框架与全部解题思路均为本站结合图形推理通用解题方法原创整理，题目选自历年公考公开真题，仅供学习交流。</div>';
+}
+
+/* ============================================================
+ * GOAT 挑战：45 秒/题、三条命、连击加分、难度递进
+ * ============================================================ */
+var GOAT_TIME = 45;
+var G = null;
+var HARD_CATS = {stroke:1,space:1,point:1,angle:1,other:1,face:1};
+var SVG_CROWN='<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#e7b93c" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" style="display:inline-block"><path d="M3 8l4 3.5L12 5l5 6.5L21 8l-1.7 10H4.7L3 8z"/><path d="M4.7 18h14.6"/></svg>';
+var SVG_FLAG='<svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#e7b93c" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" style="display:inline-block"><path d="M5 21V4"/><path d="M5 4h11.5l-2.2 3 2.2 3H5"/></svg>';
+function rankOf(score){
+  if(score>=350)return 'GOAT 图推之王';
+  if(score>=220)return '最强王者';
+  if(score>=130)return '璀璨钻石';
+  if(score>=70)return '荣耀黄金';
+  if(score>=30)return '不屈白银';
+  return '坚韧青铜';
+}
+function renderGoat(){
+  document.onkeydown=null;
+  if(!G || G.phase==='idle') return goatStart();
+  if(G.phase==='over') return goatOver();
+  goatPlay();
+}
+function goatStart(){
+  var best=REC.goat.best||0;
+  app.innerHTML='<div class="goat-wrap"><div class="goat-panel">'+
+    '<div class="crown">'+SVG_CROWN+'</div><h2>GOAT 限时挑战</h2>'+
+    '<p style="opacity:.85;font-size:15px">在规定时间内连续作答，答错或超时扣除一条命，命尽结算。你能成为图推之王吗？</p>'+
+    '<ul class="goat-rules">'+
+      '<li>每题 <b style="color:#f0c75e">45 秒</b>，超时按答错处理</li>'+
+      '<li>初始 <b style="color:#e0645a">3 条命</b>，答错 / 超时扣 1 条，答对不回血</li>'+
+      '<li>连续答对触发<b style="color:#f0c75e">连击</b>，连击越高每题加分越多</li>'+
+      '<li>连击达到 5 以后，系统优先推送空间重构、笔画、点角等难题，越战越难</li>'+
+      '<li>错题自动进入错题本，结算后可逐题查看解析</li>'+
+    '</ul>'+
+    (best?'<p class="muted" style="color:#b9bec6">历史最佳：'+best+' 分'+(REC.goat.rank?' · '+REC.goat.rank:'')+'</p>':'')+
+    '<div style="margin-top:20px;display:flex;gap:12px;justify-content:center"><button class="btn ghost" onclick="location.hash=\'#/methods\'">先看技巧</button><button class="btn gold big" onclick="goatBegin()">开始挑战</button></div>'+
+  '</div>'+adSlot('small','mini')+'</div>';
+}
+function goatBegin(){
+  G={phase:'play',deck:shuffle(QDATA.map(function(q){return q.id;})),used:{},idx:0,
+     lives:3,streak:0,max:0,score:0,correct:0,total:0,wrong:[],timer:null,remain:GOAT_TIME,picked:false,q:null};
+  goatNext();
+}
+function goatDraw(){
+  // 高连击优先抽难题
+  var remain=G.deck.filter(function(id){return !G.used[id];});
+  if(!remain.length)return null;
+  var pool=remain;
+  if(G.streak>=4){
+    var hard=remain.filter(function(id){var q=byId(id);return (q.acc&&parseFloat(q.acc)<60)||HARD_CATS[q.cat];});
+    if(hard.length)pool=hard;
+  }
+  return pool[Math.floor(Math.random()*pool.length)];
+}
+function goatNext(){
+  var id=goatDraw();
+  if(!id){G.phase='over';goatOver();return;}
+  G.used[id]=1;G.q=byId(id);G.picked=false;G.remain=GOAT_TIME;
+  goatPlay();
+  clearInterval(G.timer);
+  var last=Date.now();
+  G.timer=setInterval(function(){
+    var now=Date.now();G.remain-=(now-last)/1000;last=now;
+    if(G.remain<=0){clearInterval(G.timer);goatPick(null);return;}
+    var bar=document.getElementById('gtimer');if(bar)bar.style.width=(G.remain/GOAT_TIME*100)+'%';
+    var cd=document.getElementById('gcount');if(cd)cd.textContent=Math.ceil(G.remain)+'s';
+  },100);
+}
+function goatPlay(){
+  if(!G.q){goatNext();return;}
+  var q=G.q;
+  app.innerHTML='<div class="goat-wrap"><div class="goat-panel" style="padding:20px 22px">'+
+    '<div class="goat-hud">'+
+      '<div class="lives">'+[0,1,2].map(function(i){return '<span class="'+(i<G.lives?'':'dead')+'">♥</span>';}).join('')+'</div>'+
+      '<div class="streak">连击 ×'+G.streak+'</div>'+
+      '<div class="gscore">'+G.score+' 分</div>'+
+      '<button class="btn ghost" style="padding:6px 14px;font-size:13px" onclick="goatQuit()">结束</button>'+
+    '</div>'+
+    '<div class="timerbar"><i id="gtimer" style="width:100%"></i></div>'+
+    '<div style="display:flex;justify-content:space-between;font-size:13px;color:#b9bec6;margin-bottom:8px"><span>'+CATS[q.cat].name+(q.src?' · '+esc(q.src):'')+'</span><span id="gcount">45s</span></div>'+
+    '<div class="goat-q">'+
+      '<div class="q-imgbox"><div class="q-canvas-wrap"><img src="'+q.img+'" alt="GOAT题目"><canvas class="mark-canvas"></canvas></div>'+goatMarkIcons()+'</div>'+
+      '<div class="opts">'+['A','B','C','D'].map(function(k){
+        return '<button class="opt" id="gopt'+k+'" onclick="goatPick(\''+k+'\')"><span class="k">'+k+'</span><span>选项 '+k+'</span></button>';
+      }).join('')+'</div>'+
+    '</div>'+
+  '</div></div>';
+  initCanvas(app.querySelector('.q-canvas-wrap'), q.id);
+}
+function goatMarkIcons(){
+  var pen='<svg viewBox="0 0 24 24"><path d="M16.5 3.5l4 4L7 21l-4 1 1-4z"/></svg>';
+  var era='<svg viewBox="0 0 24 24"><path d="M16 3l5 5-9 9H7l-4-4z"/><path d="M9 21h12"/></svg>';
+  return '<div class="mark-bar" data-markbar>'+
+    '<button type="button" class="tool pen on" data-tool="pen">'+pen+'画笔</button>'+
+    '<button type="button" class="tool eraser" data-tool="eraser">'+era+'橡皮</button></div>';
+}
+function goatPick(k){
+  if(G.picked)return;G.picked=true;clearInterval(G.timer);
+  var q=G.q,ok=k===q.ans;G.total++;
+  // 标注选项
+  ['A','B','C','D'].forEach(function(x){
+    var b=document.getElementById('gopt'+x);if(!b)return;b.classList.add('disabled');
+    if(x===q.ans)b.classList.add('right');
+    if(x===k&&!ok)b.classList.add('wrong');
+  });
+  REC.ans[q.id]={pick:k||'-',ok:ok?1:0,t:Date.now()};saveAns();
+  if(ok){
+    G.correct++;G.streak++;G.max=Math.max(G.max,G.streak);
+    var gain=10+Math.ceil(G.remain/3)+G.streak*2;G.score+=gain;
+    toast('答对 +'+gain+' 分');
+  }else{
+    G.lives--;G.streak=0;G.wrong.push(q.id);
+    toast(k?('答错，正确答案 '+q.ans):('超时，正确答案 '+q.ans));
+  }
+  setTimeout(function(){
+    if(G.lives<=0){G.phase='over';goatOver();}else{goatNext();}
+  },ok?1000:1900);
+}
+function goatQuit(){G.phase='over';clearInterval(G.timer);goatOver();}
+function goatOver(){
+  clearInterval(G&&G.timer);
+  var rank=rankOf(G.score);
+  var isBest=G.score>(REC.goat.best||0);
+  if(isBest){REC.goat={best:G.score,streak:G.max,rank:rank};STORE.set('goat',REC.goat);}
+  app.innerHTML='<div class="goat-wrap"><div class="goat-panel goat-over">'+
+    '<div class="crown">'+(G.score>=220?SVG_CROWN:SVG_FLAG)+'</div>'+
+    '<h2>挑战结束</h2>'+
+    '<div class="rank">'+rank+(isBest?'　新纪录！':'')+'</div>'+
+    '<div class="goat-stats">'+
+      '<div><b>'+G.score+'</b><span>总得分'+(isBest?'（最佳）':'')+'</span></div>'+
+      '<div><b>'+G.correct+' / '+G.total+'</b><span>答对题数</span></div>'+
+      '<div><b>'+G.max+'</b><span>最高连击</span></div>'+
+    '</div>'+
+    (G.wrong.length?'<p style="text-align:left;color:#b9bec6;font-size:14px;margin:6px 0">本局错题（点击查看解析）：</p><div class="review-list">'+
+      G.wrong.map(function(id){var q=byId(id);return '<div class="review-item" onclick="goatReview(\''+id+'\')"><span class="rk">'+q.ans+'</span><span>'+esc(q.g)+' 第'+q.n+'题 · '+CATS[q.cat].name+'</span></div>';}).join('')+
+    '</div>':'<p style="color:#7fd6a6;margin:10px 0">零错题，太强了！</p>')+
+    '<div style="margin-top:22px;display:flex;gap:12px;justify-content:center"><button class="btn ghost" onclick="location.hash=\'#/home\'">回首页</button><button class="btn gold big" onclick="goatBegin()">再来一局</button></div>'+
+  '</div>'+adSlot('small','mini')+'</div>';
+}
+function goatReview(id){
+  var ids=G.wrong.slice();
+  G={phase:'idle'};
+  location.hash='#/quiz?mode=wrong&pos='+ids.indexOf(id)+'&ids='+encodeURIComponent(ids.join(','));
+}
+
+/* ============================================================
+ * 我的经验总结
+ * ============================================================ */
+var NOTES_CAT = 'general';
+function wrongCatCount(c){
+  var w=wrongIds();
+  return w.filter(function(id){return byId(id)&&byId(id).cat===c;}).length;
+}
+function renderNotes(){
+  var side='<div class="notes-side"><div class="nt">按规律分类沉淀</div>'+
+    '<button data-nc="general" class="on">通用心得<span class="badge"></span></button>'+
+    CAT_ORDER.map(function(c){
+      var n=wrongCatCount(c);
+      return '<button data-nc="'+c+'">'+CATS[c].name+'<span class="badge">'+(n?('错题 '+n):'')+'</span></button>';
+    }).join('')+'</div>';
+  var catName=NOTES_CAT==='general'?'通用心得':CATS[NOTES_CAT].name;
+  var hint=NOTES_CAT==='general'?'':(function(){
+    var n=wrongCatCount(NOTES_CAT);
+    return n?('你在「'+catName+'」类目前有 '+n+' 道错题，建议写下：错在没认出特征图，还是规律记错了。'):('这类目前没有错题，可以记录你识别它的口诀。');
+  })();
+  var main='<div class="notes-main">'+
+    '<h3>'+catName+' · 我的经验总结</h3>'+
+    '<div class="save-tip" id="noteTip">内容自动保存在本机浏览器</div>'+
+    (hint?'<div class="wrong-hint">'+hint+'</div>':'')+
+    '<textarea id="noteArea" placeholder="例如：&#10;1. 看到黑白块先想平移/黑白运算，再想对称性；&#10;2. 分组分类题优先数对称、曲直、开闭这类属性规律；&#10;3. 折纸盒先找相对面（相间、Z 字两端），再用公共边/画边法排除。&#10;把老师讲的、自己踩坑的，用自己的话写下来，考前只看这一页。">'+esc(REC.notes[NOTES_CAT]||'')+'</textarea>'+
+    '<div class="notes-actions"><button class="btn" id="noteSave">保存</button>'+
+    '<button class="btn ghost" id="noteClear">清空本类</button></div></div>';
+  app.innerHTML='<div class="page-head"><h2>我的经验总结</h2><p>按规律分类沉淀自己的口诀与踩坑记录，内容只存在本机，可导出备份。</p></div>'+
+    '<div class="notes-layout">'+side+'<div>'+main+
+    '<div class="settings-card"><h3>学习数据管理</h3>'+
+      '<p>做题记录、收藏、GOAT 成绩、经验总结与题图标注均保存在本机浏览器（localStorage），不上传服务器。换电脑或清缓存前建议先导出备份。</p>'+
+      '<div class="row">'+
+        '<button class="btn" onclick="exportData()">导出学习记录（JSON）</button>'+
+        '<button class="btn ghost" onclick="document.getElementById(\'importFile\').click()">导入学习记录</button>'+
+        '<button class="btn ghost" id="resetData" style="color:var(--red);border-color:rgba(220,80,70,.4)">全部清零</button>'+
+      '</div></div>'+
+    '</div></div>';
+  var area=document.getElementById('noteArea'),tip=document.getElementById('noteTip'),timer=null;
+  function persist(){
+    REC.notes[NOTES_CAT]=area.value;saveNotes();
+    tip.textContent='已保存 · '+new Date().toLocaleTimeString();
+  }
+  area.addEventListener('input',function(){clearTimeout(timer);tip.textContent='编辑中…';timer=setTimeout(persist,500);});
+  document.getElementById('noteSave').onclick=function(){persist();toast('经验已保存');};
+  document.getElementById('noteClear').onclick=function(){
+    if(!confirm('清空「'+catName+'」下的经验内容？'))return;
+    area.value='';delete REC.notes[NOTES_CAT];saveNotes();toast('已清空');
+  };
+  document.getElementById('resetData').onclick=resetAllData;
+  document.querySelectorAll('[data-nc]').forEach(function(b){
+    b.onclick=function(){NOTES_CAT=b.getAttribute('data-nc');renderNotes();
+      document.querySelectorAll('[data-nc]').forEach(function(x){x.classList.toggle('on',x===b);});};
+  });
+}
+
+/* ============================================================
+ * 隐私政策
+ * ============================================================ */
+function renderPrivacy(){
+  app.innerHTML='<div class="page-head"><h2>隐私政策</h2><p>最后更新：2026 年 9 月</p></div>'+
+  '<div class="q-paper" style="line-height:2;font-size:14.5px">'+
+  '<h3 style="margin-bottom:8px">一、我们收集什么</h3>'+
+  '<p>本站为纯前端静态网站，不注册、不登录、不设服务器数据库。你的做题记录、收藏、GOAT 成绩、经验总结与题图标注，仅保存在你所用浏览器的本地存储（localStorage）中，不会主动上传给本站。</p>'+
+  '<h3 style="margin:14px 0 8px">二、第三方服务</h3>'+
+  '<p>本站上线后可能接入以下第三方服务，它们会按各自隐私政策收集信息：</p>'+
+  '<p>1. <b>广告联盟（如百度联盟、Google AdSense）</b>：用于展示广告，可能使用 Cookie 进行个性化广告投放与频次控制；你可在广告平台设置中关闭个性化广告。</p>'+
+  '<p>2. <b>访问统计（如百度统计、Google Analytics）</b>：用于统计访问量、设备与浏览器类型等匿名数据，帮助改进网站。</p>'+
+  '<p>在对应 ID 配置启用前，上述脚本不会加载、不会发起任何请求。</p>'+
+  '<h3 style="margin:14px 0 8px">三、数据的查看与删除</h3>'+
+  '<p>你可随时在「经验」页导出全部学习记录，或点击“全部清零”删除本机数据；也可通过浏览器“清除浏览数据”删除 localStorage。</p>'+
+  '<h3 style="margin:14px 0 8px">四、版权说明</h3>'+
+  '<p>站内题目选自历年公务员考试公开真题；参考答案以公开真题答案为准，解题思路、方法总结与技巧点拨均为本站原创编写，仅供个人学习交流使用，不用于出售。如权利人认为内容涉及权益，请通过网站仓库的 Issues 联系，我们将及时处理。</p>'+
+  '<h3 style="margin:14px 0 8px">五、联系</h3>'+
+  '<p>如对本政策有疑问，可通过网站仓库的 Issues 联系站长。</p>'+
+  '</div>';
+}
+
+/* ============================================================
+ * 灯箱 & 初始化
+ * ============================================================ */
+var lb=document.getElementById('lightbox');
+function zoom(src){lb.querySelector('img').src=src;lb.classList.add('show');}
+lb.addEventListener('click',function(){lb.classList.remove('show');});
+window.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('show');});
+
+route();
+
+</script>
+</body>
+</html>

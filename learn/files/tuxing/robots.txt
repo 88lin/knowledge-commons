@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cha551.github.io/gk-tuxing/sitemap.xml

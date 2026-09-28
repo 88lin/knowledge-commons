@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PDF 阅读 · 全民学习中心</title>
+<link rel="stylesheet" href="style.css">
+<style>
+#cvs{width:100%;background:#fff;border:1px solid var(--line);border-radius:10px;margin:8px 0}
+</style>
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>PDF 阅读器 | 离线可读</span></div>
+<div class="wrap" style="padding-top:12px">
+  <div class="card">
+    <h2 class="sec" id="ttl" style="margin-top:0">正在加载…</h2>
+    <div class="pager">
+      <button id="prev">上一页</button>
+      <span class="small" id="pin">– / –</span>
+      <button id="next">下一页</button>
+      <span style="flex:1"></span>
+      <button id="zin">放大</button><button id="zout">缩小</button>
+    </div>
+    <div id="msg" class="small"></div>
+    <canvas id="cvs"></canvas>
+  </div>
+  <p><a href="exams.html">← 返回升学考试</a> · <a href="index.html">学习中心</a></p>
+</div>
+<script src="files/zsb/pdf.min.js"></script>
+<script>
+(function(){
+  var q=new URLSearchParams(location.search);
+  var f=q.get('f')||'';
+  var d=document.getElementById('ttl'),msg=document.getElementById('msg'),cvs=document.getElementById('cvs');
+  var pin=document.getElementById('pin');
+  if(!f){d.textContent='缺少文件参数';return;}
+  d.textContent=decodeURIComponent(f.split('/').pop());
+  if(!window.pdfjsLib){msg.textContent='阅读器组件加载失败';return;}
+  pdfjsLib.GlobalWorkerOptions.workerSrc='files/zsb/pdf.worker.min.js';
+  var pdf=null,page=1,scale=1.3,rendering=false;
+  function render(){
+    if(!pdf)return;
+    rendering=true;
+    pdf.getPage(page).then(function(p){
+      var vp=p.getViewport({scale:scale});
+      cvs.width=vp.width;cvs.height=vp.height;
+      var ctx=cvs.getContext('2d');
+      p.render({canvasContext:ctx,viewport:vp}).promise.then(function(){
+        rendering=false;
+        pin.textContent=page+' / '+pdf.numPages;
+        msg.textContent='';
+      });
+    });
+  }
+  pdfjsLib.getDocument({url:f}).promise.then(function(doc){
+    pdf=doc;msg.textContent='共 '+doc.numPages+' 页';
+    render();
+  }).catch(function(e){msg.textContent='加载失败：'+e;});
+  document.getElementById('prev').addEventListener('click',function(){if(pdf&&page>1){page--;render();}});
+  document.getElementById('next').addEventListener('click',function(){if(pdf&&page<pdf.numPages){page++;render();}});
+  document.getElementById('zin').addEventListener('click',function(){scale+=0.25;render();});
+  document.getElementById('zout').addEventListener('click',function(){scale=Math.max(0.6,scale-0.25);render();});
+})();
+</script>
+</body>
+</html>
