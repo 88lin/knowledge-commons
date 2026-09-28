@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>算法竞赛 · 从零到精通 13 讲 · 知识公社</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .lesson{scroll-margin-top:70px}
+  .lesson h3{font-size:17px;margin:26px 0 10px;color:var(--blue-dk)}
+  .lesson h4{font-size:14.5px;margin:14px 0 6px;color:var(--ink)}
+  .lesson p{margin:8px 0}
+  .lesson ul{margin:6px 0;padding-left:20px}
+  .lesson li{margin:3px 0}
+  pre{background:#0f172a;color:#e2e8f0;padding:12px 14px;border-radius:12px;overflow-x:auto;font-size:12.5px;line-height:1.6}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace}
+  .kbd{background:var(--blue-tint);color:var(--blue-dk);border-radius:6px;padding:1px 7px;font-size:12.5px}
+  .lesson .goal{background:#f8fbff;border:1px solid var(--blue-line);border-radius:10px;padding:10px 12px;font-size:13.5px;margin:10px 0}
+  .lesson .check{background:#fbfdf8;border:1px dashed #cfe3c2;border-radius:10px;padding:10px 12px;font-size:13.5px;margin:10px 0}
+  .toc-mini{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+  .toc-mini a{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>知识公社 | 课程 · 算法竞赛从零到精通</span></div>
+<header class="hero">
+  <div class="kicker">ALGORITHM CONTEST · ZERO TO HERO</div>
+  <h1>算法竞赛 · 从零到精通 · 13 讲</h1>
+  <p>面向零基础的完整讲解：每讲都有知识点、可运行的代码模板、经典例题和练习指引。</p>
+  <p>建议节奏：<b>每天一讲 + 当天完成对应练习</b>；13 天走完基础盘，然后按最后一讲的刷题路线持续推进。</p>
+</header>
+<nav class="tabs">
+  <a href="index.html">首页</a>
+  <a class="on" href="courses.html">课程</a>
+  <a href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a>
+  <a href="gongkao.html">公考</a>
+  <a href="red.html">红色</a>
+  <a href="paths.html">路线</a>
+  <a href="about.html">简章</a>
+</nav>
+
+<div class="wrap">
+  <div class="card">
+    <b>本课配套的免费练习平台</b>（点开即可做题，全部免费）：
+    <div class="toc-mini">
+      <a href="https://codeforces.com/problemset">Codeforces</a>
+      <a href="https://atcoder.jp/">AtCoder</a>
+      <a href="https://www.luogu.com.cn/problem/list">洛谷</a>
+      <a href="contest.html">本站题库索引（11425+9600 题可搜索）</a>
+    </div>
+    <p class="small">不会注册？第 1 讲里写了每一步。做题时遇到不会的，先看最后一讲的"卡住了怎么办"。</p>
+  </div>
+
+  <div class="card lesson" id="l1">
+    <h3>第 1 讲 · 开始之前：环境、平台与心态</h3>
+    <div class="goal">目标：能在电脑装好环境、在平台上注册并提交第一道题。</div>
+    <h4>1. 选一门语言</h4>
+    <ul>
+      <li>正式比赛主流是 <b>C++</b>（速度快、模板多），推荐直接用 C++ 备战。</li>
+      <li>只想先体验、或以后搞数据方向：用 <b>Python</b>（本站有独立的 Python 入门课）。</li>
+    </ul>
+    <h4>2. 装环境（10 分钟）</h4>
+    <ul>
+      <li>下载任一编译器：Windows 推荐 Dev-C++ 或 VS Code + MinGW；或者直接用在线环境（洛谷 IDE、Codeforces 自带）。</li>
+      <li>基本框架（往后的代码都在这个框架里写）：</li>
+    </ul>
+    <pre><code>#include &lt;bits/stdc++.h&gt;
+using namespace std;
+int main(){
+    int a, b;
+    cin &gt;&gt; a &gt;&gt; b;      // 读入两个数
+    cout &lt;&lt; a + b &lt;&lt; endl; // 输出它们的和
+    return 0;
+}</code></pre>
+    <h4>3. 注册一个平台并提交第一题</h4>
+    <ul>
+      <li>推荐先在 <b>Codeforces</b> 注册：打开题目列表 → 按难度排序 → 选最简单的一道 → 写代码 → Submit。</li>
+      <li>提交后看到绿色的 <span class="kbd">Accepted</span>（AC）就成功了；红色的 <span class="kbd">Wrong Answer</span>（WA）会告诉你哪组数据没过。</li>
+    </ul>
+    <div class="check">本讲小测：完成 A+B Problem 的提交（本站索引搜 "A+B" 或直接用平台的第一题）。</div>
+  </div>
+
+  <div class="card lesson" id="l2">
+    <h3>第 2 讲 · 复杂度：让你的程序"跑得动"</h3>
+    <div class="goal">目标：看到题目数据范围，就能判断自己的算法会不会超时。</div>
+    <p>竞技编程的第一思维不是"对不对"，而是"<b>快不快</b>"。评测机大约每秒能执行 <b>1 亿次</b>左右的基本操作。</p>
+    <h4>记一张速查表（1 秒时限内）</h4>
+    <ul>
+      <li>n ≤ 10⁶：只能 O(n) 或 O(n log n)</li>
+      <li>n ≤ 5000：O(n²) 可以</li>
+      <li>n ≤ 300：O(n³) 可以</li>
+      <li>n ≤ 20：状态压缩 / 枚举子集（2ⁿ）</li>
+      <li>n ≤ 10：全排列枚举（10! = 362 万）</li>
+    </ul>
+    <h4>例子</h4>
+    <pre><code>// 求 1+2+...+n
+// 慢：循环 O(n)
+long long s = 0;
+for (int i = 1; i &lt;= n; i++) s += i;
+// 快：公式 O(1)
+long long s2 = 1LL * n * (n + 1) / 2;</code></pre>
+    <div class="check">小测：n = 10⁹ 时上面两种写法哪个能过？（答案：公式；循环要跑 10 秒以上，必超时）</div>
+  </div>
+
+  <div class="card lesson" id="l3">
+    <h3>第 3 讲 · 数组、字符串与"模拟"</h3>
+    <div class="goal">目标：把题面规则原样翻译成代码（模拟题是新手最稳定的得分点）。</div>
+    <h4>要点</h4>
+    <ul>
+      <li>数组：<code>int a[100005];</code> 开在外层（全局）会自动清零且不会爆栈。</li>
+      <li>字符串：<code>string s;</code> 支持 <code>s.size()</code>、<code>s[i]</code>、<code>s.substr(l, len)</code>。</li>
+      <li>模拟题三件套：<b>读清规则 → 用循环一步步做 → 注意边界</b>（第 1 个、最后一个、等于号）。</li>
+    </ul>
+    <h4>例题（洛谷风格）：统计一句话里的大写字母数量</h4>
+    <pre><code>string s; getline(cin, s);
+int cnt = 0;
+for (char c : s)
+    if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') cnt++;
+cout &lt;&lt; cnt &lt;&lt; endl;</code></pre>
+    <div class="check">练习：把上面的题改成统计"数字字符"的个数，再改成统计"每个字母出现次数"（提示：数组计数）。</div>
+  </div>
+
+  <div class="card lesson" id="l4">
+    <h3>第 4 讲 · 排序与二分</h3>
+    <div class="goal">目标：会用 sort；会写"猜答案"的二分。</div>
+    <h4>排序：一行解决</h4>
+    <pre><code>int a[1005], n;
+sort(a, a + n);              // 升序
+sort(a, a + n, greater&lt;int&gt;()); // 降序
+// 结构体排序
+struct P { int x, y; };
+bool cmp(const P&amp; a, const P&amp; b){ return a.x &lt; b.x; }
+sort(p, p + m, cmp);</code></pre>
+    <h4>二分：在"单调世界"里找答案</h4>
+    <p>两种用法：一、 在有序数组里找某个值；二、 <b>答案具有单调性时二分答案</b>（"最大的最小值""能不能做到"类问题）。</p>
+    <pre><code>// 在升序数组 a 里找 x 是否存在
+int l = 0, r = n - 1;
+while (l &lt;= r) {
+    int mid = (l + r) / 2;
+    if (a[mid] == x) { /* 找到 */ break; }
+    if (a[mid] &lt; x) l = mid + 1; else r = mid - 1;
+}</code></pre>
+    <div class="check">练习：搜本站题库 "binary search" 标签的 1200 分题做 5 道。</div>
+  </div>
+
+  <div class="card lesson" id="l5">
+    <h3>第 5 讲 · 前缀和与差分</h3>
+    <div class="goal">目标：把"区间求和 / 区间修改"从 O(n) 变成 O(1)。</div>
+    <h4>前缀和（快速求区间和）</h4>
+    <pre><code>long long pre[100005];
+for (int i = 1; i &lt;= n; i++) pre[i] = pre[i-1] + a[i];
+// 区间 [l, r] 的和：
+long long ans = pre[r] - pre[l-1];</code></pre>
+    <h4>差分（快速区间加）</h4>
+    <pre><code>// 让 [l, r] 全部 +v：
+diff[l] += v; diff[r+1] -= v;
+// 结束后求前缀和还原：
+for (int i = 1; i &lt;= n; i++) a[i] = a[i-1] + diff[i];</code></pre>
+    <div class="check">练习：经典题"小明的项链"+ 任意两道"区间加、单点查"的题。</div>
+  </div>
+
+  <div class="card lesson" id="l6">
+    <h3>第 6 讲 · 栈、队列与链表</h3>
+    <div class="goal">目标：知道三种结构的用途，并能用栈解决括号匹配、用队列做"逐层处理"。</div>
+    <ul>
+      <li><b>栈</b> stack：后进先出。典型场景：括号匹配、撤销、单调栈找"下一个更大元素"。</li>
+      <li><b>队列</b> queue：先进先出。典型场景：排队模拟、BFS（下一讲）。</li>
+      <li><b>链表</b>：节点 + 指针/数组模拟（<code>nxt[i]</code>），用于频繁插入删除。</li>
+    </ul>
+    <pre><code>// 括号匹配
+stack&lt;char&gt; st; bool ok = true;
+for (char c : s) {
+    if (c == '(') st.push(c);
+    else if (c == ')') {
+        if (st.empty()) { ok = false; break; }
+        st.pop();
+    }
+}
+if (!st.empty()) ok = false;
+cout &lt;&lt; (ok ? "YES" : "NO") &lt;&lt; endl;</code></pre>
+    <div class="check">练习：把括号匹配扩展为同时支持 ()[]{} 三种括号。</div>
+  </div>
+
+  <div class="card lesson" id="l7">
+    <h3>第 7 讲 · 递归与深度优先搜索（DFS）</h3>
+    <div class="goal">目标：会写递归，能用 DFS 遍历图和"暴力枚举所有可能"。</div>
+    <h4>递归三要素</h4>
+    <ul>
+      <li><b>终止条件</b>（到了最底层做什么）</li>
+      <li><b>缩小问题</b>（自己调用自己，但规模更小）</li>
+      <li><b>回溯</b>（走不通时退回上一步，恢复现场）</li>
+    </ul>
+    <pre><code>// 求 n 的阶乘（最简单的递归）
+long long fac(int n) {
+    if (n &lt;= 1) return 1;      // 终止
+    return n * fac(n - 1);      // 缩小规模
+}
+// DFS 框架（网格）
+int n, m; bool vis[1005][1005];
+int dx[4] = {1, -1, 0, 0}, dy[4] = {0, 0, 1, -1};
+void dfs(int x, int y) {
+    vis[x][y] = true;
+    for (int k = 0; k &lt; 4; k++) {
+        int nx = x + dx[k], ny = y + dy[k];
+        if (nx &gt;= 0 &amp;&amp; nx &lt; n &amp;&amp; ny &gt;= 0 &amp;&amp; ny &lt; m &amp;&amp; !vis[nx][ny])
+            dfs(nx, ny);
+    }
+}</code></pre>
+    <div class="check">练习：求"迷宫从左上到右下能不能走通"；再做一道"全排列"（回溯入门经典）。</div>
+  </div>
+
+  <div class="card">
+    <p> <b>第 8–13 讲</b>（BFS、贪心、动态规划入门、图论入门、并查集与最小生成树、刷题路线图）在下方继续……</p>
+    <p class="small">也可直接跳到：<a href="course-algo2.html">继续学习第 8–13 讲 →</a>（如果页面太长，分页版在这里）</p>
+  </div>
+
+  <footer class="note">
+    本课程为知识公社原创整理，持续修订中。配套练习：<a href="contest.html">题库索引</a> · <a href="paths.html">学习路线</a>
+    <br><a href="courses.html">← 全部课程</a> · <a href="index.html">首页</a>
+  </footer>
+</div>
+</body>
+</html>
