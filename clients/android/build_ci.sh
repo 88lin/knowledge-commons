@@ -37,6 +37,14 @@ build_one() {
       mkdir -p "build/ci/assets/$(dirname "$f")"
       cp "$f" "build/ci/assets/$(dirname "$f")/"
     done
+  else
+    # lite：文档 + 图解 gallery + 50 个模拟训练（不含视频，约 +6MB）
+    mkdir -p build/ci/assets/videos/gallery
+    cp -R videos/gallery/. build/ci/assets/videos/gallery/ 2>/dev/null || true
+    find multiskill -name '模拟训练.html' -print | while IFS= read -r f; do
+      mkdir -p "build/ci/assets/$(dirname "$f")"
+      cp "$f" "build/ci/assets/$(dirname "$f")/"
+    done
   fi
   echo "[$V] assets = $(du -sh build/ci/assets | cut -f1)"
 

@@ -14,10 +14,17 @@ mkdir -p "$IOS/Resources/videos" "$IOS/Resources/multiskill"
 # 1) 单文件学习中心
 cp -f study.html "$IOS/Resources/study.html"
 
-# 2) full：视频课 + 全技能库视频与模拟训练（保持仓库内相对路径结构）
+# 2) 内容资产：full=视频+模拟训练全量；lite=图解 gallery + 模拟训练
 if [ "$V" = "full" ]; then
   cp -R videos/. "$IOS/Resources/videos/"
   find multiskill \( -name '*.mp4' -o -name '模拟训练.html' \) -print | while IFS= read -r f; do
+    mkdir -p "$IOS/Resources/$(dirname "$f")"
+    cp "$f" "$IOS/Resources/$(dirname "$f")/"
+  done
+else
+  mkdir -p "$IOS/Resources/videos/gallery"
+  cp -R videos/gallery/. "$IOS/Resources/videos/gallery/" 2>/dev/null || true
+  find multiskill -name '模拟训练.html' -print | while IFS= read -r f; do
     mkdir -p "$IOS/Resources/$(dirname "$f")"
     cp "$f" "$IOS/Resources/$(dirname "$f")/"
   done
