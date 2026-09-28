@@ -7915,5 +7915,6 @@ try{ if(current==='__home__'){ renderRoute(); renderHero(); updateNavPct(); } }c
 
 <script id="cs-backwrap">/* 返回键：优先页面总控，其次浏览器历史，最后退出 */
 (function(){var old=window.__bk;window.__bk=function(){try{if(old){var r=old();if(r)return r;}}catch(e){}try{if(history.length>1){history.back();return true;}}catch(e){}return false;};})();
-</script></body>
+</script><script id="cs-deeplink">(function(){function go(){try{var m=(location.hash||"").match(/^#d=([^&]+)/);if(!m)return;var id=decodeURIComponent(m[1]);var t=document.createElement("i");t.setAttribute("data-doclink",id);t.style.display="none";document.body.appendChild(t);t.click();t.remove();}catch(e){}}function boot(){setTimeout(go,500);setTimeout(go,2000);}if(document.readyState==="complete"||document.readyState==="interactive"){boot();}else{window.addEventListener("DOMContentLoaded",boot);window.addEventListener("load",boot);}})();</script>
+</body>
 </html>
