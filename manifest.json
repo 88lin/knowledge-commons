@@ -1,0 +1,33 @@
+{
+  "name": "知识公社 · 从零到精通",
+  "short_name": "知识公社",
+  "description": "竞赛真题 · 升学考试 · 公务员 · 红色经典 · 世界技能大赛。知识共享，我为人人，人人为我。",
+  "lang": "zh-CN",
+  "start_url": "./learn/index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#9e2b25",
+  "background_color": "#faf7f0",
+  "categories": ["education", "books"],
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
