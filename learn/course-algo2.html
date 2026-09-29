@@ -13,6 +13,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
 <script defer src="../sw-reg.js"></script>
 <script defer src="../install-tip.js"></script>
+<script defer src="kc-learn.js"></script>
 <!-- /kc-pwa -->
 <style>
   .lesson{scroll-margin-top:70px}
@@ -65,6 +66,7 @@ int bfs(int sx, int sy, int tx, int ty) {
     }
     return -1;
 }</code></pre>
+    <div class="qz"><div class="qz-q">小测 · BFS 为什么能求"最少步数"？</div><button class="qz-o" type="button" data-a="1">A. 它用队列逐层扩展，第一次到达某点时的步数必定最少</button><button class="qz-o" type="button" data-a="0">B. 因为它比 DFS 跑得快</button><button class="qz-o" type="button" data-a="0">C. 因为它不用递归</button><div class="qz-why" hidden>✓ 对。"一层一层"是 BFS 的灵魂：第 k 层全部处理完才轮到第 k+1 层，所以首次到达就是最短。</div></div>
     <div class="check">练习：迷宫最短路；"骑士移动"（8 个方向）；0-1 BFS（边权只有 0/1 时用双端队列）。</div>
   </div>
 
@@ -84,6 +86,7 @@ for (auto &amp;x : a)
     if (x.s &gt;= last) { cnt++; last = x.e; }
 cout &lt;&lt; cnt &lt;&lt; endl;</code></pre>
     <p class="small">贪心最大的坑是"局部最优 ≠ 全局最优"（例如普通硬币找零）。写之前想一个反例；举不出反例再提交。</p>
+    <div class="qz"><div class="qz-q">小测 · 贪心算法什么时候能用？</div><button class="qz-o" type="button" data-a="0">A. 所有题都能用</button><button class="qz-o" type="button" data-a="0">B. 数据范围小的时候</button><button class="qz-o" type="button" data-a="1">C. 能说明白"每次都拿局部最优，最后就是全局最优"的时候</button><div class="qz-why" hidden>✓ 对。讲不出这个道理，贪心就可能悄悄错。证不出来时，宁可换 DP 或搜索。</div></div>
     <div class="check">练习：合并果子（优先队列）；"最少会议室数量"。</div>
   </div>
 
@@ -103,6 +106,7 @@ for (int i = 1; i &lt;= n; i++)
     for (int v = V; v &gt;= w[i]; v--)   // 逆序！保证每件只用一次
         dp[v] = max(dp[v], dp[v-w[i]] + c[i]);
 cout &lt;&lt; dp[V] &lt;&lt; endl;</code></pre>
+    <div class="qz"><div class="qz-q">小测 · 动态规划的两个关键是什么？</div><button class="qz-o" type="button" data-a="0">A. 循环 + 数组</button><button class="qz-o" type="button" data-a="0">B. 递归 + 剪枝</button><button class="qz-o" type="button" data-a="1">C. 状态（每个 f 表示什么）+ 转移（f 从哪来）</button><div class="qz-why" hidden>✓ 对。先想清"f[i] 表示什么"，再写"f[i] 由谁推出"，代码自然就出来了。</div></div>
     <div class="check">练习：爬楼梯（斐波那契式）；最长上升子序列（LIS）；再刷 CF "dp" 标签 1200–1400 分题 5 道。</div>
   </div>
 
@@ -126,6 +130,7 @@ while (!pq.empty()) {
     for (auto [v, w] : g[u])
         if (dis[u] + w &lt; dis[v]) { dis[v] = dis[u] + w; pq.push({dis[v], v}); }
 }</code></pre>
+    <div class="qz"><div class="qz-q">小测 · 存图最常用的两种方式是？</div><button class="qz-o" type="button" data-a="1">A. 邻接矩阵 和 邻接表（vector 存边）</button><button class="qz-o" type="button" data-a="0">B. 结构体数组 和 链表</button><button class="qz-o" type="button" data-a="0">C. 栈 和 队列</button><div class="qz-why" hidden>✓ 对。点数少用矩阵，点多边少用邻接表；竞赛里 vector 存邻接表最常用。</div></div>
     <div class="check">练习：无向图连通块计数；"单源最短路"模板题各一道。</div>
   </div>
 
@@ -144,6 +149,7 @@ void merge(int a, int b){ fa[find(a)] = find(b); }
       <li>依次考虑每条边：两端点还不连通（并查集判断）就选它，否则跳过；</li>
       <li>选满 n−1 条边即完成。</li>
     </ol>
+    <div class="qz"><div class="qz-q">小测 · 并查集最擅长做什么？</div><button class="qz-o" type="button" data-a="0">A. 给数组排序</button><button class="qz-o" type="button" data-a="1">B. 维护"谁和谁是一伙的"：合并两伙、查询是否同伙</button><button class="qz-o" type="button" data-a="0">C. 求最短路径</button><div class="qz-why" hidden>✓ 对。路径压缩之后近乎 O(1)。判连通性、Kruskal 求最小生成树，都靠它。</div></div>
     <div class="check">练习：朋友圈合并（并查集裸题）；最小生成树模板题。</div>
   </div>
 
@@ -163,6 +169,7 @@ void merge(int a, int b){ fa[find(a)] = find(b); }
       <li>写出来 WA → 自己造 5 组数据对拍（写个暴力程序互相对答案）。</li>
       <li>还不行 → 到本站题库索引搜同类标签，做 3 道相似题找共性。</li>
     </ul>
+    <div class="qz"><div class="qz-q">小测 · 刷题时卡住了，性价比最高的做法是？</div><button class="qz-o" type="button" data-a="0">A. 原地死磕五个小时</button><button class="qz-o" type="button" data-a="1">B. 限时 30–60 分钟仍无思路就去看题解，看完关掉自己重写一遍</button><button class="qz-o" type="button" data-a="0">C. 直接抄一遍题解提交</button><div class="qz-why" hidden>✓ 对。重写 + 三行复盘（考点 / 卡点 / 套路），这道题才真正归你。死磕和抄答案都不是。</div></div>
     <div class="check">毕业小测：连续一周每天 3 题 + 周末一场比赛复盘。坚持下来你就已经超过大多数人了。</div>
   </div>
 
