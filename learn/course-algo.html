@@ -13,6 +13,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
 <script defer src="../sw-reg.js"></script>
 <script defer src="../install-tip.js"></script>
+<script defer src="kc-learn.js"></script>
 <!-- /kc-pwa -->
 <style>
   .lesson{scroll-margin-top:70px}
@@ -89,6 +90,7 @@ int main(){
       <li>推荐先在 <b>Codeforces</b> 注册：打开题目列表 → 按难度排序 → 选最简单的一道 → 写代码 → Submit。</li>
       <li>提交后看到绿色的 <span class="kbd">Accepted</span>（AC）就成功了；红色的 <span class="kbd">Wrong Answer</span>（WA）会告诉你哪组数据没过。</li>
     </ul>
+    <div class="qz"><div class="qz-q">小测 · 提交代码后，下面哪种状态表示"通过了"？</div><button class="qz-o" type="button" data-a="1">A. 绿色的 Accepted（AC）</button><button class="qz-o" type="button" data-a="0">B. 红色的 Wrong Answer（WA）</button><button class="qz-o" type="button" data-a="0">C. 黄色的 Time Limit Exceeded（TLE）</button><div class="qz-why" hidden>✓ 对。Accepted = 通过；WA 是答案错、TLE 是超时 —— 这三位会陪你走很久，早点认识它们。</div></div>
     <div class="check">本讲小测：完成 A+B Problem 的提交（本站索引搜 "A+B" 或直接用平台的第一题）。</div>
   </div>
 
@@ -111,6 +113,7 @@ long long s = 0;
 for (int i = 1; i &lt;= n; i++) s += i;
 // 快：公式 O(1)
 long long s2 = 1LL * n * (n + 1) / 2;</code></pre>
+    <div class="qz"><div class="qz-q">小测 · 竞赛评测机 1 秒钟大约能执行多少次基本操作？</div><button class="qz-o" type="button" data-a="0">A. 10 万次</button><button class="qz-o" type="button" data-a="1">B. 1 亿次</button><button class="qz-o" type="button" data-a="0">C. 100 亿次</button><div class="qz-why" hidden>✓ 对。记住"1 秒 ≈ 1 亿次操作"。看到题目的 n 范围，就能反推该用什么复杂度。</div></div>
     <div class="check">小测：n = 10⁹ 时上面两种写法哪个能过？（答案：公式；循环要跑 10 秒以上，必超时）</div>
   </div>
 
@@ -129,6 +132,7 @@ int cnt = 0;
 for (char c : s)
     if (c &gt;= 'A' &amp;&amp; c &lt;= 'Z') cnt++;
 cout &lt;&lt; cnt &lt;&lt; endl;</code></pre>
+    <div class="qz"><div class="qz-q">小测 · 新手做"模拟题"最容易栽在哪？</div><button class="qz-o" type="button" data-a="0">A. 变量名取得不好</button><button class="qz-o" type="button" data-a="1">B. 边界情况（第 1 个 / 最后一个 / 相等时）</button><button class="qz-o" type="button" data-a="0">C. 代码没写注释</button><div class="qz-why" hidden>✓ 对。规则一般不难，失分几乎都失在边界上。写完先拿边界数据过一遍脑子。</div></div>
     <div class="check">练习：把上面的题改成统计"数字字符"的个数，再改成统计"每个字母出现次数"（提示：数组计数）。</div>
   </div>
 
@@ -152,6 +156,7 @@ while (l &lt;= r) {
     if (a[mid] == x) { /* 找到 */ break; }
     if (a[mid] &lt; x) l = mid + 1; else r = mid - 1;
 }</code></pre>
+    <div class="qz"><div class="qz-q">小测 · 哪类问题适合用"二分答案"？</div><button class="qz-o" type="button" data-a="1">A. "最大的最小值 / 最小的最大值"这类问题</button><button class="qz-o" type="button" data-a="0">B. 在一堆无序数据里找最大值</button><button class="qz-o" type="button" data-a="0">C. 把数组从小到大排序</button><div class="qz-why" hidden>✓ 对。答案有单调性（能→不能存在分界点）才能二分；无序数据先排序也是它的搭档。</div></div>
     <div class="check">练习：搜本站题库 "binary search" 标签的 1200 分题做 5 道。</div>
   </div>
 
@@ -168,6 +173,7 @@ long long ans = pre[r] - pre[l-1];</code></pre>
 diff[l] += v; diff[r+1] -= v;
 // 结束后求前缀和还原：
 for (int i = 1; i &lt;= n; i++) a[i] = a[i-1] + diff[i];</code></pre>
+    <div class="qz"><div class="qz-q">小测 · 把区间 [l, r] 整体 +v，用差分的正确做法是？</div><button class="qz-o" type="button" data-a="0">A. 写个循环从 l 加到 r</button><button class="qz-o" type="button" data-a="0">B. diff[l]-=v; diff[r+1]+=v</button><button class="qz-o" type="button" data-a="1">C. diff[l]+=v; diff[r+1]-=v</button><div class="qz-why" hidden>✓ 对。两端各动一下，前缀和还原时区间内自然全部吃到了 +v —— O(1) 干完 O(n) 的活。</div></div>
     <div class="check">练习：经典题"小明的项链"+ 任意两道"区间加、单点查"的题。</div>
   </div>
 
@@ -190,6 +196,7 @@ for (char c : s) {
 }
 if (!st.empty()) ok = false;
 cout &lt;&lt; (ok ? "YES" : "NO") &lt;&lt; endl;</code></pre>
+    <div class="qz"><div class="qz-q">小测 · 判断括号是否匹配，该用什么结构？</div><button class="qz-o" type="button" data-a="1">A. 栈</button><button class="qz-o" type="button" data-a="0">B. 队列</button><button class="qz-o" type="button" data-a="0">C. 链表</button><div class="qz-why" hidden>✓ 对。后出现的左括号先被匹配 —— 后进先出，正是栈：遇到右括号就弹出一个左括号。</div></div>
     <div class="check">练习：把括号匹配扩展为同时支持 ()[]{} 三种括号。</div>
   </div>
 
@@ -218,6 +225,7 @@ void dfs(int x, int y) {
             dfs(nx, ny);
     }
 }</code></pre>
+    <div class="qz"><div class="qz-q">小测 · DFS 里的"回溯"是指什么？</div><button class="qz-o" type="button" data-a="0">A. 走到底了再从头来一遍</button><button class="qz-o" type="button" data-a="1">B. 走不通时退回上一步，并把现场（标记/状态）恢复</button><button class="qz-o" type="button" data-a="0">C. 把走过的路打印出来</button><div class="qz-why" hidden>✓ 对。退回时要把格子重新标回"未访问"，别的路径才能再用它。忘了恢复现场，是最常见的 DFS bug。</div></div>
     <div class="check">练习：求"迷宫从左上到右下能不能走通"；再做一道"全排列"（回溯入门经典）。</div>
   </div>
 
