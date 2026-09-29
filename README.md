@@ -10,6 +10,7 @@
 **立即使用**
 
 - 网页版（无需安装）：https://taimabenji.github.io/knowledge-commons/learn/
+  　· 手机/电脑浏览器打开后，可直接「添加到主屏幕 / 安装」——独立图标、全屏、离线可用，等于一个 App（PWA），且版本永远最新
 - 资料中心（全技能库 · 单文件）：https://taimabenji.github.io/knowledge-commons/study.html
 - 下载 App：[Releases](../../releases) —— Android APK / iOS IPA / Windows EXE
 
@@ -33,6 +34,7 @@
 ## 特性
 
 - **完全离线**：全部内容无需联网（Android 全量包约 560 MB）
+- **加到桌面即装即用**：网页版为完整 PWA —— 浏览器打开即可安装到主屏幕/桌面，独立图标、离线可用、随源更新，四个系统一个体验
 - **站内直达**：从首页到任一赛项、任一篇目、任一真题，全部站内一跳可达，不跳第三方
 - **全端同源**：Android / iOS / Windows / Web 由同一内容源构建
 - **全量质检**：每轮发布前对全部视频逐部解码体检（当前 112 部视频 0 错误）、页面逐项实测
