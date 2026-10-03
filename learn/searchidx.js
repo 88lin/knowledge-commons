@@ -3,4 +3,6 @@ window.SEARCH_IDX=[{"t":"第 1 讲 · 开始之前：环境、平台与心态","
 {"t": "全平台下载 · APK / IPA / EXE / macOS / Linux / Web", "u": "../download.html", "g": "页面", "k": "下载 客户端 安装包 APK IPA EXE macOS Linux iOS 签名 PWA"},
 {"t": "资料中心 · 全技能库（单文件 · 视频课与真题）", "u": "../study.html", "g": "页面", "k": "资料中心 全技能库 视频课 真题库 模拟训练"},
 {"t": "B站精选 · 视频学习资源", "u": "../resources.html", "g": "页面", "k": "B站 视频 精选 装机 计算机 进阶"}
+,
+{"t": "iPhone 直装 · iOS OTA 一键安装", "u": "../install.html", "g": "页面", "k": "iOS 直装 OTA 安装 iPhone iPad manifest itms-services 证书"}
 ];

@@ -7,7 +7,7 @@
    · 静态资源 stale-while-revalidate —— 秒开 + 后台静默更新；
    · Range 请求 / 非本站请求 —— 直接放行（视频流式播放不受影响）。
    ============================================================ */
-var VERSION = 'kc-v1.3.1';
+var VERSION = 'kc-v1.3.2';
 
 /* 预缓存：主站全部页面 + 样式 + 检索索引 + PWA 资产（≈300KB） */
 var CORE = [
@@ -22,6 +22,7 @@ var CORE = [
   './learn/style.css', './learn/searchidx.js', './learn/kc-learn.js',
   './library.html', './app/library-data.js',
   './download.html',
+  './install.html',
   './manifest.json',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'
 ];

@@ -94,6 +94,52 @@ jobs:
             "zhishi-gongshe-v3.0-ios-full-unsigned.ipa"
           ls -la *.ipa
 
+      - name: 生成 OTA 安装清单（manifest.plist）
+        if: inputs.upload_release != ''
+        run: |
+          TAG="${{ inputs.upload_release }}"
+          BID="${{ inputs.bundle_id }}"
+          BID="${BID:-com.cloudstudy.app}"
+          IPA_URL="https://github.com/${GITHUB_REPOSITORY}/releases/download/${TAG}/zhishi-gongshe-v3.0-ios-full-signed.ipa"
+          cat > clients/ios/manifest.plist <<EOF
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+          <plist version="1.0">
+          <dict>
+            <key>items</key>
+            <array>
+              <dict>
+                <key>assets</key>
+                <array>
+                  <dict>
+                    <key>kind</key><string>software-package</string>
+                    <key>url</key><string>${IPA_URL}</string>
+                    <key>metadata</key>
+                    <dict>
+                      <key>bundle-identifier</key><string>${BID}</string>
+                      <key>bundle-version</key><string>3.0</string>
+                      <key>kind</key><string>software</string>
+                      <key>title</key><string>知识公社</string>
+                    </dict>
+                  </dict>
+                </array>
+                <key>metadata</key>
+                <dict>
+                  <key>bundle-identifier</key><string>${BID}</string>
+                  <key>bundle-version</key><string>3.0</string>
+                  <key>kind</key><string>software</string>
+                  <key>title</key><string>知识公社</string>
+                </dict>
+              </dict>
+            </array>
+          </dict>
+          </plist>
+          EOF
+          # 去掉 heredoc 因 YAML 缩进产生的前导空格
+          sed -i 's/^          //' clients/ios/manifest.plist
+          head -5 clients/ios/manifest.plist
+          grep -c "${IPA_URL}" clients/ios/manifest.plist
+
       - name: 清理证书
         if: always()
         run: rm -f clients/ios/sign.p12 clients/ios/sign.mobileprovision
@@ -114,3 +160,4 @@ jobs:
           gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
             || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "知识公社 $TAG · 多端统一版" --notes "多端统一发布（Android / iOS / Windows / macOS / Linux / Web）" || true
           gh release upload "$TAG" clients/ios/*-signed.ipa --clobber -R "$GITHUB_REPOSITORY"
+          gh release upload "$TAG" clients/ios/manifest.plist --clobber -R "$GITHUB_REPOSITORY"

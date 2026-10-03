@@ -81,3 +81,21 @@ zsign -k cert.p12 -p '密码' -m app.mobileprovision -o signed.ipa unsigned.ipa
 | `IOS_MP_B64` | `app.mobileprovision` 的 base64（同上命令） |
 
 构建 + 签名 + 上传一气呵成，产物 `zhishi-gongshe-v3.0-ios-full-signed.ipa`；工作流结束后自动删除日志中的证书临时文件。
+
+### D. 签名之后怎么让「别人拿到链接就能装」（OTA 直装）
+
+`sign-ios` 在 `upload_release` 非空时会**自动生成 `manifest.plist`（苹果 OTA 安装清单）并随同一个 Release 一起上传**，指向该 Release 里的已签名 IPA。配合站内直装页：
+
+1. 跑完 sign-ios（带 tag，如 `v3.1`）→ Release 里同时有 `*-signed.ipa` 和 `manifest.plist`
+2. 把 **https://taimabenji.github.io/knowledge-commons/install.html** 发给任何人
+3. 对方用 iPhone 的 Safari 打开 → 点「安装」→ 「设置 → 通用 → VPN与设备管理」信任证书 → 完成
+
+直装页自动探测最新 Release 是否含 manifest：没有则显示「尚未发布」并回退到 Sideloadly 路线。
+
+> **谁能装，取决于证书类型**（详见直装页矩阵）：
+> - **企业证书**（Apple Enterprise，$299/年）：任何人可装，但苹果条款限定「仅限本公司员工内部分发」，外发有吊销风险
+> - **Ad Hoc**（$99/年）：最多 100 台注册 UDID 的设备，小圈子内测
+> - **TestFlight / App Store**：合法面向公众，需你自己的开发者账号与审核
+> - **第三方超级签**：把服务商给的 p12 接入 sign-ios 亦可，掉签风险自担
+>
+> 证书只进仓库 Secrets / 本机 zsign，全程不经过第三方服务器。

@@ -120,13 +120,14 @@ footer{background:#27344e;color:#aab4c8;margin-top:26px}
           <a class="lbtn" href="https://github.com/TaiMaBenJi/knowledge-commons/actions/workflows/build-linux.yml">CI 出包</a>
         </div>
       </div>
-      <div class="card">
-        <h3>iOS <span class="plat">IPA · 免签名 / 已签名</span></h3>
-        <p>完整版 IPA（视频全量）。免签名版用 Sideloadly / AltStore 配自己的 Apple ID 侧载（7 天免费）；有证书可看下面三条签名路线。</p>
+      <div class="card" id="ios">
+        <h3>iOS <span class="plat">IPA · 直装 / 免签名 / 已签名</span></h3>
+        <p>完整版 IPA（视频全量）。签名发布后可走<b>iPhone 直装页</b>（免电脑、点链接即装）；免签名版用 Sideloadly / AltStore 配自己的 Apple ID 侧载（7 天免费）。</p>
         <div class="links">
-          <a class="lbtn solid" href="https://github.com/TaiMaBenJi/knowledge-commons/releases">下载 IPA</a>
-          <a class="lbtn" href="https://github.com/TaiMaBenJi/knowledge-commons/actions/workflows/build-ios.yml">CI 出包（免签）</a>
+          <a class="lbtn solid" href="install.html">iPhone 一键直装</a>
           <a class="lbtn green" href="https://github.com/TaiMaBenJi/knowledge-commons/actions/workflows/sign-ios.yml">CI 出包（已签名）</a>
+          <a class="lbtn" href="https://github.com/TaiMaBenJi/knowledge-commons/releases">下载 IPA</a>
+          <a class="lbtn" href="https://github.com/TaiMaBenJi/knowledge-commons/actions/workflows/build-ios.yml">CI 出包（免签）</a>
         </div>
       </div>
       <div class="card">
@@ -159,7 +160,7 @@ footer{background:#27344e;color:#aab4c8;margin-top:26px}
       <tr>
         <td><b>C · 云端全自动</b></td>
         <td>仓库 Secrets 配好证书三项</td>
-        <td>Actions → <b>sign-ios</b> → Run workflow：构建 + 签名 + 上传 Releases 一气呵成，产物 <code>*-signed.ipa</code></td>
+        <td>Actions → <b>sign-ios</b> → Run workflow：构建 + 签名 + 自动发布 OTA 安装清单（manifest.plist），产物 <code>*-signed.ipa</code>；配合 <a style="color:#1a4d8f" href="install.html">直装页</a>，对方用 iPhone Safari 打开即可免电脑安装</td>
         <td>按证书</td>
       </tr>
     </table>
