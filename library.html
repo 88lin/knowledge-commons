@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>资源总库 · 全网免费学习资源精选 · 知识公社</title>
+<style>
+:root{--red:#8e1c26;--blue:#1f4e8c;--ink:#222;--gray:#6b7280;--line:#d8dfe9;--bg:#f3f4f6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Source Han Sans SC","Noto Sans SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.topbar{background:linear-gradient(135deg,#7e1620 0%,#a92e35 55%,#7e1620 100%);color:#fff}
+.topbar-in{max-width:1200px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.emblem{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--red);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;flex:none}
+.site-name{font-size:20px;font-weight:700;letter-spacing:1px}
+.btn{border:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;border-radius:4px;padding:7px 14px;font-size:14px;cursor:pointer}
+.btn:hover{background:rgba(255,255,255,.15)}
+.spacer{flex:1}
+.main{max-width:1200px;margin:18px auto;padding:0 14px}
+.panel{background:#fff;border:1px solid var(--line);border-top:3px solid var(--blue);margin-bottom:18px}
+.p-hd{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.p-hd h2{font-size:18px;color:var(--blue);flex:1}
+.searchbar{display:flex;background:#f4f6f9;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.searchbar input{border:none;outline:none;background:transparent;padding:8px 12px;font-size:14px;width:220px}
+.groups,.subgroups{display:flex;flex-wrap:wrap;gap:8px;padding:12px 18px;border-bottom:1px solid var(--line);background:#fbfcfe}
+.subgroups{background:#f6f8fb;padding-top:9px;padding-bottom:9px}
+.gchip{font-size:13px;border:1px solid var(--line);padding:5px 13px;border-radius:14px;cursor:pointer;color:#455066;background:#fff}
+.gchip.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.schip{font-size:12px;border:1px dashed var(--line);padding:3px 10px;border-radius:12px;cursor:pointer;color:#5b6b84;background:#fff}
+.schip.on{background:#eef3fa;border-color:#9db8d8;color:#1a4d8f;border-style:solid}
+.list{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:12px;padding:16px 18px 20px}
+.item{border:1px solid var(--line);padding:13px 14px;display:block;transition:.15s;position:relative}
+.item:hover{border-color:var(--blue);box-shadow:0 4px 14px rgba(31,78,140,.12)}
+.item .t{font-size:14.5px;font-weight:600;color:#1a4d8f;line-height:1.55;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.item .d{font-size:12.5px;color:var(--gray);margin-bottom:8px;line-height:1.6}
+.item .m{display:flex;gap:6px;flex-wrap:wrap}
+.item .m span{font-size:11px;color:#5b6b84;background:#eef3fa;border-radius:3px;padding:2px 7px}
+.item .m span.s{color:#8a5b12;background:#faf3df}
+.item .m span.warn{color:#a13a2a;background:#fbeae6}
+.legend{font-size:12px;color:var(--gray);line-height:2;padding:10px 18px 0}
+.note{font-size:12.5px;color:var(--gray);line-height:1.9;padding:10px 18px 16px;border-bottom:1px solid var(--line)}
+.empty{padding:40px;text-align:center;color:#999}
+footer{background:#27344e;color:#aab4c8;margin-top:26px}
+.foot-in{max-width:1200px;margin:0 auto;padding:20px 16px 28px;font-size:13px;line-height:2;text-align:center}
+@media(max-width:720px){.list{grid-template-columns:1fr}.searchbar input{width:150px}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="topbar-in">
+  <div class="emblem">知</div>
+  <div><div class="site-name">资源总库 · 全网免费学习资源精选</div><div style="font-size:12px;opacity:.85;margin-top:2px">世赛 · 算法 · 升学 · 公考 · 古籍 · 课程 · IT —— 免费且靠谱的，都在这里</div></div>
+  <div class="spacer"></div>
+  <button class="btn" onclick="location.href='learn/index.html'">返回门户</button>
+  <button class="btn" onclick="location.href='resources.html'">B站精选</button>
+</div></div>
+
+<div class="main">
+  <div class="panel">
+    <div class="p-hd">
+      <h2>精选资源 <span id="cnt" style="font-size:13px;color:#8a94a6;font-weight:400"></span></h2>
+      <div class="searchbar"><input id="q" placeholder="搜索名称 / 简介 / 子类…" autocomplete="off"></div>
+    </div>
+    <div class="groups" id="groups"></div>
+    <div class="subgroups" id="subgroups"></div>
+    <div class="list" id="list"></div>
+    <div class="empty" id="empty" style="display:none">没有匹配的资源</div>
+    <div class="legend" id="legend">
+      标注说明：<b>免费程度</b>「完全免费 / 免费(注册) / 部分免费」；<b>可离线</b>「可下载 / App缓存 / 本地部署 / 在线」；
+      <span class="warn" style="font-size:11px;border-radius:3px;padding:2px 7px;color:#a13a2a;background:#fbeae6">国际网络</span> 表示该站境外访问更快或直连不稳，其余默认中国大陆可直连。
+    </div>
+    <div class="note">
+      收录原则：免费、官方、无版权风险优先；中国大陆可直连优先。条目由人工检索并核验（2026-10-03），
+      各资料版权归其原始作者与机构所有，仅供个人学习交流，请勿商用。链接会随时间变化，若失效欢迎提 Issue 补充修正。
+    </div>
+  </div>
+</div>
+
+<footer><div class="foot-in">知识公社 · 知识共享 —— 我为人人，人人为我<br>
+条目信息收集自各公开渠道，仅供学习交流 · 版权归原作者与机构所有 ·
+<a style="color:#d7deea" href="https://github.com/TaiMaBenJi/knowledge-commons" target="_blank" rel="noopener">GitHub 仓库</a></div></footer>
+
+<script src="app/library-data.js"></script>
+<script>
+var DATA=(window.LIB_DATA||{groups:[],items:[]});
+var ITEMS=DATA.items, GROUPS=DATA.groups;
+var curG=-1, curS='', q='';
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function groups(){
+  var html='<span class="gchip'+(curG<0?' on':'')+'" data-g="-1">全部（'+ITEMS.length+'）</span>';
+  for(var i=0;i<GROUPS.length;i++){
+    var n=0; ITEMS.forEach(function(x){if(x.g===i)n++;});
+    html+='<span class="gchip'+(curG===i?' on':'')+'" data-g="'+i+'">'+esc(GROUPS[i])+'（'+n+'）</span>';
+  }
+  document.getElementById('groups').innerHTML=html;
+  document.querySelectorAll('.gchip').forEach(function(c){c.onclick=function(){curG=+c.dataset.g;curS='';groups();subs();render();};});
+}
+function subs(){
+  var box=document.getElementById('subgroups'), seen={}, order=[];
+  ITEMS.forEach(function(x){ if((curG<0||x.g===curG)&&x.s&&!seen[x.s]){seen[x.s]=1;order.push(x.s);} });
+  if(!order.length){box.style.display='none';return;}
+  box.style.display='flex';
+  var html='<span class="schip'+(curS===''?' on':'')+'" data-s="">子类·全部</span>';
+  order.forEach(function(s){
+    var n=0; ITEMS.forEach(function(x){if((curG<0||x.g===curG)&&x.s===s)n++;});
+    html+='<span class="schip'+(curS===s?' on':'')+'" data-s="'+esc(s)+'">'+esc(s)+'（'+n+'）</span>';
+  });
+  box.innerHTML=html;
+  document.querySelectorAll('.schip').forEach(function(c){c.onclick=function(){curS=c.dataset.s;subs();render();};});
+}
+function render(){
+  var hits=ITEMS.filter(function(x){
+    if(curG>=0&&x.g!==curG)return false;
+    if(curS&&x.s!==curS)return false;
+    if(q&&(x.t+' '+x.d+' '+(x.s||'')+' '+(x.ty||'')).toLowerCase().indexOf(q)<0)return false;
+    return true;
+  });
+  document.getElementById('cnt').textContent='共 '+hits.length+' 条';
+  document.getElementById('empty').style.display=hits.length?'none':'block';
+  document.getElementById('list').innerHTML=hits.map(function(x){
+    var m='<span class="s">'+esc(x.s||'')+'</span><span>'+esc(x.ty||'')+'</span><span>'+esc(x.f||'')+'</span><span>'+esc(x.o||'')+'</span>';
+    if(x.w)m+='<span class="warn">国际网络</span>';
+    return '<a class="item" href="'+esc(x.u)+'" target="_blank" rel="noopener">'+
+      '<div class="t">'+esc(x.t)+'</div><div class="d">'+esc(x.d)+'</div>'+
+      '<div class="m">'+m+'</div></a>';
+  }).join('');
+}
+var qEl=document.getElementById('q');
+qEl.addEventListener('input',function(){q=this.value.trim().toLowerCase();render();});
+/* 深链：library.html#g=N 定位板块；library.html#关键词 直接检索 */
+(function(){
+  var h=decodeURIComponent(location.hash.slice(1)).trim();
+  if(!h)return;
+  if(/^g=\d+$/.test(h)&&+h.slice(2)<GROUPS.length){curG=+h.slice(2);}
+  else{qEl.value=h;q=h.toLowerCase();}
+})();
+groups();subs();render();
+</script>
+</body>
+</html>
