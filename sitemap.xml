@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://taimabenji.github.io/knowledge-commons/</loc><lastmod>2026-09-29</lastmod></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/</loc><lastmod>2026-09-29</lastmod></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/</loc><lastmod>2026-10-04</lastmod></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/learn/</loc><lastmod>2026-10-04</lastmod></url>
   <url><loc>https://taimabenji.github.io/knowledge-commons/study.html</loc><lastmod>2026-09-29</lastmod></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/resources.html</loc><lastmod>2026-09-29</lastmod></url>
-  <url><loc>https://taimabenji.github.io/knowledge-commons/library.html</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/resources.html</loc><lastmod>2026-10-04</lastmod></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/library.html</loc><lastmod>2026-10-04</lastmod></url>
+  <url><loc>https://taimabenji.github.io/knowledge-commons/download.html</loc><lastmod>2026-10-04</lastmod></url>
   <url><loc>https://taimabenji.github.io/knowledge-commons/viewer.html</loc><lastmod>2026-09-29</lastmod></url>
 </urlset>
