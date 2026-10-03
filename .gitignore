@@ -1,0 +1,20 @@
+# 构建产物与本地中间文件
+/dist/
+*.ipa
+*.apk
+
+# 各端构建输出
+clients/**/study.html
+clients/ios/Resources/
+clients/ios/ipa/
+clients/ios/build/
+clients/macos/build/
+clients/linux/out/
+clients/windows/out/
+
+# 签名材料（证书与描述文件，绝不入库）
+*.p12
+*.mobileprovision
+*.cer
+*.pem
+.zsign_cache/

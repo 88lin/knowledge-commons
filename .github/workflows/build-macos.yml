@@ -1,0 +1,40 @@
+name: build-macos
+# CloudStudy · macOS 便携 App（swiftc 双架构 + ad-hoc 签名，macOS 运行器）
+on:
+  workflow_dispatch:
+    inputs:
+      upload_release:
+        description: '上传到 Release tag（可留空，如 v3.0）'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 构建 .app（arm64 + x86_64 通用）
+        run: sh clients/macos/build.sh study.html dist/zhishi-gongshe-v3.0-macos-universal.zip
+
+      - name: 上传 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zhishi-gongshe-macOS
+          path: dist/*.zip
+          compression-level: 0
+
+      - name: 上传到 Release
+        if: inputs.upload_release != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ inputs.upload_release }}"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
+            || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "知识公社 $TAG · 多端统一版" --notes "多端统一发布（Android / iOS / Windows / macOS / Linux / Web）" || true
+          gh release upload "$TAG" dist/*.zip --clobber -R "$GITHUB_REPOSITORY"

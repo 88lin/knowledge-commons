@@ -12,7 +12,7 @@
 |---|---|
 | `upload_release` | 填 Release tag（如 `v3.0`）则构建完成后自动上传到 Releases |
 
-产物：`CloudStudy-v3.0-ios-full-unsigned.ipa`（artifact 或 Release 附件）。
+产物：`zhishi-gongshe-v3.0-ios-full-unsigned.ipa`（artifact 或 Release 附件）。
 
 ## 本机侧载（iOS 设备）
 
@@ -39,3 +39,45 @@ python3 pack_ipa.py ipa CloudStudy.ipa    # 中文文件名带 UTF-8 标志，�
 - 免签名 IPA 无法直接安装，必须经 Sideloadly/AltStore 等工具用个人证书重签（Apple 限制）。
 - App 内视频为本地相对路径播放（`videos/…`、`multiskill/…`），与 Web/APK 完全同构。
 - 外部链接（如有）自动跳系统浏览器；其余全部离线。
+
+## 在电脑上签名（Windows / Linux / macOS，zsign）
+
+三种路线，按你手上有什么选：
+
+### A. 没有开发者账号 —— 免费 Apple ID（7 天）
+
+用上面「本机侧载」：Sideloadly / AltStore 拖入 unsigned IPA 即可，无需 p12。
+
+### B. 有开发者证书（.p12 + 描述文件）—— 电脑本机一键签
+
+Windows（PowerShell，自动下载官方 zsign Windows 版）：
+
+```powershell
+cd clients\ios
+.\sign.ps1 -Ipa .\zhishi-gongshe-v3.0-ios-full-unsigned.ipa `
+           -P12 .\cert.p12 -P12Pass '你的p12密码' -Prov .\app.mobileprovision
+# 可选：-BundleId com.your.app   # 描述文件 Bundle ID 不是 com.cloudstudy.app 时改写
+# 可选：-Out .\my-signed.ipa
+```
+
+macOS / Linux 直接用 zsign 官方二进制：
+
+```sh
+zsign -k cert.p12 -p '密码' -m app.mobileprovision -o signed.ipa unsigned.ipa
+```
+
+- 描述文件需覆盖 `com.cloudstudy.app`（或用 `-b` 改写 IPA 的 Bundle ID 迎合你的证书）
+- 产物用 Sideloadly / 爱思 / AltStore 安装；设备需信任对应证书
+- 证书来源：Apple Developer（99 美元/年，1 年有效）、企业证书、或合规的签名服务
+
+### C. 云端全自动 —— Actions 出已签名 IPA
+
+仓库 Secrets 配好三项后，Actions → **sign-ios** → Run workflow：
+
+| Secret | 内容 |
+|---|---|
+| `IOS_P12_B64` | `cert.p12` 的 base64：`[Convert]::ToBase64String([IO.File]::ReadAllBytes('cert.p12'))` |
+| `IOS_P12_PASS` | p12 密码 |
+| `IOS_MP_B64` | `app.mobileprovision` 的 base64（同上命令） |
+
+构建 + 签名 + 上传一气呵成，产物 `zhishi-gongshe-v3.0-ios-full-signed.ipa`；工作流结束后自动删除日志中的证书临时文件。

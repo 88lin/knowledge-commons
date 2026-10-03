@@ -1,0 +1,46 @@
+name: build-linux
+# CloudStudy · Linux 单文件便携版（zig 交叉编译 musl 静态，ubuntu 运行器）
+on:
+  workflow_dispatch:
+    inputs:
+      upload_release:
+        description: '上传到 Release tag（可留空，如 v3.0）'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 安装 zig 0.13.0
+        run: |
+          curl -fL --retry 3 -o /tmp/zig.tar.xz https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz
+          tar -C /tmp -xf /tmp/zig.tar.xz
+          echo "/tmp/zig-linux-x86_64-0.13.0" >> "$GITHUB_PATH"
+
+      - name: 构建 Linux 可执行文件
+        run: sh clients/linux/build.sh study.html dist/zhishi-gongshe-v3.0-linux-x64
+
+      - name: 上传 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zhishi-gongshe-Linux
+          path: dist/*
+          compression-level: 0
+
+      - name: 上传到 Release
+        if: inputs.upload_release != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ inputs.upload_release }}"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
+            || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "知识公社 $TAG · 多端统一版" --notes "多端统一发布（Android / iOS / Windows / macOS / Linux / Web）" || true
+          gh release upload "$TAG" dist/zhishi-gongshe-v3.0-linux-x64 --clobber -R "$GITHUB_REPOSITORY" || true

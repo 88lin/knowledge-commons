@@ -1,0 +1,116 @@
+name: sign-ios
+# CloudStudy · iOS 一键出「已签名 IPA」—— 构建 + zsign 签名（macOS 运行器）
+# 需要仓库 Secrets：
+#   IOS_P12_B64           开发者证书 .p12 的 base64
+#   IOS_P12_PASS          .p12 密码
+#   IOS_MP_B64            描述文件 .mobileprovision 的 base64（Bundle ID 匹配 com.cloudstudy.app）
+# 生成 base64（PowerShell）：
+#   [Convert]::ToBase64String([IO.File]::ReadAllBytes('cert.p12'))
+on:
+  workflow_dispatch:
+    inputs:
+      upload_release:
+        description: '上传到 Release tag（可留空，如 v3.0）'
+        type: string
+        default: ''
+      bundle_id:
+        description: '改写 Bundle ID（留空保持 com.cloudstudy.app）'
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+jobs:
+  build-sign:
+    runs-on: macos-latest
+    timeout-minutes: 60
+    env:
+      IOS_P12_B64: ${{ secrets.IOS_P12_B64 }}
+      IOS_P12_PASS: ${{ secrets.IOS_P12_PASS }}
+      IOS_MP_B64: ${{ secrets.IOS_MP_B64 }}
+    steps:
+      - name: 检出
+        uses: actions/checkout@v4
+
+      - name: 校验签名 Secrets
+        run: |
+          test -n "$IOS_P12_B64"  || { echo "缺少 secrets.IOS_P12_B64";  exit 1; }
+          test -n "$IOS_P12_PASS" || { echo "缺少 secrets.IOS_P12_PASS"; exit 1; }
+          test -n "$IOS_MP_B64"   || { echo "缺少 secrets.IOS_MP_B64";   exit 1; }
+
+      - name: 铺资源
+        run: sh clients/ios/stage.sh
+
+      - name: 安装 XcodeGen
+        run: |
+          HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_NO_INSTALL_CLEANUP=1 brew install xcodegen || brew install xcodegen
+          xcodegen --version
+
+      - name: 生成工程
+        run: cd clients/ios && xcodegen generate
+
+      - name: 编译（免签名）
+        run: |
+          cd clients/ios
+          xcodebuild -project CloudStudy.xcodeproj -scheme CloudStudy \
+            -configuration Release -sdk iphoneos -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" \
+            build
+
+      - name: 打包 unsigned IPA
+        run: |
+          cd clients/ios
+          APP="$(find build/Build/Products/Release-iphoneos -maxdepth 1 -name '*.app' | head -1)"
+          test -n "$APP"
+          rm -rf ipa && mkdir -p ipa/Payload
+          cp -R "$APP" ipa/Payload/
+          python3 pack_ipa.py ipa "zhishi-gongshe-v3.0-ios-full-unsigned.ipa"
+
+      - name: 安装 zsign
+        run: |
+          curl -fL --retry 3 -o /tmp/zsign.tar.gz \
+            https://github.com/zhlynn/zsign/releases/download/v1.1.2/zsign-macos-arm64.tar.gz
+          mkdir -p "$HOME/zsign" && tar -C "$HOME/zsign" -xzf /tmp/zsign.tar.gz
+          ZBIN="$(find "$HOME/zsign" -type f -name zsign | head -1)"
+          test -n "$ZBIN" && chmod +x "$ZBIN"
+          echo "ZBIN=$ZBIN" >> "$GITHUB_ENV"
+          "$ZBIN" -v || true
+
+      - name: 解出证书与描述文件
+        run: |
+          cd clients/ios
+          echo "$IOS_P12_B64" | base64 --decode > sign.p12
+          echo "$IOS_MP_B64"  | base64 --decode > sign.mobileprovision
+          ls -la sign.p12 sign.mobileprovision
+
+      - name: zsign 签名
+        run: |
+          cd clients/ios
+          BUNDLE_OPT=""
+          if [ -n "${{ inputs.bundle_id }}" ]; then BUNDLE_OPT="-b ${{ inputs.bundle_id }}"; fi
+          "$ZBIN" -k sign.p12 -p "$IOS_P12_PASS" -m sign.mobileprovision \
+            $BUNDLE_OPT -o "zhishi-gongshe-v3.0-ios-full-signed.ipa" \
+            "zhishi-gongshe-v3.0-ios-full-unsigned.ipa"
+          ls -la *.ipa
+
+      - name: 清理证书
+        if: always()
+        run: rm -f clients/ios/sign.p12 clients/ios/sign.mobileprovision
+
+      - name: 上传 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: zhishi-gongshe-iOS-signed
+          path: clients/ios/*-signed.ipa
+          compression-level: 0
+
+      - name: 上传到 Release
+        if: inputs.upload_release != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TAG="${{ inputs.upload_release }}"
+          gh release view "$TAG" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1 \
+            || gh release create "$TAG" -R "$GITHUB_REPOSITORY" --title "知识公社 $TAG · 多端统一版" --notes "多端统一发布（Android / iOS / Windows / macOS / Linux / Web）" || true
+          gh release upload "$TAG" clients/ios/*-signed.ipa --clobber -R "$GITHUB_REPOSITORY"
