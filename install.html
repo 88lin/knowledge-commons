@@ -143,11 +143,11 @@ footer{background:#27344e;color:#aab4c8;margin-top:26px}
         <td>把服务商用 p12 给你的方式接入 sign-ios 亦可；风险自担</td>
       </tr>
       <tr>
-        <td><b>免费 Apple ID（Sideloadly 等）</b></td>
-        <td><span class="mid">每人自己签</span>（7 天，需电脑侧载或 AltServer）</td>
+        <td><b>免费 Apple ID（Sideloadly / AltStore / SideStore）</b></td>
+        <td><span class="mid">每人自己签</span>（7 天，SideStore 可手机端自续；AltServer 同 Wi-Fi 自动续 ≈ 无限）</td>
         <td>0 元</td>
         <td><span class="mid">7 天续签</span></td>
-        <td>✅ 免签名 IPA 长期提供（build-ios）</td>
+        <td>✅ 免签名 IPA 长期提供（build-ios），下载页有保姆教程</td>
       </tr>
       <tr>
         <td><b>TrollStore（特定 iOS 版本）</b></td>
@@ -166,11 +166,18 @@ footer{background:#27344e;color:#aab4c8;margin-top:26px}
   </div>
 
   <div class="panel">
-    <div class="p-hd"><h2>④ 还没有签名版？两条备用路线</h2></div>
+    <div class="p-hd"><h2>④ 不想花钱？免费路线（0 元）照样能用</h2></div>
     <div class="p-bd">
+      <ol class="steps" style="margin-bottom:12px">
+        <li><b>Sideloadly / AltStore + 免费 Apple ID</b>：电脑拖入免签名 IPA，7 天一签；开着 AltServer 同 Wi-Fi 会<b>自动续签</b>，等于无限用。</li>
+        <li><b>SideStore</b>：开源免电脑方案，手机上自己续签（iOS 14–16），初次配置稍繁琐。</li>
+        <li><b>TrollStore（巨魔）</b>：兼容机型（约 iOS 14.0–16.6.1 部分设备）装一次<b>永久有效</b>——免费直装的唯一形态。</li>
+        <li>⚠️ 网上流传的「免费共享企业证书」几天就会被苹果吊销，还可能随时失效，<b>不要当主力</b>。</li>
+      </ol>
       <div class="links">
-        <a class="lbtn solid" href="download.html#ios">去下载页 · 免签名 IPA + Sideloadly 教程</a>
-        <a class="lbtn" href="https://github.com/TaiMaBenJi/knowledge-commons/actions/workflows/sign-ios.yml">Actions 跑 sign-ios（需配证书 Secrets）</a>
+        <a class="lbtn solid" href="download.html#ios">去下载页 · 免签名 IPA + 教程</a>
+        <a class="lbtn" href="https://github.com/TaiMaBenJi/knowledge-commons/actions/workflows/build-ios.yml">Actions 出免签名 IPA</a>
+        <a class="lbtn" href="https://github.com/TaiMaBenJi/knowledge-commons/actions/workflows/sign-ios.yml">有证书：跑 sign-ios</a>
         <a class="lbtn" href="https://github.com/TaiMaBenJi/knowledge-commons/releases">看 Releases 现状</a>
       </div>
     </div>
