@@ -104,7 +104,7 @@ EXTRA = {
     ],
 }
 
-data = {"gen": "2026-09-20", "items": out, "extra": EXTRA}
+data = {"gen": "2026-10-04", "items": out, "extra": EXTRA}
 js = "window.RES_DATA = " + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + ";\n"
 open(BASE + "/app/resource-data.js", "w", encoding="utf-8").write(js)
 print("items:", len(out), "| groups:", {g: len([x for x in out if x['g'] == g]) for g in CAP})
