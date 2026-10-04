@@ -15,7 +15,7 @@ var CORE = [
   './learn/index.html', './learn/archive.html', './learn/courses.html',
   './learn/contest.html', './learn/exams.html', './learn/gongkao.html',
   './learn/skills.html', './learn/red.html', './learn/paths.html',
-  './learn/about.html', './learn/search.html', './learn/pdfview.html',
+  './learn/about.html', './learn/beginner.html', './learn/search.html', './learn/pdfview.html',
   './learn/course-algo.html', './learn/course-algo2.html',
   './learn/course-python.html', './learn/course-gongkao.html',
   './learn/red/poems.html',
