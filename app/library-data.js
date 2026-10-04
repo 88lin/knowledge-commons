@@ -66,7 +66,7 @@ window.LIB_DATA = {
   {t:'WorldSkills 官方 YouTube',u:'https://www.youtube.com/@WorldSkillsTV',d:'官方频道约 1500 条视频：历届开闭幕式与各赛项赛场纪实（分 playlist）',g:0,s:'视频资源',ty:'视频',f:'完全免费',o:'在线',w:1},
   {t:'WorldSkills 官方 Vimeo',u:'https://vimeo.com/worldskills',d:'官方 Vimeo 空间：2022 特别赛、喀山 2019 展示素材提供下载',g:0,s:'视频资源',ty:'视频',f:'完全免费',o:'可下载',w:1},
   {t:'上海2026世赛官方视频页',u:'https://worldskills2026.com/video',d:'48 届世赛官方集锦、开闭幕式与赛项展示，部分视频可直接下载',g:0,s:'视频资源',ty:'视频',f:'完全免费',o:'部分可下载'},
-  {t:'B站·世赛视频聚合',u:'https://search.bilibili.com/all?keyword=%E4%B8%96%E7%95%8C%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B',d:'站内聚合世赛开闭幕式、赛项演示、中国集训队纪录等视频',g:0,s:'视频资源',ty:'视频',f:'完全免费',o:'App缓存'},
+  {t:'B站·世赛视频聚合',u:'https://search.bilibili.com/all?keyword=%E4%B8%96%E7%95%8C%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B',d:'站内聚合世赛开闭幕式、赛项演示、中国集训队纪录等视频',g:0,s:'视频资源',ty:'视频',f:'完全免费',o:'App缓存'}
 
   /* ============ 1 算法竞赛 ============ */
   {t:'OI Wiki',u:'https://oi-wiki.org',d:'中文算法竞赛知识库最大的开源 Wiki，竞赛知识点全覆盖，可下载离线版',g:1,s:'知识库 Wiki',ty:'Wiki·开源',f:'完全免费',o:'可下载'},
@@ -104,7 +104,7 @@ window.LIB_DATA = {
   {t:'ICPC Kattis 官方镜像',u:'https://icpc.kattis.com',d:'近年 ICPC 真题官方在线评测镜像',g:1,s:'真题官方',ty:'OJ',f:'完全免费',o:'在线'},
   {t:'Codeforces Gym',u:'https://codeforces.com/gyms',d:'2600+ 场历年 ICPC 区域赛镜像赛，支持虚拟参赛，模拟区域赛节奏',g:1,s:'真题官方',ty:'OJ',f:'完全免费',o:'在线'},
   {t:'卡码网',u:'https://kamacoder.com',d:'代码随想录团队出品：ACM 模式输入输出专项 + 大厂笔试真题风格',g:1,s:'OJ 题库',ty:'OJ',f:'完全免费',o:'在线'},
-  {t:'《Algorithms》Jeff Erickson',u:'http://algorithms.wtf',d:'UIUC 教授算法教材官方免费 PDF，质量可比肩 CLRS（英文）',g:1,s:'开源书',ty:'书 PDF',f:'完全免费',o:'可下载'},
+  {t:'《Algorithms》Jeff Erickson',u:'https://jeffe.cs.illinois.edu/teaching/algorithms/',d:'UIUC 教授算法教材官方免费 PDF，质量可比肩 CLRS（英文）',g:1,s:'开源书',ty:'书 PDF',f:'完全免费',o:'可下载'},
   {t:'AtCoder Educational DP Contest',u:'https://atcoder.jp/contests/dp',d:'A~Z 共 26 题的官方 DP 入门经典题组，社区有完整中文题解',g:1,s:'训练路线',ty:'题单',f:'完全免费',o:'在线'},
   {t:'AtCoder Problems',u:'https://kenkoooo.com/atcoder',d:'AtCoder 全题难度 / 标签检索与刷题进度追踪（公社 AtCoder 索引同源）',g:1,s:'训练路线',ty:'题单工具',f:'完全免费',o:'在线'},
   {t:'LC-Rating & Training',u:'https://huxulm.github.io/lc-rating',d:'基于灵茶山艾府题解的力扣竞赛题评分与训练页，按知识点 / 难度刷',g:1,s:'训练路线',ty:'题单工具',f:'完全免费',o:'在线'},
@@ -112,7 +112,7 @@ window.LIB_DATA = {
   {t:'KACTL 竞赛模板手册',u:'https://github.com/kth-competitive-programming/kactl',d:'KTH 皇家理工 ICPC 队 C++ 模板，25 页可直接打印的赛场手册 PDF',g:1,s:'工具',ty:'模板库·开源',f:'完全免费',o:'可下载'},
   {t:'TheAlgorithms/C-Plus-Plus',u:'https://github.com/TheAlgorithms/C-Plus-Plus',d:'C++ 算法实现集合（34.7k star），同系列还有 Python / Java 多语言版本',g:1,s:'工具',ty:'算法库·开源',f:'完全免费',o:'可下载'},
   {t:'CP Editor',u:'https://github.com/cpeditor/cpeditor',d:'专为算法竞赛设计的免费编辑器：联动题目解析、一键编译运行调试',g:1,s:'工具',ty:'编辑器·开源',f:'完全免费',o:'可下载'},
-  {t:'Testlib 出题对拍库',u:'https://github.com/MikeMirzayanov/testlib',d:'Codeforces 出题 / 对拍事实标准库：checker / interactor / generator',g:1,s:'工具',ty:'工具库·开源',f:'完全免费',o:'可下载'},
+  {t:'Testlib 出题对拍库',u:'https://github.com/MikeMirzayanov/testlib',d:'Codeforces 出题 / 对拍事实标准库：checker / interactor / generator',g:1,s:'工具',ty:'工具库·开源',f:'完全免费',o:'可下载'}
 
   /* ============ 2 升学考试 ============ */
   {t:'中国教育考试网',u:'https://www.neea.edu.cn',d:'教育部教育考试院总入口：高考/研考/四六级/NCRE/教资大纲与试题',g:2,s:'官方考试机构',ty:'官网',f:'完全免费',o:'可下载'},
@@ -145,7 +145,7 @@ window.LIB_DATA = {
   {t:'中国考研网',u:'https://www.chinakaoyan.com',d:'老牌考研门户：政治 / 英语 / 数学历年真题及答案解析汇总',g:2,s:'考研',ty:'真题',f:'免费',o:'可下载'},
   {t:'中国考研网·下载中心',u:'http://download.chinakaoyan.com',d:'按院校 / 省份 / 科目免费下载考研真题：公共课与数百所高校专业课 PDF',g:2,s:'考研',ty:'真题PDF',f:'免费',o:'可下载'},
   {t:'考试点',u:'https://www.kaoshidian.com',d:'1986-2011 考研英语、2003-2013 政治等早年真题及解析下载',g:2,s:'考研',ty:'真题',f:'免费',o:'可下载'},
-  {t:'B站·数学汤家凤（官方）',u:'https://space.bilibili.com/search?keyword=%E6%95%B0%E5%AD%A6%E6%B1%A4%E5%AE%B6%E5%87%A4',d:'汤家凤官方空间：高数基础 / 强化全程免费课程，考研数学入门首选',g:2,s:'考研',ty:'视频课',f:'完全免费',o:'App缓存'},
+  {t:'B站·数学汤家凤（官方）',u:'https://search.bilibili.com/all?keyword=%E6%95%B0%E5%AD%A6%E6%B1%A4%E5%AE%B6%E5%87%A4',d:'汤家凤官方空间：高数基础 / 强化全程免费课程，考研数学入门首选',g:2,s:'考研',ty:'视频课',f:'完全免费',o:'App缓存'},
   {t:'B站·张宇/徐涛/腿姐官方号',u:'https://search.bilibili.com/all?keyword=%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6%E5%BC%A0%E5%AE%87',d:'站内认准黄 V 官方号：强化班 / 技巧班 / 刷题课大量免费正版内容',g:2,s:'考研',ty:'视频课',f:'完全免费',o:'App缓存'},
   {t:'高校研究生院官网（大纲+真题）',u:'https://yz.neu.edu.cn',d:'示例（东北大学）：自命题科目大纲按教育部要求公开，部分院校附真题样题',g:2,s:'考研',ty:'官网·大纲',f:'完全免费',o:'可下载'},
   {t:'中国教育在线·高考频道',u:'https://gaokao.eol.cn',d:'「历年高考试题及答案」专栏（2018-2025），按科目分类附作文与范文',g:2,s:'高考真题聚合',ty:'真题',f:'免费',o:'可下载'},
@@ -159,7 +159,7 @@ window.LIB_DATA = {
   {t:'赖世雄美语从头学（B站）',u:'https://search.bilibili.com/all?keyword=%E8%B5%96%E4%B8%96%E9%9B%84%E7%BE%8E%E8%AF%AD%E4%BB%8E%E5%A4%B4%E5%AD%A6',d:'经典零基础美语教程（音标→入门→初级）完整免费合集，四六级 / 专升本打基础',g:2,s:'学科专项',ty:'视频课',f:'完全免费',o:'App缓存'},
   {t:'B站·高中理化生实验合集',u:'https://search.bilibili.com/all?keyword=%E9%AB%98%E4%B8%AD%E5%8C%96%E5%AD%A6%E5%AE%9E%E9%AA%8C%E6%BC%94%E7%A4%BA',d:'播放量 10 万+ 的实验课合集，覆盖高考实验考点',g:2,s:'学科专项',ty:'实验视频',f:'完全免费',o:'App缓存'},
   {t:'中国大学先修课 CAP（爱课程）',u:'https://www.icourses.cn',d:'教育部爱课程：近 40 门大学先修课免费开放，高中-大学衔接',g:2,s:'大学衔接',ty:'视频课',f:'完全免费',o:'在线'},
-  {t:'MOOC中国（导航站）',u:'https://www.mooc.cn',d:'全球优秀中文 MOOC 课程导航，按学科检索免费开放课程',g:2,s:'大学衔接',ty:'导航站',f:'免费',o:'在线'},
+  {t:'MOOC中国（导航站）',u:'https://www.mooc.cn',d:'全球优秀中文 MOOC 课程导航，按学科检索免费开放课程',g:2,s:'大学衔接',ty:'导航站',f:'免费',o:'在线'}
 
   /* ============ 3 公务员·编制 ============ */
   {t:'国家公务员局',u:'http://www.scs.gov.cn',d:'国考公告、考试大纲、政策法规的法定发布机关官网',g:3,s:'官方渠道',ty:'官网',f:'完全免费',o:'在线'},
@@ -201,7 +201,7 @@ window.LIB_DATA = {
   {t:'李梦娇常识速记口诀（B站）',u:'https://search.bilibili.com/all?keyword=%E6%9D%8E%E6%A2%A6%E5%A8%87%20%E5%B8%B8%E8%AF%86%E5%8F%A3%E8%AF%80',d:'华图名师常识 / 公基带背完整版（88 条口诀，数十小时），记忆首选',g:3,s:'免费网课',ty:'视频课',f:'完全免费',o:'App缓存'},
   {t:'刘文超Vin 资料分析（B站）',u:'https://search.bilibili.com/all?keyword=%E5%88%98%E6%96%87%E8%B6%85%20%E8%B5%84%E6%96%99%E5%88%86%E6%9E%90',d:'B 站公考圈口碑最高的免费资料分析 / 数量关系系统班，速算技巧全免费',g:3,s:'免费网课',ty:'视频课',f:'完全免费',o:'App缓存'},
   {t:'公考邵书阳 言语理解（B站）',u:'https://search.bilibili.com/all?keyword=%E5%85%AC%E8%80%83%E9%82%B5%E4%B9%A6%E9%98%B3',d:'言语理解与表达系统讲解与真题带刷，行测言语模块免费课代表',g:3,s:'免费网课',ty:'视频课',f:'完全免费',o:'App缓存'},
-  {t:'B站·系统公考教程198集',u:'https://search.bilibili.com/all?keyword=%E5%85%AC%E5%8A%A1%E5%91%98%20%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B',d:'全流程公考自学教程：行测 + 申论手把手教学，零基础搭框架',g:3,s:'免费网课',ty:'视频课',f:'完全免费',o:'App缓存'},
+  {t:'B站·系统公考教程198集',u:'https://search.bilibili.com/all?keyword=%E5%85%AC%E5%8A%A1%E5%91%98%20%E7%B3%BB%E7%BB%9F%E6%95%99%E7%A8%8B',d:'全流程公考自学教程：行测 + 申论手把手教学，零基础搭框架',g:3,s:'免费网课',ty:'视频课',f:'完全免费',o:'App缓存'}
 
   /* ============ 4 红色经典·人文古籍 ============ */
   {t:'中文马克思主义文库',u:'https://www.marxists.org/chinese/',d:'《马恩全集》《列宁全集》《斯大林全集》《共产党宣言》等中文全文库（直连不稳）',g:4,s:'马列文献',ty:'全文库',f:'完全免费',o:'可下载',w:1},
@@ -232,13 +232,13 @@ window.LIB_DATA = {
   {t:'中文维基文库',u:'https://zh.wikisource.org',d:'458 万+ 篇公版中文文献（典籍、史书、法律、民国文献），CC 协议（需国际网络）',g:4,s:'文库',ty:'全文库',f:'完全免费',o:'可下载',w:1},
   {t:'古腾堡计划·中文书架',u:'https://www.gutenberg.org/browse/languages/zh',d:'7.5 万+ 公版电子书：古籍、民国中译名著、鲁迅《阿Q正传》等，txt/EPUB 直下',g:4,s:'文库',ty:'全文库',f:'完全免费',o:'可下载',w:1},
   {t:'台湾华文电子书园地',u:'https://taiwanebook.ncl.edu.tw',d:'台湾国图公版书在线翻阅平台，含民国旧籍影印',g:4,s:'文库',ty:'影像库',f:'完全免费',o:'在线',w:1},
-  {t:'北京鲁迅博物馆·著作全编检索',u:'http://cx.luxunmuseum.com.cn',d:'官方「鲁迅著作全编」：文章浏览 + 简单 / 高级检索，可验证「鲁迅说过的话」',g:4,s:'文学经典',ty:'全文库·检索',f:'完全免费',o:'在线'},
+
   {t:'鲁迅全集在线（马库版）',u:'https://www.marxists.org/chinese/reference-books/luxun/index.htm',d:'《呐喊》《彷徨》《野草》、13 部杂文集、《中国小说史略》等分卷全文',g:4,s:'文学经典',ty:'全文库',f:'完全免费',o:'可下载',w:1},
   {t:'搜韵网',u:'https://sou-yun.cn',d:'85 万+ 首古今诗词（含全唐诗 / 全宋词）检索，格律校验与韵典、词谱曲谱',g:4,s:'诗词检索',ty:'全文库·检索',f:'部分免费',o:'在线'},
   {t:'诗词吾爱网',u:'https://www.52shici.com',d:'诗词格律自动检测、创作交流社区，工具型网站',g:4,s:'诗词检索',ty:'检索工具',f:'完全免费',o:'在线'},
   {t:'古诗文网（古文岛）',u:'https://www.gushiwen.cn',d:'最全古诗文站：部编版必背篇目全收录，译文注释赏析与朗诵音频、PDF 下载',g:4,s:'诗词检索',ty:'全文库',f:'完全免费',o:'可下载'},
   {t:'可可诗词网',u:'https://www.kekeshici.com',d:'唐诗宋词名句出处、全诗、注释与赏析，逐句查证友好',g:4,s:'诗词检索',ty:'全文库',f:'完全免费',o:'在线'},
-  {t:'国际敦煌项目 IDP',u:'https://idp.bl.uk',d:'大英图书馆牵头的多国馆藏丝路写本 / 绘画高清数字库，学术级（境外较慢）',g:4,s:'古籍库',ty:'影像库',f:'完全免费',o:'部分可下载',w:1},
+  {t:'国际敦煌项目 IDP',u:'https://idp.bl.uk',d:'大英图书馆牵头的多国馆藏丝路写本 / 绘画高清数字库，学术级（境外较慢）',g:4,s:'古籍库',ty:'影像库',f:'完全免费',o:'部分可下载',w:1}
 
   /* ============ 5 开放课程·电子书 ============ */
   {t:'中国大学MOOC',u:'https://www.icourse163.org',d:'高教社 × 网易联办，国内最大中文慕课平台，数千门名校课程学习免费',g:5,s:'国内MOOC',ty:'MOOC',f:'部分免费',o:'App缓存'},
@@ -258,7 +258,7 @@ window.LIB_DATA = {
   {t:'OpenStax',u:'https://openstax.org',d:'莱斯大学旗下经同行评审的开放正版大学教材，官网直接下载 PDF（需国际网络）',g:5,s:'开放教材',ty:'教材库',f:'完全免费',o:'可下载',w:1},
   {t:'Open Textbook Library',u:'https://open.umn.edu/opentextbooks',d:'明尼苏达大学维护的开放教材库，千余本可自由使用改编（需国际网络）',g:5,s:'开放教材',ty:'教材库',f:'完全免费',o:'可下载',w:1},
   {t:'国家数字图书馆',u:'https://www.nlc.cn',d:'国家级数字资源门户，凭身份证在线免费办读者卡，远程访问电子书 / 期刊库',g:5,s:'电子书·数字图书馆',ty:'书库',f:'免费(注册)',o:'部分可下载'},
-  {t:'中华古籍资源库（老入口）',u:'http://read.nlc.cn',d:'国图 10 万部/件善本、敦煌文献、碑帖高清影像，免登录阅览',g:5,s:'电子书·数字图书馆',ty:'书库·古籍',f:'完全免费',o:'在线'},
+
   {t:'浙江图书馆',u:'https://www.zjlib.cn',d:'支付宝搜「浙江图书馆」免费办证，可远程访问知网等商业数据库与正版电子书',g:5,s:'电子书·数字图书馆',ty:'书库',f:'免费(注册)',o:'部分可下载'},
   {t:'全国图书馆参考咨询联盟',u:'http://www.ucdrs.superlib.net',d:'公益性文献传递平台：检索图书 / 论文后免费邮箱送达章节扫描件',g:5,s:'电子书·数字图书馆',ty:'书库·学术',f:'完全免费',o:'可下载'},
   {t:'微信读书',u:'https://weread.qq.com',d:'正版电子书 + 有声书平台；公版书免费，时长 / 组队可兑换免费读全场',g:5,s:'电子书·数字图书馆',ty:'书库APP',f:'部分免费',o:'App缓存'},
@@ -275,7 +275,7 @@ window.LIB_DATA = {
   {t:'网易公开课',u:'https://open.163.com',d:'15000+ 集免费课程：名校课 / 中国大学公开课 / 可汗学院 / TED 中文字幕',g:5,s:'公开课视频',ty:'公开课',f:'大部分免费',o:'App缓存'},
   {t:'B站·高校官方号与知识区',u:'https://www.bilibili.com',d:'清华 / 北大 / 复旦等官方号入驻，海量公开课、讲座与知识科普，可缓存',g:5,s:'公开课视频',ty:'公开课',f:'完全免费',o:'App缓存'},
   {t:'TED（官网）',u:'https://www.ted.com',d:'数千个科技 / 人文 / 教育演讲免费看，多数有中文志愿字幕，官网可下 MP4',g:5,s:'公开课视频',ty:'公开课',f:'完全免费',o:'可下载',w:1},
-  {t:'央视网纪录片片库',u:'https://tv.cctv.com/lm/jl/',d:'《国家记忆》《航拍中国》等大量自制纪录片官方免费在线点播',g:5,s:'公开课视频',ty:'纪录片',f:'完全免费',o:'在线'},
+
   {t:'BBC Learning English',u:'https://www.bbc.co.uk/learningenglish',d:'六分钟英语等系统栏目，每集配 worksheet、测验和 transcript（需国际网络）',g:5,s:'语言学习',ty:'英语听力',f:'完全免费',o:'可下载',w:1},
   {t:'VOA 慢速英语',u:'https://learningenglish.voanews.com',d:'语速 2/3、词汇 1500 级的分级英语课程 + 测验，附文稿（需国际网络）',g:5,s:'语言学习',ty:'英语听力',f:'完全免费',o:'可下载',w:1},
   {t:'中国日报网英语点津',u:'https://language.chinadaily.com.cn',d:'中国日报官方英语频道：双语新闻 + 听力音频下载，大陆直连',g:5,s:'语言学习',ty:'英语学习',f:'完全免费',o:'可下载'},
@@ -290,9 +290,9 @@ window.LIB_DATA = {
   {t:'国家智慧教育读书平台',u:'https://reading.smartedu.cn',d:'教育部官方读书平台：中小学好书推荐、经典阅读与有声资源',g:5,s:'少儿编程·启蒙',ty:'阅读平台',f:'完全免费',o:'App缓存'},
   {t:'金山打字通在线版',u:'https://www.dazima.cn',d:'官方在线版：中英文打字练习与速度测试，含指法课程与打字游戏',g:5,s:'综合素养',ty:'打字练习',f:'完全免费',o:'在线'},
   {t:'WPS 学堂',u:'https://www.wps.cn/learning',d:'金山办公官方免费平台：1000+ Office 视频教程（表格函数 / 排版 / 演示）',g:5,s:'综合素养',ty:'办公技能',f:'完全免费',o:'在线'},
-  {t:'Microsoft 365 官方培训',u:'https://support.microsoft.com/zh-cn/training',d:'微软官方 Word / Excel / PowerPoint 免费入门教程与快速入门视频',g:5,s:'综合素养',ty:'办公技能',f:'完全免费',o:'可下载'},
+
   {t:'剪映官方教程',u:'https://www.capcut.cn',d:'剪映官网免费新手指南：剪辑界面、时间线、特效、字幕、导出全流程',g:5,s:'综合素养',ty:'剪辑技能',f:'完全免费',o:'在线'},
-  {t:'光影魔术手',u:'https://www.neoimaging.cn',d:'免费修图软件官方站：AI 抠图 / 美容 / 批处理 / 证件照排版',g:5,s:'综合素养',ty:'摄影修图',f:'完全免费',o:'可下载'},
+  {t:'光影魔术手',u:'https://www.neoimaging.cn',d:'免费修图软件官方站：AI 抠图 / 美容 / 批处理 / 证件照排版',g:5,s:'综合素养',ty:'摄影修图',f:'完全免费',o:'可下载'}
 
   /* ============ 6 编程·IT·工具 ============ */
   {t:'Python 官方中文文档',u:'https://docs.python.org/zh-cn/3/tutorial/',d:'Python 官方入门教程简体中文版，社区协作翻译、内容最新最权威',g:6,s:'官方文档',ty:'文档',f:'完全免费',o:'可下载'},
@@ -357,7 +357,7 @@ window.LIB_DATA = {
   {t:'SQLite Online',u:'https://sqliteonline.com/',d:'浏览器内免装 SQL 在线练习环境（MySQL/PG/SQLite）',g:6,s:'练习闯关',ty:'练习环境',f:'完全免费',o:'在线'},
   {t:'阿里云开发者社区',u:'https://developer.aliyun.com/',d:'免费云课程、电子书与技术实验（高校学生计划另享免费 ECS）',g:6,s:'云原生运维',ty:'课程·实验',f:'大部分免费',o:'在线'},
   {t:'腾讯云开发者实验室',u:'https://cloud.tencent.com/developer/labs',d:'浏览器内免费云产品动手实验，免本地搭环境',g:6,s:'云原生运维',ty:'实验平台',f:'免费',o:'在线'},
-  {t:'KodeKloud 免费课程',u:'https://kodekloud.com/free-courses',d:'DevOps 学习站免费专区：K8s 挑战、Terraform 入门实验等',g:6,s:'云原生运维',ty:'课程·实验',f:'部分免费',o:'在线',w:1},
+  {t:'KodeKloud 免费课程',u:'https://kodekloud.com/free-courses',d:'DevOps 学习站免费专区：K8s 挑战、Terraform 入门实验等',g:6,s:'云原生运维',ty:'课程·实验',f:'部分免费',o:'在线',w:1}
 
   /* ============ 2026-10-04 增补（含第 8 组 职业考证·语言）============ */
   {t:'WorldSkills Lyon 2024 官网',u:'https://www.worldskillslyon2024.com',d:'第47届世界技能大赛（里昂2024）官方站：赛项技术说明、选手成绩与官方影像回放入口',g:0,s:'历届世赛与地区组织',ty:'官网',f:'完全免费',o:'在线',w:1},
@@ -411,22 +411,22 @@ window.LIB_DATA = {
   {t:'国家统一法律职业资格考试信息服务平台',u:'https://nje.examos.cn/EXAMSF/public/index.jsp',d:'法考官方报名入口：客观题与主观题报名交费、准考证打印、成绩查询全流程在此办理',g:7,s:'法考',ty:'官网',f:'完全免费',o:'在线'},
   {t:'司法部国家司法考试中心',u:'http://www.moj.gov.cn/jgsz/jgszzsdw/zsdwgjsfkszx/',d:'法考主管机构官方专栏：考试公告、合格分数线与法律职业资格授予通知全文',g:7,s:'法考',ty:'官网',f:'完全免费',o:'在线'},
   {t:'中国教师资格网',u:'https://www.jszg.edu.cn',d:'教师资格认定与考试官方平台：报名指南、各省认定公告与资格证书查询，全国统一入口',g:7,s:'教师资格',ty:'官网',f:'完全免费',o:'在线'},
-  {t:'B站·教师资格证免费课',u:'https://search.bilibili.com/all?keyword=教师资格证',d:'站内教资笔试与面试免费课程聚合：科目一至三系统班与结构化面试示范，可缓存离线看',g:7,s:'教师资格',ty:'视频',f:'完全免费',o:'App缓存'},
+  {t:'B站·教师资格证免费课',u:'https://search.bilibili.com/all?keyword=%E6%95%99%E5%B8%88%E8%B5%84%E6%A0%BC%E8%AF%81',d:'站内教资笔试与面试免费课程聚合：科目一至三系统班与结构化面试示范，可缓存离线看',g:7,s:'教师资格',ty:'视频',f:'完全免费',o:'App缓存'},
   {t:'日本语能力测试（JLPT）中国官网',u:'https://jlpt-main.neea.cn/',d:'教育部教育考试院承办的 JLPT 中国考区：报名入口、考试介绍与样题，覆盖 N1 至 N5',g:7,s:'日语等级考试',ty:'官网',f:'完全免费',o:'在线'},
   {t:'雅思网上报名（NEEA）',u:'https://ielts.neea.edu.cn/',d:'中国大陆雅思官方报名与查询平台：考位查询、准考证、成绩发布与官方考试须知',g:7,s:'雅思托福',ty:'官网',f:'完全免费',o:'在线'},
   {t:'BC 雅思中文官网',u:'https://www.chinaielts.org',d:'英国文化教育协会雅思中文站：考试类型详解、备考资源与官方免费练习材料下载',g:7,s:'雅思托福',ty:'官网',f:'部分免费',o:'可下载'},
   {t:'可可英语',u:'https://www.kekenet.com',d:'老牌免费英语学习站：四六级听力真题、VOA/BBC 双语材料与口语练习，国内直连快',g:7,s:'英语四六级',ty:'英语学习',f:'免费',o:'可下载'},
-  {t:'B站·英语四级免费课',u:'https://search.bilibili.com/all?keyword=英语四级',d:'CET-4 备考视频聚合：听力、阅读、写作翻译技巧课与历年真题讲解，考前突击免费刷',g:7,s:'英语四六级',ty:'视频',f:'完全免费',o:'App缓存'},
+  {t:'B站·英语四级免费课',u:'https://search.bilibili.com/all?keyword=%E8%8B%B1%E8%AF%AD%E5%9B%9B%E7%BA%A7',d:'CET-4 备考视频聚合：听力、阅读、写作翻译技巧课与历年真题讲解，考前突击免费刷',g:7,s:'英语四六级',ty:'视频',f:'完全免费',o:'App缓存'},
   {t:'百词斩',u:'https://www.baicizhan.com',d:'图片联想背单词 App：四六级、考研、雅思词表齐全，闯关背词与电台听力免费使用',g:7,s:'词汇·背单词',ty:'语言APP',f:'部分免费',o:'App缓存'},
   {t:'墨墨背单词',u:'https://www.maimemo.com',d:'遗忘曲线背单词工具：释义、例句、发音完整，每日任务可获取免费单词额度',g:7,s:'词汇·背单词',ty:'语言APP',f:'部分免费',o:'App缓存'},
-  {t:'B站·考研英语免费课',u:'https://search.bilibili.com/all?keyword=考研英语',d:'考研英语真题带练、长难句与作文模板免费视频合集，阅读技巧与翻译课口碑名师齐聚',g:7,s:'考研英语',ty:'视频',f:'完全免费',o:'App缓存'},
+  {t:'B站·考研英语免费课',u:'https://search.bilibili.com/all?keyword=%E8%80%83%E7%A0%94%E8%8B%B1%E8%AF%AD',d:'考研英语真题带练、长难句与作文模板免费视频合集，阅读技巧与翻译课口碑名师齐聚',g:7,s:'考研英语',ty:'视频',f:'完全免费',o:'App缓存'},
   {t:'全国翻译专业资格（水平）考试网',u:'https://www.catticenter.com/',d:'CATTI 官方：笔译与口译考试大纲、报名通知与样卷，翻译考证权威信息源',g:7,s:'翻译CATTI',ty:'官网',f:'完全免费',o:'可下载'},
   {t:'中国计算机技术职业资格网（软考）',u:'https://www.ruankao.org.cn',d:'软考官方：初、中、高级资格考试计划、大纲、报名与成绩查询，IT 职称考证统一入口',g:7,s:'计算机软考',ty:'官网',f:'完全免费',o:'可下载'},
   {t:'中国银行业协会',u:'https://www.china-cba.net',d:'银行业专业人员职业资格考试主办方：初级与中级银行从业报考简章、教材与考试动态',g:7,s:'金融从业',ty:'官网',f:'完全免费',o:'在线'},
   {t:'中国证券投资基金业协会',u:'https://www.amac.org.cn',d:'基金从业资格考试官方：考试大纲、报名入口与机构登记信息查询',g:7,s:'金融从业',ty:'官网',f:'完全免费',o:'在线'},
   {t:'中国证券业协会',u:'https://www.sac.net.cn',d:'证券业从业资格考试主办方：金融市场基础知识等科目考试公告、准考证与成绩服务',g:7,s:'金融从业',ty:'官网',f:'完全免费',o:'在线'}
 
-  /* 算法竞赛之外的补充条目在上方各组内收录 */,
+  /* 算法竞赛之外的补充条目在上方各组内收录 */
 
   /* —— 第二波并入（算法AI/多语种/数字人文等，去重后） —— */
   {t:'CCF CSP-J/S 认证官方',u:'https://csp.ccf.org.cn',d:'CSP 入门级 / 提高级认证（NOI 系列首站）官方通知、报名与真题入口',g:2,s:'信息学',ty:'官方竞赛',f:'通知真题免费',o:'部分可下载'},
@@ -551,7 +551,7 @@ window.LIB_DATA = {
   {t:'罗翔说刑法（B站）',u:'https://space.bilibili.com/517327498',d:'罗翔官方账号：刑法趣味普法 + 考点讲解，B站法律区第一号',g:7,s:'法考',ty:'视频课',f:'完全免费',o:'App缓存'},
   {t:'厚大法考（B站）',u:'https://space.bilibili.com/67479020',d:'厚大官方号：刑法 / 民法等系统强化课全集免费',g:7,s:'法考',ty:'视频课',f:'完全免费',o:'App缓存'},
   {t:'瑞达法考',u:'https://www.ruidaedu.com',d:'钟秀勇民法、刘凤科刑法等各阶段免费公开课与课件',g:7,s:'法考',ty:'视频课',f:'免费',o:'可下载'},
-  {t:'竹马法考',u:'https://www.zhumaapp.com',d:'近二十年法考真题 + 模考，碎片化速记刷题',g:7,s:'法考',ty:'题库',f:'题库免费',o:'App缓存'},
+
   {t:'觉晓法考',u:'https://www.juexiaotime.com',d:'近 20 年真题 + 官方案例模拟题，主观题 AI 批改与 1:1 机考模拟',g:7,s:'法考',ty:'题库',f:'题库免费',o:'App缓存'},
   {t:'独角兽法考',u:'http://www.dujiaoshou.com',d:'2002–2017 司考 / 法考历年真题解析免费下载',g:7,s:'法考',ty:'真题PDF',f:'免费',o:'可下载'},
   {t:'东奥会计在线',u:'https://www.dongao.com',d:'会计 / CPA / 经济师免费视频教程与题库资料，注册领学习资料',g:7,s:'财会·经济',ty:'视频课·题库',f:'部分免费',o:'App缓存'},
@@ -562,7 +562,7 @@ window.LIB_DATA = {
   {t:'大都会艺术博物馆 Open Access',u:'https://www.metmuseum.org/art/collection',d:'40 万+ 件公有领域作品按 CC0 免费下载高清图，可商用再创作（直连较慢）',g:8,s:'世界数字馆藏',ty:'数字库',f:'完全免费',o:'可下载'},
   {t:'卢浮宫线上馆藏',u:'https://collections.louvre.fr',d:'卢浮宫 50 万+ 件藏品高清完整图与细节图免费检索',g:8,s:'世界数字馆藏',ty:'数字库',f:'完全免费',o:'可下载'},
   {t:'大英博物馆在线馆藏',u:'https://www.britishmuseum.org/collection',d:'220 万件编目藏品在线检索，含 2.3 万余件中国文物高清影像（直连不稳）',g:8,s:'世界数字馆藏',ty:'数字库',f:'完全免费',o:'可下载'},
-  {t:'盖蒂开放内容 Open Content',u:'https://www.getty.edu/projects/open-content/',d:'10 万+ 件公版艺术高清图（最高 800dpi）无限制免费下载含商用',g:8,s:'世界数字馆藏',ty:'数字库',f:'完全免费',o:'可下载'},
+  {t:'盖蒂开放内容 Open Content',u:'https://www.getty.edu/projects/open-content-program/',d:'10 万+ 件公版艺术高清图（最高 800dpi）无限制免费下载含商用',g:8,s:'世界数字馆藏',ty:'数字库',f:'完全免费',o:'可下载'},
   {t:'荷兰国立博物馆 Rijksstudio',u:'https://www.rijksmuseum.nl/en/rijksstudio',d:'71 万件藏品在线，《夜巡》等公版名作超高清一键免费下载可商用',g:8,s:'世界数字馆藏',ty:'数字库',f:'完全免费',o:'可下载'},
   {t:'中华珍宝馆',u:'https://g2.ltfc.net',d:'晋代至当代中国历代书画超高清在线：绘画馆 / 书法馆 / 集字工具',g:8,s:'书画·音乐',ty:'数字库',f:'大部分免费',o:'部分可下载'},
   {t:'国家大剧院古典音乐频道',u:'https://www.ncpa-classic.com',d:'NCPA 音乐厅每周高清演出实况、排练幕后与古典音乐赏析讲座',g:8,s:'书画·音乐',ty:'音乐平台',f:'大部分免费',o:'在线'},
