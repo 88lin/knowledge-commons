@@ -66,6 +66,7 @@
 - **云端**：GitHub Actions —— `build-android` / `build-ios` / `sign-ios` / `build-windows` / `build-macos` / `build-linux`（workflow_dispatch，可指定上传到 Release；`sign-ios` 需配置 `IOS_P12_B64` / `IOS_P12_PASS` / `IOS_MP_B64` 三个 Secrets）
 - **本地**：`clients/android/build_ci.sh` 在装有 Android SDK 的环境可直接构建；`clients/windows` 与 `clients/linux` 需 zig；`clients/macos` 与 `clients/ios` 需 macOS + Xcode；Windows 本机签 IPA：`clients/ios/sign.ps1`（zsign）
 - **质检**：`tools/qc/full_media_probe.py <目录>` 对全部视频逐部解码体检（0 错误为通过）
+- **链接体检**：`python tools/linkcheck.py` 并发检测资源总库全部外链（反爬识别为 blocked，多轮重试后才判死链）
 - **资源名说明**：部分 Android WebView 无法访问含非 ASCII 字符的资源路径，构建流程中的 `tools/android_namefix.py` 会把中文资源名转义为 `_uXXXX` 并同步改写引用（详见脚本注释）
 
 ## 数据来源与致谢
