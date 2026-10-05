@@ -206,7 +206,7 @@ LESSONS.forEach(function(L){
     '<div class="lesson-bd">'+
     '<div class="vwrap"><video controls preload="none" src="../videos/beginner/epb'+L.n+'.mp4" onerror="this.parentNode.querySelector(\'.vmiss\').style.display=\'block\';this.style.display=\'none\'"></video><div class="vmiss">本集视频尚未生成——用仓库里的 video-factory 流水线一键生成：<br>python3 video-factory/build_episode.py video-factory/scripts/beginner-b'+L.n+'.py</div></div>'+
     '<ul class="klist">'+pts+'</ul>'+
-    '<div class="lkbar"><a href="'+L.u+'">直达板块 →</a><a href="../videos/beginner/epb'+L.n+'.mp4">本集视频（新窗口播放）</a><a href="archive.html">总目</a></div>'+
+    '<div class="lkbar"><a href="'+L.u+'">直达板块 →</a><a href="quiz.html#'+L.n+'">测一测 →</a><a href="../videos/beginner/epb'+L.n+'.mp4">本集视频（新窗口播放）</a><a href="archive.html">总目</a></div>'+
     '</div>';
   el.querySelector('.lesson-hd').onclick=function(){el.classList.toggle('open');};
   box.appendChild(el);
