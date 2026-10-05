@@ -68,6 +68,20 @@ window.LIB_DATA = {
   {t:'上海2026世赛官方视频页',u:'https://worldskills2026.com/video',d:'48 届世赛官方集锦、开闭幕式与赛项展示，部分视频可直接下载',g:0,s:'视频资源',ty:'视频',f:'完全免费',o:'部分可下载'},
   {t:'B站·世赛视频聚合',u:'https://search.bilibili.com/all?keyword=%E4%B8%96%E7%95%8C%E6%8A%80%E8%83%BD%E5%A4%A7%E8%B5%9B',d:'站内聚合世赛开闭幕式、赛项演示、中国集训队纪录等视频',g:0,s:'视频资源',ty:'视频',f:'完全免费',o:'App缓存'}
 
+
+  /* ============ 0b 云计算与运维专项（2026-10-05 扩充） ============ */
+  {t:'OpenStack 官方中文文档',u:'https://docs.openstack.org/zh_CN/',d:'中国国赛云计算赛项核心栈：私有云部署与组件官方中文文档',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载'},
+  {t:'Debian 中文文档',u:'https://www.debian.org/index.zh-cn.html',d:'世赛环境常用系统发行版官方中文文档与手册',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载'},
+  {t:'Ubuntu Server 官方文档',u:'https://documentation.ubuntu.com/server/',d:'服务器版官方文档：网络、存储、容器、远端接入全覆盖',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载'},
+  {t:'ArchWiki 中文',u:'https://wiki.archlinux.org/title/Main_page_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)',d:'公认最详尽的 Linux 百科：排错与原理查阅的终极武器',g:0,s:'云计算与运维专项',ty:'Wiki',f:'完全免费',o:'可下载'},
+  {t:'鸟哥的 Linux 私房菜',u:'http://linux.vbird.org',d:'中文 Linux 圣经级教材：基础篇与服务器篇全免费',g:0,s:'云计算与运维专项',ty:'教材',f:'完全免费',o:'在线'},
+  {t:'HAProxy 官方文档',u:'https://docs.haproxy.org',d:'负载均衡评分点常客：配置语法与调优权威出处',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载'},
+  {t:'Windows Server 官方文档',u:'https://learn.microsoft.com/zh-cn/windows-server/',d:'AD DS / DNS / GPO / DFS 全套官方中文文档（世赛 Module B）',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载'},
+  {t:'Proxmox VE Wiki',u:'https://pve.proxmox.com/wiki/Main_Page',d:'开源虚拟化平台文档：私有云与家庭实验室常用底座',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'在线'},
+  {t:'Ansible 官方文档',u:'https://docs.ansible.com/ansible/latest/getting_started/index.html',d:'自动化运维事实标准：Playbook 入门到角色管理',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载'},
+  {t:'Terraform 官方教程',u:'https://developer.hashicorp.com/terraform/tutorials',d:'基础设施即代码（IaC）官方教程：韩国赛核心工具',g:0,s:'云计算与运维专项',ty:'官方教程',f:'完全免费',o:'可下载',w:1},
+  {t:'WireGuard 官网',u:'https://www.wireguard.com/quickstart/',d:'现代组网工具官方快开始：世赛模块常考点（境外站较慢）',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载',w:1},
+  {t:'Samba 官方 Wiki',u:'https://wiki.samba.org/index.php/Main_Page',d:'文件共享与域成员配置权威文档（403 为反爬，浏览器正常）',g:0,s:'云计算与运维专项',ty:'官方文档',f:'完全免费',o:'可下载'},
   /* ============ 1 算法竞赛 ============ */
   {t:'OI Wiki',u:'https://oi-wiki.org',d:'中文算法竞赛知识库最大的开源 Wiki，竞赛知识点全覆盖，可下载离线版',g:1,s:'知识库 Wiki',ty:'Wiki·开源',f:'完全免费',o:'可下载'},
   {t:'Hello 算法',u:'https://www.hello-algo.com',d:'动画图解数据结构与算法的开源书（12 种语言代码），可免费下载 PDF',g:1,s:'知识库 Wiki',ty:'开源书',f:'完全免费',o:'可下载'},
