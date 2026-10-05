@@ -1,0 +1,57 @@
+name: link-check
+on:
+  schedule:
+    - cron: '0 3 5 * *'   # 每月 5 日 03:00 UTC（北京时间 11:00）
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 运行全库链接体检
+        run: python tools/linkcheck.py _linkreport.json
+
+      - name: 生成报告摘要
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json, os
+          try:
+              r = json.load(open('_linkreport.json', encoding='utf-8'))
+          except FileNotFoundError:
+              open(os.environ['GITHUB_STEP_SUMMARY'], 'a').write('linkcheck 未生成报告（可能异常退出）')
+              raise SystemExit
+          dead = {u: v for u, v in r.items() if v['kind'] == 'dead'}
+          blk  = {u: v for u, v in r.items() if v['kind'] == 'blocked'}
+          lines = ['## 链接体检报告', '',
+                   '共检测 **%d** 条外链：ok=%d / blocked(反爬)= %d / dead=%d' % (
+                       len(r), len(r) - len(dead) - len(blk), len(blk), len(dead)),
+                   '',
+                   '> dead 含境外站网络误报，处理前请先浏览器复核两轮。',
+                   '']
+          if dead:
+              lines.append('### 疑似死链（需人工复核）')
+              lines += ['- [ ] %s' % u for u in sorted(dead)]
+          if blk:
+              lines.append('')
+              lines.append('### 反爬拦截（一般无需处理）')
+              lines += ['- %s' % u for u in sorted(blk)]
+          open(os.environ['GITHUB_STEP_SUMMARY'], 'a').write('\n'.join(lines))
+          print('dead=%d blocked=%d' % (len(dead), len(blk)))
+          PY
+
+      - name: 上传完整报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: link-report
+          path: _linkreport.json
