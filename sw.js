@@ -7,7 +7,7 @@
    · 静态资源 stale-while-revalidate —— 秒开 + 后台静默更新；
    · Range 请求 / 非本站请求 —— 直接放行（视频流式播放不受影响）。
    ============================================================ */
-var VERSION = 'kc-v1.4.1';
+var VERSION = 'kc-v1.4.2';
 
 /* 预缓存：主站全部页面 + 样式 + 检索索引 + PWA 资产（≈300KB） */
 var CORE = [
@@ -15,7 +15,7 @@ var CORE = [
   './learn/index.html', './learn/archive.html', './learn/courses.html',
   './learn/contest.html', './learn/exams.html', './learn/gongkao.html',
   './learn/skills.html', './learn/red.html', './learn/paths.html',
-  './learn/about.html', './learn/beginner.html', './learn/calendar.html', './learn/search.html', './learn/pdfview.html',
+  './learn/about.html', './learn/beginner.html', './learn/calendar.html', './learn/quiz.html', './learn/search.html', './learn/pdfview.html',
   './learn/course-algo.html', './learn/course-algo2.html',
   './learn/course-python.html', './learn/course-gongkao.html',
   './learn/red/poems.html',
