@@ -6,8 +6,8 @@
    收录原则：免费、官方、无版权风险优先；中国大陆可直连优先。
    ============================================================ */
 window.LIB_DATA = {
-  gen: '2026-10-07',
-  groups: ['世赛·职业技能', '算法竞赛', '升学考试', '公务员·编制', '红色经典·人文古籍', '开放课程·电子书', '编程·IT·工具', '职业考证·语言', '数字人文·视听', '社会主义实践研究'],
+  gen: '2026-10-08',
+  groups: ['世赛·职业技能', '算法竞赛', '升学考试', '公务员·编制', '红色经典·人文古籍', '开放课程·电子书', '编程·IT·工具', '职业考证·语言', '数字人文·视听', '社会主义实践研究', '电商创业实战'],
   items: [
 
 
@@ -791,5 +791,45 @@ window.LIB_DATA = {
   {t:'Unpaywall 开放获取',u:'https://unpaywall.org/',d:'合法免费全文助手：匹配开放获取版本',g:9,s:'科研工具',ty:'工具',f:'完全免费',o:'在线'},
   {t:'谷歌学术',u:'https://scholar.google.com/',d:'外文文献检索引擎（直连不稳，校园网或镜像常用）',g:9,s:'科研工具',ty:'搜索',f:'完全免费',o:'在线',w:1},
   {t:'百度学术',u:'https://xueshu.baidu.com/',d:'中文文献与学者图谱检索',g:9,s:'科研工具',ty:'搜索',f:'完全免费',o:'在线'},
+
+  /* ============ 10 电商创业实战 ============ */
+  {t:'站内手册 · 总纲：电商创业90天作战地图',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/00-%E6%80%BB%E7%BA%B2-%E7%94%B5%E5%95%86%E5%88%9B%E4%B8%9A90%E5%A4%A9%E4%BD%9C%E6%88%98%E5%9C%B0%E5%9B%BE.md',d:'零经验起步总览：三条路径、贯穿铁律、2026 环境速记',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'站内手册 · 境内平台实操手册',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/01-%E5%A2%83%E5%86%85%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.md',d:'拼多多/淘宝/抖音/微信小店/小红书 2026 实价对比与入驻步骤、新手决策树',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'站内手册 · 跨境电商实操手册',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/02-%E8%B7%A8%E5%A2%83%E7%94%B5%E5%95%86%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.md',d:'美国欧盟免税取消后的 2026 关税全景与 Temu/TikTok/速卖通/亚马逊决策树',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'站内手册 · 选品与供应链手册',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/03-%E9%80%89%E5%93%81%E4%B8%8E%E4%BE%9B%E5%BA%94%E9%93%BE%E6%89%8B%E5%86%8C.md',d:'1688 一件代发全流程、产业带地图、数据工具价目、选品 SOP 与测款判断线',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'站内手册 · 运营与推广手册',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/04-%E8%BF%90%E8%90%A5%E4%B8%8E%E6%8E%A8%E5%B9%BF%E6%89%8B%E5%86%8C.md',d:'各平台 2026 打法、短视频脚本骨架、投放纪律、AI 素材标识合规、私域红线',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'站内手册 · 数据与财务手册',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/05-%E6%95%B0%E6%8D%AE%E4%B8%8E%E8%B4%A2%E5%8A%A1%E6%89%8B%E5%86%8C.md',d:'指标健康基准、每日十分钟看板、定价纪律、现金流公式、退出纪律',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'站内手册 · 合规与税务手册',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/06-%E5%90%88%E8%A7%84%E4%B8%8E%E7%A8%8E%E5%8A%A1%E6%89%8B%E5%86%8C.md',d:'办照流程、810 号令、出口海关代码、目的国认证、收款物流商标、合规清单',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'站内手册 · 90天执行计划',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/07-90%E5%A4%A9%E6%89%A7%E8%A1%8C%E8%AE%A1%E5%88%92.md',d:'按周落地清单：定方向→定品→开卖→测款→放大→结构化',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'工具表三张（利润核算/选品评分/测款记录）',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/templates',d:'CSV 工作表：单件利润核算、选品十维评分、测款数据记录，Excel/WPS 直接可用',g:10,s:'站内手册',ty:'表格',f:'完全免费',o:'在线'},
+  {t:'抖音电商学习中心',u:'https://school.jinritemai.com/',d:'官方新商开店指南与规则中心，起号必修',g:10,s:'官方教程',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'淘宝大学',u:'https://daxue.taobao.com/',d:'淘系官方免费开店与运营全套教程',g:10,s:'官方教程',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'微信小店成长中心',u:'https://store.weixin.qq.com/chengzhang',d:'微信小店官方规则、类目与成长手册',g:10,s:'官方教程',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'小红书商家招商',u:'https://zhaoshang.xiaohongshu.com/',d:'小红书开店入口与商家学习（0 元开店政策页）',g:10,s:'官方教程',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'拼多多商家后台',u:'https://mms.pinduoduo.com/',d:'拼多多商家版 Web 后台与规则中心',g:10,s:'官方教程',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'亚马逊全球开店',u:'https://gs.amazon.cn/',d:'亚马逊官方中文招商与费用公告',g:10,s:'官方教程',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'速卖通官方招商',u:'https://sell.aliexpress.com/',d:'POP/全托管/半托管入驻入口与费用说明',g:10,s:'官方教程',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'TikTok Shop 卖家中心',u:'https://seller.tiktokglobalshop.com/',d:'TikTok Shop 跨境入驻与政策',g:10,s:'官方教程',ty:'官网',f:'完全免费',o:'在线',w:1},
+  {t:'Temu 卖家中心',u:'https://seller.temu.com/',d:'Temu 全托管/半托管入驻入口',g:10,s:'官方教程',ty:'官网',f:'完全免费',o:'在线',w:1},
+  {t:'生意参谋',u:'https://sycm.taobao.com/',d:'淘系官方数据：市场洞察 2024-03 起全量免费',g:10,s:'数据工具',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'蝉妈妈',u:'https://www.chanmama.com/',d:'抖音/小红书电商数据（App AI 会员 ¥58/月 起）',g:10,s:'数据工具',ty:'工具',f:'完全免费',o:'在线'},
+  {t:'灰豚数据',u:'https://www.huitun.com/',d:'抖音/快手/小红书多平台爆品与直播分析',g:10,s:'数据工具',ty:'工具',f:'完全免费',o:'在线'},
+  {t:'卖家精灵',u:'https://www.sellersprite.com/',d:'亚马逊选品/关键词（包月 ¥368 起，有免费版）',g:10,s:'数据工具',ty:'工具',f:'完全免费',o:'在线'},
+  {t:'Helium 10',u:'https://www.helium10.com/',d:'亚马逊关键词与 Listing 工具（$99/月 起，有免费版）',g:10,s:'数据工具',ty:'工具',f:'完全免费',o:'在线',w:1},
+  {t:'Google Trends',u:'https://trends.google.com/',d:'免费趋势工具：跨境需求验证与季节性判断',g:10,s:'数据工具',ty:'工具',f:'完全免费',o:'在线',w:1},
+  {t:'1688 · 一件代发',u:'https://www.1688.com/',d:'源头货源平台：筛「一件代发」标，分销链路订单自动回流',g:10,s:'货源·一件代发',ty:'平台',f:'完全免费',o:'在线'},
+  {t:'一起做网店 17zwd',u:'https://gz.17zwd.com/',d:'广州/义乌档口女装网批：一件起批、一键铺货',g:10,s:'货源·一件代发',ty:'平台',f:'完全免费',o:'在线'},
+  {t:'义乌购',u:'https://www.yiwugo.com/',d:'义乌小商品市场线上化：小商品/饰品/袜业直达档口',g:10,s:'货源·一件代发',ty:'平台',f:'完全免费',o:'在线'},
+  {t:'国家法律法规数据库',u:'https://flk.npc.gov.cn/',d:'检索《互联网平台企业涉税信息报送规定》（国务院令第810号）等法规原文',g:10,s:'合规·关税',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'Zonos 全球关税更新',u:'https://zonos.com/zh',d:'跨境关税追踪：美国 de minimis 取消后各国税率结构（英文为主）',g:10,s:'合规·关税',ty:'官网',f:'完全免费',o:'在线',w:1},
+  {t:'香港工贸署·美国小额免税通告',u:'https://www.tid.gov.hk/sc/tradecircular/2026/ci1842026.html',d:'官方通告：美国继续暂停全球低价值付运小额免税（2026-02）',g:10,s:'合规·关税',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'PingPong 跨境收款',u:'https://www.pingpongx.com/',d:'跨境收款/外贸收付款，持牌结汇提现',g:10,s:'跨境收款',ty:'工具',f:'完全免费',o:'在线'},
+  {t:'万里汇 WorldFirst',u:'https://www.worldfirst.com.cn/',d:'蚂蚁旗下跨境收款，多平台结算',g:10,s:'跨境收款',ty:'工具',f:'完全免费',o:'在线'},
+  {t:'连连国际',u:'https://global.lianlianpay.com/',d:'跨境收款与付款，老牌持牌机构',g:10,s:'跨境收款',ty:'工具',f:'完全免费',o:'在线'},
+  {t:'Airwallex 空中云汇',u:'https://www.airwallex.com/',d:'多币种账户，独立站收款常用',g:10,s:'跨境收款',ty:'工具',f:'完全免费',o:'在线'},
+  {t:'Payoneer',u:'https://www.payoneer.com/zh/',d:'亚马逊官方合作老牌收款',g:10,s:'跨境收款',ty:'工具',f:'完全免费',o:'在线'},
+  {t:'中国商标网',u:'https://sbj.cnipa.gov.cn/',d:'国家知识产权局商标局：商标查询与申请入口（官费 ¥270/类）',g:10,s:'认证·商标',ty:'官网',f:'完全免费',o:'在线'},
+  {t:'USPTO 美国专利商标局',u:'https://www.uspto.gov/',d:'美国商标申请（约 $350/类，需美国律师代理）',g:10,s:'认证·商标',ty:'官网',f:'完全免费',o:'在线',w:1},
+  {t:'EUIPO 欧盟知识产权局',u:'https://www.euipo.europa.eu/',d:'欧盟商标（€850 含一类，一件覆盖 27 国）',g:10,s:'认证·商标',ty:'官网',f:'完全免费',o:'在线',w:1},
   ]
 };
