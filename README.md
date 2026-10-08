@@ -9,7 +9,7 @@
 
 **立即使用**
 
-> 🏗️ **架构升级**：门户层已迁移至 **React + Vite + TypeScript + Tailwind CSS 4**（`web/` 目录，URL 与旧版完全一致）。详见 [docs/react-migration.md](docs/react-migration.md)。
+> 🏗️ **架构升级（2026-10-09）**：门户层 27 个页面已迁移至 **React + Vite + TypeScript + Tailwind CSS 4**（`web/` 目录）。所有 URL 与旧版完全一致——外链、SEO、PWA 缓存零破坏；学习进度 localStorage 键兼容，老用户进度无损。详见 [docs/react-migration.md](docs/react-migration.md)。
 
 - 网页版（无需安装）：https://88lin.github.io/knowledge-commons/learn/
   　· 手机/电脑浏览器打开后，可直接「添加到主屏幕 / 安装」——独立图标、全屏、离线可用，等于一个 App（PWA），且版本永远最新
@@ -33,8 +33,7 @@
 | 公务员考试 | 图形推理真题库 354 题逐题解析；国考 / 省考资料导航 |
 | 红色经典 | 《毛泽东选集》第 1–5 卷全文 229 篇 + 毛泽东诗词 90 首，全部离线可读 |
 | 社会主义实践研究 | 研究生级研究中心（learn/socialism.html）：七大领域研究地图、21 方向选题库、六步可打卡研究路线、每日理论雷达；资源总库新增「社会主义实践研究」板块 169 条（经典文献 / 党史国史 / 新闻理论 / 数据实证 / 国际视野 / 方法升学，逐条核验）；配套研究文档九篇（docs/socialism/） |
-├── docs/ecommerce/     # 电商创业手册：总纲+七章文档+三张工作表 CSV
-├── learn/ecommerce.html # 电商创业·实战中心（2026 实价手册 + 90 天路线）
+| 电商创业 | 电商创业·实战中心（learn/ecommerce.html）：2026 实价手册 + 90 天作战地图；docs/ecommerce/ 总纲+七章文档+三张工作表 CSV |
 | 世界技能大赛 | 六大领域 50 个赛项：**总纲（读）· 总纲课视频（看）· 模拟训练（练）三件套站内直达**；另含 62 集视频课与真题资料库 |
 | 学习路线 | 算法竞赛 / 公务员 / 专升本 / 高考：四份「从零到精通」分阶段路线图 |
 | 资源总库 | 全网免费学习资源 787 条精选（十一大板块）：世赛官方标准与真题直链、模拟器与靶场、算法 Wiki 与开源书、升学真题官方渠道、公考题库、马列古籍全文、MOOC 与 IT 工具、职业考证与语言、数字人文视听、社会主义实践研究、电商创业实战——分类可搜，直连 / 离线性逐条标注 |
@@ -55,7 +54,8 @@
 ## 目录结构
 
 ```
-├── learn/          # 知识公社门户（课程/竞赛/升学/公考/红色/世赛/路线/总目/检索）
+├── web/            # ⭐ React + Vite + TS + Tailwind CSS 4 门户工程（27 页，构建产出替换 learn/ 与根级页面）
+├── learn/          # 知识公社门户源页面（课程/竞赛/升学/公考/红色/世赛/路线/总目/检索）
 ├── library.html    # 资源总库：全网免费学习资源精选（787 条，分类可搜，直连/离线性标注）
 ├── study.html      # 资料中心：全技能库 + 视频课 + 真题库（单文件应用）
 ├── download.html   # 全平台下载页（六端矩阵 + iOS 签名指南）
@@ -64,10 +64,27 @@
 ├── docs/ exam/     # 课程文档与真题资料
 ├── clients/        # 六端客户端工程（android / ios / windows / macos / linux）
 ├── tools/          # 构建工具与质检脚本（资源名修复 / 视频体检 等）
-└── .github/        # GitHub Actions 工作流（android / ios / sign-ios / windows / macos / linux / 视频）
+└── .github/        # GitHub Actions 工作流（deploy-web / android / ios / sign-ios / windows / macos / linux / 视频）
 ```
 
 ## 构建与质检
+
+### Web 门户（React 版）
+
+```bash
+cd web
+npm install       # 首次
+npm run dev       # 本地开发（热更新）
+npm run build     # 构建 → web/dist/（URL 与仓库布局一致，可直接覆盖部署）
+```
+
+- 技术栈：React 18 + Vite 5 + TypeScript + Tailwind CSS 4（`@theme` 书院风设计 token + 旧类名兼容层）
+- 多入口构建：27 个入口，产物路径与仓库布局 1:1，学习进度 / 日历收藏 / 自测最高分的 localStorage 键与旧版完全兼容
+- PWA：`sw.js` 预缓存清单中的带 hash 构建产物由构建插件自动注入（`@@ASSETS@@` 占位符），无需手工维护
+- 部署：`.github/workflows/deploy-web.yml`（push main 自动构建；首次使用需在 Settings → Pages 把 Source 切为 GitHub Actions）
+- 架构与验证记录：[docs/react-migration.md](docs/react-migration.md)
+
+### 六端客户端
 
 - **云端**：GitHub Actions —— `build-android` / `build-ios` / `sign-ios` / `build-windows` / `build-macos` / `build-linux`（workflow_dispatch，可指定上传到 Release；`sign-ios` 需配置 `IOS_P12_B64` / `IOS_P12_PASS` / `IOS_MP_B64` 三个 Secrets）
 - **本地**：`clients/android/build_ci.sh` 在装有 Android SDK 的环境可直接构建；`clients/windows` 与 `clients/linux` 需 zig；`clients/macos` 与 `clients/ios` 需 macOS + Xcode；Windows 本机签 IPA：`clients/ios/sign.ps1`（zsign）
@@ -101,6 +118,7 @@
 
 ## 最近更新
 
+- **2026-10-09**：门户层架构升级——**27 个页面迁移至 React 18 + Vite 5 + TypeScript + Tailwind CSS 4**（`web/` 工程，URL 与旧版完全一致）：学习引擎 React 化（进度/完成按钮/小测/下一讲，localStorage 键兼容、老用户进度无损）、学堂自测 128 题状态机、考试日历收藏、全站检索 1896 条懒加载、CF/AtCoder 题库分页搜索、资源总库 787 条全状态化、iOS 直装 Release 状态机；PWA 预缓存清单改为构建时自动注入；新增 `deploy-web.yml` 部署工作流；study.html / pdfview 维持静态直通；顺手修复 kc-learn.js「下一册」跳转选择器笔误与 beginner.html 不闭合标签。验证：27 页构建通过、无头浏览器交互实测 + 控制台零报错、VLM 截图审查通过（docs/react-migration.md）
 - **2026-10-07**：新增「**社会主义实践 · 研究生研究中心**」（learn/socialism.html）——研究生级全领域研究模块：总纲四步研究法（读原著/通党史/盯前沿/做实证）、七大领域资源直达卡、六步研究力路线（进度保存在本机，可打卡）、**21 方向选题库**（含切入角度与数据可得性提示）、每日理论雷达（求是/人民网理论/国新办白皮书/统计局等 8 个官方入口）、文献/实证/写作三条方法流水线；资源总库新增第十一大板块「**社会主义实践研究**」**169 条**——马恩列斯毛原文库与领袖文选官方全文（含 marxists.org 标注国际网络）、党史国史档案与数字展馆 39 条、央媒理论阵地与人民日报图文数据库等 39 条、国家统计局/普查公报/CFPS/CGSS 等数据实证 34 条、越南古巴老挝官方媒体与世界社会主义研究 15 条、CSSCI/GB/T 7714/研招网等学术发展 19 条，全部逐条实测可达；docs/socialism/ 新增总纲 + 八篇分领域研究文档（含 201 条资源清单）；检索索引扩至 1870 条，PWA 预缓存升 kc-v1.5.0；**修复资源总库自 2026-10-05 扩容起 8 处缺逗号语法错误（该错误导致线上资源总库渲染 0 条）**，esprima 全文件解析验证通过
 - **2026-10-05（三）**：新增「学堂自测」（learn/quiz.html）——16 课 × 8 题共 128 道选择题，即时判分 + 逐题解析，最高分存本机；题库扩至每课 8 题；学堂每课卡片「测一测」深链直达；学堂页 / 总目 / 检索 / PWA 预缓存（v1.4.2）全部接入
 - **2026-10-05（二）**：资源总库世赛板块新增「云计算与运维专项」12 条——OpenStack 中文文档 / ArchWiki / 鸟哥私房菜 / HAProxy / Windows Server 文档 / Proxmox / Ansible / Terraform / WireGuard / Samba 等，全部实测可达；总数 **580 条**；考试日历新增「我的考试清单」收藏（本机保存）
