@@ -1,0 +1,52 @@
+
+:root{--red:#8e1c26;--blue:#1f4e8c;--ink:#222;--gray:#6b7280;--line:#d8dfe9;--bg:#f3f4f6;--green:#1a7f4e;--amber:#8a5b12}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Source Han Sans SC","Noto Sans SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.topbar{background:linear-gradient(135deg,#7e1620 0%,#a92e35 55%,#7e1620 100%);color:#fff}
+.topbar-in{max-width:900px;margin:0 auto;padding:14px 16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.emblem{width:44px;height:44px;border-radius:50%;background:#fff;color:var(--red);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;flex:none}
+.site-name{font-size:19px;font-weight:700;letter-spacing:1px}
+.btn{border:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;border-radius:4px;padding:7px 14px;font-size:14px;cursor:pointer}
+.btn:hover{background:rgba(255,255,255,.15)}
+.spacer{flex:1}
+.main{max-width:900px;margin:18px auto;padding:0 14px}
+.panel{background:#fff;border:1px solid var(--line);border-top:3px solid var(--blue);margin-bottom:16px}
+.p-hd{padding:14px 18px;border-bottom:1px solid var(--line)}
+.p-hd h2{font-size:17px;color:var(--blue)}
+.p-bd{padding:16px 18px}
+.hero{background:#fff;border:1px solid var(--line);border-top:3px solid var(--red);padding:22px 20px;margin-bottom:16px;text-align:center}
+.hero h1{font-size:22px;color:var(--red);margin-bottom:8px}
+.hero p{font-size:14px;color:#4b5563;line-height:1.9}
+.status{display:flex;align-items:center;gap:10px;padding:14px 16px;border-radius:6px;font-size:14.5px;line-height:1.7;margin-bottom:14px}
+.status .dot{width:12px;height:12px;border-radius:50%;flex:none}
+.st-ready{background:#e9f7ef;border:1px solid #b7e4c7;color:#14532d}
+.st-ready .dot{background:var(--green)}
+.st-none{background:#faf3df;border:1px solid #ecd9a6;color:var(--amber)}
+.st-none .dot{background:#d99a06}
+.st-unknown{background:#f3f4f6;border:1px solid var(--line);color:#4b5563}
+.st-unknown .dot{background:#9ca3af}
+.install-btn{display:block;text-align:center;font-size:19px;font-weight:700;padding:18px 20px;border-radius:8px;letter-spacing:2px;transition:.15s}
+.install-btn.live{background:var(--green);color:#fff;box-shadow:0 6px 18px rgba(26,127,78,.3)}
+.install-btn.live:hover{background:#14663d}
+.install-btn.dead{background:#e5e7eb;color:#9ca3af;cursor:not-allowed}
+.install-meta{font-size:12.5px;color:var(--gray);text-align:center;margin-top:10px;line-height:1.8;word-break:break-all}
+.warn{font-size:13px;color:#a13a2a;background:#fbeae6;border:1px solid #f0c9c2;border-radius:4px;padding:10px 12px;line-height:1.8;margin-top:12px}
+ol.steps{margin:6px 0 0 20px;font-size:14px;line-height:2.1}
+ol.steps b{color:#1a4d8f}
+table.mat{width:100%;border-collapse:collapse;font-size:13.5px}
+table.mat th,table.mat td{border:1px solid var(--line);padding:9px 11px;text-align:left;line-height:1.7;vertical-align:top}
+table.mat th{background:#f6f8fb;color:#1a4d8f;font-weight:600;white-space:nowrap}
+td .ok{color:var(--green);font-weight:600}
+td .no{color:#a13a2a;font-weight:600}
+td .mid{color:var(--amber);font-weight:600}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.lbtn{display:inline-block;font-size:13.5px;border:1px solid var(--blue);color:var(--blue);border-radius:4px;padding:7px 14px}
+.lbtn:hover{background:var(--blue);color:#fff}
+.lbtn.solid{background:var(--blue);color:#fff}
+.note{font-size:12.5px;color:var(--gray);line-height:1.9;padding:0 18px 16px}
+code{font-family:Consolas,"Courier New",monospace;background:#f6f8fb;border:1px solid var(--line);border-radius:3px;padding:1px 6px;font-size:12.5px}
+footer{background:#27344e;color:#aab4c8;margin-top:26px}
+.foot-in{max-width:900px;margin:0 auto;padding:20px 16px 28px;font-size:13px;line-height:2;text-align:center}
+#iosBanner{display:none;background:#fff8e6;border:1px solid #ecd9a6;color:#8a5b12;font-size:13.5px;padding:10px 14px;border-radius:4px;margin-bottom:14px;line-height:1.8}
+@media(max-width:720px){table.mat th{white-space:normal}.hero h1{font-size:20px}}

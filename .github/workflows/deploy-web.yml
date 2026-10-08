@@ -1,0 +1,63 @@
+name: Deploy Web (React + Vite)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Build (Vite + React + Tailwind)
+        working-directory: web
+        run: |
+          npm ci
+          npm run build
+
+      - name: Assemble site (repo 静态资产 + React 产物覆盖)
+        run: |
+          mkdir -p site
+          # 1) 仓库根静态资产原样部署（与旧版站点一致）
+          rsync -a --exclude='.git' --exclude='web' --exclude='clients' --exclude='tools' --exclude='.github' ./ site/
+          # 2) dist 覆盖：React 页面 + 带 hash 的 assets + 注入清单的 sw.js
+          #    （排除 dist 里与仓库重复拷贝的大静态目录，避免双倍体积）
+          rsync -a \
+            --exclude='videos' --exclude='multiskill' --exclude='study-data' \
+            --exclude='learn/data' --exclude='learn/files' --exclude='learn/red' \
+            --exclude='exam' --exclude='lab' --exclude='video-factory' \
+            --exclude='video-ext' --exclude='app' --exclude='docs' --exclude='icons' \
+            web/dist/ site/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
