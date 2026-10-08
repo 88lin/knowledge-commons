@@ -188,8 +188,7 @@ function Page() {
         </div>
       </div>
 
-      <footer><div className="foot-in">OTA 直装依赖 itms-services（苹果官方分发机制）· 证书与描述文件版权归其持有者<br />
-      </div></footer>
+      <footer><div className="foot-in">OTA 直装依赖 itms-services（苹果官方分发机制）· 证书与描述文件版权归其持有者</div></footer>
     </>
   )
 }

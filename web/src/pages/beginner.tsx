@@ -17,7 +17,7 @@ function LessonBlock({ L }: { L: BegL }) {
           <br />
           <span className="tag">{L.g}</span>
         </span>
-        <span className="arr">▶ 展开 · 视频 + 图文讲义</span>
+        <span className="arr">{open ? '▼ 收起 · 视频 + 图文讲义' : '▶ 展开 · 视频 + 图文讲义'}</span>
       </div>
       {open && (
         <div className="lesson-bd">
