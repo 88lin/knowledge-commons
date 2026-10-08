@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://taimabenji.github.io/knowledge-commons/sitemap.xml
+Sitemap: https://88lin.github.io/knowledge-commons/sitemap.xml

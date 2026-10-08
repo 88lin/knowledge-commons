@@ -9,11 +9,11 @@
 
 **立即使用**
 
-- 网页版（无需安装）：https://taimabenji.github.io/knowledge-commons/learn/
+- 网页版（无需安装）：https://88lin.github.io/knowledge-commons/learn/
   　· 手机/电脑浏览器打开后，可直接「添加到主屏幕 / 安装」——独立图标、全屏、离线可用，等于一个 App（PWA），且版本永远最新
-- 资源总库（全网免费学习资源 787 条精选）：https://taimabenji.github.io/knowledge-commons/library.html
-- 资料中心（全技能库 · 单文件）：https://taimabenji.github.io/knowledge-commons/study.html
-- 全平台下载页：https://taimabenji.github.io/knowledge-commons/download.html
+- 资源总库（全网免费学习资源 787 条精选）：https://88lin.github.io/knowledge-commons/library.html
+- 资料中心（全技能库 · 单文件）：https://88lin.github.io/knowledge-commons/study.html
+- 全平台下载页：https://88lin.github.io/knowledge-commons/download.html
   　· Android APK / iOS IPA（含电脑签名三路线）/ Windows EXE / macOS App / Linux 单文件 / Web 六端矩阵
 - 下载安装包：[Releases](../../releases) —— 六端产物统一发布
 

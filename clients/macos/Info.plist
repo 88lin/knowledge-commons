@@ -7,7 +7,7 @@
   <key>CFBundleDisplayName</key>
   <string>知识公社</string>
   <key>CFBundleIdentifier</key>
-  <string>io.github.taimabenji.cloudstudy</string>
+  <string>io.github.k88lin.cloudstudy</string>
   <key>CFBundleExecutable</key>
   <string>CloudStudy</string>
   <key>CFBundlePackageType</key>
