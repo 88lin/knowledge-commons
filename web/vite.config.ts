@@ -11,7 +11,6 @@ const R = (p: string) => resolve(__dirname, '..', p)
 const pages = [
   'index.html',
   'library.html',
-  'download.html',
   'install.html',
   'resources.html',
   'learn/index.html',

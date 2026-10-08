@@ -29,8 +29,7 @@ active="实践"
               <li><span className="t"><b>③ 盯前沿</b> —— 期刊、会议与理论动态</span><span className="n">免费全文库就在下面</span></li>
               <li><span className="t"><b>④ 做实证</b> —— 数据、案例与田野</span><span className="n">统计口径与调查数据入口</span></li>
             </ul>
-            <p className="small">本页只做「地图」：指路、给入口、列选题。全部资源在<a href="../library.html#g=9">资源总库 · 社会主义实践研究板块</a>逐条可搜（每条都人工核验过可达性）。
-            配套研究文档九篇在 <a href="https://github.com/88lin/knowledge-commons/tree/main/docs/socialism">docs/socialism/</a>。</p>
+            <p className="small">本页只做「地图」：指路、给入口、列选题。全部资源在<a href="../library.html#g=9">资源总库 · 社会主义实践研究板块</a>逐条可搜（每条都人工核验过可达性）。</p>
           </div>
         </section>
       
@@ -121,7 +120,7 @@ active="实践"
           <div className="lesson" id="r6">
             <b>第六步 · 进圈子：学术网络与升学（贯穿全程）</b>
             <p>跟踪<a href="../library.html#课题申报">国家社科基金与教育部课题立项名单</a>（知道谁在做什么）、参加青年论坛、
-            申博早准备：<a href="../library.html#升学读博">研招网与重点马院招生页</a>。研究是公共事业——我为人人，人人为我。</p>
+            申博早准备：<a href="../library.html#升学读博">研招网与重点马院招生页</a>。研究是公共事业。</p>
           </div>
         </section>
       
@@ -190,8 +189,8 @@ active="实践"
           <h2 className="sec">配套研究文档 · 九篇</h2>
           <div className="card">
             <ul className="list">
-              <li><span className="t"><a href="https://github.com/88lin/knowledge-commons/blob/main/docs/socialism/00-%E6%80%BB%E7%BA%B2-%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E5%AE%9E%E8%B7%B5%E5%85%A8%E9%A2%86%E5%9F%9F%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE.md">00 · 总纲：社会主义实践全领域研究地图</a></span><span className="n">先读</span></li>
-              <li><span className="t"><a href="https://github.com/88lin/knowledge-commons/tree/main/docs/socialism">01–08 · 经典文献 / 党史国史 / 理论前沿 / 新闻阵地 / 数据实证 / 中国实践 / 国际比较 / 方法与升学</a></span><span className="n">分领域</span></li>
+              <li><span className="t">00 · 总纲：社会主义实践全领域研究地图</span><span className="n">先读</span></li>
+              <li><span className="t">01–08 · 经典文献 / 党史国史 / 理论前沿 / 新闻阵地 / 数据实证 / 中国实践 / 国际比较 / 方法与升学</span><span className="n">分领域</span></li>
             </ul>
           </div>
         </section>

@@ -19,7 +19,6 @@ export const TABS: Tab[] = [
   { label: '创业', href: '/learn/ecommerce.html' },
   { label: '路线', href: '/learn/paths.html' },
   { label: '资源', href: '/library.html' },
-  { label: '下载', href: '/download.html' },
   { label: '简章', href: '/learn/about.html' },
 ]
 

@@ -52,7 +52,6 @@ active="课程"
               <li>升学：高考数学专题精讲、专升本各科强化</li>
               <li>红色经典导读：毛选名篇精读计划</li>
             </ul>
-            <p className="small">想先看到哪一门？欢迎在 GitHub 仓库提 Issue 点课。</p>
           </div>
         </section>
       

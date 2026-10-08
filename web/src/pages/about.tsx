@@ -55,7 +55,6 @@ active="简章"
             <p>开源不是招牌，是做法：代码公开、内容公开、流程公开，任何人可以复制、修改、传播。</p>
             <p>信息差不是靠口号消掉的，是靠把它摆到阳光底下。我们把东西都摆出来——谁需要，谁拿走，
             谁觉得缺了什么，谁就补上。</p>
-            <p className="small">仓库：<a href="https://github.com/88lin/knowledge-commons">GitHub · 88lin/knowledge-commons</a>（许可见仓库内 LICENSE）</p>
           </div>
         </section>
       
@@ -77,7 +76,6 @@ active="简章"
             <li><span className="t">资源总库：580 条全网免费学习资源（九大板块），全库链接体检通过</span><span className="n">库</span></li>
             <li><span className="t">全站检索：1700+ 条索引（含 B站精选 713 条），课程 / 篇目 / 资源一搜即中</span><span className="n">检</span></li>
             <li><span className="t">世赛专区：50 赛项三件套 + 真题资料库；健康·法律·公民服务官方平台 12 条</span><span className="n">新</span></li>
-            <li><span className="t">完整更新日志见 GitHub 仓库 README</span><span className="n">志</span></li>
           </ul></div>
         </section>
       

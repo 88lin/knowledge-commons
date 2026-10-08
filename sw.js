@@ -23,7 +23,6 @@ var CORE = [
   './learn/red/poems.html',
   './learn/style.css', './learn/searchidx.js', './learn/kc-learn.js',
   './library.html', './app/library-data.js', './resources.html', './app/resource-data.js',
-  './download.html',
   './install.html',
   './manifest.json',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png',

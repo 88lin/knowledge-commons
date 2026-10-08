@@ -1,12 +1,11 @@
 /* 知识公社 · 根首页（门户跳转） —— React 版 */
 import { createRoot } from 'react-dom/client'
 import '../theme.css'
-import { Topbar, Hero, Footer } from '../components/Layout'
+import { Hero, Footer } from '../components/Layout'
 
 function Page() {
   return (
     <>
-      <Topbar />
       <Hero
         kicker="KNOWLEDGE COMMONS"
         title="知识公社"
@@ -36,12 +35,8 @@ function Page() {
           <li><span className="t"><a href="learn/beginner.html">零基础学堂 · 九大板块第一课（视频课）</a></span><span className="n">学</span></li>
           <li><span className="t"><a href="learn/ecommerce.html">电商创业 · 实战中心 · 2026 实价手册与 90 天作战地图</a></span><span className="n">创</span></li>
           <li><span className="t"><a href="library.html">资源总库 · 全网免费学习资源精选（787 条）</a></span><span className="n">库</span></li>
-          <li><span className="t"><a href="download.html">全平台下载 · APK / IPA / EXE / macOS / Linux / Web</a></span><span className="n">下</span></li>
         </ul></div>
-        <Footer>
-          开源于 <a href="https://github.com/88lin/knowledge-commons">github.com/88lin/knowledge-commons</a>
-          {'\u3000·\u3000'}MIT License{'\u3000·\u3000'}知识公社 · 知识共享
-        </Footer>
+        <Footer />
       </div>
     </>
   )

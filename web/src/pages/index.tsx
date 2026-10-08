@@ -121,11 +121,11 @@ active="首页"
               <div className="desc">近四百条（399 条）免费学习资源：世赛官方标准与真题直链、模拟器与靶场、算法 Wiki 与开源书、MOOC 与开放教材、公考题库、马列古籍全文、IT 文档工具、职业考证与语言——分类可搜，直连与离线性逐条标注。</div>
               <div className="meta">八大门类 · 持续补充</div>
             </a>
-            <a className="mod" href="../download.html">
+            <a className="mod" href="install.html">
               <div className="ico">下</div>
-              <b>全平台下载 · 装进你的设备</b>
-              <div className="desc">Android APK、iOS IPA（含电脑签名三路线）、Windows EXE、macOS App、Linux 单文件、Web/PWA——六端同一内容源，离线全量。</div>
-              <div className="meta">六端同源 · Releases 直达</div>
+              <b>iPhone 直装 · 一键安装</b>
+              <div className="desc">已签名 IPA 的 OTA 安装清单，iPhone Safari 打开本页即可免数据线安装；Android / 桌面端直接把网页添加到主屏幕，等同 App。</div>
+              <div className="meta">PWA 全端 · 离线可用</div>
             </a>
           </div>
         </section>
@@ -159,7 +159,6 @@ active="首页"
             <p>知识并不稀缺，稀缺的是「知道去哪找、从哪开始」。</p>
             <p>知识公社做的事很简单：把散落各处的公开资源收拢起来、分好类、写上次第、配上课程，
             装进一个谁都能打开的地方——<b>让信息差小一点，再小一点</b>。</p>
-            <p style={{ color: "var(--dim)", fontFamily: "var(--serif)" }}>「我为人人，人人为我。」</p>
             <p className="small">名字的来处见 <a href="about.html">平台简章</a>。</p>
           </div>
         </section>

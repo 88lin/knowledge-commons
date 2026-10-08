@@ -9,15 +9,6 @@ export interface HeroProps {
   badges?: string[]
 }
 
-export function Topbar({ text = '知识公社 · 知识共享 —— 我为人人，人人为我' }: { text?: string }) {
-  return (
-    <div className="kc-topbar">
-      <span className="dot" />
-      <span>{text}</span>
-    </div>
-  )
-}
-
 export function Hero({ kicker = 'KNOWLEDGE COMMONS', title, lines = [], motto, badges }: HeroProps) {
   return (
     <header className="kc-hero">
@@ -54,12 +45,7 @@ export function Footer({ children }: { children?: ReactNode }) {
   return (
     <footer className="kc-note">
       {children ??
-        '内容整理自各公开渠道（官方平台、开源社区仓库等），仅供个人学习交流；各资料版权归其原作者所有，请勿商用。'}
-      <br />
-      本公社完全开源、欢迎共建：
-      <a href="https://github.com/88lin/knowledge-commons" target="_blank" rel="noopener">
-        GitHub · knowledge-commons
-      </a>
+        '内容整理自各公开渠道（官方平台、开源社区仓库等），仅供个人学习交流。'}
     </footer>
   )
 }
@@ -71,14 +57,12 @@ export interface LayoutProps extends Omit<HeroProps, 'title'> {
   /** 不显示 hero（部分子页只有标题） */
   plain?: boolean
   footer?: ReactNode
-  topbarText?: string
 }
 
 /** 门户页面统一骨架：顶栏 + 院名区 + 签条导航 + 版心 */
-export function Layout({ active, children, plain, footer, topbarText, ...hero }: LayoutProps) {
+export function Layout({ active, children, plain, footer, ...hero }: LayoutProps) {
   return (
     <>
-      <Topbar text={topbarText} />
       {!plain && <Hero {...hero} />}
       <Tabs active={active} />
       <div className="kc-wrap">{children}</div>

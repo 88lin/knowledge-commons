@@ -91,7 +91,7 @@ function Page() {
         </div>
       </div>
 
-      <footer><div className="foot-in">条目信息收集自哔哩哔哩公开页面，仅供学习交流 · 视频版权归原作者与 UP 主所有 · <a style={{ color: '#d7deea' }} href="https://github.com/88lin/knowledge-commons" target="_blank" rel="noopener">GitHub 仓库</a></div></footer>
+      <footer><div className="foot-in">条目信息收集自哔哩哔哩公开页面，仅供学习交流 · 视频版权归原作者与 UP 主所有</div></footer>
     </>
   )
 }

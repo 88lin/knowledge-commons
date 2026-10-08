@@ -45,7 +45,6 @@ function Page() {
         <div className="emblem">知</div>
         <div><div className="site-name">iPhone 直装 · OTA 一键安装</div><div style={{ fontSize: 12, opacity: '.85', marginTop: 2 }}>签名发布后 · 点一下就能装到 iPhone / iPad</div></div>
         <div className="spacer"></div>
-        <button className="btn" onClick={() => { location.href = 'download.html' }}>返回下载页</button>
       </div></div>
 
       <div className="main">
@@ -184,18 +183,13 @@ function Page() {
               <li>⚠️ 网上流传的「免费共享企业证书」几天就会被苹果吊销，还可能随时失效，<b>不要当主力</b>。</li>
             </ol>
             <div className="links">
-              <a className="lbtn solid" href="download.html#ios">去下载页 · 免签名 IPA + 教程</a>
-              <a className="lbtn" href="https://github.com/88lin/knowledge-commons/actions/workflows/build-ios.yml">Actions 出免签名 IPA</a>
-              <a className="lbtn" href="https://github.com/88lin/knowledge-commons/actions/workflows/sign-ios.yml">有证书：跑 sign-ios</a>
-              <a className="lbtn" href="https://github.com/88lin/knowledge-commons/releases">看 Releases 现状</a>
             </div>
           </div>
         </div>
       </div>
 
-      <footer><div className="foot-in">知识公社 · 知识共享 —— 我为人人，人人为我<br />
-      OTA 直装依赖 itms-services（苹果官方分发机制）· 证书与描述文件版权归其持有者<br />
-      <a style={{ color: '#d7deea' }} href="https://github.com/88lin/knowledge-commons" target="_blank" rel="noopener">GitHub 仓库</a></div></footer>
+      <footer><div className="foot-in">OTA 直装依赖 itms-services（苹果官方分发机制）· 证书与描述文件版权归其持有者<br />
+      </div></footer>
     </>
   )
 }

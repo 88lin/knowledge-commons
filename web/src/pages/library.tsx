@@ -51,7 +51,6 @@ function Page() {
           <div className="spacer" />
           <button className="btn" onClick={() => (location.href = 'learn/index.html')}>返回门户</button>
           <button className="btn" onClick={() => (location.href = 'resources.html')}>B站精选</button>
-          <button className="btn" onClick={() => (location.href = 'download.html')}>全平台下载</button>
         </div>
       </div>
 
@@ -116,7 +115,6 @@ function Page() {
           </div>
           <div className="note">
             收录原则：免费、官方、无版权风险优先；中国大陆可直连优先。数据更新：{data.gen || '—'}。
-            完全开源，欢迎补充：<a href="https://github.com/88lin/knowledge-commons" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
       </div>
