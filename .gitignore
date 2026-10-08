@@ -20,5 +20,5 @@ clients/windows/out/
 .zsign_cache/
 
 # React 工程本地依赖与构建产物
-web/node_modules/
+web/node_modules
 web/dist/
