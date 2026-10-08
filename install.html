@@ -176,9 +176,9 @@ footer{background:#27344e;color:#aab4c8;margin-top:26px}
       </ol>
       <div class="links">
         <a class="lbtn solid" href="download.html#ios">去下载页 · 免签名 IPA + 教程</a>
-        <a class="lbtn" href="https://github.com/TaiMaBenJi/knowledge-commons/actions/workflows/build-ios.yml">Actions 出免签名 IPA</a>
-        <a class="lbtn" href="https://github.com/TaiMaBenJi/knowledge-commons/actions/workflows/sign-ios.yml">有证书：跑 sign-ios</a>
-        <a class="lbtn" href="https://github.com/TaiMaBenJi/knowledge-commons/releases">看 Releases 现状</a>
+        Actions 出免签名 IPA
+        有证书：跑 sign-ios
+        看 Releases 现状
       </div>
     </div>
   </div>
@@ -186,11 +186,9 @@ footer{background:#27344e;color:#aab4c8;margin-top:26px}
 
 <footer><div class="foot-in">知识公社 · 知识共享 —— 我为人人，人人为我<br>
 OTA 直装依赖 itms-services（苹果官方分发机制）· 证书与描述文件版权归其持有者<br>
-<a style="color:#d7deea" href="https://github.com/TaiMaBenJi/knowledge-commons" target="_blank" rel="noopener">GitHub 仓库</a></div></footer>
+GitHub 仓库</div></footer>
 
 <script>
-var REPO = 'TaiMaBenJi/knowledge-commons';
-var FALLBACK_MAN = 'https://github.com/' + REPO + '/releases/latest/download/manifest.plist';
 var stBox = document.getElementById('stBox'),
     stText = document.getElementById('stText'),
     btn = document.getElementById('installBtn'),
@@ -232,7 +230,6 @@ function setUnknown() {
 }
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 
-fetch('https://api.github.com/repos/' + REPO + '/releases/latest', { headers: { 'Accept': 'application/vnd.github+json' } })
   .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
   .then(function (rel) {
     var assets = rel.assets || [], hit = null;
@@ -240,7 +237,6 @@ fetch('https://api.github.com/repos/' + REPO + '/releases/latest', { headers: { 
       if (assets[i].name === 'manifest.plist') { hit = assets[i]; break; }
     }
     if (!hit) return setNone();
-    setReady(rel.tag_name, 'https://github.com/' + REPO + '/releases/download/' + rel.tag_name + '/manifest.plist');
     var ipa = null;
     for (var j = 0; j < assets.length; j++) {
       if (/signed\.ipa$/.test(assets[j].name)) { ipa = assets[j]; break; }

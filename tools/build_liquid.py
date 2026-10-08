@@ -548,8 +548,6 @@ import base64 as _b64
 _MS_MODE = os.environ.get('VIDEO_MODE', 'external')
 _MS_ASSETS = _MS_MODE in ('assets', 'relative')
 _MS_NESTED = _MS_MODE == 'relative'  # relative=全平台统一相对引用（Web/APK/iOS/桌面通用）
-_SIM_BASE_ONLINE = 'https://cdn.jsdelivr.net/gh/TaiMaBenJi/worldskills-cloud@main/multiskill/'
-_SIM_GH = 'https://github.com/TaiMaBenJi/worldskills-cloud/blob/main/multiskill/'
 def _ms_decorate(did, skill, catdir):
     d = docs_js[did]
     h = d['html']
@@ -577,10 +575,7 @@ def _ms_decorate(did, skill, catdir):
             if os.path.exists(_vp):
                 parts.append('<h2>总纲课视频</h2><p><video controls preload="metadata" style="width:100%%;border-radius:12px;background:#000" src="multiskill-video/%s.mp4"></video></p>' % skill)
     else:
-        _simurl = _SIM_BASE_ONLINE + catdir + '/' + skill + '/' + '%E6%A8%A1%E6%8B%9F%E8%AE%AD%E7%BB%83.html'
-        _vidurl = _SIM_GH + catdir + '/' + skill + '/' + '%E6%80%BB%E7%BA%B2%E8%AF%BE.mp4'
-        parts.append('<h2>模拟训练</h2><p><a href="' + _simurl + '" class="inlink">在线模拟训练（十题交互评分）</a></p>')
-        parts.append('<h2>总纲课视频</h2><p><a href="' + _vidurl + '" class="inlink">观看总纲课视频（中文解说）</a></p>')
+        parts.append('<h2>模拟训练</h2><p>离线包内提供，本构建模式未包含。</p>')
     parts.append('<p style="color:var(--dim);font-size:12.5px">赛项标准以世界技能组织官方文件为准。</p>')
     d['html'] = h + ''.join(parts)
     d['m'] = max(2, d['m'])

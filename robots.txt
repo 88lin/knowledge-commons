@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://taimabenji.github.io/knowledge-commons/sitemap.xml

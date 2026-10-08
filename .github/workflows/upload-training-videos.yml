@@ -40,14 +40,6 @@ jobs:
           (cd /tmp/zipflat && zip -0 -q -r /tmp/up/training-videos.zip .)
           ls -la /tmp/up/training-videos.zip
           echo "total files: $(ls /tmp/up | wc -l)"
-      - name: Clean old assets
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          for id in $(gh api "repos/TaiMaBenJi/knowledge-commons/releases/395469584/assets?per_page=100" --jq ".[] | .id"); do
-            gh api -X DELETE "repos/TaiMaBenJi/worldskills-cloud/releases/assets/$id" || true
-          done
-          echo "cleaned"
       - name: Upload all
         env:
           GH_TOKEN: ${{ github.token }}
