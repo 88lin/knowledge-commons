@@ -794,7 +794,7 @@ window.LIB_DATA = {
 
   /* ============ 10 电商创业实战 ============ */
   {t:'站内手册 · 总纲：电商创业90天作战地图',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/00-%E6%80%BB%E7%BA%B2-%E7%94%B5%E5%95%86%E5%88%9B%E4%B8%9A90%E5%A4%A9%E4%BD%9C%E6%88%98%E5%9C%B0%E5%9B%BE.md',d:'零经验起步总览：三条路径、贯穿铁律、2026 环境速记',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
-  {t:'站内手册 · 境内平台实操手册',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/01-%E5%A2%83%E5%86%85%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.md',d:'拼多多/淘宝/抖音/微信小店/小红书 2026 实价对比与入驻步骤、新手决策树',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
+  {t:'站内手册 · 境内平台实操手册',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/01-%E5%9B%BD%E5%86%85%E5%B9%B3%E5%8F%B0%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.md',d:'拼多多/淘宝/抖音/微信小店/小红书 2026 实价对比与入驻步骤、新手决策树',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
   {t:'站内手册 · 跨境电商实操手册',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/02-%E8%B7%A8%E5%A2%83%E7%94%B5%E5%95%86%E5%AE%9E%E6%93%8D%E6%89%8B%E5%86%8C.md',d:'美国欧盟免税取消后的 2026 关税全景与 Temu/TikTok/速卖通/亚马逊决策树',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
   {t:'站内手册 · 选品与供应链手册',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/03-%E9%80%89%E5%93%81%E4%B8%8E%E4%BE%9B%E5%BA%94%E9%93%BE%E6%89%8B%E5%86%8C.md',d:'1688 一件代发全流程、产业带地图、数据工具价目、选品 SOP 与测款判断线',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
   {t:'站内手册 · 运营与推广手册',u:'https://github.com/TaiMaBenJi/knowledge-commons/blob/main/docs/ecommerce/04-%E8%BF%90%E8%90%A5%E4%B8%8E%E6%8E%A8%E5%B9%BF%E6%89%8B%E5%86%8C.md',d:'各平台 2026 打法、短视频脚本骨架、投放纪律、AI 素材标识合规、私域红线',g:10,s:'站内手册',ty:'文档',f:'完全免费',o:'在线'},
