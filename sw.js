@@ -22,11 +22,12 @@ var CORE = [
   './learn/course-python.html', './learn/course-gongkao.html',
   './learn/red/poems.html',
   './learn/style.css', './learn/searchidx.js', './learn/kc-learn.js',
-  './library.html', './app/library-data.js',
+  './library.html', './app/library-data.js', './resources.html', './app/resource-data.js',
   './download.html',
   './install.html',
   './manifest.json',
-  './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'
+  './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png',
+  /* @@ASSETS@@ —— Vite 构建产物清单（web/ 构建时由 kc-sw-manifest 插件自动注入带 hash 的 js/css） */
 ];
 var OFFLINE_FALLBACK = './learn/index.html';
 

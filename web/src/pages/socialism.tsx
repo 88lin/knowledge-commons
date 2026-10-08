@@ -1,0 +1,204 @@
+/* 知识公社 · 社会主义实践 · 研究中心 —— React 版（由旧页面迁移） */
+import { createRoot } from 'react-dom/client'
+import '../theme.css'
+import { Layout } from '../components/Layout'
+import { SearchBar } from '../components/SearchBar'
+import { ResumeCard } from '../learn-engine'
+
+function Page() {
+  return (
+    <Layout
+active="实践"
+      kicker="SOCIALIST PRACTICE · GRADUATE RESEARCH"
+      title="社会主义实践 · 研究中心"
+      lines={["全领域研究地图 · 全网资源整合 · 新闻理论阵地 · 实证数据入口 —— 研究生级，一站直达"]}
+    >
+      <div className="card"><ResumeCard /></div>
+      
+        <section>
+          <h2 className="sec">总纲 · 这个研究中心是什么</h2>
+          <div className="card">
+            <p><b>研究对象</b>：社会主义从空想到科学、从理论到实践、从一国到多国、从革命到建设与改革的全过程，
+            重点是中国特色社会主义的实践逻辑与经验体系。</p>
+            <p><b>谁来用</b>：马克思主义理论、政治学、党史党建、社会学、经济学等方向的研究生与备考研究生；
+            写课程论文、学位论文、申博研究计划的人；一切想认真读原著、看数据、追前沿的人。</p>
+            <p><b>怎么用（四步研究法）</b>：</p>
+            <ul className="list">
+              <li><span className="t"><b>① 读原著</b> —— 经典文献是研究的地基</span><span className="n">站内有《毛泽东选集》全文</span></li>
+              <li><span className="t"><b>② 通党史</b> —— 实践的时间轴与档案库</span><span className="n">官方档案与党史频道</span></li>
+              <li><span className="t"><b>③ 盯前沿</b> —— 期刊、会议与理论动态</span><span className="n">免费全文库就在下面</span></li>
+              <li><span className="t"><b>④ 做实证</b> —— 数据、案例与田野</span><span className="n">统计口径与调查数据入口</span></li>
+            </ul>
+            <p className="small">本页只做「地图」：指路、给入口、列选题。全部资源在<a href="../library.html#g=9">资源总库 · 社会主义实践研究板块</a>逐条可搜（每条都人工核验过可达性）。
+            配套研究文档九篇在 <a href="https://github.com/88lin/knowledge-commons/tree/main/docs/socialism">docs/socialism/</a>。</p>
+          </div>
+        </section>
+      
+        <section>
+          <h2 className="sec">七大研究领域 · 各有入口</h2>
+          <div className="grid">
+            <a className="mod red" href="../library.html#文库档案">
+              <div className="ico">典</div>
+              <b>经典文献 · 马恩列斯毛与新时代</b>
+              <div className="desc">中文马克思主义文库、马恩列斯经典著作官方全文源、毛选邓选三卷与新时代著作选读、历次党代会文献与党章。</div>
+              <div className="meta">读原著 · 一手文本</div>
+            </a>
+            <a className="mod red" href="../library.html#党史频道">
+              <div className="ico">史</div>
+              <b>党史国史 · 文献与档案</b>
+              <div className="desc">中央党史和文献研究院、中国共产党新闻网党史频道、共产党员网、国史网与当代中国研究所、数字展馆与纪念专题。</div>
+              <div className="meta">实践的时间轴</div>
+            </a>
+            <a className="mod" href="../library.html#期刊">
+              <div className="ico">论</div>
+              <b>理论前沿 · 期刊与学术动态</b>
+              <div className="desc">《马克思主义研究》《教学与研究》《思想理论教育导刊》等核心期刊入口，国家哲学社会科学文献中心免费全文。</div>
+              <div className="meta">别人研究到哪了</div>
+            </a>
+            <a className="mod gold" href="../library.html#新闻理论">
+              <div className="ico">闻</div>
+              <b>新闻舆论 · 理论宣传阵地</b>
+              <div className="desc">人民日报理论版、求是、新华社、光明日报、学习时报、中国社会科学报——政策风向与理论热点的第一现场。</div>
+              <div className="meta">每天的活教材</div>
+            </a>
+            <a className="mod blue" href="../library.html#统计">
+              <div className="ico">数</div>
+              <b>数据实证 · 统计与调查</b>
+              <div className="desc">国家统计局数据平台、普查公报、政府工作报告库、白皮书库，CFPS/CGSS 等公开调查数据申请入口。</div>
+              <div className="meta">用数字说话</div>
+            </a>
+            <a className="mod green" href="../library.html#政策">
+              <div className="ico">行</div>
+              <b>中国实践 · 案例与政策</b>
+              <div className="desc">脱贫攻坚与乡村振兴、共同富裕、基层治理、国企改革、生态文明——政策原文与典型案例的官方出处。</div>
+              <div className="meta">研究的富矿</div>
+            </a>
+            <a className="mod gold" href="../library.html#世界社会主义">
+              <div className="ico">界</div>
+              <b>国际比较 · 世界社会主义</b>
+              <div className="desc">越南古巴老挝官方媒体、马克思主义文库多语种档案、国外左翼期刊与国外中国研究、世界社会主义研究译介。</div>
+              <div className="meta">比较的坐标</div>
+            </a>
+            <a className="mod" href="../library.html#g=9">
+              <div className="ico">库</div>
+              <b>资源总库 · 实践研究板块</b>
+              <div className="desc">以上全部资源逐条收录：名称、简介、类型、免费程度、离线性、直连与否——分类可搜，一条直达。</div>
+              <div className="meta">全库逐条人工核验</div>
+            </a>
+          </div>
+        </section>
+        <section>
+          <h2 className="sec">研究生三年 · 研究力路线（可打卡）</h2>
+          <div className="card">
+            <p>把「会研究」拆成六座里程碑，点开每一步的入口资源。学完一步，标记一步——进度自动保存在本机。</p>
+          </div>
+          <div className="lesson" id="r1">
+            <b>第一步 · 打地基：通读核心原著（1–6 个月）</b>
+            <p>顺序建议：《共产党宣言》→《实践论》《矛盾论》→《论十大关系》→ 邓小平文选第三卷 → 二十大报告与《习近平著作选读》重点篇目。
+            每篇做三件事：摘核心命题、记论证结构、写 300 字心得。工具：<a href="red/maoxuan.html">站内毛选全文</a>、<a href="../library.html#马恩经典">马恩列斯全文库</a>。</p>
+          </div>
+          <div className="lesson" id="r2">
+            <b>第二步 · 立坐标：通史与文献综述（3–9 个月）</b>
+            <p>两本通史打底（《中国共产党简史》《中华人民共和国简史》），再按研究兴趣下钻专题（土地改革 / 三大改造 / 改革开放 / 脱贫攻坚……）。
+            同步用<a href="../library.html#党史频道">党史档案库</a>与<a href="https://www.ncpssd.cn">国家哲学社会科学文献中心</a>做第一批文献综述笔记。</p>
+          </div>
+          <div className="lesson" id="r3">
+            <b>第三步 · 找问题：盯前沿与新闻雷达（长期习惯）</b>
+            <p>固定每日 20 分钟：<a href="../library.html#新闻理论">理论版头条</a>（求是、人民、光明）→ 每周精读一篇核心期刊论文 → 每月整理一次「研究热点与本子选题」对照表。
+            问题意识 = 现实矛盾 × 文献缺口 × 数据可得，三者交集才是好选题。</p>
+          </div>
+          <div className="lesson" id="r4">
+            <b>第四步 · 做实证：数据与案例（6–18 个月）</b>
+            <p>宏观：<a href="../library.html#官方统计">国家统计局数据平台</a>、普查公报、政府工作报告库；
+            微观：CFPS/CGSS 等公开调查（免费注册申请）；案例：政策原文 + 地方公报 + 白皮书。
+            先学国家统计口径，再动手分析——口径不对，全盘白做。</p>
+          </div>
+          <div className="lesson" id="r5">
+            <b>第五步 · 会写作：方法与规范（与第四步并行）</b>
+            <p>文献管理用 Zotero；著录规范 GB/T 7714；论文结构「问题—文献—框架—证据—结论—边际贡献」。
+            投稿前查<a href="../library.html#期刊投稿">CSSCI 目录与期刊官方投稿页</a>，警惕假冒网站。</p>
+          </div>
+          <div className="lesson" id="r6">
+            <b>第六步 · 进圈子：学术网络与升学（贯穿全程）</b>
+            <p>跟踪<a href="../library.html#课题申报">国家社科基金与教育部课题立项名单</a>（知道谁在做什么）、参加青年论坛、
+            申博早准备：<a href="../library.html#升学读博">研招网与重点马院招生页</a>。研究是公共事业——我为人人，人人为我。</p>
+          </div>
+        </section>
+      
+        <section>
+          <h2 className="sec">选题库 · 二十一个真问题方向</h2>
+          <div className="card">
+            <p>选题原则：<b>有真问题、有文献缺口、有数据可得</b>。每个方向给出切入角度与资料入口，具体题目自己收窄——
+            「共同富裕」太大，「县域基本公共服务均等化的财政机制」才是论文。</p>
+            <ul className="list">
+              <li><span className="t"><b>经典与理论史</b>：① 马克思「重建个人所有制」的百年论争 ② 列宁新经济政策的当代解读 ③ 毛泽东《论十大关系》与中国式现代化道路起源</span><span className="n">文本研究</span></li>
+              <li><span className="t"><b>党史与国史</b>：④ 三大改造的路径差异（地区比较） ⑤ 农村包产到户的政策过程 ⑥ 经济特区的制度试验机制</span><span className="n">档案可查</span></li>
+              <li><span className="t"><b>政治经济学</b>：⑦ 数据要素与公有制实现形式 ⑧ 平台经济中的劳动关系 ⑨ 国有企业混合所有制改革绩效评估</span><span className="n">上市公司数据可做</span></li>
+              <li><span className="t"><b>共同富裕与分配</b>：⑩ 三次分配的制度协同 ⑪ 县域城乡收入差距测算与分解 ⑫ 共同富裕示范区（浙江）政策评估</span><span className="n">CFPS/CHFS 可做</span></li>
+              <li><span className="t"><b>乡村振兴</b>：⑬ 脱贫攻坚与乡村振兴衔接机制 ⑭ 集体经济组织的治理结构 ⑮ 数字乡村的增收效应</span><span className="n">县域面板数据</span></li>
+              <li><span className="t"><b>治理与党建</b>：⑯ 「党建引领基层治理」的运行机制（田野） ⑰ 驻村第一书记的制度逻辑 ⑱ 全过程人民民主的基层实践形态</span><span className="n">案例研究</span></li>
+              <li><span className="t"><b>国际比较</b>：⑲ 越南「革新开放」与中国改革的比较 ⑳ 国外左翼对中国特色社会主义的研究述评 ㉑ 世界百年变局下的南南合作新形态</span><span className="n">译介文献</span></li>
+            </ul>
+          </div>
+        </section>
+      
+        <section>
+          <h2 className="sec">理论雷达 · 每日 20 分钟必读阵地</h2>
+          <div className="card">
+            <ul className="list">
+              <li><span className="t"><a href="http://www.qstheory.cn" target="_blank" rel="noopener">求是网</a> —— 中央理论刊物官网，权威理论文章与重要评论</span><span className="n">每日</span></li>
+              <li><span className="t"><a href="http://theory.people.com.cn" target="_blank" rel="noopener">人民网理论频道</a> —— 理论热点与学者专访集散地</span><span className="n">每日</span></li>
+              <li><span className="t"><a href="https://www.xinhuanet.com" target="_blank" rel="noopener">新华网</a> —— 权威发布与时政第一现场</span><span className="n">每日</span></li>
+              <li><span className="t"><a href="https://theory.gmw.cn" target="_blank" rel="noopener">光明网理论频道</a> —— 理论文章与学术动态</span><span className="n">每日</span></li>
+              <li><span className="t"><a href="https://www.cssn.cn" target="_blank" rel="noopener">中国社会科学网</a> —— 社科学术新闻与智库动态</span><span className="n">每周</span></li>
+              <li><span className="t"><a href="https://www.gov.cn/zhengce/zuixin/" target="_blank" rel="noopener">国务院政策文件库 · 最新政策</a> —— 政策原文第一时间</span><span className="n">每周</span></li>
+              <li><span className="t"><a href="http://www.scio.gov.cn" target="_blank" rel="noopener">国务院新闻办 · 白皮书</a> —— 政府白皮书官方发布库</span><span className="n">每月</span></li>
+              <li><span className="t"><a href="https://www.stats.gov.cn" target="_blank" rel="noopener">国家统计局</a> —— 月度宏观数据与公报</span><span className="n">数据日</span></li>
+            </ul>
+            <p className="small">更多阵地（学习时报、红旗文稿、省级党报理论版、新闻联播文字实录等）见<a href="../library.html#新闻理论">资源总库 · 新闻理论子类</a>。</p>
+          </div>
+        </section>
+      
+        <section>
+          <h2 className="sec">研究方法 · 三条流水线</h2>
+          <div className="grid">
+            <div className="mod green">
+              <div className="ico">文</div>
+              <b>文献流水线</b>
+              <div className="desc">① 检索：NCPSSD（免费全文）→ 学校图书馆知网 → 中文马克思主义文库 → Google 学术补外文；
+              ② 管理：Zotero 建库，按「主题—年代—方法」三级标签；③ 综述：不是罗列，是「分类—比较—找缺口」。</div>
+              <div className="meta">工具入口见资源总库</div>
+            </div>
+            <div className="mod blue">
+              <div className="ico">据</div>
+              <b>实证流水线</b>
+              <div className="desc">① 宏观：国家统计局分省年度面板；② 微观：CFPS/CGSS/CHFS 注册申请；
+              ③ 文本：政府工作报告、白皮书、政策文件做文本分析；④ 案例：政策原文 + 地方政府工作报告 + 实地调研互证。</div>
+              <div className="meta">先查统计口径再动手</div>
+            </div>
+            <div className="mod gold">
+              <div className="ico">章</div>
+              <b>写作流水线</b>
+              <div className="desc">① 摘要倒着写：结论先定，再补问题与发现；② 著录规范 GB/T 7714；
+              ③ 投稿只认期刊官方页（主办单位官网核对）；④ 学位论文：开题报告 = 选题论证 + 文献综述 + 研究设计三件套。</div>
+              <div className="meta">规范与投稿入口在总库</div>
+            </div>
+          </div>
+        </section>
+      
+        <section>
+          <h2 className="sec">配套研究文档 · 九篇</h2>
+          <div className="card">
+            <ul className="list">
+              <li><span className="t"><a href="https://github.com/88lin/knowledge-commons/blob/main/docs/socialism/00-%E6%80%BB%E7%BA%B2-%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E5%AE%9E%E8%B7%B5%E5%85%A8%E9%A2%86%E5%9F%9F%E7%A0%94%E7%A9%B6%E5%9C%B0%E5%9B%BE.md">00 · 总纲：社会主义实践全领域研究地图</a></span><span className="n">先读</span></li>
+              <li><span className="t"><a href="https://github.com/88lin/knowledge-commons/tree/main/docs/socialism">01–08 · 经典文献 / 党史国史 / 理论前沿 / 新闻阵地 / 数据实证 / 中国实践 / 国际比较 / 方法与升学</a></span><span className="n">分领域</span></li>
+            </ul>
+          </div>
+        </section>
+      
+        
+    </Layout>
+  )
+}
+
+createRoot(document.getElementById('root')!).render(<Page />)

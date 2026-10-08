@@ -1,0 +1,94 @@
+/* 知识公社 · 世界技能大赛 —— React 版（由旧页面迁移） */
+import { createRoot } from 'react-dom/client'
+import '../theme.css'
+import { Layout } from '../components/Layout'
+import { SearchBar } from '../components/SearchBar'
+
+function Page() {
+  return (
+    <Layout
+active="世赛"
+      kicker="WORLDSKILLS"
+      title="世界技能大赛"
+      lines={["两年一届，被誉为「技能奥林匹克」；第 48 届于 2026 年 9 月在上海举行。", "六大领域、50 个赛项，每个赛项配齐三件套——<b>读</b>项目总纲 · <b>看</b>总纲课视频 · <b>练</b>模拟训练。"]}
+      badges={["六大领域", "50 个赛项", "50 部总纲课", "50 套模拟训练", "全部离线"]}
+    >
+      <div className="goal">世赛考的是「把一件事做到极致」：数十类职业技能，从云计算到美发、从飞机维修到糖艺。本专区把这些公开资料收拢成可读、可看、可练的完整学习包——不出去，就学完。</div>
+        <div className="card" style={{ marginBottom: "14px" }}><ul className="list">
+          <li><span className="t"><a href="../library.html#g=0">赛项外部资源导航 · 官方标准 / 真题直链 / 模拟器 / 靶场</a><br /><span className="small">世赛官方赛项页与 WSOS 标准 · 技术描述 PDF · 国赛规程赛卷 · eNSP / Packet Tracer / GNS3 · 认证免费课 · 漏洞靶场 · 官方视频</span></span><span className="n">备</span></li>
+        </ul></div>
+        <h2 className="sec">信息与通信技术（8 项）</h2>
+        <div className="card"><ul className="list">
+          <li><span className="t">IT网络系统管理</span><span className="lk"><a href="../study.html#d=multiskill_01-信息与通信技术_IT网络系统管理_项目总纲_md">总纲</a><a href="../multiskill/01-信息与通信技术/IT网络系统管理/总纲课.mp4">视频</a><a href="../multiskill/01-信息与通信技术/IT网络系统管理/模拟训练.html">训练</a></span></li>
+          <li><span className="t">云计算</span><span className="lk"><a href="../study.html#d=multiskill_01-信息与通信技术_云计算_项目总纲_md">总纲</a><a href="../multiskill/01-信息与通信技术/云计算/总纲课.mp4">视频</a><a href="../multiskill/01-信息与通信技术/云计算/模拟训练.html">训练</a></span></li>
+          <li><span className="t">光电技术</span><span className="lk"><a href="../study.html#d=multiskill_01-信息与通信技术_光电技术_项目总纲_md">总纲</a><a href="../multiskill/01-信息与通信技术/光电技术/总纲课.mp4">视频</a><a href="../multiskill/01-信息与通信技术/光电技术/模拟训练.html">训练</a></span></li>
+          <li><span className="t">商务软件解决方案</span><span className="lk"><a href="../study.html#d=multiskill_01-信息与通信技术_商务软件解决方案_项目总纲_md">总纲</a><a href="../multiskill/01-信息与通信技术/商务软件解决方案/总纲课.mp4">视频</a><a href="../multiskill/01-信息与通信技术/商务软件解决方案/模拟训练.html">训练</a></span></li>
+          <li><span className="t">网站技术</span><span className="lk"><a href="../study.html#d=multiskill_01-信息与通信技术_网站技术_项目总纲_md">总纲</a><a href="../multiskill/01-信息与通信技术/网站技术/总纲课.mp4">视频</a><a href="../multiskill/01-信息与通信技术/网站技术/模拟训练.html">训练</a></span></li>
+          <li><span className="t">网络安全</span><span className="lk"><a href="../study.html#d=multiskill_01-信息与通信技术_网络安全_项目总纲_md">总纲</a><a href="../multiskill/01-信息与通信技术/网络安全/总纲课.mp4">视频</a><a href="../multiskill/01-信息与通信技术/网络安全/模拟训练.html">训练</a></span></li>
+          <li><span className="t">网络布线</span><span className="lk"><a href="../study.html#d=multiskill_01-信息与通信技术_网络布线_项目总纲_md">总纲</a><a href="../multiskill/01-信息与通信技术/网络布线/总纲课.mp4">视频</a><a href="../multiskill/01-信息与通信技术/网络布线/模拟训练.html">训练</a></span></li>
+          <li><span className="t">软件应用开发</span><span className="lk"><a href="../study.html#d=multiskill_01-信息与通信技术_软件应用开发_项目总纲_md">总纲</a><a href="../multiskill/01-信息与通信技术/软件应用开发/总纲课.mp4">视频</a><a href="../multiskill/01-信息与通信技术/软件应用开发/模拟训练.html">训练</a></span></li>
+        </ul></div>
+        <h2 className="sec">制造与工程技术（12 项）</h2>
+        <div className="card"><ul className="list">
+          <li><span className="t">原型制作</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_原型制作_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/原型制作/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/原型制作/模拟训练.html">训练</a></span></li>
+          <li><span className="t">可再生能源</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_可再生能源_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/可再生能源/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/可再生能源/模拟训练.html">训练</a></span></li>
+          <li><span className="t">增材制造</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_增材制造_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/增材制造/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/增材制造/模拟训练.html">训练</a></span></li>
+          <li><span className="t">工业4.0</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_工业4.0_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/工业4.0/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/工业4.0/模拟训练.html">训练</a></span></li>
+          <li><span className="t">工业机械装调</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_工业机械装调_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/工业机械装调/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/工业机械装调/模拟训练.html">训练</a></span></li>
+          <li><span className="t">建筑金属加工</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_建筑金属加工_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/建筑金属加工/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/建筑金属加工/模拟训练.html">训练</a></span></li>
+          <li><span className="t">数控车</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_数控车_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/数控车/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/数控车/模拟训练.html">训练</a></span></li>
+          <li><span className="t">数控铣</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_数控铣_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/数控铣/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/数控铣/模拟训练.html">训练</a></span></li>
+          <li><span className="t">机器人系统集成</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_机器人系统集成_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/机器人系统集成/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/机器人系统集成/模拟训练.html">训练</a></span></li>
+          <li><span className="t">机械工程设计CAD</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_机械工程设计CAD_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/机械工程设计CAD/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/机械工程设计CAD/模拟训练.html">训练</a></span></li>
+          <li><span className="t">机电一体化</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_机电一体化_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/机电一体化/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/机电一体化/模拟训练.html">训练</a></span></li>
+          <li><span className="t">焊接</span><span className="lk"><a href="../study.html#d=multiskill_02-制造与工程技术_焊接_项目总纲_md">总纲</a><a href="../multiskill/02-制造与工程技术/焊接/总纲课.mp4">视频</a><a href="../multiskill/02-制造与工程技术/焊接/模拟训练.html">训练</a></span></li>
+        </ul></div>
+        <h2 className="sec">建筑与工程技术（11 项）</h2>
+        <div className="card"><ul className="list">
+          <li><span className="t">制冷与空调</span><span className="lk"><a href="../study.html#d=multiskill_03-建筑与工程技术_制冷与空调_项目总纲_md">总纲</a><a href="../multiskill/03-建筑与工程技术/制冷与空调/总纲课.mp4">视频</a><a href="../multiskill/03-建筑与工程技术/制冷与空调/模拟训练.html">训练</a></span></li>
+          <li><span className="t">家具制作</span><span className="lk"><a href="../study.html#d=multiskill_03-建筑与工程技术_家具制作_项目总纲_md">总纲</a><a href="../multiskill/03-建筑与工程技术/家具制作/总纲课.mp4">视频</a><a href="../multiskill/03-建筑与工程技术/家具制作/模拟训练.html">训练</a></span></li>
+          <li><span className="t">抹灰与隔墙系统</span><span className="lk"><a href="../study.html#d=multiskill_03-建筑与工程技术_抹灰与隔墙系统_项目总纲_md">总纲</a><a href="../multiskill/03-建筑与工程技术/抹灰与隔墙系统/总纲课.mp4">视频</a><a href="../multiskill/03-建筑与工程技术/抹灰与隔墙系统/模拟训练.html">训练</a></span></li>
+          <li><span className="t">景观园艺</span><span className="lk"><a href="../study.html#d=multiskill_03-建筑与工程技术_景观园艺_项目总纲_md">总纲</a><a href="../multiskill/03-建筑与工程技术/景观园艺/总纲课.mp4">视频</a><a href="../multiskill/03-建筑与工程技术/景观园艺/模拟训练.html">训练</a></span></li>
+          <li><span className="t">油漆与装饰</span><span className="lk"><a href="../study.html#d=multiskill_03-建筑与工程技术_油漆与装饰_项目总纲_md">总纲</a><a href="../multiskill/03-建筑与工程技术/油漆与装饰/总纲课.mp4">视频</a><a href="../multiskill/03-建筑与工程技术/油漆与装饰/模拟训练.html">训练</a></span></li>
+          <li><span className="t">混凝土建筑</span><span className="lk"><a href="../study.html#d=multiskill_03-建筑与工程技术_混凝土建筑_项目总纲_md">总纲</a><a href="../multiskill/03-建筑与工程技术/混凝土建筑/总纲课.mp4">视频</a><a href="../multiskill/03-建筑与工程技术/混凝土建筑/模拟训练.html">训练</a></span></li>
+          <li><span className="t">瓷砖贴面</span><span className="lk"><a href="../study.html#d=multiskill_03-建筑与工程技术_瓷砖贴面_项目总纲_md">总纲</a><a href="../multiskill/03-建筑与工程技术/瓷砖贴面/总纲课.mp4">视频</a><a href="../multiskill/03-建筑与工程技术/瓷砖贴面/模拟训练.html">训练</a></span></li>
+          <li><span className="t">电气装置</span><span className="lk"><a href="../study.html#d=multiskill_03-建筑与工程技术_电气装置_项目总纲_md">总纲</a><a href="../multiskill/03-建筑与工程技术/电气装置/总纲课.mp4">视频</a><a href="../multiskill/03-建筑与工程技术/电气装置/模拟训练.html">训练</a></span></li>
+          <li><span className="t">砌筑</span><span className="lk"><a href="../study.html#d=multiskill_03-建筑与工程技术_砌筑_项目总纲_md">总纲</a><a href="../multiskill/03-建筑与工程技术/砌筑/总纲课.mp4">视频</a><a href="../multiskill/03-建筑与工程技术/砌筑/模拟训练.html">训练</a></span></li>
+          <li><span className="t">管道与制暖</span><span className="lk"><a href="../study.html#d=multiskill_03-建筑与工程技术_管道与制暖_项目总纲_md">总纲</a><a href="../multiskill/03-建筑与工程技术/管道与制暖/总纲课.mp4">视频</a><a href="../multiskill/03-建筑与工程技术/管道与制暖/模拟训练.html">训练</a></span></li>
+          <li><span className="t">精细木工</span><span className="lk"><a href="../study.html#d=multiskill_03-建筑与工程技术_精细木工_项目总纲_md">总纲</a><a href="../multiskill/03-建筑与工程技术/精细木工/总纲课.mp4">视频</a><a href="../multiskill/03-建筑与工程技术/精细木工/模拟训练.html">训练</a></span></li>
+        </ul></div>
+        <h2 className="sec">创意艺术与时尚（7 项）</h2>
+        <div className="card"><ul className="list">
+          <li><span className="t">3D数字游戏艺术</span><span className="lk"><a href="../study.html#d=multiskill_04-创意艺术与时尚_3D数字游戏艺术_项目总纲_md">总纲</a><a href="../multiskill/04-创意艺术与时尚/3D数字游戏艺术/总纲课.mp4">视频</a><a href="../multiskill/04-创意艺术与时尚/3D数字游戏艺术/模拟训练.html">训练</a></span></li>
+          <li><span className="t">平面设计技术</span><span className="lk"><a href="../study.html#d=multiskill_04-创意艺术与时尚_平面设计技术_项目总纲_md">总纲</a><a href="../multiskill/04-创意艺术与时尚/平面设计技术/总纲课.mp4">视频</a><a href="../multiskill/04-创意艺术与时尚/平面设计技术/模拟训练.html">训练</a></span></li>
+          <li><span className="t">时装技术</span><span className="lk"><a href="../study.html#d=multiskill_04-创意艺术与时尚_时装技术_项目总纲_md">总纲</a><a href="../multiskill/04-创意艺术与时尚/时装技术/总纲课.mp4">视频</a><a href="../multiskill/04-创意艺术与时尚/时装技术/模拟训练.html">训练</a></span></li>
+          <li><span className="t">珠宝加工</span><span className="lk"><a href="../study.html#d=multiskill_04-创意艺术与时尚_珠宝加工_项目总纲_md">总纲</a><a href="../multiskill/04-创意艺术与时尚/珠宝加工/总纲课.mp4">视频</a><a href="../multiskill/04-创意艺术与时尚/珠宝加工/模拟训练.html">训练</a></span></li>
+          <li><span className="t">美发</span><span className="lk"><a href="../study.html#d=multiskill_04-创意艺术与时尚_美发_项目总纲_md">总纲</a><a href="../multiskill/04-创意艺术与时尚/美发/总纲课.mp4">视频</a><a href="../multiskill/04-创意艺术与时尚/美发/模拟训练.html">训练</a></span></li>
+          <li><span className="t">美容</span><span className="lk"><a href="../study.html#d=multiskill_04-创意艺术与时尚_美容_项目总纲_md">总纲</a><a href="../multiskill/04-创意艺术与时尚/美容/总纲课.mp4">视频</a><a href="../multiskill/04-创意艺术与时尚/美容/模拟训练.html">训练</a></span></li>
+          <li><span className="t">花艺</span><span className="lk"><a href="../study.html#d=multiskill_04-创意艺术与时尚_花艺_项目总纲_md">总纲</a><a href="../multiskill/04-创意艺术与时尚/花艺/总纲课.mp4">视频</a><a href="../multiskill/04-创意艺术与时尚/花艺/模拟训练.html">训练</a></span></li>
+        </ul></div>
+        <h2 className="sec">社会与个人服务（6 项）</h2>
+        <div className="card"><ul className="list">
+          <li><span className="t">健康和社会照护</span><span className="lk"><a href="../study.html#d=multiskill_05-社会与个人服务_健康和社会照护_项目总纲_md">总纲</a><a href="../multiskill/05-社会与个人服务/健康和社会照护/总纲课.mp4">视频</a><a href="../multiskill/05-社会与个人服务/健康和社会照护/模拟训练.html">训练</a></span></li>
+          <li><span className="t">烘焙</span><span className="lk"><a href="../study.html#d=multiskill_05-社会与个人服务_烘焙_项目总纲_md">总纲</a><a href="../multiskill/05-社会与个人服务/烘焙/总纲课.mp4">视频</a><a href="../multiskill/05-社会与个人服务/烘焙/模拟训练.html">训练</a></span></li>
+          <li><span className="t">烹饪</span><span className="lk"><a href="../study.html#d=multiskill_05-社会与个人服务_烹饪_项目总纲_md">总纲</a><a href="../multiskill/05-社会与个人服务/烹饪/总纲课.mp4">视频</a><a href="../multiskill/05-社会与个人服务/烹饪/模拟训练.html">训练</a></span></li>
+          <li><span className="t">糖艺西点</span><span className="lk"><a href="../study.html#d=multiskill_05-社会与个人服务_糖艺西点_项目总纲_md">总纲</a><a href="../multiskill/05-社会与个人服务/糖艺西点/总纲课.mp4">视频</a><a href="../multiskill/05-社会与个人服务/糖艺西点/模拟训练.html">训练</a></span></li>
+          <li><span className="t">酒店接待</span><span className="lk"><a href="../study.html#d=multiskill_05-社会与个人服务_酒店接待_项目总纲_md">总纲</a><a href="../multiskill/05-社会与个人服务/酒店接待/总纲课.mp4">视频</a><a href="../multiskill/05-社会与个人服务/酒店接待/模拟训练.html">训练</a></span></li>
+          <li><span className="t">餐厅服务</span><span className="lk"><a href="../study.html#d=multiskill_05-社会与个人服务_餐厅服务_项目总纲_md">总纲</a><a href="../multiskill/05-社会与个人服务/餐厅服务/总纲课.mp4">视频</a><a href="../multiskill/05-社会与个人服务/餐厅服务/模拟训练.html">训练</a></span></li>
+        </ul></div>
+        <h2 className="sec">运输与物流（6 项）</h2>
+        <div className="card"><ul className="list">
+          <li><span className="t">汽车喷漆</span><span className="lk"><a href="../study.html#d=multiskill_06-运输与物流_汽车喷漆_项目总纲_md">总纲</a><a href="../multiskill/06-运输与物流/汽车喷漆/总纲课.mp4">视频</a><a href="../multiskill/06-运输与物流/汽车喷漆/模拟训练.html">训练</a></span></li>
+          <li><span className="t">汽车技术</span><span className="lk"><a href="../study.html#d=multiskill_06-运输与物流_汽车技术_项目总纲_md">总纲</a><a href="../multiskill/06-运输与物流/汽车技术/总纲课.mp4">视频</a><a href="../multiskill/06-运输与物流/汽车技术/模拟训练.html">训练</a></span></li>
+          <li><span className="t">物流</span><span className="lk"><a href="../study.html#d=multiskill_06-运输与物流_物流_项目总纲_md">总纲</a><a href="../multiskill/06-运输与物流/物流/总纲课.mp4">视频</a><a href="../multiskill/06-运输与物流/物流/模拟训练.html">训练</a></span></li>
+          <li><span className="t">货运代理</span><span className="lk"><a href="../study.html#d=multiskill_06-运输与物流_货运代理_项目总纲_md">总纲</a><a href="../multiskill/06-运输与物流/货运代理/总纲课.mp4">视频</a><a href="../multiskill/06-运输与物流/货运代理/模拟训练.html">训练</a></span></li>
+          <li><span className="t">重型车辆技术</span><span className="lk"><a href="../study.html#d=multiskill_06-运输与物流_重型车辆技术_项目总纲_md">总纲</a><a href="../multiskill/06-运输与物流/重型车辆技术/总纲课.mp4">视频</a><a href="../multiskill/06-运输与物流/重型车辆技术/模拟训练.html">训练</a></span></li>
+          <li><span className="t">飞机维修</span><span className="lk"><a href="../study.html#d=multiskill_06-运输与物流_飞机维修_项目总纲_md">总纲</a><a href="../multiskill/06-运输与物流/飞机维修/总纲课.mp4">视频</a><a href="../multiskill/06-运输与物流/飞机维修/模拟训练.html">训练</a></span></li>
+        </ul></div>
+        <p className="note">内容整理自世界技能大赛各项目公开资料，供学习交流使用。项目总纲在资料中心内阅读；视频与模拟训练为站内离线条目。</p>
+        <p><a href="archive.html">← 去总目看全部内容</a></p>
+    </Layout>
+  )
+}
+
+createRoot(document.getElementById('root')!).render(<Page />)
