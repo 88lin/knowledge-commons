@@ -87,7 +87,7 @@ zsign -k cert.p12 -p '密码' -m app.mobileprovision -o signed.ipa unsigned.ipa
 `sign-ios` 在 `upload_release` 非空时会**自动生成 `manifest.plist`（苹果 OTA 安装清单）并随同一个 Release 一起上传**，指向该 Release 里的已签名 IPA。配合站内直装页：
 
 1. 跑完 sign-ios（带 tag，如 `v3.1`）→ Release 里同时有 `*-signed.ipa` 和 `manifest.plist`
-2. 把 **https://taimabenji.github.io/knowledge-commons/install.html** 发给任何人
+2. 把 **https://88lin.github.io/knowledge-commons/install.html** 发给任何人
 3. 对方用 iPhone 的 Safari 打开 → 点「安装」→ 「设置 → 通用 → VPN与设备管理」信任证书 → 完成
 
 直装页自动探测最新 Release 是否含 manifest：没有则显示「尚未发布」并回退到 Sideloadly 路线。
