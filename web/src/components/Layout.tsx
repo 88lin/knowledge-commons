@@ -3,7 +3,7 @@ import { TABS, h } from '../tabs'
 
 export interface HeroProps {
   kicker?: string
-  title: string
+  title?: string
   lines?: string[]
   motto?: ReactNode
   badges?: string[]
@@ -64,7 +64,8 @@ export function Footer({ children }: { children?: ReactNode }) {
   )
 }
 
-export interface LayoutProps extends HeroProps {
+export interface LayoutProps extends Omit<HeroProps, 'title'> {
+  title?: string
   active?: string
   children: ReactNode
   /** 不显示 hero（部分子页只有标题） */
