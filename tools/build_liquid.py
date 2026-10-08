@@ -1887,9 +1887,23 @@ _nsf = len(_EMOJI.findall(page))
 page = _EMOJI.sub('', page)
 print('special symbols stripped:', _nsf)
 
+# ---- 内联 DOCS → manifest + 按组懒加载块（study 秒开改造，见 tools/split_study.py）----
+import sys as _sys
+_sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    from split_study import split_study as _split_study
+except Exception as _se:
+    _split_study = None
+    print('WARN: split_study import failed:', _se)
+
 out = os.environ.get('LIQ_OUT') or (BASE + '/study.html')
 open(out, 'w', encoding='utf-8').write(page)
 print('written:', out, len(page), 'bytes,', total_docs, 'docs')
+if _split_study is not None and 'const DOCS = ' in page:
+    _st = _split_study(out)
+    print('split → shell %d bytes, %d docs, %d chunks (gen %s)' % (_st['shell_bytes'], _st['docs'], _st['chunks'], _st['mh8']))
+else:
+    print('WARN: DOCS 未拆分（保持内联大文件模式）')
 if '/*@@LAB' in page: print('WARN: lab markers left unresolved!')
 if '/*@@RANK' in page: print('WARN: rank markers left unresolved!')
 if '/*@@RES' in page: print('WARN: res markers left unresolved!')

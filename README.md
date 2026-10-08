@@ -71,6 +71,17 @@
 - **链接体检**：`python tools/linkcheck.py` 并发检测资源总库全部外链（反爬识别为 blocked，多轮重试后才判死链）
 - **资源名说明**：部分 Android WebView 无法访问含非 ASCII 字符的资源路径，构建流程中的 `tools/android_namefix.py` 会把中文资源名转义为 `_uXXXX` 并同步改写引用（详见脚本注释）
 
+## study.html 秒开架构（2026-10）
+
+资料中心 `study.html`（3161 篇 · 59 组）不再内联 14MB 全量数据，首屏体积 **14.8MB → ~757KB（-95%）**：
+
+- `study-data/manifest.<gen8>.js` — 全量元数据（标题/分组/时长/主题色，3161 篇）+ 首页全文，~731KB
+- `study-data/c/<组slug>.<hash6>.js` — 58 个按组内容块，打开该组文档时按需加载，后台自动预取全部
+- 搜索：标题即时全库命中；全文匹配随内容块加载而就绪（预取完成后全库可搜）
+- Service Worker：`study-data/*` 走运行时缓存，首次在线访问后全站离线可用
+
+**再生成安全**：`tools/build_liquid.py` 末尾已接入 `tools/split_study.py`，重新生成 study.html 时自动完成拆分，无需手工步骤。改动内容数据后发布时请同步 bump `sw.js` 的 `VERSION`（如 `kc-v1.6.1`），让离线用户的缓存及时刷新。
+
 ## 数据来源与致谢
 
 题库索引来自 Codeforces 公开 API 与 kenkoooo AtCoder Problems；

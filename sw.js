@@ -7,11 +7,13 @@
    · 静态资源 stale-while-revalidate —— 秒开 + 后台静默更新；
    · Range 请求 / 非本站请求 —— 直接放行（视频流式播放不受影响）。
    ============================================================ */
-var VERSION = 'kc-v1.5.0';
+var VERSION = 'kc-v1.6.0';
 
-/* 预缓存：主站全部页面 + 样式 + 检索索引 + PWA 资产（≈300KB） */
+/* 预缓存：主站全部页面 + 样式 + 检索索引 + PWA 资产（≈300KB）
+   注：study.html 已拆分（manifest + 58 个按组内容块），本体仅 ~757KB，
+   study-data/* 走运行时缓存（首次在线访问后离线可用），不进预缓存清单 */
 var CORE = [
-  './', './learn/',
+  './', './learn/', './study.html',
   './learn/index.html', './learn/archive.html', './learn/courses.html',
   './learn/contest.html', './learn/exams.html', './learn/gongkao.html',
   './learn/skills.html', './learn/red.html', './learn/socialism.html', './learn/paths.html',
