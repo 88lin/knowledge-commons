@@ -34,8 +34,8 @@ jobs:
 
       - name: Assemble site (repo 静态资产 + React 产物覆盖)
         run: |
-          # 站点目录放在仓库外，避免 rsync 源=目的地祖先目录导致自我递归
-          SITE="$RUNNER_TEMP/site"
+          # 工作区内建站，但 rsync 必须排除 site 自身（源目录包含目的地会自我递归）
+          SITE="$GITHUB_WORKSPACE/site"
           rm -rf "$SITE" && mkdir -p "$SITE"
           # 1) 仓库根静态资产原样部署（与旧版站点一致）
           rsync -a --exclude='.git' --exclude='web' --exclude='clients' --exclude='tools' --exclude='.github' --exclude='site' ./ "$SITE/"
