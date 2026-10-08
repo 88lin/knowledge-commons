@@ -34,9 +34,11 @@ jobs:
 
       - name: Assemble site (repo 静态资产 + React 产物覆盖)
         run: |
-          mkdir -p site
+          # 站点目录放在仓库外，避免 rsync 源=目的地祖先目录导致自我递归
+          SITE="$RUNNER_TEMP/site"
+          rm -rf "$SITE" && mkdir -p "$SITE"
           # 1) 仓库根静态资产原样部署（与旧版站点一致）
-          rsync -a --exclude='.git' --exclude='web' --exclude='clients' --exclude='tools' --exclude='.github' ./ site/
+          rsync -a --exclude='.git' --exclude='web' --exclude='clients' --exclude='tools' --exclude='.github' --exclude='site' ./ "$SITE/"
           # 2) dist 覆盖：React 页面 + 带 hash 的 assets + 注入清单的 sw.js
           #    （排除 dist 里与仓库重复拷贝的大静态目录，避免双倍体积）
           rsync -a \
@@ -44,7 +46,8 @@ jobs:
             --exclude='learn/data' --exclude='learn/files' --exclude='learn/red' \
             --exclude='exam' --exclude='lab' --exclude='video-factory' \
             --exclude='video-ext' --exclude='app' --exclude='docs' --exclude='icons' \
-            web/dist/ site/
+            web/dist/ "$SITE/"
+          du -sh "$SITE"
 
       - uses: actions/configure-pages@v5
 
