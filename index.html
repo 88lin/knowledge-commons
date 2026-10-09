@@ -3,16 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>知识公社 · Knowledge Commons</title>
-<link rel="stylesheet" href="learn/style.css">
+<title>知识公社 · 从零到精通</title>
+<link rel="stylesheet" href="style.css">
 <!-- kc-pwa -->
 <meta name="theme-color" content="#9e2b25">
 <meta name="color-scheme" content="light">
-<link rel="manifest" href="./manifest.json">
-<link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
-<script defer src="./sw-reg.js"></script>
-<script defer src="./install-tip.js"></script>
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<script defer src="../sw-reg.js"></script>
+<script defer src="../install-tip.js"></script>
+<script defer src="kc-learn.js"></script>
 <!-- /kc-pwa -->
 </head>
 <body>
@@ -20,31 +21,194 @@
 <header class="hero">
   <div class="kicker">KNOWLEDGE COMMONS</div>
   <h1>知识公社</h1>
-  <p>竞赛真题 · 升学考试 · 公务员 · 红色经典 · 世界技能大赛 · 电商创业 · 资源总库</p>
+  <p>竞赛真题 · 升学考试 · 公务员 · 红色经典 · 职业技能 · 资源总库</p>
   <p>从零到精通，点开就能学；不设门槛，不论基础。</p>
   <div class="motto">「读书是学习，使用也是学习，<i>而且是更重要的学习</i>。」</div>
-  <div class="badges"><span>完全离线</span><span>完全开源</span><span>站内直达</span><span>六端同源</span></div>
 </header>
+<nav class="tabs">
+  <a class="on" href="index.html">首页</a>
+  <a href="beginner.html">学堂</a>
+  <a href="calendar.html">日历</a>
+  <a href="archive.html">总目</a>
+  <a href="courses.html">课程</a>
+  <a href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a>
+  <a href="gongkao.html">公考</a>
+  <a href="skills.html">世赛</a>
+  <a href="red.html">红色</a>
+  <a href="socialism.html">实践</a>
+  <a href="ecommerce.html">创业</a><a href="cloud.html">云赛</a>
+  <a href="paths.html">路线</a>
+  <a href="../library.html">资源</a>
+  <a href="../download.html">下载</a>
+  <a href="about.html">简章</a>
+</nav>
+
 <div class="wrap">
+  <form class="searchbar" onsubmit="location.href='search.html?q='+encodeURIComponent(this.q.value);return false;">
+    <input name="q" placeholder="全站检索：课程 · 篇目 · 资料…" autocomplete="off">
+    <button type="submit">检索</button>
+  </form>
+  <div class="card" id="kc-resume"></div>
   <div class="actionbar">
-    <a class="actbtn" href="learn/">进入知识公社</a>
-    <a class="actbtn" href="learn/beginner.html">零基础学堂 · 15 节视频课</a>
-    <a class="actbtn ghost" href="study.html">资料中心 · 全技能库</a>
+    <a class="actbtn" href="beginner.html">零基础学堂 · 从第一课开始</a>
+    <a class="actbtn" href="courses.html">开始学习 · 课程直通</a>
+    <a class="actbtn ghost" href="../study.html">资料中心 · 全内容</a>
   </div>
-  <h2 class="sec">站内直达</h2>
-  <div class="card"><ul class="list">
-    <li><span class="t"><a href="learn/skills.html">世界技能大赛 · 六大领域 50 赛项（总纲 / 视频 / 训练）</a></span><span class="n">世</span></li>
-    <li><span class="t"><a href="learn/courses.html">原创课程 · 算法 13 讲 / Python 8 讲 / 行测 6 讲</a></span><span class="n">课</span></li>
-    <li><span class="t"><a href="learn/contest.html">竞赛题库 · Codeforces + AtCoder 离线可搜</a></span><span class="n">赛</span></li>
-    <li><span class="t"><a href="learn/red/maoxuan.html">《毛泽东选集》1–5 卷全文 · 229 篇</a></span><span class="n">典</span></li>
-    <li><span class="t"><a href="learn/archive.html">总目 · 站内全库一页直达</a></span><span class="n">总</span></li>
-    <li><span class="t"><a href="learn/search.html">全站检索 · 课程 / 篇目 / 资料一搜即中</a></span><span class="n">检</span></li>
-    <li><span class="t"><a href="learn/beginner.html">零基础学堂 · 九大板块第一课（视频课）</a></span><span class="n">学</span></li>
-<li><span class="t"><a href="learn/ecommerce.html">电商创业 · 实战中心 · 2026 实价手册与 90 天作战地图</a></span><span class="n">创</span></li>
-    <li><span class="t"><a href="library.html">资源总库 · 全网免费学习资源精选（787 条）</a></span><span class="n">库</span></li>
-    <li><span class="t"><a href="download.html">全平台下载 · APK / IPA / EXE / macOS / Linux / Web</a></span><span class="n">下</span></li>
-  </ul></div>
-  <p class="note">开源于 <a href="https://github.com/TaiMaBenJi/knowledge-commons">github.com/TaiMaBenJi/knowledge-commons</a>　·　MIT License　·　知识公社 · 知识共享</p>
+
+  <section>
+    <h2 class="sec">零基础学堂 · 九大板块第一课</h2>
+    <div class="grid">
+      <a class="mod red" href="beginner.html">
+        <div class="ico">学</div>
+        <b>零基础学堂 · 每个板块的第一课</b>
+        <div class="desc">九节视频课：世赛 / 算法 / 升学 / 公考 / 经典 / 课程 / 编程 / 考证 / 人文——每课回答「这是什么、今天第一步做什么、学完去哪」，附图文讲义与动手作业。</div>
+        <div class="meta">9 节视频 · 分镜脚本可一键再生</div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">课程 · 点开即学</h2>
+    <div class="grid">
+      <a class="mod" href="course-algo.html">
+        <div class="ico">算</div>
+        <b>算法竞赛 · 从零到精通</b>
+        <div class="desc">十三讲：复杂度、排序二分、前缀和、搜索、贪心、动态规划、图论……每讲配有代码与例题，学完即可上手刷题。</div>
+        <div class="meta">十三讲 · 零基础可入</div>
+      </a>
+      <a class="mod green" href="course-python.html">
+        <div class="ico">程</div>
+        <b>Python 极速入门</b>
+        <div class="desc">八日之功，从装环境到提交第一道在线判题；变量、容器、循环、函数、常用库，一一讲清。</div>
+        <div class="meta">八讲 · 每日三十分钟</div>
+      </a>
+      <a class="mod gold" href="course-gongkao.html">
+        <div class="ico">行</div>
+        <b>公考行测 · 入门六讲</b>
+        <div class="desc">得分地图、资料分析速算、图形推理套路、逻辑判断、言语理解、捡分策略，一讲一步。</div>
+        <div class="meta">六讲 · 配套三百五十四题题库</div>
+      </a>
+      <a class="mod red" href="red/maoxuan.html">
+        <div class="ico">典</div>
+        <b>毛选名篇 · 精读</b>
+        <div class="desc">《实践论》《矛盾论》《论持久战》等二百二十九篇全文，离线可读，随手开卷。</div>
+        <div class="meta">二百二十九篇 · 全文收录</div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">六大门类 · 各取所需</h2>
+    <div class="grid">
+      <a class="mod" href="contest.html">
+        <div class="ico">竞</div>
+        <b>竞赛真题</b>
+        <div class="desc">Codeforces 一万一千四百题、AtCoder 九千六百题，离线可搜；ICPC 世界总决赛题解、蓝桥杯、天梯赛、CCPC、数学建模。</div>
+        <div class="meta">题解一百五十八份 · 真题代码一百六十八份</div>
+      </a>
+      <a class="mod green" href="exams.html">
+        <div class="ico">升</div>
+        <b>升学考试</b>
+        <div class="desc">高考数学真题卷（内置阅读器）；专升本备考助手（考点、题库、单词本）；国家中小学智慧教育平台直达。</div>
+        <div class="meta">从小学到大学</div>
+      </a>
+      <a class="mod gold" href="gongkao.html">
+        <div class="ico">公</div>
+        <b>公务员考试</b>
+        <div class="desc">图形推理真题三百五十四题，逐题解析；近十年国考省考行测真题大库导航；完整备考次第。</div>
+        <div class="meta">行测 · 申论 · 面试</div>
+      </a>
+      <a class="mod red" href="red.html">
+        <div class="ico">红</div>
+        <b>红色经典</b>
+        <div class="desc">《毛泽东选集》一至五卷全文，二百二十九篇；毛泽东诗词九十首。读原著，学原文，悟原理。</div>
+        <div class="meta">离线全文 · 随时可读</div>
+      </a>
+      <a class="mod" href="socialism.html">
+        <div class="ico">研</div>
+        <b>社会主义实践 · 研究中心</b>
+        <div class="desc">研究生级全领域研究地图：经典文献、党史国史、理论前沿、新闻阵地、数据实证、中国实践、国际比较——全网资源逐条核验，选题库、研究路线、方法论一站直达。</div>
+        <div class="meta">七大领域 · 169 条资源 · 可打卡路线</div>
+      </a>
+      <a class="mod" href="ecommerce.html">
+        <div class="ico">创</div>
+        <b>电商创业 · 实战中心</b>
+        <div class="desc">2026 实价手册：境内六平台与跨境五路径入驻门槛、选品 SOP、运营打法、合规税务（810 号令）、90 天作战地图——关键数字联网核实，随政策更新。</div>
+        <div class="meta">境内境外 · 38 条资源 · 可打卡路线</div>
+      </a>
+            <a class="mod" href="cloud.html">
+        <div class="ico">云</div>
+        <b>云计算 · 世赛备战中心</b>
+        <div class="desc">零基础到世赛赛场一条线：20 章保姆级教程按序学、224 篇真题按轮刷、WSOS 官方标准中文版权重表、一年可打卡成长路线——库里云计算内容全部串成一条线。</div>
+        <div class="meta">八大能力域 · 真题全中文 · 可打卡路线</div>
+      </a>
+<a class="mod blue" href="skills.html">
+        <div class="ico">技</div>
+        <b>世界技能大赛 · 全技能库</b>
+        <div class="desc">六大领域五十个赛项学习包：项目总纲、图解、总纲课视频、模拟训练（十题交互评分）。</div>
+        <div class="meta">五十赛项 · 六十二集视频课</div>
+      </a>
+      <a class="mod green" href="paths.html">
+        <div class="ico">路</div>
+        <b>学习路线</b>
+        <div class="desc">算法竞赛、公务员、专升本、高考——四份从零到精通的分阶段路线图，步步有检查点。</div>
+        <div class="meta">分阶段 · 可照做</div>
+      </a>
+      <a class="mod gold" href="../library.html">
+        <div class="ico">库</div>
+        <b>资源总库 · 全网精选</b>
+        <div class="desc">近四百条（399 条）免费学习资源：世赛官方标准与真题直链、模拟器与靶场、算法 Wiki 与开源书、MOOC 与开放教材、公考题库、马列古籍全文、IT 文档工具、职业考证与语言——分类可搜，直连与离线性逐条标注。</div>
+        <div class="meta">八大门类 · 持续补充</div>
+      </a>
+      <a class="mod" href="../download.html">
+        <div class="ico">下</div>
+        <b>全平台下载 · 装进你的设备</b>
+        <div class="desc">Android APK、iOS IPA（含电脑签名三路线）、Windows EXE、macOS App、Linux 单文件、Web/PWA——六端同一内容源，离线全量。</div>
+        <div class="meta">六端同源 · Releases 直达</div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">求学之道 · 前人这样说</h2>
+    <div class="card">
+      <div class="quote">每个人的自由发展，是一切人自由发展的条件。<span class="src">—— 马克思、恩格斯《共产党宣言》</span></div>
+      <div class="quote">你要知道梨子的滋味，你就得变革梨子，亲口吃一吃。<span class="src">—— 毛泽东《实践论》</span></div>
+      <div class="quote">读书是学习，使用也是学习，而且是更重要的学习。<span class="src">—— 毛泽东《中国革命战争的战略问题》</span></div>
+      <div class="quote">世上无难事，只要肯登攀。<span class="src">—— 毛泽东《水调歌头 · 重上井冈山》</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">官方免费平台 · 备览</h2>
+      <div class="card">
+      <ul class="list">
+        <li><span class="t"><a href="../library.html">全网免费学习资源总库（580 条精选）</a><br><span class="small">官方平台 · 题库真题 · 电子书库 · 免费软件 · 职业考证 · 数字人文，一页直达</span></span><span class="n">总库</span></li>
+        <li><span class="t"><a href="https://basic.smartedu.cn/">国家中小学智慧教育平台</a><br><span class="small">小学到高中全科名师课程</span></span><span class="n">官方</span></li>
+        <li><span class="t"><a href="https://www.nlc.cn/">国家数字图书馆</a><br><span class="small">免费查阅海量图书文献</span></span><span class="n">官方</span></li>
+        <li><span class="t"><a href="https://www.icourse163.org/">中国大学MOOC</a> · <a href="https://www.xuetangx.com/">学堂在线</a><br><span class="small">大学课程免费学</span></span><span class="n">公开课</span></li>
+        <li><span class="t"><a href="https://www.gov.cn/">中国政府网</a><br><span class="small">政策文件原文查询</span></span><span class="n">官方</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">为什么做知识公社</h2>
+    <div class="card">
+      <p>知识并不稀缺，稀缺的是「知道去哪找、从哪开始」。</p>
+      <p>知识公社做的事很简单：把散落各处的公开资源收拢起来、分好类、写上次第、配上课程，
+      装进一个谁都能打开的地方——<b>让信息差小一点，再小一点</b>。</p>
+      <p style="color:var(--dim);font-family:var(--serif)">「我为人人，人人为我。」</p>
+      <p class="small">名字的来处见 <a href="about.html">平台简章</a>。</p>
+    </div>
+  </section>
+
+  <footer class="note">
+    内容整理自各公开渠道（官方平台、开源社区仓库等），仅供个人学习交流；各资料版权归其原作者所有，请勿商用。
+    <br>本公社完全开源、欢迎共建：<a href="https://github.com/TaiMaBenJi/knowledge-commons">GitHub · knowledge-commons</a>
+    <br><a href="../study.html">资料中心</a> · <a href="courses.html">课程</a> · <a href="about.html">平台简章</a>
+  </footer>
 </div>
 </body>
 </html>

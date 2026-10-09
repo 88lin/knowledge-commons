@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>总目 · 知识公社</title>
+<link rel="stylesheet" href="style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<script defer src="../sw-reg.js"></script>
+<script defer src="../install-tip.js"></script>
+<!-- /kc-pwa -->
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>知识公社 · 总目（站内全库）</span></div>
+<nav class="tabs">
+  <a href="index.html">首页</a>
+  <a href="beginner.html">学堂</a>
+  <a href="calendar.html">日历</a>
+  <a class="on" href="archive.html">总目</a>
+  <a href="courses.html">课程</a>
+  <a href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a>
+  <a href="gongkao.html">公考</a>
+  <a href="skills.html">世赛</a>
+  <a href="red.html">红色</a>
+  <a href="socialism.html">实践</a>
+  <a href="ecommerce.html">创业</a><a href="cloud.html">云赛</a>
+  <a href="paths.html">路线</a>
+  <a href="about.html">简章</a>
+</nav>
+<div class="wrap" style="padding-top:12px">
+  <form class="searchbar" onsubmit="location.href='search.html?q='+encodeURIComponent(this.q.value);return false;">
+    <input name="q" placeholder="全站检索：课程 · 篇目 · 资料…" autocomplete="off">
+    <button type="submit">检索</button>
+  </form>
+  <h2 class="sec">课程（内置）</h2>
+  <div class="card"><ul class="list">
+    <li><span class="t"><a href="beginner.html">零基础学堂 · 九大板块第一课（视频 + 图文讲义）</a></span><span class="n">学</span></li>
+    <li><span class="t"><a href="quiz.html">学堂自测 · 16 课 80 题在线测验</a></span><span class="n">测</span></li>
+    <li><span class="t"><a href="course-algo.html">算法竞赛 · 从零到精通 13 讲</a></span><span class="n">课</span></li>
+    <li><span class="t"><a href="course-python.html">Python 编程入门 8 讲</a></span><span class="n">课</span></li>
+    <li><span class="t"><a href="course-gongkao.html">公务员行测 · 入门八讲</a></span><span class="n">课</span></li>
+  </ul></div>
+  <h2 class="sec">题库与训练（内置）</h2>
+  <div class="card"><ul class="list">
+    <li><span class="t"><a href="contest.html">竞赛题库 · Codeforces 11425 + AtCoder 9600（离线可搜）</a></span><span class="n">库</span></li>
+    <li><span class="t"><a href="files/tuxing/index.html">图形推理真题库 · 354 题逐题解析</a></span><span class="n">练</span></li>
+    <li><span class="t"><a href="skills.html">世界技能大赛 · 六大领域全赛项（总纲 / 视频 / 训练 三件套）</a></span><span class="n">世</span></li>
+  </ul></div>
+  <h2 class="sec">题解与真卷（内置）</h2>
+  <div class="card"><ul class="list">
+    <li><span class="t"><a href="files/icpc/index.html">ICPC 世界总决赛题解与笔记（158 份）</a></span><span class="n">解</span></li>
+    <li><span class="t"><a href="files/ccpc/2024shandong-zh.pdf">CCPC 2024 山东题面（PDF）</a></span><span class="n">卷</span></li>
+    <li><span class="t"><a href="files/lanqiao/index.html">蓝桥杯真题题解（168 份）</a></span><span class="n">解</span></li>
+    <li><span class="t"><a href="files/tianti/index.html">天梯赛真题解析笔记（28 份）</a></span><span class="n">解</span></li>
+    <li><span class="t"><a href="exams.html">高考数学真卷 ×4（内置阅读器）</a></span><span class="n">卷</span></li>
+    <li><span class="t"><a href="files/zsb/index.html">辽宁专升本备考助手（考点+题库+单词本）</a></span><span class="n">学</span></li>
+  </ul></div>
+  <h2 class="sec">典籍（内置）</h2>
+  <div class="card"><ul class="list">
+    <li><span class="t"><a href="red/maoxuan.html">《毛泽东选集》1–5 卷 · 229 篇全文</a></span><span class="n">典</span></li>
+    <li><span class="t"><a href="red/poems.html">毛泽东诗词 · 90 首</a></span><span class="n">诗</span></li>
+  </ul></div>
+  <h2 class="sec">研究（内置导航）</h2>
+  <div class="card"><ul class="list">
+    <li><span class="t"><a href="socialism.html">社会主义实践 · 研究生研究中心</a><br><span class="small">全领域研究地图 · 七大领域资源直达 · 选题库 21 方向 · 研究力路线可打卡 · 理论雷达每日阵地</span></span><span class="n">研</span></li>
+    <li><span class="t"><a href="ecommerce.html">电商创业 · 实战中心</a><br><span class="small">境内境外平台实价 · 选品测款 SOP · 合规税务 · 90 天作战地图可打卡</span></span><span class="n">创</span></li>
+  </ul></div>
+  <h2 class="sec">大库（内置 · 全离线）</h2>
+  <div class="card">
+    <p class="small">资料中心内置：全技能库 50 赛项（含 50 部总纲课视频与模拟训练）、62 集视频课、历年真题与图解。</p>
+    <a class="actbtn" href="../study.html">进入资料中心</a>
+  </div>
+  <h2 class="sec">资源总库（外部精选导航）</h2>
+  <div class="card"><ul class="list">
+    <li><span class="t"><a href="../library.html">全网免费学习资源总库 · 580 条</a><br><span class="small">世赛 / 算法 / 升学 / 公考 / 古籍 / 开放课程 / IT 工具 / 考证语言 / 数字人文，九大门类分类可搜，直连与离线性逐条标注</span></span><span class="n">库</span></li>
+    <li><span class="t"><a href="../download.html">全平台客户端下载 · APK / IPA / EXE / macOS / Linux</a><br><span class="small">六端同源构建；iOS 签名三条路线（免费 Apple ID / 电脑本机 zsign / 云端一键）</span></span><span class="n">下</span></li>
+  </ul></div>
+  <p class="note">外部馆藏与「资源总库」仅作补充导航；本平台核心内容全部内置，无需联网即可学习。</p>
+  <p><a href="index.html">← 返回首页</a></p>
+</div>
+</body>
+</html>
