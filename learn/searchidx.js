@@ -27,4 +27,10 @@ window.SEARCH_IDX=[{"t":"第 1 讲 · 开始之前：环境、平台与心态","
 {"t":"第16章·真题实战（训练法与十军规）","u":"../study.html#d=tutorial_16-真题实战-保姆级_md","g":"云赛","k":"真题 训练 十军规 十二周 黄金四步"},
 {"t":"云计算·模拟训练（十题交互评分）","u":"../multiskill/01-信息与通信技术/云计算/模拟训练.html","g":"云赛","k":"模拟 训练 交互 评分 练习"},
 {"t":"WSC2026技术描述·云计算TD53中文导读","u":"../docs/official/WSC2026-TD53-云计算-中文导读.md","g":"云赛","k":"TD 技术描述 53 官方 排障 AWS"},
-{"t":"国内晋级路径·从省赛到上海2026","u":"cloud.html","g":"云赛","k":"晋级 选拔 集训队 国家队 上海 2026"}];
+{"t":"国内晋级路径·从省赛到上海2026","u":"cloud.html","g":"云赛","k":"晋级 选拔 集训队 国家队 上海 2026"},
+{"t":"云计算·实战训练场","u":"cloudlab.html","g":"云赛","k":"实训 练习 评分 虚拟机 lab"},
+{"t":"L1·Linux基础任务书","u":"../docs/cloudlab/tasks/L1-Linux.md","g":"云赛","k":"L1 Linux 任务 评分点 初始化"},
+{"t":"L2·网络服务任务书","u":"../docs/cloudlab/tasks/L2-网络服务.md","g":"云赛","k":"L2 DNS HTTPS 负载均衡 haproxy"},
+{"t":"L3·Docker任务书","u":"../docs/cloudlab/tasks/L3-Docker.md","g":"云赛","k":"L3 docker 容器 compose 仓库"},
+{"t":"L4·Kubernetes任务书","u":"../docs/cloudlab/tasks/L4-Kubernetes.md","g":"云赛","k":"L4 k8s kubernetes 集群 部署"},
+{"t":"L1故障注入·排错训练","u":"../docs/cloudlab/fault/make_fault_l1.sh","g":"云赛","k":"故障 排错 注入 训练"}];
