@@ -35,4 +35,7 @@ window.SEARCH_IDX=[{"t":"第 1 讲 · 开始之前：环境、平台与心态","
 {"t":"L4·Kubernetes任务书","u":"../docs/cloudlab/tasks/L4-Kubernetes.md","g":"云赛","k":"L4 k8s kubernetes 集群 部署"},
 {"t":"L1故障注入·排错训练","u":"../docs/cloudlab/fault/make_fault_l1.sh","g":"云赛","k":"故障 排错 注入 训练"},
 {"t":"七天开蒙·云计算第一周","u":"cloud-week1.html","g":"云赛","k":"开蒙 第一周 零基础 怎么学 入门 计划"},
-{"t":"怎么学·照做就行","u":"cloud-week1.html","g":"云赛","k":"不知道如何学 学习方法 每天半小时"}];
+{"t":"怎么学·照做就行","u":"cloud-week1.html","g":"云赛","k":"不知道如何学 学习方法 每天半小时"},
+{"t":"世赛·比赛视频馆","u":"wsvideos.html","g":"云赛","k":"视频 比赛 开幕式 闭幕式 集锦 里昂 喀山 上海2026"},
+{"t":"上海2026世赛视频","u":"wsvideos.html","g":"云赛","k":"上海 2026 第48届 开幕式 闭幕式 day4"},
+{"t":"赛项总纲课50部","u":"wsvideos.html","g":"云赛","k":"总纲课 视频 50 赛项 离线"}];
