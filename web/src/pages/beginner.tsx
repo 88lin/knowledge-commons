@@ -6,6 +6,17 @@ import './beginner.css'
 import { Layout } from '../components/Layout'
 import { LESSONS, type BegL } from '../data/beginnerLessons'
 
+/* 视频已托管 B 站：站内不内嵌播放，统一新窗口跳转
+ * 分 P：epb00~09 → P1~P10；epb10~12 无视频；epb13~15 → P11~P13 */
+const BEGINNER_BVID = 'BV1Aypb6LEC4'
+const NO_VIDEO = ['10', '11', '12'] // epb10~12 未上传
+const biliP = (n: string) => {
+  const k = Number(n)
+  return k >= 13 ? k - 2 : k + 1
+}
+const biliLink = (n: string) =>
+  `https://www.bilibili.com/video/${BEGINNER_BVID}?p=${biliP(n)}`
+
 function LessonBlock({ L }: { L: BegL }) {
   const [open, setOpen] = useState(false)
   return (
@@ -22,7 +33,17 @@ function LessonBlock({ L }: { L: BegL }) {
       {open && (
         <div className="lesson-bd">
           <div className="vwrap">
-            <video controls preload="none" src={`../videos/beginner/epb${L.n}.mp4`} />
+            {NO_VIDEO.includes(L.n) ? (
+              <div className="bili-jump novideo">
+                <p>本课无视频，以下方图文讲义为主。</p>
+              </div>
+            ) : (
+              <a className="bili-jump" href={biliLink(L.n)} target="_blank" rel="noreferrer">
+                <span className="play">▶</span>
+                <b>在 B 站高清播放本集</b>
+                <span className="sub">视频已托管至哔哩哔哩 · 新窗口打开，高清不卡顿</span>
+              </a>
+            )}
           </div>
           <ul className="klist">
             {L.pts.map(([k, v], i) => (
@@ -32,7 +53,9 @@ function LessonBlock({ L }: { L: BegL }) {
           <div className="lkbar">
             <a href={L.u}>直达板块 →</a>
             <a href={`quiz.html#${L.n}`}>测一测 →</a>
-            <a href={`../videos/beginner/epb${L.n}.mp4`}>本集视频（新窗口播放）</a>
+            {!NO_VIDEO.includes(L.n) && (
+              <a href={biliLink(L.n)} target="_blank" rel="noreferrer">在 B 站看本集 ▶</a>
+            )}
             <a href="archive.html">总目</a>
           </div>
         </div>
@@ -63,13 +86,13 @@ function Page() {
       kicker="START HERE · 零基础"
       title="零基础学堂"
       lines={['九大板块，每个板块一节「第一课」+ 三节进阶课：视频 + 图文讲义 + 今天就能做的一件事。', '不设门槛，不论基础——看完这一课，你就已经不是零基础了。']}
-      badges={['16 节视频课（导览 1 + 基础 9 + 进阶 6）', '每课一个动手作业', '全部免费离线']}
+      badges={['16 节课（导览 1 + 基础 9 + 进阶 6）', '每课一个动手作业', '全部免费离线']}
     >
       <div className="card" style={{ marginBottom: '14px' }}>
         <b>学完一课？去 <a href="quiz.html">学堂自测</a> 用 5 道题检验一下（即时判分 + 解析，成绩存本机）。</b>
       </div>
       <div className="goal">
-        不知道从哪开始，就从这个页面开始。每一课回答同一个套路的三件事：<b>这是什么</b>、<b>今天第一步做什么</b>、<b>学完去哪</b>。视频由本站 video-factory 流水线从分镜脚本自动生成，图文讲义随课附上。
+        不知道从哪开始，就从这个页面开始。每一课回答同一个套路的三件事：<b>这是什么</b>、<b>今天第一步做什么</b>、<b>学完去哪</b>。视频已托管至哔哩哔哩（新窗口播放，高清不卡顿），图文讲义随课附上。
       </div>
       <div id="lessons">
         <Lessons />

@@ -1,0 +1,57 @@
+import { Layout } from "../components/Layout";
+import { BiliVideo, biliLink } from "../components/BiliVideo";
+import { nav } from "../nav";
+import { useKCEnhancer } from "../course-enhance";
+function Page() {
+  useKCEnhancer("course-algo2.html", "contest.html");
+  return <Layout
+    active="课程"
+    kicker="ALGORITHM CONTEST · PART 2"
+    title="算法竞赛 · 从零到精通（第 8–13 讲）"
+    lines={["BFS \xB7 \u8D2A\u5FC3 \xB7 \u52A8\u6001\u89C4\u5212\u5165\u95E8 \xB7 \u56FE\u8BBA\u5165\u95E8 \xB7 \u5E76\u67E5\u96C6\u4E0E\u6700\u5C0F\u751F\u6210\u6811 \xB7 \u5237\u9898\u8DEF\u7EBF\u56FE"]}
+  ><div className="card lesson" id="l8"><h3>第 8 讲 · 广度优先搜索（BFS）与网格图</h3><div className="goal">目标：会用队列逐层扩展，解决"最短步数 / 最少操作"类问题。</div><p>BFS 与 DFS 的区别：DFS 是"一条路走到黑"，BFS 是"一层一层扩"。<b>求最短步数一律优先想 BFS</b>。</p><pre><code>struct Node&#123; int x, y, d; &#125;; // 坐标 + 步数
+      int bfs(int sx, int sy, int tx, int ty) &#123;
+          queue&lt;Node&gt; q;
+          q.push(&#123;sx, sy, 0&#125;); vis[sx][sy] = true;
+          while (!q.empty()) &#123;
+              Node u = q.front(); q.pop();
+              if (u.x == tx &amp;&amp; u.y == ty) return u.d;
+              for (int k = 0; k &lt; 4; k++) &#123;
+                  int nx = u.x + dx[k], ny = u.y + dy[k];
+                  if (nx &gt;= 0 &amp;&amp; nx &lt; n &amp;&amp; ny &gt;= 0 &amp;&amp; ny &lt; m &amp;&amp; !vis[nx][ny]) &#123;
+                      vis[nx][ny] = true;
+                      q.push(&#123;nx, ny, u.d + 1&#125;);
+                  &#125;
+              &#125;
+          &#125;
+          return -1;
+      &#125;</code></pre><div className="qz"><div className="qz-q">小测 · BFS 为什么能求"最少步数"？</div><button className="qz-o" type="button" data-a="1">A. 它用队列逐层扩展，第一次到达某点时的步数必定最少</button><button className="qz-o" type="button" data-a="0">B. 因为它比 DFS 跑得快</button><button className="qz-o" type="button" data-a="0">C. 因为它不用递归</button><div className="qz-why" hidden>✓ 对。"一层一层"是 BFS 的灵魂：第 k 层全部处理完才轮到第 k+1 层，所以首次到达就是最短。</div></div><div className="check">练习：迷宫最短路；"骑士移动"（8 个方向）；0-1 BFS（边权只有 0/1 时用双端队列）。</div></div><div className="card lesson" id="l9"><h3>第 9 讲 · 贪心：先拿容易的分</h3><div className="goal">目标：识别"每一步取最优即可证明正确"的问题；学会两种常见套路。</div><h4>两种招牌套路</h4><ul><li><b>排序贪心</b>：按某个关键字排序后依次取。典型：活动安排（结束越早越先选）、最少硬币（面额整除时）。</li><li><b>堆贪心</b>：动态取当前最优，用 <code>priority_queue</code> 维护。典型：合并果子、任务调度。</li></ul><pre><code>// 活动安排：最多能参加几个活动
+      struct A&#123; int s, e; &#125;;
+      bool cmp(const A&amp;a, const A&amp;b)&#123; return a.e &lt; b.e; &#125; // 按结束时间排序
+      int cnt = 0, last = -1;
+      for (auto &amp;x : a)
+          if (x.s &gt;= last) &#123; cnt++; last = x.e; &#125;
+      cout &lt;&lt; cnt &lt;&lt; endl;</code></pre><p className="small">贪心最大的坑是"局部最优 ≠ 全局最优"（例如普通硬币找零）。写之前想一个反例；举不出反例再提交。</p><div className="qz"><div className="qz-q">小测 · 贪心算法什么时候能用？</div><button className="qz-o" type="button" data-a="0">A. 所有题都能用</button><button className="qz-o" type="button" data-a="0">B. 数据范围小的时候</button><button className="qz-o" type="button" data-a="1">C. 能说明白"每次都拿局部最优，最后就是全局最优"的时候</button><div className="qz-why" hidden>✓ 对。讲不出这个道理，贪心就可能悄悄错。证不出来时，宁可换 DP 或搜索。</div></div><div className="check">练习：合并果子（优先队列）；"最少会议室数量"。</div></div><div className="card lesson" id="l10"><h3>第 10 讲 · 动态规划入门：从斐波那契到背包</h3><div className="goal">目标：会设状态、写转移方程；独立做出 0-1 背包。</div><h4>DP 四步法</h4><ul><li>一、 定义状态 <code>dp[...]</code> 表示什么（用一句话说清楚）</li><li>二、 找转移：当前状态由哪些更小的状态推来</li><li>三、 定初值：最小规模时答案是多少</li><li>四、 定顺序：从小到大保证"用的都先算好了"</li></ul><pre><code>// 0-1 背包：容量 V，n 件物品，取或不取，价值最大
+      int dp[1005] = &#123;0&#125;;
+      for (int i = 1; i &lt;= n; i++)
+          for (int v = V; v &gt;= w[i]; v--)   // 逆序！保证每件只用一次
+              dp[v] = max(dp[v], dp[v-w[i]] + c[i]);
+      cout &lt;&lt; dp[V] &lt;&lt; endl;</code></pre><div className="qz"><div className="qz-q">小测 · 动态规划的两个关键是什么？</div><button className="qz-o" type="button" data-a="0">A. 循环 + 数组</button><button className="qz-o" type="button" data-a="0">B. 递归 + 剪枝</button><button className="qz-o" type="button" data-a="1">C. 状态（每个 f 表示什么）+ 转移（f 从哪来）</button><div className="qz-why" hidden>✓ 对。先想清"f[i] 表示什么"，再写"f[i] 由谁推出"，代码自然就出来了。</div></div><div className="check">练习：爬楼梯（斐波那契式）；最长上升子序列（LIS）；再刷 CF "dp" 标签 1200–1400 分题 5 道。</div></div><div className="card lesson" id="l11"><h3>第 11 讲 · 图论入门：存图、遍历与最短路</h3><div className="goal">目标：会用邻接表存图；跑通 BFS 最短路；知道 Dijkstra 的用途。</div><pre><code>// 邻接表
+      vector&lt;int&gt; g[100005];      // g[u] 存 u 的所有邻居
+      g[u].push_back(v); g[v].push_back(u); // 无向边
+      // 带权：vector&lt;pair&lt;int,int&gt;&gt; g[]; 存 (邻居, 边权)</code></pre><ul><li><b>无权图最短路</b> = BFS（原样跑第 8 讲代码）。</li><li><b>非负边权最短路</b> = 小根堆优化的 Dijkstra：每次弹出"当前离起点最近"的点松弛邻居。</li></ul><pre><code>// Dijkstra 核心（堆优化）
+      priority_queue&lt;pair&lt;int,int&gt;, vector&lt;pair&lt;int,int&gt;&gt;, greater&lt;&gt;&gt; pq;
+      dis[s] = 0; pq.push(&#123;0, s&#125;);
+      while (!pq.empty()) &#123;
+          auto [d, u] = pq.top(); pq.pop();
+          if (d &gt; dis[u]) continue;
+          for (auto [v, w] : g[u])
+              if (dis[u] + w &lt; dis[v]) &#123; dis[v] = dis[u] + w; pq.push(&#123;dis[v], v&#125;); &#125;
+      &#125;</code></pre><div className="qz"><div className="qz-q">小测 · 存图最常用的两种方式是？</div><button className="qz-o" type="button" data-a="1">A. 邻接矩阵 和 邻接表（vector 存边）</button><button className="qz-o" type="button" data-a="0">B. 结构体数组 和 链表</button><button className="qz-o" type="button" data-a="0">C. 栈 和 队列</button><div className="qz-why" hidden>✓ 对。点数少用矩阵，点多边少用邻接表；竞赛里 vector 存邻接表最常用。</div></div><div className="check">练习：无向图连通块计数；"单源最短路"模板题各一道。</div></div><div className="card lesson" id="l12"><h3>第 12 讲 · 并查集与最小生成树</h3><div className="goal">目标：背下并查集模板（超高频）；理解 Kruskal 求最小生成树。</div><pre><code>// 并查集（路径压缩）——控制"谁和谁是一伙的"
+      int fa[100005];
+      int find(int x)&#123; return fa[x] == x ? x : fa[x] = find(fa[x]); &#125;
+      void merge(int a, int b)&#123; fa[find(a)] = find(b); &#125;
+      // 初始化：for (int i = 1; i &lt;= n; i++) fa[i] = i;
+      // 判环：若 find(u) == find(v) 说明 u、v 已经连通，再加边就成环</code></pre><h4>Kruskal 最小生成树（把 n 个点最少花费连起来）</h4><ol><li>把所有边按边权从小到大排序；</li><li>依次考虑每条边：两端点还不连通（并查集判断）就选它，否则跳过；</li><li>选满 n−1 条边即完成。</li></ol><div className="qz"><div className="qz-q">小测 · 并查集最擅长做什么？</div><button className="qz-o" type="button" data-a="0">A. 给数组排序</button><button className="qz-o" type="button" data-a="1">B. 维护"谁和谁是一伙的"：合并两伙、查询是否同伙</button><button className="qz-o" type="button" data-a="0">C. 求最短路径</button><div className="qz-why" hidden>✓ 对。路径压缩之后近乎 O(1)。判连通性、Kruskal 求最小生成树，都靠它。</div></div><div className="check">练习：朋友圈合并（并查集裸题）；最小生成树模板题。</div></div><div className="card lesson" id="l13"><h3>第 13 讲 · 刷题路线图：接下来半年怎么练</h3><div className="goal">目标：拿到一份可执行的训练计划，知道每个阶段做什么、卡住了怎么办。</div><ul><li><b>第 1–2 周</b>：CF 800 分题每天 3 道，只做"会做但写得慢"的题，练手感。</li><li><b>第 3–6 周</b>：转 900–1100 分，开始计时（每道 30 分钟）；跟不上就回上一档。</li><li><b>第 2–3 个月</b>：1100–1300 + 每周一场 Div.4/Div.3 比赛（打完必复盘错题）。</li><li><b>第 4–6 个月</b>：1300–1600 + 开始碰"数据结构专题"（线段树、树状数组入门）。</li><li><b>参加比赛</b>：CF 每周都有；校内赛/省赛按通知参加。<b>比赛是最好的老师。</b></li></ul><h4>卡住了怎么办（重要）</h4><ul><li>一道题盯 40 分钟没思路 → 看题解（CF 每道题下方有 tutorial），看懂后<b>关掉题解自己重写一遍</b>。</li><li>写出来 WA → 自己造 5 组数据对拍（写个暴力程序互相对答案）。</li><li>还不行 → 到本站题库索引搜同类标签，做 3 道相似题找共性。</li></ul><div className="qz"><div className="qz-q">小测 · 刷题时卡住了，性价比最高的做法是？</div><button className="qz-o" type="button" data-a="0">A. 原地死磕五个小时</button><button className="qz-o" type="button" data-a="1">B. 限时 30–60 分钟仍无思路就去看题解，看完关掉自己重写一遍</button><button className="qz-o" type="button" data-a="0">C. 直接抄一遍题解提交</button><div className="qz-why" hidden>✓ 对。重写 + 三行复盘（考点 / 卡点 / 套路），这道题才真正归你。死磕和抄答案都不是。</div></div><div className="check">毕业小测：连续一周每天 3 题 + 周末一场比赛复盘。坚持下来你就已经超过大多数人了。</div></div></Layout>;
+}
+export default Page;

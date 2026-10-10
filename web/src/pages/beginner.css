@@ -18,3 +18,12 @@
 .lkbar{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .lkbar a{font-size:13px;color:#1a4d8f;background:#eef4fb;border:1px solid #d5e3f3;border-radius:16px;padding:6px 14px;text-decoration:none}
 .lkbar a:hover{background:#dceafa}
+
+/* ---- B 站跳转卡片（视频不再内嵌播放） ---- */
+.bili-jump{display:flex;flex-direction:column;align-items:center;gap:6px;padding:26px 16px;border-radius:10px;text-align:center;text-decoration:none;background:linear-gradient(135deg,#fb7299 0%,#00a1d6 100%);color:#fff;transition:transform .15s ease,box-shadow .15s ease}
+.bili-jump:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,161,214,.35)}
+.bili-jump .play{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);color:#fb7299;font-size:18px;line-height:44px;text-indent:3px}
+.bili-jump b{font-size:15px}
+.bili-jump .sub{font-size:12px;opacity:.9}
+.bili-jump.novideo{background:#f4f1ea;color:#7c7466}
+.bili-jump.novideo p{margin:0;font-size:13px}
