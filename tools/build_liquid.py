@@ -548,7 +548,7 @@ import base64 as _b64
 _MS_MODE = os.environ.get('VIDEO_MODE', 'external')
 _MS_ASSETS = _MS_MODE in ('assets', 'relative')
 _MS_NESTED = _MS_MODE == 'relative'  # relative=全平台统一相对引用（Web/APK/iOS/桌面通用）
-_SIM_BASE_ONLINE = 'https://cdn.jsdelivr.net/gh/88lin/knowledge-commons@main/multiskill/'
+_SIM_BASE_ONLINE = 'https://cdn.jsdmirror.com/gh/88lin/knowledge-commons@main/multiskill/'
 _SIM_GH = 'https://github.com/88lin/knowledge-commons/blob/main/multiskill/'
 def _ms_decorate(did, skill, catdir):
     d = docs_js[did]

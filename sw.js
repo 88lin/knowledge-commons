@@ -16,7 +16,6 @@ var CORE = [
   './', './learn/', './study.html',
   './learn/index.html', './learn/archive.html', './learn/courses.html',
   './learn/contest.html', './learn/exams.html', './learn/gongkao.html',
-  './learn/skills.html', './learn/red.html', './learn/socialism.html', './learn/ecommerce.html', './learn/cloud.html', './learn/cloudlab.html', './learn/cloud-week1.html', './learn/wsvideos.html', './learn/paths.html',
   './learn/about.html', './learn/beginner.html', './learn/calendar.html', './learn/quiz.html', './learn/search.html', './learn/pdfview.html',
   './learn/course-algo.html', './learn/course-algo2.html',
   './learn/course-python.html', './learn/course-gongkao.html',
