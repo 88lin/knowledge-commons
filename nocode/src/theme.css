@@ -1,0 +1,325 @@
+/* ============================================================
+   知识公社 · NoCode 版 全站美化层（theme.css）
+   规则：纯 CSS；只叠加不改写 styles.css 组件语义；
+   色彩走 :root 语义 token（与品牌 DNA 一致：主色朱红 60% · 强调鎏金 30% · 点缀黛蓝 10%）；
+   字体：标题衬线（汇文/宋体系）+ 正文无衬线；clamp() fluid sizing；
+   断点 600 / 900 / 1200；尊重 prefers-reduced-motion。
+   ============================================================ */
+
+:root {
+  /* 语义 token（与 styles.css 既有变量同名对齐，缺的补齐） */
+  --brand: var(--color-red, #9e2b25);
+  --brand-deep: var(--color-red-dk, #7c1f1a);
+  --brand-text: var(--color-red-dk, #7c1f1a);
+  --brand-rgb: 158, 43, 37;
+  --gold: var(--color-gold, #a4884a);
+  --gold-rgb: 164, 136, 74;
+  --gold-soft: #f7efdd;
+  --pop: var(--color-blue, #3d5a75);
+  --pop-rgb: 61, 90, 117;
+  --paper: var(--color-paper, #faf7f0);
+  --paper-deep: #f4efe3;
+  --card: var(--color-card, #fffdf8);
+  --ink: var(--color-ink, #2b2620);
+  --ink2: var(--color-ink2, #4d463c);
+  --dim: var(--color-dim, #7c7466);
+  --line: var(--color-line, #e6dfd0);
+  --line2: var(--color-line2, #efe9dc);
+  --serif: var(--font-serif-cn);
+  --sans: var(--font-sans-cn);
+  --shadow-sm: 0 1px 2px rgba(64, 48, 24, 0.05), 0 1px 6px rgba(64, 48, 24, 0.04);
+  --shadow-md: 0 2px 6px rgba(64, 48, 24, 0.07), 0 8px 24px rgba(64, 48, 24, 0.08);
+  --shadow-lg: 0 4px 12px rgba(64, 48, 24, 0.1), 0 16px 40px rgba(64, 48, 24, 0.12);
+  --radius: 10px;
+  --radius-lg: 14px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --wrap-max: 880px;
+}
+
+@media (min-width: 1200px) {
+  :root { --wrap-max: 940px; }
+}
+
+/* ---------- 全局底色与质感 ---------- */
+body {
+  background:
+    radial-gradient(1100px 500px at 85% -100px, rgba(var(--gold-rgb), 0.07), transparent 60%),
+    radial-gradient(900px 420px at -10% 30%, rgba(var(--brand-rgb), 0.045), transparent 55%),
+    var(--paper);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: rgba(var(--gold-rgb), 0.3); }
+
+/* ---------- 顶栏：去渐变，纯色 + 金线压底 ---------- */
+.topbar,
+.kc-topbar {
+  background: var(--brand);
+  box-shadow: inset 0 -2px 0 rgba(var(--gold-rgb), 0.55);
+}
+.topbar-in { letter-spacing: 0.3px; }
+.emblem {
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 2px rgba(255, 253, 246, 0.28);
+}
+.btn {
+  border-radius: 8px;
+  border-color: rgba(255, 253, 246, 0.5);
+  transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+  min-height: 36px;
+}
+
+/* ---------- Hero ---------- */
+.kc-hero, .hero {
+  background:
+    linear-gradient(180deg, var(--card) 0%, var(--paper) 100%);
+  border-bottom: 1px solid var(--line);
+  padding: clamp(34px, 6vw, 56px) var(--kc-pad-x) clamp(26px, 4vw, 40px);
+  position: relative;
+  overflow: hidden;
+}
+.kc-hero::after, .hero::after {
+  content: "知";
+  position: absolute;
+  right: clamp(-10px, 2vw, 24px);
+  top: 50%;
+  transform: translateY(-50%) rotate(6deg);
+  font-family: var(--serif);
+  font-size: clamp(90px, 16vw, 170px);
+  font-weight: 700;
+  color: rgba(var(--brand-rgb), 0.05);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+.kc-hero h1, .hero h1 {
+  font-size: clamp(26px, 5.2vw, 40px);
+  letter-spacing: clamp(3px, 1.2vw, 8px);
+  margin: 14px 0 10px;
+}
+.kc-hero .kicker, .hero .kicker {
+  font-size: 12px;
+  letter-spacing: clamp(3px, 1vw, 7px);
+}
+.kc-hero p, .hero p { max-width: 640px; margin-inline: auto; }
+.kc-hero .badges span, .hero .badges span {
+  border-radius: 999px;
+  padding: 4px 13px;
+  background: var(--gold-soft);
+  border-color: rgba(var(--gold-rgb), 0.35);
+  color: #6d5a30;
+  transition: transform 0.18s var(--ease), background 0.18s var(--ease);
+}
+@media (hover: hover) {
+  .kc-hero .badges span:hover, .hero .badges span:hover {
+    transform: translateY(-1px);
+    background: rgba(var(--gold-rgb), 0.22);
+  }
+}
+.kc-hero .motto, .hero .motto {
+  border: none;
+  background: var(--gold-soft);
+  border-radius: 8px;
+  padding: 12px 18px;
+  font-size: clamp(13px, 1.6vw, 14.5px);
+}
+
+/* ---------- Tabs：金色选中 + 边缘渐隐 ---------- */
+.kc-tabs, .tabs {
+  background: rgba(255, 253, 248, 0.92);
+  -webkit-backdrop-filter: saturate(1.4) blur(10px);
+  backdrop-filter: saturate(1.4) blur(10px);
+  border-bottom: 1px solid var(--line);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+  padding: 0 14px;
+}
+.kc-tabs a, .tabs a {
+  border-bottom: 2.5px solid transparent;
+  padding: 13px 15px 11px;
+  border-radius: 6px 6px 0 0;
+  transition: color 0.18s var(--ease), background 0.18s var(--ease), border-color 0.18s var(--ease);
+}
+.kc-tabs a.on, .tabs a.on {
+  border-bottom-color: var(--gold);
+  color: var(--brand-deep);
+}
+@media (hover: hover) {
+  .kc-tabs a:hover, .tabs a:hover { background: var(--gold-soft); }
+}
+
+/* ---------- 主内容区 ---------- */
+.kc-wrap, .wrap {
+  max-width: var(--wrap-max);
+}
+.kc-sec, .sec {
+  font-size: clamp(18px, 2.4vw, 21px);
+  margin: clamp(26px, 4vw, 36px) 0 14px;
+  letter-spacing: 1.5px;
+  gap: 12px;
+}
+.kc-sec::before, .sec::before {
+  background: linear-gradient(135deg, var(--brand) 55%, var(--gold) 55%);
+  border-radius: 2px;
+  transform: rotate(45deg);
+  width: 10px;
+  height: 10px;
+}
+
+/* ---------- 卡片 ---------- */
+.kc-card, .card, .kc-mod, .mod, .panel, .qz, .lesson, .mrow {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.22s var(--ease), border-color 0.22s var(--ease), transform 0.22s var(--ease), background 0.22s var(--ease);
+}
+@media (hover: hover) {
+  .kc-mod:hover, .mod:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: rgba(var(--gold-rgb), 0.55);
+    background: #fffefb;
+  }
+  .kc-card:hover, .card:hover { box-shadow: var(--shadow-md); }
+}
+.kc-mod b, .mod b { font-size: 16px; }
+.kc-seal, .mod .ico, .seal {
+  border-radius: 8px;
+  font-size: 20px;
+}
+.kc-mod .desc, .mod .desc { line-height: 1.8; }
+
+/* 网格：fluid 间距 + 大屏三列 */
+.grid {
+  gap: clamp(12px, 1.8vw, 18px);
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- 列表 ---------- */
+.kc-list li, .list li { padding: clamp(12px, 1.6vw, 15px) 2px; }
+.kc-list .t a, .list .t a {
+  transition: color 0.15s var(--ease);
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+}
+@media (hover: hover) {
+  .kc-list .t a:hover, .list .t a:hover {
+    color: var(--brand-deep);
+    text-decoration-color: rgba(var(--gold-rgb), 0.8);
+  }
+}
+.kc-list .n, .list .n { border-radius: 999px; padding: 2px 10px; }
+
+/* ---------- 按钮 ---------- */
+.kc-actbtn, .actbtn {
+  border-radius: var(--radius);
+  box-shadow: 0 2px 10px rgba(var(--brand-rgb), 0.22);
+  transition: background 0.18s var(--ease), transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
+  min-height: 48px;
+}
+@media (hover: hover) {
+  .kc-actbtn:hover, .actbtn:hover {
+    transform: translateY(-1px);
+    background: var(--brand-deep);
+    box-shadow: 0 5px 16px rgba(var(--brand-rgb), 0.3);
+  }
+}
+.kc-actbtn:active, .actbtn:active { transform: translateY(0); }
+.kc-btn, .btn { border-radius: 8px; min-height: 40px; transition: background 0.18s var(--ease), color 0.18s var(--ease), border-color 0.18s var(--ease); }
+@media (hover: hover) {
+  .kc-btn:hover, .btn:hover { background: var(--gold-soft); border-color: rgba(var(--gold-rgb), 0.6); }
+  .kc-btn.red:hover, .btn.red:hover { background: var(--brand-deep); border-color: var(--brand-deep); }
+}
+:focus-visible { outline: 2.5px solid var(--gold); outline-offset: 2px; }
+
+.kc-hero .motto, .hero .motto { text-wrap: balance; }
+.kc-hero h1, .hero h1 { text-wrap: balance; }
+
+/* ---------- 引用块：去 Notion 式左竖条，改上下细线 + 金引号 ---------- */
+.kc-quote, .quote {
+  border-left: none;
+  border-top: 1px solid var(--line2);
+  border-bottom: 1px solid var(--line2);
+  border-radius: 0;
+  background: transparent;
+  position: relative;
+  padding: 16px 20px 14px 34px;
+}
+.kc-quote::before, .quote::before {
+  content: "\201C";
+  position: absolute;
+  left: 4px;
+  top: 6px;
+  font-family: var(--serif);
+  font-size: 26px;
+  color: var(--gold);
+  line-height: 1;
+}
+.kc-goal, .goal {
+  border-left: none;
+  border: 1px dashed rgba(var(--gold-rgb), 0.5);
+  border-radius: var(--radius);
+  background: var(--gold-soft);
+}
+
+/* ---------- FAB / 进度条 / Toast ---------- */
+#kc-fab, .kc-fab {
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  box-shadow: var(--shadow-lg);
+}
+#kc-fab.show, .kc-fab.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+#kc-fab.alldone, .kc-fab.alldone {
+  background: var(--brand);
+  color: #fdf6ea;
+  border-color: var(--brand);
+}
+#kc-fab.alldone .kc-fab-n { color: #e8c8a0; }
+#kc-progress i { background: linear-gradient(90deg, var(--gold), var(--brand)); }
+
+/* ---------- 表格（calendar / install） ---------- */
+table.ex th { background: var(--gold-soft); color: #6d5a30; }
+table.ex tr:hover td { background: rgba(var(--gold-rgb), 0.05); }
+.fchip, .chip, .gchip { border-radius: 999px; transition: background 0.15s var(--ease), border-color 0.15s var(--ease), color 0.15s var(--ease); min-height: 32px; }
+.fchip.on, .chip.on { background: var(--brand); border-color: var(--brand); }
+.gchip.on { background: var(--pop); border-color: var(--pop); }
+
+/* ---------- install / library / resources 页组件对齐全局 ---------- */
+.install-btn { border-radius: var(--radius); }
+.item { border-radius: var(--radius); }
+.empty { color: var(--dim); }
+
+/* ---------- 滚动条（全局，不限桌面） ---------- */
+::-webkit-scrollbar { width: 10px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #d8cfc0; border-radius: 6px; border: 2px solid var(--paper); }
+::-webkit-scrollbar-thumb:hover { background: #c9bfae; }
+::-webkit-scrollbar-track { background: transparent; }
+
+/* ---------- 触控目标 & 移动端微调 ---------- */
+@media (max-width: 600px) {
+  .kc-tabs a, .tabs a { padding: 13px 12px 11px; }
+  .kc-hero h1, .hero h1 { letter-spacing: 3px; }
+  .kc-hero::after, .hero::after { opacity: 0.7; }
+  .kc-list .n, .list .n { font-size: 12px; }
+}
+
+/* ---------- 底部注脚 ---------- */
+.kc-note, .note {
+  margin-top: clamp(30px, 5vw, 44px);
+  padding-top: 16px;
+  border-top: 1px dashed var(--line);
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}

@@ -45,13 +45,16 @@ function useKCEnhancer(courseId, nextUrl) {
     }
     const refreshFab = () => {
       const sub = document.createElement("span");
-      sub.className = "sub";
+      sub.className = "kc-fab-n";
       sub.textContent = `\u8FDB\u5EA6 ${count()}/${lessons.length} \u8BB2`;
       fab.innerHTML = "";
       fab.appendChild(sub);
       fab.append(allDone() ? "\u7EE7\u7EED\u4E0B\u4E00\u518C \u2192" : "\u4E0B\u4E00\u8BB2 \u21A7");
       fab.classList.toggle("alldone", allDone());
     };
+    const onScroll = () => fab.classList.toggle("show", window.scrollY > 320);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     fab.onclick = () => {
       const nx = nextLesson();
       if (nx) {
@@ -129,6 +132,7 @@ function useKCEnhancer(courseId, nextUrl) {
     }
     refresh();
     return () => {
+      window.removeEventListener("scroll", onScroll);
       prog.remove();
       fab.remove();
     };

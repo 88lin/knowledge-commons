@@ -56,7 +56,7 @@ function CoursePage({
       if (nextUrl) location.href = nextUrl;
     }}
     className={["kc-fab", allDone ? "alldone" : "", showFab ? "show" : ""].join(" ")}
-  ><span className="sub">进度 {count}/{total} 讲</span>{allDone ? "\u7EE7\u7EED\u4E0B\u4E00\u518C \u2192" : "\u4E0B\u4E00\u8BB2 \u21A7"}</button></>;
+  ><span className="kc-fab-n">进度 {count}/{total} 讲</span>{allDone ? "\u7EE7\u7EED\u4E0B\u4E00\u518C \u2192" : "\u4E0B\u4E00\u8BB2 \u21A7"}</button></>;
 }
 function DoneButton({ id, done, onToggle }) {
   return <button
@@ -105,7 +105,7 @@ function ResumeCard() {
   }, []);
   if (!arr.length) {
     return <div className="text-[14px] text-[#7c7466]">
-        还没有学习记录 ——{" "}<a href="course-algo.html">从第一课开始：算法竞赛 · 第 1 讲 →</a></div>;
+        还没有学习记录 ——{" "}<a href="#/learn/course-algo">从第一课开始：算法竞赛 · 第 1 讲 →</a></div>;
   }
   const it = arr[0];
   const link = it.url + (it.nextId ? "#" + it.nextId : "");

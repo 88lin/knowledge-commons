@@ -29,7 +29,7 @@ function Page() {
     });
   }, [data, curG, curS, q]);
   const countIn = (g, s) => data.items.filter((x) => (g < 0 || x.g === g) && (!s || x.s === s)).length;
-  return <><div className="topbar"><div className="topbar-in"><div className="emblem">知</div><div><div className="site-name">资源总库 · 全网免费学习资源精选</div><div style={{ fontSize: 12, opacity: 0.85, marginTop: 2 }}>世赛 · 算法 · 升学 · 公考 · 古籍 · 课程 · IT —— 免费且靠谱的，都在这里</div></div><div className="spacer" /><button className="btn" onClick={() => location.href = "learn/index.html"}>返回门户</button><button className="btn" onClick={() => location.href = "resources.html"}>B站精选</button></div></div><div className="main"><div className="panel"><div className="p-hd"><h2>精选资源 <span style={{ fontSize: 13, color: "#8a94a6", fontWeight: 400 }}>共 {hits.length} 条</span></h2><div className="searchbar"><input
+  return <><div className="topbar"><div className="topbar-in"><div className="emblem">知</div><div><div className="site-name">资源总库 · 全网免费学习资源精选</div><div style={{ fontSize: 12, opacity: 0.85, marginTop: 2 }}>世赛 · 算法 · 升学 · 公考 · 古籍 · 课程 · IT —— 免费且靠谱的，都在这里</div></div><div className="spacer" /><button className="btn" onClick={() => location.hash = "#/learn/index"}>返回门户</button><button className="btn" onClick={() => location.hash = "#/resources"}>B站精选</button></div></div><div className="main"><div className="panel"><div className="p-hd"><h2>精选资源 <span style={{ fontSize: 13, color: "#8a94a6", fontWeight: 400 }}>共 {hits.length} 条</span></h2><div className="searchbar"><input
     placeholder="搜索名称 / 简介 / 子类…"
     autoComplete="off"
     value={q}

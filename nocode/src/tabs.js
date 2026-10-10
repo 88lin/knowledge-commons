@@ -16,7 +16,9 @@ const TABS = [
   { label: "\u7B80\u7AE0", href: "/learn/about.html" }
 ];
 const BASE = import.meta.env.BASE_URL;
-const h = (path) => BASE + path.replace(/^\//, "");
+// SPA(HashRouter): 页面路由去掉 .html,链接走 "/#/..." 形式,避免点击后整页跳到不存在的静态 .html
+const ROUTE = (path) => path.replace(/\.html$/, "");
+const h = (path) => BASE + "#" + ROUTE(path);
 export {
   BASE,
   TABS,
