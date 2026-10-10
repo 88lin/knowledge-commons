@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>七天开蒙 · 云计算第一周 - 知识公社</title>
+<link rel="stylesheet" href="style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<script defer src="../sw-reg.js"></script>
+<script defer src="../install-tip.js"></script>
+<!-- /kc-pwa -->
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>七天开蒙 | 每天 30–60 分钟 · 照做就行 · 卡了就截图来问</span></div>
+<header class="hero">
+  <div class="kicker">WEEK ONE · JUST FOLLOW</div>
+  <h1>七天开蒙</h1>
+  <p>零基础第一周，不用选、不用想——<b>每天一张卡，照做，打勾</b>。第七天你会拥有：一台自己的 Linux 虚拟机 + 第一个 nginx 站点 + 第一次评分。</p>
+  <div class="badges"><span>每天 30–60 分钟</span><span>不需要基础</span><span>卡了随时问</span></div>
+</header>
+<nav class="tabs">
+  <a href="index.html">首页</a>
+  <a href="beginner.html">学堂</a>
+  <a href="calendar.html">日历</a>
+  <a href="archive.html">总目</a>
+  <a href="courses.html">课程</a>
+  <a href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a>
+  <a href="gongkao.html">公考</a>
+  <a href="skills.html">世赛</a>
+  <a href="red.html">红色</a>
+  <a href="socialism.html">实践</a>
+  <a href="ecommerce.html">创业</a>
+  <a href="cloud.html">云赛</a>
+  <a class="on" href="cloud-week1.html">开蒙</a>
+  <a href="cloudlab.html">实训</a>
+  <a href="sleep.html">睡前</a>
+  <a href="paths.html">路线</a>
+  <a href="../library.html">资源</a>
+  <a href="../download.html">下载</a>
+  <a href="about.html">简章</a>
+</nav>
+
+<div class="wrap">
+  <div class="card" id="kc-resume"></div>
+
+  <div class="goal">两条铁律：<b>① 只跟这张卡，别开别的页面</b>（其他内容第二周起自然会出现）；<b>② 卡住超过 10 分钟就截图丢进对话问</b>——问问题不丢人，卡死弃坑才亏。</div>
+
+  <div class="card"><p><b>暂时只有手机、没电脑？</b>Day 1–2 照常做（都是手机能开的），Day 3 起用 <a href="https://killercoda.com">Killercoda</a>（手机浏览器可玩的免费 Linux 实验）先代替虚拟机，等有电脑了从 Day 1 的装机卡补起，一天顶两天。</p></div>
+
+  <section>
+    <h2 class="sec">本周七张卡 · 打勾前进</h2>
+
+    <div class="lesson" id="d1">
+      <b>Day 1 · 装机（30–45 分钟）</b>
+      <p>① 去 <a href="https://www.virtualbox.org/wiki/Downloads">virtualbox.org</a> 装 VirtualBox → ② 去 <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu-releases/24.04/">清华镜像</a> 下 Ubuntu 24.04 ISO（桌面版，约 5GB，下着的时候正好做 Day 2）→ ③ VirtualBox 新建虚拟机：内存 4096MB / 硬盘 25GB → 挂 ISO 装系统 → ④ 装完<b>拍快照</b>，命名「L0-干净系统」。<b>完成标准：能开机进桌面 + 快照存在。卡了截图来问。</b></p>
+    </div>
+    <div class="lesson" id="d2">
+      <b>Day 2 · 看两样东西（40 分钟，手机可做）</b>
+      <p>① <a href="beginner.html">学堂</a>里看「世赛」板块第一课视频 → ② 读<a href="../study.html#d=tutorial_00-开始之前-零基础先读我_md">第 0 章 · 开始之前</a>（15 分钟）。<b>完成标准：用一句话说出「服务器、虚拟机、云计算」三者的关系——说得糙没关系，说出来就算过。</b></p>
+    </div>
+    <div class="lesson" id="d3">
+      <b>Day 3 · 终端初见（60 分钟）</b>
+      <p>打开虚拟机里的终端（Ctrl+Alt+T），跟着<a href="../study.html#d=tutorial_01-Linux零基础-保姆级_md">第 1 章</a>前半学：<code>pwd</code> / <code>ls</code> / <code>cd</code> / <code>mkdir</code> / <code>touch</code>。<b>完成标准：不看资料，在 home 目录建出 <code>cloud/week1/</code> 两层目录和一个 <code>note.txt</code>。</b></p>
+    </div>
+    <div class="lesson" id="d4">
+      <b>Day 4 · 文件与权限（60 分钟）</b>
+      <p>第 1 章中段：<code>cp</code> / <code>mv</code> / <code>rm</code> / <code>cat</code> / <code>chmod</code> / <code>sudo</code> 是什么。<b>完成标准：把 note.txt 权限改成 600，并能一句话解释 600 是什么意思。</b></p>
+    </div>
+    <div class="lesson" id="d5">
+      <b>Day 5 · 第一次装服务（60 分钟）★ 本周高潮</b>
+      <p><code>sudo apt install nginx -y</code> → 改首页：<code>echo "我的第一个站点" | sudo tee /var/www/html/index.html</code> → 浏览器开 <code>http://localhost</code> 看到你的字。<b>完成标准：看到自己写的页面——这一刻你就已经超过大多数"想学云计算"的人了。</b></p>
+    </div>
+    <div class="lesson" id="d6">
+      <b>Day 6 · 远程连接（45 分钟）</b>
+      <p>VirtualBox 网络设置加一条端口转发（主机 2222 → 虚拟机 22），在宿主机终端 <code>ssh 用户名@127.0.0.1 -p 2222</code> 进虚拟机。<b>完成标准：在宿主机的黑窗口里远程操作你的 Linux——这就是运维的日常姿势。</b></p>
+    </div>
+    <div class="lesson" id="d7">
+      <b>Day 7 · 第一次评分 + 复盘（45 分钟）</b>
+      <p>跑一次 L1 评分（<a href="cloudlab.html">实训场</a>有命令），<b>不要求分高</b>——看看能拿几分，FAIL 的每一项就是你下一周的地图。再做一轮<a href="../multiskill/01-信息与通信技术/云计算/模拟训练.html">模拟训练十题</a>对比 Day 2 之前的自己。拍快照「W1」。<b>完成标准：知道自己的分数和差距——然后回来找我，我按你的进度排第二周。</b></p>
+    </div>
+  </section>
+
+  <p class="note">七天开蒙是备战路线「阶段一 · 地基」的启动包 · 学完自动接入 20 章教程与实训场 · 卡住随时回来问，别一个人耗着</p>
+  <p><a href="cloud.html">← 云计算 · 世赛备战中心</a> · <a href="cloudlab.html">实战训练场</a></p>
+</div>
+<script src="kc-learn.js"></script>
+</body>
+</html>

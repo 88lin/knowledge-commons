@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>云计算 · 睡前故事考场 - 知识公社</title>
+<link rel="stylesheet" href="style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<script defer src="../sw-reg.js"></script>
+<script defer src="../install-tip.js"></script>
+<!-- /kc-pwa -->
+<style>
+/* ===== 睡前故事考场 · 专属样式 ===== */
+:root{--night:#31405f;--night-dk:#222d47;--gold:#a4884a;--ok:#2f7d4f;--bad:#b3452f}
+.kc-sub{display:flex;gap:6px;position:sticky;top:0;z-index:40;background:var(--paper);
+  padding:8px 0 6px;overflow-x:auto;flex:none}
+.kc-sub a{flex:none;padding:8px 14px;border:1px solid var(--line);border-radius:999px;
+  background:var(--card);color:var(--dim);font-size:13.5px;letter-spacing:2px;font-family:var(--serif)}
+.kc-sub a.on{background:var(--night);border-color:var(--night);color:#f4f1e8;font-weight:700}
+.kc-pane{display:none}
+.kc-pane.on{display:block}
+.goal.kc-night{background:var(--night);color:#eef0f6;border-radius:10px;padding:14px 16px;
+  font-size:14.5px;line-height:1.9;margin:14px 0}
+.goal.kc-night b{color:#ffd98a}
+/* 故事播放器 */
+.kc-player{border:1px solid var(--line);border-radius:14px;background:var(--card);
+  box-shadow:0 6px 22px rgba(34,45,71,.10);overflow:hidden;margin:14px 0}
+.kc-phead{background:linear-gradient(135deg,var(--night-dk),var(--night));color:#f2efe6;
+  padding:16px 18px 14px}
+.kc-phead .knight{font-size:12px;letter-spacing:4px;color:#ffd98a;font-family:var(--serif)}
+.kc-phead h3{margin:6px 0 4px;font-size:19px;font-family:var(--serif);letter-spacing:2px}
+.kc-phead .kmeta{font-size:12.5px;color:#b9c2d8}
+.kc-pbody{padding:14px 16px 6px;max-height:46vh;overflow-y:auto}
+.kc-para{margin:0 0 12px;font-size:15.5px;line-height:2;color:var(--ink2);
+  padding:6px 8px;border-radius:8px;transition:background .4s}
+.kc-para.speaking{background:#fdf3d8;box-shadow:inset 3px 0 0 var(--gold)}
+.kc-para.done{color:var(--dim)}
+.kc-ctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:10px 14px 14px;
+  border-top:1px solid var(--line2)}
+.kc-btn{appearance:none;border:1px solid var(--night);background:var(--night);color:#f4f1e8;
+  border-radius:10px;padding:11px 18px;font-size:15px;font-family:var(--serif);letter-spacing:2px;cursor:pointer}
+.kc-btn.ghost{background:transparent;color:var(--night)}
+.kc-btn.small{padding:7px 12px;font-size:13.5px;letter-spacing:1px}
+.kc-btn:disabled{opacity:.45;cursor:default}
+.kc-ctl select{padding:8px 8px;border:1px solid var(--line);border-radius:8px;background:var(--card);
+  color:var(--ink2);font-size:13.5px}
+.kc-state{font-size:12.5px;color:var(--dim);padding:0 16px 12px}
+.kc-dots{display:flex;gap:5px;padding:0 16px 10px;flex-wrap:wrap}
+.kc-dots i{width:16px;height:5px;border-radius:3px;background:var(--line);display:block}
+.kc-dots i.sp{background:var(--gold)}
+.kc-dots i.fin{background:var(--night)}
+/* 想象引导 / 明日预告 */
+.kc-imag{margin:4px 14px 14px;background:#f6f2e6;border:1px dashed var(--gold);border-radius:10px;
+  padding:12px 14px;font-size:14px;line-height:1.95}
+.kc-imag b{color:var(--gold);font-family:var(--serif);letter-spacing:2px}
+.kc-imag li{margin-left:-6px}
+.kc-tomorrow{margin:0 14px 14px;background:#eef1f7;border:1px solid #d7deec;border-radius:10px;
+  padding:11px 14px;font-size:14px;line-height:1.9;color:var(--night-dk)}
+/* 故事库列表 */
+.kc-lib{border:1px solid var(--line);border-radius:12px;background:var(--card);margin:10px 0;overflow:hidden}
+.kc-lib>summary{cursor:pointer;padding:13px 16px;font-size:15px;list-style:none;display:flex;
+  justify-content:space-between;gap:10px;align-items:center}
+.kc-lib>summary::-webkit-details-marker{display:none}
+.kc-lib>summary .kn{font-family:var(--serif);color:var(--gold);letter-spacing:2px;flex:none}
+.kc-lib>summary .kt{flex:1}
+.kc-lib>summary .kd{font-size:12px;color:var(--dim);flex:none}
+.kc-lib[open]>summary{background:#f7f4ea;border-bottom:1px solid var(--line2)}
+.kc-lib .kc-full{padding:4px 16px 14px}
+.kc-lib .kc-full p{margin:10px 0;font-size:15px;line-height:2;color:var(--ink2)}
+.kc-mtable{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:13.5px}
+.kc-mtable td{border-top:1px dashed var(--line);padding:7px 4px;color:var(--ink2)}
+.kc-mtable td:first-child{color:var(--gold);font-family:var(--serif);white-space:nowrap;padding-right:14px}
+.kc-done{color:var(--ok);font-size:12.5px}
+/* 考场 */
+.kc-examtop{display:flex;gap:10px;align-items:center;justify-content:space-between;
+  background:var(--night);color:#eef0f6;border-radius:12px;padding:12px 16px;margin:12px 0}
+.kc-examtop .kq{font-family:var(--serif);letter-spacing:2px}
+.kc-examtop .ktimer{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;color:#ffd98a}
+.kc-examtop .kpdots{display:flex;gap:4px;flex-wrap:wrap;max-width:120px}
+.kc-examtop .kpdots i{width:9px;height:9px;border-radius:50%;background:#55628a;display:block}
+.kc-examtop .kpdots i.cur{background:#ffd98a;transform:scale(1.25)}
+.kc-examtop .kpdots i.ans{background:#9fb0e0}
+.kc-examtop .kpdots i.ok{background:#7fd0a0}
+.kc-examtop .kpdots i.no{background:#e08a76}
+.kc-qcard{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:18px 18px 8px;
+  box-shadow:0 6px 22px rgba(34,45,71,.08)}
+.kc-qstem{font-size:16.5px;line-height:2;color:var(--ink);font-weight:600}
+.kc-qstem code{background:#f3efe4;border:1px solid var(--line2);border-radius:6px;padding:1px 7px;
+  font-size:14.5px;color:var(--red-dk);font-family:ui-monospace,Menlo,Consolas,monospace}
+.kc-qtag{display:inline-block;font-size:11.5px;color:var(--dim);border:1px solid var(--line);
+  border-radius:4px;padding:1px 7px;margin-top:8px;letter-spacing:1px}
+.kc-opts{margin:14px 0 4px;display:flex;flex-direction:column;gap:9px}
+.kc-opt{appearance:none;text-align:left;border:1.5px solid var(--line);background:#fdfcf8;
+  border-radius:10px;padding:13px 14px;font-size:15.5px;line-height:1.7;color:var(--ink2);cursor:pointer;
+  display:flex;gap:10px;align-items:flex-start}
+.kc-opt .kl{flex:none;width:24px;height:24px;border-radius:50%;background:var(--line2);color:var(--dim);
+  font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.kc-opt.sel{border-color:var(--night);background:#eef1f7;color:var(--night-dk)}
+.kc-opt.sel .kl{background:var(--night);color:#fff}
+.kc-opt.right{border-color:var(--ok);background:#ecf7f0}
+.kc-opt.right .kl{background:var(--ok);color:#fff}
+.kc-opt.wrong{border-color:var(--bad);background:#fbeee9}
+.kc-opt.wrong .kl{background:var(--bad);color:#fff}
+.kc-qnav{display:flex;gap:8px;justify-content:space-between;padding:8px 0 14px;align-items:center}
+.kc-expl{background:#f6f4ec;border-left:3px solid var(--gold);border-radius:0 8px 8px 0;
+  padding:10px 12px;font-size:14px;line-height:1.95;color:var(--ink2);margin:10px 0 14px}
+.kc-score{text-align:center;padding:20px 10px 6px}
+.kc-score .knum{font-size:56px;font-weight:800;color:var(--night);font-variant-numeric:tabular-nums}
+.kc-score .kgrade{display:inline-block;margin-top:6px;font-family:var(--serif);letter-spacing:4px;
+  font-size:17px;padding:5px 18px;border-radius:999px}
+.kc-score .kgrade.a{background:#e6f4ec;color:var(--ok);border:1px solid #bfe3cf}
+.kc-score .kgrade.b{background:#fdf3d8;color:#8a6d1f;border:1px solid #f0e0b0}
+.kc-score .kgrade.c{background:#fbeee9;color:var(--bad);border:1px solid #f0cfc4}
+.kc-rev{border-top:1px solid var(--line);padding-top:10px;margin-top:6px}
+.kc-rev .kc-item{padding:10px 2px;border-bottom:1px dashed var(--line)}
+.kc-rev .kc-item .kh{font-size:14.5px;line-height:1.8}
+.kc-rev .kc-item .kh .mk{font-weight:800;margin-right:6px}
+.kc-rev .mk.ok{color:var(--ok)}
+.kc-rev .mk.no{color:var(--bad)}
+.kc-rev .kc-item .kans{font-size:13.5px;color:var(--ink2);margin-top:3px}
+.kc-rev .kc-item .kans b{color:var(--ok)}
+/* 进度 */
+.kc-cal{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.kc-cal .kd{text-align:center;border:1px solid var(--line);border-radius:8px;padding:7px 8px;
+  background:var(--card);min-width:44px}
+.kc-cal .kd .kdd{font-size:11px;color:var(--dim)}
+.kc-cal .kd .kdm{font-size:15px;line-height:1.5}
+.kc-stat{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.kc-stat .ks{flex:1;min-width:96px;border:1px solid var(--line);border-radius:10px;background:var(--card);
+  text-align:center;padding:11px 6px}
+.kc-stat .ks b{display:block;font-size:22px;color:var(--night);font-variant-numeric:tabular-nums}
+.kc-stat .ks span{font-size:12px;color:var(--dim)}
+.kc-witem{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:11px 13px;margin:8px 0}
+.kc-witem .kwf{font-size:12px;color:var(--gold);letter-spacing:2px;font-family:var(--serif)}
+.kc-witem .kws{font-size:14.5px;line-height:1.8;color:var(--ink2);margin-top:4px}
+.kc-witem .kwd{font-size:12.5px;color:var(--dim);margin-top:4px}
+#kc-toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom));transform:translateX(-50%);
+  background:rgba(34,45,71,.95);color:#f4f1e8;padding:11px 20px;border-radius:999px;font-size:14px;
+  letter-spacing:1px;opacity:0;pointer-events:none;transition:opacity .35s;z-index:99;max-width:86vw;text-align:center}
+#kc-toast.show{opacity:1}
+@media(max-width:420px){.kc-pbody{max-height:42vh}.kc-score .knum{font-size:46px}}
+</style>
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>睡前听一夜 · 次日随机考一卷 —— 每题当场生成，次次不一样</span></div>
+<header class="hero">
+  <div class="kicker">CLOUD NIGHT STORIES · 14 NIGHTS</div>
+  <h1>云计算 · 睡前故事考场</h1>
+  <p>十四夜，把 Linux、网络、Docker、Kubernetes 讲成一座「云上之城」的睡前故事。</p>
+  <p>夜里听故事（可放给你听）→ 睡着让大脑整理 → 清晨考一卷——题目当场随机生成，次次都新鲜。</p>
+  <div class="badges"><span>零基础可入</span><span>每夜约 5 分钟</span><span>题目永不重复</span><span>离线可用</span></div>
+</header>
+<nav class="tabs">
+  <a href="index.html">首页</a>
+  <a href="beginner.html">学堂</a>
+  <a href="calendar.html">日历</a>
+  <a href="archive.html">总目</a>
+  <a href="courses.html">课程</a>
+  <a href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a>
+  <a href="gongkao.html">公考</a>
+  <a href="skills.html">世赛</a>
+  <a href="red.html">红色</a>
+  <a href="socialism.html">实践</a>
+  <a href="ecommerce.html">创业</a>
+  <a href="cloud.html">云赛</a>
+  <a class="on" href="sleep.html">睡前</a>
+  <a href="paths.html">路线</a>
+  <a href="../library.html">资源</a>
+  <a href="../download.html">下载</a>
+  <a href="about.html">简章</a>
+</nav>
+
+<div class="wrap">
+  <nav class="kc-sub" id="kc-sub">
+    <a href="#tonight" data-pane="tonight" class="on">今晚</a>
+    <a href="#lib" data-pane="lib">故事库</a>
+    <a href="#exam" data-pane="exam">清晨考场</a>
+    <a href="#me" data-pane="me">进度</a>
+  </nav>
+
+  <!-- ========== 今晚 ========== -->
+  <section class="kc-pane on" id="pane-tonight">
+    <div class="goal kc-night" id="kc-intro">
+      <b>睡前故事学习法 · 三步</b><br>
+      ① 躺下前听<b>一夜故事</b>（点播放，跟着声音在脑里建那座城）<br>
+      ② 听完点「我听完了」，把三件小事<b>想象一遍</b>再睡——睡眠会替你整理记忆<br>
+      ③ 第二天打开<b>清晨考场</b>：10 道题按你昨晚听的故事当场生成，8 分钟限时，及格 60 · 优秀 85
+    </div>
+    <div id="kc-tonight-slot"></div>
+  </section>
+
+  <!-- ========== 故事库 ========== -->
+  <section class="kc-pane" id="pane-lib">
+    <p class="small" style="margin:12px 0 4px">十四夜一条线：单机基础（1–5）→ 网络与网页（6–9）→ 容器（10–11）→ 集群（12–13）→ 云与总复习（14）。每夜都有「画面↔真名」对照表，点开可直接播放。</p>
+    <div id="kc-lib-slot"></div>
+  </section>
+
+  <!-- ========== 清晨考场 ========== -->
+  <section class="kc-pane" id="pane-exam">
+    <div id="kc-exam-idle">
+      <div class="goal kc-night" style="margin-top:14px">
+        <b>清晨考场 · 规则</b><br>
+        10 道题 · 限时 8 分钟 · 四选一。题目由题型库 + 随机种子<b>当场生成</b>：IP、端口、权限数字、故障场景每次都不一样——背不了答案，只能真的懂。<br>
+        出题偏向你<b>最近一次睡前收听</b>的内容（昨晚听第 6 夜，今晨卷子就偏网络）；做错的题自动进<b>错题本</b>。
+      </div>
+      <div id="kc-exam-brief"></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0">
+        <button class="kc-btn" id="kc-start">开始今晨考试</button>
+        <button class="kc-btn ghost" id="kc-more">再来一套（更新鲜）</button>
+        <button class="kc-btn ghost" id="kc-wrongonly">只练错题</button>
+      </div>
+      <p class="small">每套题都是新生成的：同一题型的数字、场景、选项顺序每次全变。做完立刻看解析，错的进错题本，隔几天再练。</p>
+      <div id="kc-history"></div>
+    </div>
+    <div id="kc-exam-run" style="display:none"></div>
+    <div id="kc-exam-done" style="display:none"></div>
+  </section>
+
+  <!-- ========== 进度 ========== -->
+  <section class="kc-pane" id="pane-me">
+    <div id="kc-me-slot"></div>
+  </section>
+
+  <p class="note">睡前故事学习法 · 云计算篇（十四夜）· 题目由程序随机生成，与<a href="cloud.html">世赛备战中心</a>、<a href="cloudlab.html">实战训练场</a>同一条学习线 · 进度保存在本机浏览器<br>
+  <a href="cloud.html">← 回云赛备战中心</a> · <a href="archive.html">资料总目</a></p>
+</div>
+<div id="kc-toast"></div>
+
+<script>
+"use strict";
+/* ============================================================
+   云计算 · 睡前故事考场
+   14 夜故事数据 + 程序化随机出题引擎 + 朗读播放 + 进度（全离线）
+   ============================================================ */
+
+/* ---------- 小工具 ---------- */
+function $(s,r){return (r||document).querySelector(s);}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s));}
+function el(tag,cls,html){var e=document.createElement(tag);if(cls)e.className=cls;
+  if(html!=null)e.innerHTML=html;return e;}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function pad2(n){return (n<10?'0':'')+n;}
+function todayStr(d){d=d||new Date();return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate());}
+function addDays(d,n){var x=new Date(d.getTime());x.setDate(x.getDate()+n);return x;}
+function mdStr(ds){var p=ds.split('-');return p[1]+'-'+p[2];}
+function toast(msg,ms){var t=$('#kc-toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toast._t);toast._t=setTimeout(function(){t.classList.remove('show');},ms||2600);}
+function hashStr(s){var h=2166136261>>>0;for(var i=0;i<s.length;i++){h^=s.charCodeAt(i);
+  h=Math.imul(h,16777619)>>>0;}return h>>>0;}
+function mulberry32(a){return function(){a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);
+  t=t+Math.imul(t^t>>>7,61|t)^t;return ((t^t>>>14)>>>0)/4294967296;};}
+function Rng(seedStr){var r=mulberry32(hashStr(seedStr));
+  return {
+    f:function(){return r();},
+    i:function(n){return Math.floor(r()*n);},
+    pick:function(arr){return arr[Math.floor(r()*arr.length)];},
+    sample:function(arr,n){var a=arr.slice(),o=[];
+      while(o.length<n&&a.length){o.push(a.splice(Math.floor(r()*a.length),1)[0]);}return o;},
+    shuffle:function(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){
+      var j=Math.floor(r()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;},
+    chance:function(p){return r()<p;}
+  };}
+
+/* ---------- 本机进度 ---------- */
+var KEY='kcSleepV1';
+var S={listens:{},exams:{},wrongs:[],settings:{rate:1},attempt:0};
+function load(){try{var j=JSON.parse(localStorage.getItem(KEY));if(j&&typeof j==='object'){
+  S.listens=j.listens||{};S.exams=j.exams||{};S.wrongs=j.wrongs||[];
+  S.settings=j.settings||{rate:1};S.attempt=j.attempt||0;}}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+function listenOf(ds){return S.listens[ds]||[];}
+function markListen(nid,ds){ds=ds||todayStr();var a=S.listens[ds]||[];
+  if(a.indexOf(nid)<0){a.push(nid);S.listens[ds]=a;save();return true;}return false;}
+function allListenedIds(){var m={};for(var d in S.listens){
+  for(var i=0;i<S.listens[d].length;i++)m[S.listens[d][i]]=1;}return m;}
+function lastListenNight(){var order=[0,-1,-2,-3,-4,-5,-6,-7];
+  for(var k=0;k<order.length;k++){var ds=todayStr(addDays(new Date(),order[k]));
+    var a=S.listens[ds];if(a&&a.length)return {date:ds,ids:a.slice()};}
+  return null;}
+function listenedCount(){var n=0;for(var d in S.listens){n+=S.listens[d].length;}return n;}
+function streakDays(){var n=0,cur=new Date();
+  for(var i=0;i<400;i++){var ds=todayStr(cur);
+    var has=(S.listens[ds]&&S.listens[ds].length)||(S.exams[ds]&&S.exams[ds].length);
+    if(has){n++;}else if(i>0){break;}
+    cur=addDays(cur,-1);}
+  return n;}
+
+/* ---------- 朗读播放器 ---------- */
+var TT={
+  supported:('speechSynthesis' in window),
+  playing:false,paused:false,story:null,idx:0,queue:[],
+  timerEnd:0,timerId:null,onState:null,
+  pickVoice:function(){
+    if(!TT.supported)return null;
+    var vs=speechSynthesis.getVoices()||[];
+    for(var i=0;i<vs.length;i++){if(/zh[-_]CN/i.test(vs[i].lang))return vs[i];}
+    for(var j=0;j<vs.length;j++){if(/zh/i.test(vs[j].lang))return vs[j];}
+    return null;},
+  build:function(story){
+    var q=[];
+    for(var i=0;i<story.paras.length;i++)q.push({type:'p',i:i,text:story.paras[i].replace(/<[^>]+>/g,'')});
+    if(story.imagine&&story.imagine.length){
+      q.push({type:'x',i:-1,text:'闭上眼睛，想象三件事。'+story.imagine.join('。')+'。'});
+    }
+    q.push({type:'t',i:-1,text:story.tomorrow.replace(/<[^>]+>/g,'')});
+    return q;},
+  play:function(story,onState){
+    if(!TT.supported){toast('此浏览器不支持朗读，请直接阅读故事文本');markListen(story.id);return;}
+    try{speechSynthesis.cancel();}catch(e){}
+    TT.story=story;TT.queue=TT.build(story);TT.idx=0;TT.playing=true;TT.paused=false;
+    TT.onState=onState;markListen(story.id);
+    TT.tick();TT.next();
+    if(window.innerWidth<720){/* 手机上让播放卡片保持在视野内 */}
+  },
+  tick:function(){
+    clearInterval(TT.timerId);
+    if(TT.timerEnd>0){
+      TT.timerId=setInterval(function(){
+        var left=Math.ceil((TT.timerEnd-Date.now())/1000);
+        if(left<=0){TT.stop();toast('定时到了，睡吧 🌙');return;}
+        if(TT.onState)TT.onState({left:left});
+      },1000);
+    }
+  },
+  setTimer:function(min){TT.timerEnd=min>0?Date.now()+min*60000:0;TT.tick();
+    if(TT.onState)TT.onState({timerSet:min});},
+  next:function(){
+    if(!TT.playing)return;
+    if(TT.idx>=TT.queue.length){TT.finish();return;}
+    var it=TT.queue[TT.idx];
+    if(TT.onState)TT.onState({cursor:TT.idx,it:it});
+    var u=new SpeechSynthesisUtterance(it.text);
+    u.lang='zh-CN';u.rate=S.settings.rate||1;u.pitch=1;
+    var v=TT.pickVoice();if(v)u.voice=v;
+    u.onend=function(){if(!TT.playing)return;TT.idx++;TT.next();};
+    u.onerror=function(ev){
+      if(ev&&(ev.error==='interrupted'||ev.error==='canceled'))return;
+      setTimeout(function(){if(!TT.playing)return;TT.idx++;TT.next();},80);
+    };
+    try{speechSynthesis.speak(u);}catch(e){TT.idx++;setTimeout(TT.next,80);}
+  },
+  pause:function(){if(!TT.playing)return;try{speechSynthesis.pause();}catch(e){}
+    TT.paused=true;if(TT.onState)TT.onState({paused:true});},
+  resume:function(){if(!TT.playing||!TT.paused)return;try{speechSynthesis.resume();}catch(e){}
+    TT.paused=false;if(TT.onState)TT.onState({paused:false});},
+  stop:function(){TT.playing=false;TT.paused=false;TT.timerEnd=0;clearInterval(TT.timerId);
+    try{speechSynthesis.cancel();}catch(e){}
+    if(TT.onState)TT.onState({stopped:true});},
+  finish:function(){TT.playing=false;clearInterval(TT.timerId);TT.timerEnd=0;
+    var st=TT.story;
+    if(TT.onState)TT.onState({finished:true});
+    if(st)toast('第'+pad2(st.night)+'夜 ·《'+st.t+'》听完，已记录 🌙');
+    refreshAll();}
+};
+if(TT.supported){try{speechSynthesis.getVoices();}catch(e){}
+  speechSynthesis.onvoiceschanged=function(){};}
+
+/* ============================================================
+   十四夜 · 云上之城睡前故事
+   ============================================================ */
+var STORIES=[
+{id:'n01',night:1,t:'一切都是文件',sub:'第一夜 · 云上之城的大门',mins:5,
+ paras:[
+ '天黑了，闭上眼睛。想象你来到一座叫「云上之城」的城市——你在课本里听过的那些云计算、服务器，全都住在这座城里。城门口没有保安大叔，只有一台小小的对讲机。你对着对讲机说一句口令，城门就无声地开了。这台对讲机，名字叫「终端」。',
+ '城里住着一位隐形管家，他从不露面，但整座城听他的调度——修灯、供水、记账、看门，全是他安排的。这位管家叫 Linux。你永远见不到他，却时时刻刻在跟他打交道：手机里的信号基站、网页背后的机器、你玩的游戏服务器，大多是这位管家在管。',
+ '这座城最古怪的规矩是：城里所有的东西，都登记成「文件」。水龙头是一个文件，电闸是一个文件，就连「今天谁在上班」也有一本登记册。管家从不给你特殊的开关，他只给你一本本册子——改一改册子，城里的规矩就变了。这条规矩叫「一切皆文件」。',
+ '你不用亲自进城。在自己房间里，通过那台对讲机，你能在千里之外走进这座城——这叫 SSH，远程刷卡进城。进得门来，你会敲三个最常用的口令：ls，看看这间屋里有什么；cd，走到另一间屋去；cat，把桌上那份文件读出来。记住这三个口令，今晚就足够了。',
+ '好了，今晚的城门已经为你打开。把这三个画面放一放：一台对讲机、一位隐形管家、一本登记万物的册子。它们是十四夜故事的地基，后面每一夜都盖在它们上面。'],
+ imagine:['那台对讲机摆在你床头，屏幕上亮着一行等待输入的光标','隐形管家在城的深处翻着一本很厚很厚的册子，风吹不动它','你伸手在册子上写下自己的名字，整座城微微亮了一下'],
+ tomorrow:'明早的考场会检查：<b>终端、SSH、一切皆文件</b>分别对应故事里的什么画面。睡吧，别背，想画面。',
+ exam:['pair','cmd','best'],
+ metaphors:[['房间里的对讲机','终端（命令行）'],['远程刷卡进城','SSH 远程登录'],['隐形管家','Linux 内核'],['登记万物的册子','一切皆文件']]},
+{id:'n02',night:2,t:'档案馆的书架',sub:'第二夜 · 目录、路径与挂载',mins:5,
+ paras:[
+ '昨夜你进了城。今夜，我们去看看城里的档案馆。推开门，正中间立着一根顶天立地的柱子，所有的书架都从这根柱子上分叉出去——柱子的名字只有一个符号：斜杠，<code>/</code>。它是「根」，一切从这里开始。',
+ '书架是一层套一层的：根底下挂着 home，home 底下挂着你自己的房间，你房间里还有下载夹、文档夹。你自己的房间有个昵号：波浪号 <code>~</code>，走到哪儿它都认得你回家的路。想从一根书架走到另一根，有两条走法。一条是「绝对路径」——从根出发，一层层数下去，像报地址：/var/log/nginx；另一条是「相对路径」——从你脚下这层出发，<code>.</code> 是这层，<code>..</code> 是上一层，像说「隔壁」「楼上」。管家只认你报的地址，报错了，他就翻不到你要的那本书。',
+ '夜里迷了路怎么办？敲 <code>pwd</code>，管家会念出你此刻站的完整地址；敲 <code>ls</code>，他会报出这一层书架上都有什么；敲 <code>cd</code>，你就走过去了。这三个口令和昨夜的 cat 拼在一起，你已经能在档案馆里自由进出。',
+ '还有一个画面要记住：城里有些空荡荡的大厅，等着接新书架——一块新硬盘、一个 U 盘，插进来都只是块生地。把书架接进大厅这个动作，叫「挂载」。接上了，生地才变成书架的一部分；没接上，它就只是躺在门口的箱子。以后你看到「磁盘挂载」「网络存储挂载」，想到的就该是这个画面。',
+ '今晚想一想：你的电脑里，从根到你现在正打开的这个文件，地址该怎么报？报不出来没关系，明早的考场会换个数字考你。'],
+ imagine:['顶天立地的根柱子在黑暗里发着微光，所有书架从它分叉','你脚下有一串会发光的地址，走一步亮一格','一块空大厅里，工人正把新书架稳稳接进墙里'],
+ tomorrow:'明早的考场会考：<b>相对路径换算</b>（你在哪、cd 之后在哪）和 <b>挂载</b>的画面。',
+ exam:['path','cmd','pair'],
+ metaphors:[['顶天立地的柱子','根目录 /'],['你的房间昵号','家目录 ~'],['. 与 ..','当前目录与上级目录'],['把新书架接进大厅','磁盘挂载']]},
+{id:'n03',night:3,t:'门卫与房卡',sub:'第三夜 · 用户、权限与 sudo',mins:5,
+ paras:[
+ '城里每间屋子都有门锁，锁上挂着三种颜色的灯：主人灯、家人灯、访客灯。主人能读能写还能开锁，家人多半只能读，访客干脆什么都碰不着。这三盏灯，专业名字叫「读 r、写 w、执行 x」——读是看，写是改，执行是「让这文件跑起来」。',
+ '给灯定亮度有个笨办法，也有个巧办法。笨办法是记三位数：主人一位、家人一位、访客一位；每位上面，读算 4 分、写算 2 分、执行算 1 分，加起来填进去。所以 7 是全能（4+2+1），6 是能读能写（4+2），5 是能读能执行（4+1），4 是只能读，0 是全黑。比如 640，念出来就是：主人读写、家人只读、访客全黑。三个数字一亮，整间屋子的规矩就定死了——这条命令叫 chmod。',
+ '屋子里住的不只一个人。住同一屋檐下的是一「组」，组外的是「其他人」。屋子归谁，由 chown 管——换房主，就是换主人灯为谁亮。城里有条铁律：能用家人灯，就别开主人灯。随手把锁全拆成 777 的人，等于把家门敞给全城，迟早出事。',
+ '那什么时候用主人灯？城里有位值夜的老总管，揣着一串总钥匙，叫 sudo。你敲 sudo 加命令，等于跟老总管说：这活儿必须我亲自来。他会把钥匙借你用一次，还会在值班本上记一笔——谁、什么时候、干了什么。所以城里查账，一查一个准。日常走路用普通房卡，办大事才喊老总管，这是活到现在的人都在守的分寸。',
+ '今晚把三个数字背成三个手势：读 4、写 2、执行 1。明早的考场，会随机抽一副「灯」让你报数。'],
+ imagine:['门锁上三盏灯依次亮起：主人、家人、访客','你报出 640，整排屋子的灯光应声改换','老总管把总钥匙递给你，低头在值班本上落了一笔'],
+ tomorrow:'明早的考场会考：<b>权限数字与 rwx 互换</b>（随机生成），还有「最小权限」的判断题。',
+ exam:['perm','pair','best'],
+ metaphors:[['三盏灯','rwx 权限（读4 写2 执行1）'],['同屋檐下的人','用户组'],['借一次记一笔','sudo 与审计日志'],['把锁全拆','chmod 777（危险）']]},
+{id:'n04',night:4,t:'在岗的工人',sub:'第四夜 · 进程、信号与 systemd',mins:5,
+ paras:[
+ '城里干活的都是工人：有人在写网页，有人在送邮件，有人在盯着打印机。每个正在干活的人，胸口别着一张工牌，编号叫 PID——进程号。想看谁在干活，敲 ps，一份名单递到你手上；敲 top，名单变成活的，谁在大口吃 CPU，一眼就跳出来。',
+ '工人有站前台的，也有守夜班的。前台工人占着你的眼睛，你一走神他就停手；想让他边干活边不挡路，就在命令后面添个 &，他退到后台默默干。还有一种工人是「守护进程」——永远在岗，灯不灭活不停，网页服务器就是这样一位。',
+ '想请工人离场，有两声敲门。第一声叫 15：礼貌地敲门说「活干完就请回吧」，他收完东西再走，最稳妥。第二声叫 9：不商量，直接抬走——快，但可能留下没收拾的摊子。所以老手都是先 15，不行才 9。这就是 kill 命令的两副面孔。',
+ '工人多了，得有人管。城里的人事处叫 systemd，它握着全部岗位的名册。systemctl start 开工，stop 收工，restart 重启，status 看此刻状态——最后一个最好用，红的绿的，一眼生死。还有一句 enable，是把岗位写进「永久编制」：城市一重启，这岗自动有人；只 start 不 enable 的岗，重启后就没人了，新手一半的故障都栽在这里。',
+ '今晚回想一遍：工牌、两声敲门、人事处四件套。明早的卷子里，有一道题会问你——服务起不来了，第一步干什么。'],
+ imagine:['一排工人胸前的工牌闪着连续的号码','你敲两下门，工人点头收好工具走出来','人事处的名册上，一行岗位被你盖上了「常驻」的红章'],
+ tomorrow:'明早的考场会考：<b>进程与服务命令</b>（kill 的两副面孔、start/enable 的区别）和排错第一步。',
+ exam:['cmd','step','pair'],
+ metaphors:[['胸前的工牌','进程号 PID'],['两声敲门','kill 15（温和）与 kill 9（强制）'],['人事处','systemd'],['盖常驻章','systemctl enable']]},
+{id:'n05',night:5,t:'快递站',sub:'第五夜 · 软件包管理',mins:5,
+ paras:[
+ '城里要用东西，从来不去手工坊现做——都去快递站领。快递站是官方开的，货品分门别类摆在货架上，这货架叫「仓库」。你要装 nginx，快递员替你把 nginx 连同它缺的三样配料一并送来；配料的配料，仓库也替你记着。这就是软件包管理器替你省下的苦功夫。',
+ 'Ubuntu 家族的快递员叫 apt，规矩简单三步：apt update 是「看看今天到货目录更新了没」——只是看目录，一件货都不搬；apt install 才是真提货；apt upgrade 是把家里旧货全换成新货。新手最常见的笑话是只 update 不 install，站在目录前看了一晚上，货一件没动。',
+ '城分两片：东城住着 Ubuntu 和 Debian，快递员是 apt；西城住着 Rocky 和 CentOS，快递员叫 dnf（老一点的叫 yum）。同一件事两种口令：东城 apt install nginx，西城 dnf install nginx。记不住没关系，记住「先看城里贴的快递员名字」就行——cat /etc/os-release，城门口的告示栏一读便知。',
+ '为什么非要用快递站，不自己下载压缩包？因为快递单上写得清清楚楚：这个货要配那个货，版本得咬合。手工坊给你的是一本缺了三页的菜谱，你得自己找齐材料；仓库给你的，是配好料的整箱。今晚记住：领货走仓库，先看目录再提货，两座城各有各的快递员。'],
+ imagine:['快递站的货架无穷无尽，每一格贴着货名和版本号','你递上一张提货单，快递员连同三样配料一并装箱','东城西城两块告示牌，写着各自快递员的名字'],
+ tomorrow:'明早的考场会考：<b>apt 与 dnf 的命令选择</b>（会先告诉你城里住着谁）。',
+ exam:['pkg','cmd','best'],
+ metaphors:[['官方货架','软件仓库（apt/dnf repo）'],['看目录','apt update'],['提货','apt install / dnf install'],['城门口告示栏','/etc/os-release']]}
+];
+
+STORIES.push.apply(STORIES,[
+{id:'n06',night:6,t:'邮政网络',sub:'第六夜 · IP、端口、DNS 与子网',mins:6,
+ paras:[
+ '城里的一切靠邮政运转。每栋楼挂一块门牌——四位数字点着三位的那种，就是 IPv4 地址，比如 192.168.1.10。门牌不够用了，城里正在换长牌，十二段的那一种，叫 IPv6。门牌只告诉你楼在哪；楼里那么多扇窗，信该递到哪扇窗？所以每栋楼还开了一排窗口，窗口编号叫「端口」。22 号窗口是远程登录专用，80 号送网页，443 号送加密网页，53 号专管问路，3306 号是数据库的收发室。信走错窗口，事情就办不成。',
+ '你记得住 IP，记不住一长串数字，怎么办？城里有本巨大的电话簿，叫 DNS。你报一个名字 api.example.com，电话簿替你翻出门牌。翻不到时你还有张随身小抄：/etc/hosts，写在小抄上的地址，电话簿还没你快。所以排错时常常先问一句：小抄上写了没有？',
+ '不是所有楼都敞开给全城。几栋楼围成一个「小区」，小区围墙划多大，由掩码说了算。最常见的围墙是结尾 /24——一整个小段，能住两百多户；再大一点 /26，围墙收紧，只剩几十户。信只在小区里转，是内网；要出小区，得走城门口的网关。这两条规矩，今晚只要有个印象：围墙之内是自己人，出门必经网关。',
+ '探路也有口令。ping 是朝对面喊一嗓子，有人应声就说明路通；curl 是走到窗下，把窗里的货真价实看一眼。路通不等于货好——这两句的区别，是排错分水岭，明早的卷子会验你。',
+ '今晚的画面：门牌、窗口、电话簿、小抄、围墙、网关。六个画面排一排，明早它们会变成十道题里的好几道。'],
+ imagine:['一排排门牌在夜色里亮起，信封按窗口号飞进飞出','你翻开巨大的电话簿，手指停在 api.example.com 那一行','围墙把几栋楼围成安静的小区，网关处亮着一盏灯'],
+ tomorrow:'明早的考场会考：<b>端口号</b>（随机抽窗口）、<b>子网与掩码</b>（随机划围墙）、<b>DNS 排错</b>。',
+ exam:['subnet','port','dns'],
+ metaphors:[['楼上的门牌','IP 地址'],['楼里的窗口编号','端口'],['巨大的电话簿','DNS'],['随身小抄','/etc/hosts'],['小区围墙','子网掩码'],['出小区的门','默认网关']]},
+{id:'n07',night:7,t:'前台接待',sub:'第七夜 · Web 服务器、反向代理与负载均衡',mins:5,
+ paras:[
+ '城里来了访客，接待他的是前台——前台的名字叫 nginx。访客说：「我要看首页。」前台转身从档案柜里取出一页纸递过去——这是最简单的情况，页面本来就摆在柜子里，叫静态页面。',
+ '复杂一点：访客要的东西在后面办公室里，得加工才能给。前台不会亲自进办公室，他按一下转接键，把电话转到后面——这叫反向代理。访客只认识前台的号码，从不知道后面办公室的分机是多少；后面办公室换了人、换了屋，号码照样打得通。这条转接线，是全城网站的命根子。',
+ '访客多了，一个分机接不过来，前台就摆一排分机：1 号、2 号、3 号，电话进来轮流接——这叫负载均衡。有人请假了，剩下两个照常接，访客毫不知情。世赛评分表里那句「高可用」，说白了就是这排分机不能只有一个。',
+ '前台自己有两扇大门：80 号开着，谁都能进；443 号锁着，进去得带火漆信（下一夜就讲这个）。常见的一条规矩是：80 号进来的访客，一律请去 443——前台举个牌子，引他换门。这条跳转，术语叫重定向，写在 nginx 的配置册子里。',
+ '今晚的三个画面：档案柜、转接键、一排轮流接的分机。记住前台只做三件事——取货、转接、分活。'],
+ imagine:['前台在两扇大门之间从容转身，档案柜的抽屉自动滑开','转接键按下，电话无声地流向后面的办公室','一排分机轮流亮起，铃声此起彼伏却从不堆积'],
+ tomorrow:'明早的考场会考：<b>HTTP 状态码</b>（前台遇到的各种状况，随机抽问）和反向代理的画面。',
+ exam:['http','pair','best'],
+ metaphors:[['前台','Web 服务器 nginx'],['转接键','反向代理'],['一排轮流接的分机','负载均衡'],['举牌引导换门','HTTP→HTTPS 重定向']]},
+{id:'n08',night:8,t:'火漆封印',sub:'第八夜 · HTTPS 与证书',mins:5,
+ paras:[
+ '从前的信都是明信片：邮差、路人、对门，谁都能瞄一眼。网页也一样——HTTP 送的信就是明信片，账号密码写在背面，一路亮着。你在网上「加密了」的直觉，指的就是把明信片换成信封。',
+ '光有信封还不够——伪造一个信封太容易了。所以城里请来公证处：你把信封交给公证处，公证处检查你的身份，检查通过就盖上火漆大印。这枚印，叫「证书」。访客拿到信，先验印：印是真的、没过期、盖给这栋楼的——他才敢拆。印对不上，浏览器立刻竖起一块大牌子：这个站点有问题。',
+ '公证处不是随便一家铺子，是全城公认的那一排——他们叫 CA。你的楼要开 443 号门，就得先去 CA 那里领印。印有期限，跟食品保质期一样：过期的证书，等于公章过期，老访客会警惕，新访客直接掉头。运维日历上写着「证书提前续期」，说的就是别等到印糊了才去排队。',
+ '整条链子有三个名字要认全：信封是 HTTPS，火漆印是证书，公证处是 CA。三样凑齐，明信片才变成密件。还有个细节：443 门里递的货和 80 门里一模一样，只是路上没人再看得见——加密保护的是「路上」，不是「屋里」。',
+ '今晚想一想：你在手机上看到那把小锁，锁的到底是什么？锁的是从这栋楼到你手里的这段路。'],
+ imagine:['公证处的柜台前，你递上信封，火漆「啪」地盖下','邮差把密件揣进怀里，沿途谁也拆不开','浏览器里那把小锁「咔哒」合上，整条路亮起微光'],
+ tomorrow:'明早的考场会考：<b>HTTP 与 HTTPS 的区别</b>、证书过期的画面，以及 443 窗口号。',
+ exam:['http','pair','cmd'],
+ metaphors:[['明信片','HTTP 明文传输'],['火漆大印','HTTPS 证书'],['公证处','CA 证书颁发机构'],['过期的印','证书过期']]},
+{id:'n09',night:9,t:'值班记录本',sub:'第九夜 · 日志与排错三步',mins:6,
+ paras:[
+ '城里每个岗位边上都挂着一本值班记录本，谁几点接的班、出了什么事、骂了哪句，全记在上面。本子放在 /var/log 这个架子上：nginx 有 nginx 的本子，数据库有数据库的本子。想看活的记录，敲 tail -f——眼睛贴着本子末页，新行一行行冒出来，像直播。系统总管 systemd 也有自己的总本子，journalctl 一翻到底。',
+ '城里出了怪事，别慌着砸东西，当侦探。侦探三步：第一步看现场——先把记录本翻到出事那一刻；第二步找嫌疑人——谁的岗位出的错，进程还活着没有；第三步查动机——配置文件是不是被人改过。顺序不能反。新手最爱反着来：先重启、先重装，现场被自己砸得干干净净，最后什么也查不出。',
+ '记录本上有几句高频暗语，今晚先认三句。Connection refused——你去敲门，店里根本没开门，服务没起或者端口不对；No space left on device——仓库爆满了，一格都塞不进；Permission denied——你没带房卡，权限不够。这三句话在真题和赛场上出现的频率高得惊人，见到它们，脑子里要立刻蹦出对应的画面。',
+ '再来两句见面礼：Address already in use——这个窗口已经有人占了，端口冲突；out of memory，后面常跟着 Kill process——内存吃光了，管家开始抬人。记录本从不说谎，它只如实记载；会读它的人，五分钟定位故障，不会读的人，重装三遍。',
+ '今晚的作业只有一件：把三句暗语念顺。明早的卷子里，会有一条真的日志让你读。'],
+ imagine:['值班本摊开在灯下，一行行墨迹还在往上冒','你戴着手套翻到出事的那一刻，指尖停在一行红字上','仓库满得连一张纸都塞不进去，管理员愁眉苦脸'],
+ tomorrow:'明早的考场会考：<b>读日志下结论</b>（随机生成的日志行）和 <b>侦探三步的顺序</b>。',
+ exam:['log','step','disk'],
+ metaphors:[['岗位边的本子','系统日志 /var/log'],['本子直播','tail -f'],['侦探三步','看现场→找嫌疑人→查动机'],['三句暗语','refused / no space / permission denied']]},
+{id:'n10',night:10,t:'集装箱革命',sub:'第十夜 · Docker 镜像与容器',mins:6,
+ paras:[
+ '从前有个笑话：程序在我电脑上明明是好的！换台机器就崩。为什么？因为你交出去的只是菜，没交菜谱，也没交锅——对方厨房的盐是另一种咸。集装箱来了，这个笑话才开始过时。',
+ '先把整套行李打包装进一个大箱子：系统、代码、依赖、配置，一样不落。这个「完整行李箱的图纸」，叫镜像。图纸有讲究——它是一层一层叠的：底层是操作系统，往上是运行环境，再往上是你的代码。改最上面一层，底下几层原封不动，这就是分层的好处：搬家只搬变动的那层，快得像没搬过。',
+ '图纸不能直接跑，得照图纸开一个箱子营业——开起来的箱子，叫容器。镜像是静态的图纸，容器是热气腾腾的店面；同一张图纸，可以同时开十家店面，互不打扰，关了再开也不心疼。开箱的口令是 docker run，看谁开着是 docker ps，看箱里出了什么事是 docker logs——最后这条，昨夜的侦探三步还记得吗？箱子出事，先看它的记录本。',
+ '图纸得有个存放的码头，全城共用的那个叫 Docker Hub。你 pull 一张图纸下来，run 起来，别人也能 pull 同一张——「在我机器上能跑」从此变成「在谁机器上都能跑」，因为大家拿的是同一张图纸。',
+ '今晚的画面：一层层叠好的行李、开箱营业的店面、码头上一排排吊着的箱子。下一夜讲怎么给箱子接水管、通电、存东西。'],
+ imagine:['行李被分层整齐码放，最上面一层轻轻抬起也不惊动下面','同一张图纸同时开出了十家店面，招牌各异','码头的吊臂把集装箱稳稳放下，箱锁咔哒合上'],
+ tomorrow:'明早的考场会考：<b>Docker 病症诊断</b>（容器秒退、镜像拉取失败等，随机场景）和镜像/容器的区分。',
+ exam:['docker','pair','cmd'],
+ metaphors:[['整套行李的图纸','Docker 镜像'],['一层层的行李','镜像分层 layer'],['开箱营业','容器 container'],['共用码头','Docker Hub']]}
+]);
+
+STORIES.push.apply(STORIES,[
+{id:'n11',night:11,t:'集装箱管家',sub:'第十一夜 · 卷、端口映射与 Compose',mins:5,
+ paras:[
+ '箱子开得好，可新手总犯一个错：把货堆在箱子里。箱子一删，货全没——数据库最冤，数据在箱里，箱在数据在，箱亡数据亡。正解是给箱子接一间「箱外储藏室」：东西存在储藏室，箱子随拆随建，货一直在。这间储藏室，名字叫卷（volume）。',
+ '箱子是封闭的，外面的人怎么找它？靠窗口映射。宿主机开 8080 号窗，对准箱子里的 80 号窗——你在商场门口报 8080，货从箱内 80 递出来，这叫 -p 8080:80。口令的读法是从外到里：外面哪个口，对着里面哪个口。新手十个有三个把顺序写反，症状是浏览器怎么都打不开——先背读法，再敲命令。',
+ '一套网站常常要同时开好几个箱子：网页一个、数据库一个、缓存一个，还得让它们互相找得到。一个一个 run 一张张记太麻烦，于是有了「一张开工单」：把几个箱子的图纸、窗口、储藏室全写在一张单子上，一条口令整排开工——这就是 Compose。单子的名字通常叫 docker-compose.yml。',
+ '箱子多了，码头也会长草：废弃的容器、没人要的图纸、断了线的储藏室，天天吃磁盘。昨天那句暗语「No space left」在 Docker 世界里最常见的解法，就是一次大扫除：docker system prune——把没人用的统统收走。动手前记得先看清楚再扫，别把还在用的图纸也收了。',
+ '今晚三件事：货放储藏室、窗口从外到里读、开工单一张搞定。'],
+ imagine:['储藏室独立在箱子之外，箱子拆了又建，货安然无恙','8080 号窗口与箱内 80 号窗口之间架起一道透明管道','一张写满箱子的开工单落下，整排店面同时亮灯'],
+ tomorrow:'明早的考场会考：<b>Docker 场景题</b>（数据丢了、端口不通、磁盘爆满，随机抽场景）。',
+ exam:['docker','disk','cmd'],
+ metaphors:[['箱外储藏室','数据卷 volume'],['窗口对窗口','-p 端口映射（外:内）'],['一张开工单','Docker Compose'],['码头大扫除','docker system prune']]},
+
+{id:'n12',night:12,t:'港务局',sub:'第十二夜 · Kubernetes 集群、节点与 Pod',mins:5,
+ paras:[
+ '一个码头靠一台起重机，起重机一坏，全港停摆。城里也一样：一台服务器会累、会坏、会被流量压垮。于是把许多机器连成一片码头，配一个总调度的港务局——这片集群，名字叫 Kubernetes，大家喊它 K8s。',
+ '每台机器是一个泊位，专业名字叫「节点」。泊位有大有小，港务局记着每个泊位还剩多少力气。而真正干活的最小单元，是一个个小摊位——货、工具、人挤在一个紧凑的空间里一起开工。这个最小作业单元，叫 Pod。记住：Pod 不是一台机器，它更像「一个摊位」，可以只摆一柜货，也可以几个柜子并排一排。',
+ '港务局不靠喊，靠「招聘计划」。计划的名字叫 Deployment：写明我要 3 个摊位、用哪张图纸、什么版本。港务局照单抓人——少一个补一个，摊位塌了立刻重建，图纸过时就整批换新（这叫滚动更新）。你跟港务局打交道，多数时候只改计划，不亲手摆摊。',
+ '常用的口令只有三句，今晚全带走：kubectl get pods，看摊位名单和状态；kubectl describe pod 某名字，看它的来龙去脉；kubectl logs 某名字，看它自己的记录本——侦探三步又用上了。昨夜学的「先看现场」，在 K8s 里同样一个字都不能少。',
+ '今晚画面：一片泊位、一张招聘计划、一份摊位名单。明早的卷子会给你一个病症，问你先敲哪一句。'],
+ imagine:['夜色里的港务局灯火通明，泊位上机器安静运转','招聘计划上写着「副本数：3」，一名工人提着工具箱走上泊位','摊位名单刷新，状态一栏齐刷刷亮着绿色 Running'],
+ tomorrow:'明早的考场会考：<b>K8s 病症诊断</b>（CrashLoopBackOff、Pending 等，随机场景）与三句 kubectl 口令。',
+ exam:['k8s','pair','step'],
+ metaphors:[['一片码头','Kubernetes 集群'],['泊位','节点 node'],['小摊位','Pod'],['招聘计划','Deployment（副本数）'],['三句口令','get / describe / logs']]},
+
+{id:'n13',night:13,t:'服务台电话',sub:'第十三夜 · Service、标签与 Ingress',mins:5,
+ paras:[
+ '招聘计划再好，也有个麻烦：摊位随时在换——塌了重建，编号和位置全变。老客户拿着旧编号来找，扑空一次就再也不会来。于是港务局设了一部「总服务台电话」：号码永远不变，背后接哪个摊位随时在换。这部电话，叫 Service。',
+ '总机怎么知道该接谁？靠工牌对暗号。每个摊位挂牌子（标签 label），总机只接挂着同款牌子的——你写 shop=web，我就只接 shop=web 的摊位。牌子对不上，电话永远打不通，而且 K8s 一声不吭：没有报错，就是没人接。排查 Service 不通，第一件事永远是先看牌子：kubectl get endpoints，一看便知接上了没有。',
+ '外面的访客从大门口来，大门口挂着指路牌：哪个名字通哪个总机——这块牌子叫 Ingress。域名、路径、证书，都挂在牌子上安排。访客认牌不认摊，牌清楚了，路就顺了。',
+ '认识三种病容，明早可能抽到一种：CrashLoopBackOff——摊位反复开张又反复倒下，先 logs 看它临死前说了什么；Pending——一直排队站着，是泊位没力气了或者条件没谈拢，describe 看事件；ImagePullBackOff——图纸取不到，多半名字写错或码头要钥匙（密钥）。三种病，三种第一步，别混。',
+ '今晚把电话、工牌、指路牌排成一排。它们是「对外永远稳定、对内随便换」这条铁律的三个化身。'],
+ imagine:['总服务台的电话永远亮着，背后摊位换了三拨人而号码不变','工牌翻面，shop=web 三个字清晰发光','大门口的指路牌在风里稳稳立着，字迹崭新'],
+ tomorrow:'明早的考场会考：<b>Service/标签/Ingress 的分工</b>和三种病症的第一步。',
+ exam:['k8s','pair','best'],
+ metaphors:[['总服务台电话','Service（不变的入口）'],['工牌对暗号','label 与 selector'],['大门口指路牌','Ingress'],['反复倒下的摊位','CrashLoopBackOff'],['排队站不上泊位','Pending（资源不足）']]},
+
+{id:'n14',night:14,t:'云端的守望者',sub:'第十四夜 · 云、备份与总复习',mins:6,
+ paras:[
+ '讲到这里，你已经把这座城从门卫看到港务局。最后一夜，我们把视角拉高：云，到底是什么？说穿了——别人家盖好的大楼，你按需租。只租地皮和水电毛坯，自己装修，叫 IaaS；拎包入住的精装房，叫 PaaS；连物业、前台、保洁全包，你只来上班，叫 SaaS。租毛坯自由但累，租酒店省心但贵，选哪个，看你要操多少心。',
+ '大楼再好也要防意外。备份有个老规矩叫 3-2-1：至少三份，放两种介质，其中一份在别处。别处两个字最要命——同一栋楼里存两份，楼塌了两份一起没。还有个更省的做法叫快照：给整个书架拍一张照片，改坏了，一按回到拍照那一刻。赛场上「环境先拍快照」的纪律，就是它。',
+ '但备份不等于安全，没演练过的备份等于没备份。真的摔过一次、从备份里完整取回来过一次，你才知道那张底牌到底能不能打。这句话写进过无数故障复盘，今晚也写进你脑子里。',
+ '最后一句给守望者：城市要装仪表盘——CPU 高不高、磁盘满不满、服务活着没有，一眼看全。监控不是等出事，是让事还没出就被看见。你现在有了一张完整的地图：门卫与房卡（权限）、工人与人事处（进程服务）、邮政（网络）、前台与火漆（Web 与 HTTPS）、记录本（日志排错）、集装箱（Docker）、港务局（K8s）、守望者（云与备份）。十四夜到此收官，但从明早起，考场每天开门。',
+ '今晚不布置新东西——把十四张画面在脑子里走一遍，从城门走到港务局。走不动的地方，明早做错的那道题会替你标出来。'],
+ imagine:['你站在高处俯瞰整座云上之城，十四处灯火依次亮起','书架前的相机一闪，整排书架定格成一张照片','仪表盘上每一格都是安稳的绿色，城市安静地呼吸'],
+ tomorrow:'明早是<b>综合卷</b>：十四夜的内容都可能抽到。错题本里躺着的，就是你还没走熟的那几条街。',
+ exam:['best','disk','pair'],
+ metaphors:[['按需租的大楼','云服务 IaaS/PaaS/SaaS'],['给书架拍照','快照 snapshot'],['3-2-1 规则','备份策略'],['没演练的备份','等于没备份'],['城市仪表盘','监控告警']]}
+]);
+
+/* ============================================================
+   出题引擎：题型族（part 1）
+   每族 function(rng, ctx) -> {stem, opts[4], ans, exp, tag}
+   ============================================================ */
+var FAMS={};
+var FAM_LABEL={subnet:'子网',port:'端口',perm:'权限',path:'路径',pkg:'软件包',cmd:'命令选择',
+ step:'排错第一步',http:'HTTP 状态码',docker:'容器诊断',k8s:'集群诊断',dns:'DNS 排错',
+ log:'日志判读',disk:'磁盘计算',best:'最佳实践',pair:'故事呼应',meta:'昨夜故事'};
+var ALLFAMS=['subnet','port','perm','path','pkg','cmd','step','http','docker','k8s',
+ 'dns','log','disk','best','pair'];
+
+function mk(r,stem,correct,wrongs,exp,tag){
+  var w=[];
+  for(var i=0;i<wrongs.length;i++){
+    if(wrongs[i]!==correct&&w.indexOf(wrongs[i])<0)w.push(wrongs[i]);
+  }
+  if(w.length<3){/* 兜底补齐 */
+    var pad=['以上都不对','先看看再说','需要重启后才知道'];
+    for(var k=0;k<pad.length&&w.length<3;k++){
+      if(pad[k]!==correct&&w.indexOf(pad[k])<0)w.push(pad[k]);
+    }
+  }
+  var o=r.shuffle([correct].concat(w.slice(0,3)));
+  return {stem:stem,opts:o,ans:o.indexOf(correct),exp:exp,tag:tag};
+}
+
+/* ---- 子网：随机网段 + 随机问法 ---- */
+FAMS.subnet=function(r,ctx){
+  var cls=r.i(3);
+  var a=cls===0?10:(cls===1?172:192);
+  var b=cls===0?(1+r.i(200)):(cls===1?(16+r.i(16)):168);
+  var c=r.i(250);
+  var cidr=r.pick([24,25,26,27,28,30]);
+  var host=1+r.i(250);
+  var ipint=((a<<24)|(b<<16)|(c<<8)|host)>>>0;
+  var mask=((0xFFFFFFFF<<(32-cidr))>>>0);
+  var net=(ipint&mask)>>>0;
+  var bcast=(net|((~mask)>>>0))>>>0;
+  var hosts=Math.pow(2,32-cidr)-2;
+  function ip(n){return ((n>>>24)&255)+'.'+((n>>>16)&255)+'.'+((n>>>8)&255)+'.'+(n&255);}
+  var ipStr=ip(ipint),netStr=ip(net),bcastStr=ip(bcast);
+  var mode=r.i(4);
+  if(mode===0){
+    return mk(r,'主机 <code>'+ipStr+'/'+cidr+'</code> 所在网段的网络地址（网络号）是？',
+      netStr,[ip(net+1),bcastStr,ip(net+256)],
+      '把主机位全部清零就是网络地址：'+ipStr+' 在 /'+cidr+' 的围墙下，主机位清零后 = '+netStr+'（它是这个小区的门牌起点）。',
+      '子网 · 网络地址');
+  }
+  if(mode===1){
+    return mk(r,'网段 <code>'+netStr+'/'+cidr+'</code> 的广播地址是？',
+      bcastStr,[ip(bcast-1),netStr,ip(bcast-2)],
+      '主机位全部置 1 就是广播地址：'+netStr+' 的主机位全开 = '+bcastStr+'（小区里喊一嗓子谁都听到的那个地址）。',
+      '子网 · 广播地址');
+  }
+  if(mode===2){
+    return mk(r,'网段 <code>'+netStr+'/'+cidr+'</code> 里可用的主机地址数是多少？',
+      String(hosts),[String(hosts+2),String(hosts+1),String(Math.max(1,hosts/2))],
+      '可用数 = 2^(32-'+cidr+') - 2 = 2^'+(32-cidr)+' - 2 = '+hosts+'。减掉的 2 是网络地址和广播地址——它们各有其名，不能分给住户。',
+      '子网 · 主机数');
+  }
+  var mstr=ip(mask);
+  var others=[];
+  var cand=[24,25,26,27,28,30,22];
+  for(var i=0;i<cand.length&&others.length<3;i++){
+    if(cand[i]!==cidr)others.push(ip(((0xFFFFFFFF<<(32-cand[i]))>>>0)));
+  }
+  return mk(r,'IP <code>'+ipStr+'/'+cidr+'</code> 的子网掩码（点分十进制）是？',
+    mstr,others,
+    '/'+cidr+' 表示前 '+cidr+' 位是网络位（围墙），后 '+(32-cidr)+' 位是主机位：前 24 位全 1 是 255.255.255.0，/26 再多两位就是 '+mstr+'。',
+    '子网 · 掩码');
+};
+
+/* ---- 端口 ---- */
+var PORTS=[['SSH 远程登录',22],['HTTP 网页',80],['HTTPS 加密网页',443],['DNS 域名解析',53],
+ ['NTP 时间同步',123],['SMTP 邮件外发',25],['FTP 文件传输',21],['MySQL 数据库',3306],
+ ['Redis 缓存',6379],['PostgreSQL 数据库',5432],['常见 Web 中间件',8080]];
+FAMS.port=function(r,ctx){
+  var it=r.pick(PORTS);
+  var others=r.sample(PORTS.filter(function(x){return x[1]!==it[1];}),3);
+  if(r.chance(0.5)){
+    var ws=[];for(var i=0;i<others.length;i++)ws.push(String(others[i][1]));
+    return mk(r,'「'+it[0]+'」服务默认监听哪个端口？',String(it[1]),ws,
+      '端口是楼里的窗口号。最该背的五个：22 SSH、80 HTTP、443 HTTPS、53 DNS、3306 MySQL——「'+it[0]+'」就是 '+it[1]+'。',
+      '端口 · 默认窗口');
+  }
+  var wo=[];for(var j=0;j<others.length;j++)wo.push(others[j][0]);
+  return mk(r,'某服务监听端口 <code>'+it[1]+'</code>，它最可能是什么？',it[0],wo,
+    it[1]+' 是「'+it[0]+'」的默认窗口。窗口号是全城约定俗成的，走错窗口信就送不到。',
+    '端口 · 反查');
+};
+
+/* ---- 权限 ---- */
+FAMS.perm=function(r,ctx){
+  var pool=[[7,6,0],[7,4,0],[6,4,0],[7,5,4],[5,4,0],[7,7,4],[4,4,0],[6,0,0],[7,4,1],[5,4,4],[7,5,5],[6,4,4]];
+  function w(n){return ((n&4)?'r':'-')+((n&2)?'w':'-')+((n&1)?'x':'-');}
+  if(r.chance(0.5)){
+    var t=r.pick(pool);
+    var correct=w(t[0])+w(t[1])+w(t[2]);
+    var ws=[];
+    var shuffled=r.shuffle(pool);
+    for(var i=0;i<shuffled.length&&ws.length<3;i++){
+      var s=w(shuffled[i][0])+w(shuffled[i][1])+w(shuffled[i][2]);
+      if(s!==correct)ws.push(s);
+    }
+    return mk(r,'权限数字 <code>chmod '+t.join('')+'</code> 对应的三组灯是？',correct,ws,
+      '每位数字 = 读4 + 写2 + 执行1：'+t[0]+' = '+w(t[0])+'，'+t[1]+' = '+w(t[1])+'，'+t[2]+' = '+w(t[2])+'。顺序永远是主人、家人、访客。',
+      '权限 · 数字→灯');
+  }
+  var items=[
+    {t:'主人读写执行、家人只读、访客无权',v:[6,4,0]},
+    {t:'主人读写执行、家人可读、访客无权',v:[7,4,0]},
+    {t:'主人读写执行、家人读写执行、访客只读',v:[7,7,4]},
+    {t:'主人可读可执行、家人只读、访客只读',v:[5,4,4]},
+    {t:'主人读写、家人只读、访客无权',v:[6,4,0]},
+    {t:'主人读写执行、家人只读执行、访客只读',v:[7,5,4]},
+    {t:'主人只读、家人只读、访客无权',v:[4,4,0]}
+  ];
+  var poolA=[];
+  for(var m=0;m<items.length;m++)poolA.push(items[m]);
+  var ws2=[];
+  var it0=null;
+  /* 生成「场景 → 数字」题；同场景去重 */
+  var pick=r.shuffle(poolA);
+  for(var p=0;p<pick.length;p++){
+    var cand=pick[p];
+    if(!it0){it0=cand;continue;}
+    var s2=cand.v.join('');
+    if(s2!==it0.v.join('')&&ws2.indexOf(s2)<0)ws2.push(s2);
+    if(ws2.length>=3)break;
+  }
+  var correct2=it0.v.join('');
+  return mk(r,'一间屋子的规矩是：'+it0.t+'。它的权限数字是？',correct2,ws2,
+    '按主人、家人、访客三位相加（读4 写2 执行1）：'+it0.t+' → '+correct2+'。',
+    '权限 · 场景→数字');
+};
+
+/* ---- 路径 ---- */
+function resolvePath(cwd,ops){
+  var parts=cwd.split('/').filter(function(s){return s.length>0;});
+  for(var i=0;i<ops.length;i++){
+    var segs=ops[i].split('/');
+    for(var j=0;j<segs.length;j++){
+      var s=segs[j];
+      if(!s||s==='.')continue;
+      if(s==='..'){if(parts.length>0)parts.pop();}
+      else parts.push(s);
+    }
+  }
+  return '/'+parts.join('/');
+}
+FAMS.path=function(r,ctx){
+  var words=['var','log','nginx','home','user','docs','etc','opt','srv','app','www','html','data','backup','conf','site','tmp'];
+  var depth=r.pick([3,4,5]);
+  var cwd='/'+r.sample(words,depth).join('/');
+  var ops=[];
+  var nOps=r.pick([1,2,2,3]);
+  var opPool=['..','../..','.','./tmp','logs','../../..','newdir'];
+  for(var i=0;i<nOps;i++)ops.push(r.pick(opPool));
+  var correct=resolvePath(cwd,ops);
+  var cands=[
+    resolvePath(cwd,ops.slice(0,ops.length-1)),
+    resolvePath(cwd,ops.concat(['..'])),
+    resolvePath(cwd,ops.slice(0,Math.max(0,ops.length-1)).concat(['..'])),
+    resolvePath(cwd,['..'].concat(ops)),
+    resolvePath(cwd,ops.concat(['./x'])),
+    resolvePath(cwd,['..','..'].concat(ops))
+  ];
+  var ws=[];
+  var order=r.shuffle(cands);
+  for(var k=0;k<order.length&&ws.length<3;k++){
+    if(order[k]!==correct&&ws.indexOf(order[k])<0)ws.push(order[k]);
+  }
+  var cmd=ops.map(function(o){return 'cd '+o;}).join(' && ');
+  return mk(r,'当前目录 <code>'+cwd+'</code>，执行 <code>'+cmd+' && pwd</code> 后，pwd 显示什么？',
+    correct,ws,
+    '逐段走：<code>..</code> 上一层、<code>.</code> 留原地、具名目录进一层。从 '+cwd+' 出发按「'+ops.join('、')+'」走完 = '+correct+'。',
+    '路径 · 相对换算');
+};
+
+/* ---- 软件包 ---- */
+FAMS.pkg=function(r,ctx){
+  var OS=[{n:'Ubuntu 24.04',m:'apt',d:'东城'},{n:'Debian 12',m:'apt',d:'东城'},
+    {n:'Rocky Linux 9',m:'dnf',d:'西城'},{n:'CentOS 7',m:'yum',d:'西城'}];
+  var os=r.pick(OS);
+  var other=(os.m==='apt')?'dnf':'apt';
+  var tasks=[
+    {q:'安装 nginx',a:os.m+' install nginx',d:[other+' install nginx',os.m+' update',os.m+' upgrade nginx'],
+     e:'装新货用 install；update 只刷新到货目录，upgrade 是把已装的货换新。'},
+    {q:'刷新软件目录（看看仓库有什么新货）',a:os.m+' update',d:[other+' update',os.m+' upgrade',os.m+' remove'],
+     e:'update 是看目录、不搬货；install 才真正提货——新手最常见的空转就是只 update。'},
+    {q:'把已安装的软件升级到新版本',a:os.m+' upgrade',d:[other+' upgrade',os.m+' update',os.m+' install'],
+     e:'upgrade 换新货；update 只刷新目录。两者差一步，差一步就是差一步。'},
+    {q:'卸载 curl',a:os.m+' remove curl',d:[other+' remove curl',os.m+' install curl',os.m+' search curl'],
+     e:'remove（yum 里叫 erase）是下架；search 只是查目录，货不动。'}
+  ];
+  var t=r.pick(tasks);
+  return mk(r,'这台服务器是 <code>'+os.n+'</code>（'+os.d+'，快递员 '+os.m+'），要'+t.q+'，用哪条命令？',
+    t.a,t.d,
+    t.e+' 另外：cat /etc/os-release 先看城门口告示栏，认准快递员再开口。',
+    '软件包 · '+os.m);
+};
+
+/* ---- 命令选择 ---- */
+var CMDS=[
+ {q:'实时盯着 error.log 的新增内容（像直播一样）',a:'tail -f /var/log/nginx/error.log',
+  d:['cat /var/log/nginx/error.log','head -n 20 /var/log/nginx/error.log','tail -n 50 /var/log/nginx/error.log'],
+  e:'tail -f 是持续跟随新行；cat / head / tail -n 都只看当时那一下，看完就没了。'},
+ {q:'查看各磁盘分区还剩多少空间',a:'df -h',
+  d:['du -sh /','free -h','lsblk'],
+  e:'df 看分区剩余、du 看目录占用、free 看内存、lsblk 看磁盘设备——四个账本四个用途。'},
+ {q:'查看内存使用情况',a:'free -h',d:['df -h','du -sh /var','uptime'],
+  e:'free 专管内存；df 管磁盘；uptime 只给负载和开机时长。'},
+ {q:'重启 nginx（换掉老进程重新起）',a:'systemctl restart nginx',
+  d:['systemctl reload nginx','kill -9 nginx','reboot'],
+  e:'restart 换进程；reload 只重读配置不换进程；kill -9 一刀切可能留残局；reboot 是掀桌子。'},
+ {q:'解压 pkg.tar.gz',a:'tar -xzvf pkg.tar.gz',
+  d:['tar -cvf pkg.tar.gz','unzip pkg.tar.gz','gzip -d pkg.tar.gz'],
+  e:'x 解包、z 处理 gzip、v 显示过程、f 指定文件；c 是打包不是解开，unzip 只认 zip，gzip -d 只剥一层还要再解 tar。'},
+ {q:'全盘找出大于 100M 的文件',a:'find / -size +100M',
+  d:['du -s /','ls -lh /','locate 100M'],
+  e:'find 按条件找文件；du 汇总目录大小；locate 按名字找，不认大小。'},
+ {q:'把 a.txt 拷到远程主机 host 的 /tmp 下',a:'scp a.txt user@host:/tmp/',
+  d:['cp a.txt user@host:/tmp/','mv a.txt user@host:/tmp/','curl a.txt user@host:/tmp/'],
+  e:'scp 走 SSH 拷远程；cp / mv 只在本机打转；curl 是往回拿，不是往外送。'},
+ {q:'用管理员权限重启 nginx',a:'sudo systemctl restart nginx',
+  d:['chmod 777 /etc/nginx','passwd nginx','login root'],
+  e:'sudo 借总钥匙办一件事、留一条记录；chmod 777 是把锁全拆，passwd 改密码，login 是换人进门，都不是「以管理员执行」。'},
+ {q:'让 nginx 开机自动在岗（城市重启后仍在）',a:'systemctl enable nginx',
+  d:['systemctl start nginx','systemctl status nginx','systemctl stop nginx'],
+  e:'enable 写入常驻编制；start 只是现在开工——只 start 不 enable，重启后岗位就空了。'},
+ {q:'探测本机 Web 服务是否真的有响应',a:'curl -I http://127.0.0.1',
+  d:['ping 127.0.0.1','ls /var/www','cat /etc/nginx/nginx.conf'],
+  e:'curl 走完整 HTTP 流程拿回应答；ping 只是喊一嗓子，通了不等于网页服务活着——这正是那句老话「ping 通 ≠ 服务通」。'},
+ {q:'看谁正在大口吃 CPU',a:'top',d:['df -h','free -h','du -sh /'],
+  e:'top 是活的进程名单、按资源占用排序；其余三个都是磁盘/内存的账本。'},
+ {q:'不重启，先检查 nginx 配置语法有没有写错',a:'nginx -t',
+  d:['nginx -s reload','systemctl status nginx','cat /etc/nginx/nginx.conf'],
+  e:'nginx -t 是配置体检；体检通过再 reload 才安全——顺序反了，语法错会把服务带崩。'}
+];
+FAMS.cmd=function(r,ctx){
+  var it=r.pick(CMDS);
+  return mk(r,it.q,it.a,it.d,it.e,'命令 · 场景选择');
+};
+
+/* ---- 排错第一步 ---- */
+var STEPS=[
+ {q:'网站突然返回 502，你的第一步是？',a:'先看现场：tail -n 50 /var/log/nginx/error.log',
+  d:['直接重启整台服务器','把 nginx 配置删掉重装','立刻把防火墙全部关闭'],
+  e:'侦探三步的第一步永远是看现场（日志）。重启会把现场毁掉——这是赛场上最常见的自杀式操作。'},
+ {q:'docker 容器起不来、反复退出，你的第一步是？',a:'docker logs 容器名，先看它临死前说了什么',
+  d:['docker rm 后盲目重建','重新安装 Docker','重启宿主机'],
+  e:'容器的记录本往往直接写着退出原因；不看 logs 就重建，等于把案发现场扫干净再破案。'},
+ {q:'服务器突然卡到动不了，你的第一步是？',a:'top 看谁在占资源',
+  d:['立刻长按电源重启','删除 /var/log 下所有日志','给所有进程 kill -9'],
+  e:'先定位再动手。资源被谁吃掉，top 一眼可见；先动手后思考，故障复盘时无据可查。'},
+ {q:'本地浏览器打不开本机的网站，你的第一步是？',a:'curl -v http://127.0.0.1，先确认本机服务有没有响应',
+  d:['去改路由器设置','直接重装操作系统','换一个浏览器再试'],
+  e:'先一刀切开「服务没起」还是「网络不通」——本机 curl 有响应，问题在网络/防火墙；没响应，问题在服务本身。'}
+];
+FAMS.step=function(r,ctx){
+  var it=r.pick(STEPS);
+  return mk(r,it.q,it.a,it.d,it.e,'排错 · 第一步');
+};
+
+/* ============================================================
+   出题引擎：题型族（part 2）+ 组卷
+   ============================================================ */
+var HTTPS=[
+ {c:'200',s:'访客要首页，前台顺利把页面递了出去。',e:'200 = 一切正常，货已送达。'},
+ {c:'301',s:'这页搬家了，前台举牌：以后都请走新门。',e:'301 = 永久重定向，旧地址从此指到新地址（页面搬家常用它）。'},
+ {c:'403',s:'信封没问题，但你没有进这间屋子的权限。',e:'403 = 服务器认得你，但不给进——权限被拒，和地址对不对无关。'},
+ {c:'404',s:'档案柜里根本没有这一页纸。',e:'404 = 资源不存在——路径写错或内容已被删。'},
+ {c:'429',s:'你敲门太勤，前台说：先缓一缓再进来。',e:'429 = 请求过多被限流，是服务器在自我保护。'},
+ {c:'500',s:'前台正要取货，办公室里出事了——服务器自己犯了错。',e:'500 = 服务器内部错误：程序自己崩了，锅在自己身上。'},
+ {c:'502',s:'前台转接后厨，电话那头没人接。',e:'502 = 网关从上游拿到无效应答——上游服务挂了或不健康。'},
+ {c:'504',s:'前台转接后厨，后厨半小时不出声。',e:'504 = 网关超时：上游太慢或没响应，前台等不及了。'}
+];
+FAMS.http=function(r,ctx){
+  var it=r.pick(HTTPS);
+  var others=r.sample(HTTPS.filter(function(x){return x.c!==it.c;}),3);
+  var ws=[];for(var i=0;i<others.length;i++)ws.push(others[i].c);
+  return mk(r,'HTTP 状态码的故事：'+it.s+' 这个状态码是？',it.c,ws,it.e,'HTTP · 状态码');
+};
+
+var DOCKER=[
+ {q:'执行 <code>docker run myapp</code>，命令立刻返回，容器一闪就没了。最可能的原因是？',
+  a:'容器的主进程不是前台进程，一交接就全部结束',
+  d:['宿主机内存不足','Docker 版本太旧','80 端口被占用'],
+  e:'容器的生命周期 = 主进程的生命周期。主进程一退（或不是前台运行），容器立刻关门——这是「闪退」第一元凶。'},
+ {q:'容器 Running，宿主机 <code>curl http://127.0.0.1:8080</code> 却拒绝连接。最可能的原因是？',
+  a:'容器里的服务没有在 80 端口监听',
+  d:['宿主机没有安装 curl','映射顺序写反了','Docker Hub 连不上'],
+  e:'映射 8080→80 已经在，容器也活着，那问题就在箱内：服务没起、或监听的端口不是 80。先 docker exec 进箱子里看。'},
+ {q:'容器 Running，但宿主机 <code>curl 127.0.0.1:8080</code> 拒绝连接；<code>docker ps</code> 的端口一栏是空的。原因最可能是？',
+  a:'启动时忘了 -p 端口映射，箱子里的窗口没接到外面',
+  d:['容器镜像损坏','宿主机防火墙一定关了','磁盘空间不足'],
+  e:'端口一栏为空 = 没做映射，外面根本找不到进箱的窗口。docker run 要带 -p 8080:80（外:内）。'},
+ {q:'数据库容器删掉重建后，里面的数据全没了。原因最可能是？',
+  a:'数据写在容器内部，没有挂载到箱外的卷',
+  d:['数据库没有设置密码','容器名起得太短','宿主机时区不对'],
+  e:'容器是可丢弃的店面，数据必须放箱外储藏室（volume）。容器一删，箱内的一切随之蒸发。'},
+ {q:'宿主机磁盘 100% 满，<code>docker info</code> 报空间不足。最合适的动作是？',
+  a:'docker system prune，清理无主的镜像、停止的容器与悬空层',
+  d:['直接 rm -rf /var/log','把正在运行的容器全部删掉','关闭 swap 分区'],
+  e:'Docker 垃圾（旧镜像、悬空层、退出的容器）是磁盘杀手。prune 是定向大扫除——先看清再扫，别把在用的也收了。'}
+];
+FAMS.docker=function(r,ctx){
+  var it=r.pick(DOCKER);
+  return mk(r,it.q,it.a,it.d,it.e,'容器 · 场景诊断');
+};
+
+var K8S=[
+ {q:'Pod 状态反复变成 <code>CrashLoopBackOff</code>。你的第一步是？',
+  a:'kubectl logs 看崩溃输出，找它退出前的最后一句话',
+  d:['kubectl delete pod 直接删掉','重启整台节点机器','把副本数改成 0'],
+  e:'CrashLoopBackOff = 摊位反复开张又反复倒下。logs 是它的遗言，90% 的答案就写在里面。'},
+ {q:'Pod 状态是 <code>ImagePullBackOff</code>，最可能的原因是？',
+  a:'镜像名写错，或拉取需要凭据（密钥）',
+  d:['Pod 内存配额太小','Service 端口配错','节点磁盘满了'],
+  e:'ImagePullBackOff = 图纸取不到：名字拼错、仓库不对、或私有仓库没给钥匙。describe 里的 Events 会写清楚。'},
+ {q:'Pod 一直是 <code>Pending</code> 排队不动。最可能的原因是？',
+  a:'集群没有符合条件的空闲资源，或调度条件没谈拢',
+  d:['容器日志写满了','Service 忘了配 selector','镜像版本太旧'],
+  e:'Pending = 没泊位可上：资源不足、亲和性/污点不合。kubectl describe pod 看 Events，调度器都写明白了。'},
+ {q:'集群里访问 Service 不通，<code>kubectl get endpoints</code> 是空的。最可能的原因是？',
+  a:'Service 的 selector 与 Pod 的 label 对不上暗号',
+  d:['节点 CPU 太低','镜像拉取太慢','Ingress 域名没备案'],
+  e:'endpoints 为空 = 总机一个分机都没接上。十有八九是 label 写错一个字母——工牌对不上，电话永远打不通。'},
+ {q:'Deployment 上错了版本，想立刻回到上一个版本，用哪条命令？',
+  a:'kubectl rollout undo deployment/应用名',
+  d:['kubectl drain 节点名','kubectl cordon 节点名','kubectl scale deployment/应用名 --replicas=0'],
+  e:'rollout undo 是招聘计划回滚到上一版；drain/cordon 是对节点动手（腾空/禁用泊位）；replicas=0 是直接裁光所有人。'}
+];
+FAMS.k8s=function(r,ctx){
+  var it=r.pick(K8S);
+  return mk(r,it.q,it.a,it.d,it.e,'集群 · 场景诊断');
+};
+
+var DNSQ=[
+ {q:'浏览器打不开 <code>http://shop.internal</code>，但 <code>ping 10.0.0.5</code>（它的 IP）是通的。问题最可能出在？',
+  a:'名字翻译环节——DNS 解析没成功',
+  d:['服务器磁盘满了','网线接触不良','80 端口被占用'],
+  e:'IP 通 = 路是通的；名字打不开 = 电话簿没翻到。能 ping 通 IP 却打不开域名，八成卡在 DNS。'},
+ {q:'宿主机上 <code>ping db.local</code> 通，进了容器里却不通。最可能的原因是？',
+  a:'容器有自己独立的 /etc/hosts，宿主机那份小抄不跟着进去',
+  d:['容器缺 DNS 服务全网瘫痪','80 端口被占用','宿主机内存不足'],
+  e:'每个容器都有一份自己的 /etc/hosts。宿主机写好的小抄，容器里看不见——要在启动参数 --add-host 或 compose 里再写一次。'},
+ {q:'<code>dig @8.8.8.8 example.com</code> 能解析，直接 <code>dig example.com</code> 却失败。问题在？',
+  a:'本机 /etc/resolv.conf 指向的 DNS 服务器有问题',
+  d:['域名本身不存在','8.8.8.8 被封禁','系统时间错误'],
+  e:'指定外部电话簿能翻到、用默认的翻不到——锅在本机默认 DNS 配置（resolv.conf）。'},
+ {q:'域名解析时快时慢，偶尔超时。更应该先检查？',
+  a:'当前 DNS 服务器的响应质量，考虑换稳定的解析地址',
+  d:['把网站静态资源全部删掉','把防火墙规则全部清空','重装操作系统'],
+  e:'解析时快时慢是上游电话簿的问题；改 DNS 指向是第一步，掀桌子永远排最后。'}
+];
+FAMS.dns=function(r,ctx){
+  var it=r.pick(DNSQ);
+  return mk(r,it.q,it.a,it.d,it.e,'DNS · 解析排错');
+};
+
+var LOGS=[
+ {l:'connect() failed (111: Connection refused) while connecting to upstream, upstream: "http://127.0.0.1:8080"',
+  a:'后端服务没起来，或监听端口不对',d:['磁盘空间不足','访客权限不够','DNS 解析失败'],
+  e:'Connection refused = 敲门无人应：上游 8080 上没有进程在听。去查后端服务状态，这是 nginx 转发失败最经典的原因。'},
+ {l:'write() failed (28: No space left on device) while writing to upstream',
+  a:'磁盘满了，写不进去',d:['内存泄漏','端口冲突','证书过期'],
+  e:'No space left on device = 仓库爆满。df -h 找到满的分区，清理或扩容——日志里的暗语之王。'},
+ {l:'open() "/var/www/html/index.html" failed (13: Permission denied)',
+  a:'进程没有读取该文件的权限',d:['磁盘已满','文件太大','上游服务宕机'],
+  e:'Permission denied = 没带房卡。检查文件属主与 rwx（第 3 夜的三盏灯）。'},
+ {l:'bind() to 0.0.0.0:80 failed: Address already in use',
+  a:'80 端口已被别的进程占用',d:['磁盘已满','内存不足','域名解析错误'],
+  e:'Address already in use = 窗口被人占了。ss -tlnp | grep :80 找出占着的进程，再决定换端口还是停掉它。'},
+ {l:'kernel: Out of memory: Killed process 3391 (java) total-vm:2048000kB',
+  a:'内存耗尽，系统强制杀掉了进程',d:['磁盘损坏','网络中断','时钟不同步'],
+  e:'OOM Killer = 城里没水了，管家开始抬人。free -h 与进程内存占用排查，必要时加内存或限住吃内存的进程。'}
+];
+FAMS.log=function(r,ctx){
+  var it=r.pick(LOGS);
+  var ts='2026-'+pad2(1+r.i(12))+'-'+pad2(1+r.i(28))+' '+pad2(r.i(24))+':'+pad2(r.i(60))+':'+pad2(r.i(60));
+  var line='['+ts+'] '+it.l;
+  return mk(r,'日志里出现这样一行：<code>'+line+'</code>，它最可能说明什么？',
+    it.a,it.d,it.e,'日志 · 读行下结论');
+};
+
+FAMS.disk=function(r,ctx){
+  var total=r.pick([40,80,100,200,400]);
+  var pct=r.pick([60,65,70,75,80,85,90]);
+  var used=total*pct/100;
+  var free=total-used;
+  if(r.chance(0.5)){
+    var d=[String(pct-5)+'%',String(pct+3)+'%',String(pct+7)+'%'];
+    return mk(r,'<code>df -h</code> 显示 /data 总容量 '+total+'G，已用 '+used+'G。使用率是多少？',
+      pct+'%',d,
+      '使用率 = 已用 ÷ 总量 = '+used+' ÷ '+total+' = '+pct+'%。运维红线通常画在 80%：'+(pct>=80?'现在已经越线，该清理或扩容了':'还没到 80%，但要盯着')+'。',
+      '磁盘 · 使用率');
+  }
+  var d2=[String(free+Math.round(total*0.05))+'G',String(Math.max(1,free-Math.round(total*0.05)))+'G',String(total-used-10)+'G'];
+  return mk(r,'<code>df -h</code> 显示 /data 总容量 '+total+'G，已用 '+used+'G。剩余空间是多少？',
+    free+'G',d2,
+    '剩余 = 总量 - 已用 = '+total+' - '+used+' = '+free+'G。剩余空间告警一般画在总量的 15%~20%。',
+    '磁盘 · 剩余空间');
+};
+
+var BEST=[
+ {a:'重要数据按 3-2-1 备份（三份、两种介质、一份异地），并定期做一次恢复演练',
+  w:['把数据库直接放在容器里，删了再建最省事','所有目录权限设成 777，省得记不住','备份拷到同一台服务器的另一个目录就万事大吉'],
+  e:'3-2-1 里的「异地」防的是整机报废；恢复演练防的是「备份一直在、取不出来」——没演练过的备份等于没备份。容器内数据、777、同机备份各踩了相反的坑。'},
+ {a:'业务进程用普通权限账号运行，需要提权时用 sudo 并留下记录',
+  w:['全程 root 一把梭，反正内网没人看得见','把配置文件 chmod 777 方便协作','关掉防火墙省得端口不通'],
+  e:'最小权限是世赛评分表的明面要求。root 出错即是事故，777 等于拆锁，关防火墙等于城墙开门。'},
+ {a:'密钥与密码放环境变量或专用保管工具，绝不提交进代码仓库',
+  w:['把 API 密钥写进 README，方便同事取用','把密钥硬编码进代码注释里','用公司群公告发一遍最保险'],
+  e:'代码仓库会永久留痕、可能公开——密钥进了 git 就要按泄露处置（立即轮换）。README、注释、群公告同理都是明文扩散。'},
+ {a:'改配置文件前先备份原文件，改完先做语法检查再重载',
+  w:['直接改，反正能改回来','改完立刻重启整台服务器','把配置全部删掉重建'],
+  e:'先备份、再检查、后重载，是第 9 夜侦探三步的落地动作；直接重启会毁现场，删掉重建是把问题和配置一起埋了。'},
+ {a:'防火墙默认拒绝入站，只放行真正需要的端口',
+  w:['防火墙全开最省心','只防外网，内网不用设防','把 22 端口暴露到公网并用弱密码'],
+  e:'默认拒绝 + 按需放行是安全基线；「内网不用设防」在世赛与真实企业里都是红线，横向移动就是这么开始的。'},
+ {a:'证书到期前提前续期，上线前验证证书链完整',
+  w:['过期了先不管，用户点「继续」就能访问','把私钥和证书一起公开方便排查','用自签证书给公网用户用'],
+  e:'过期证书会让所有访客看到安全警告；私钥公开等于火漆印公开；公网自签证书无法建立信任链。'}
+];
+FAMS.best=function(r,ctx){
+  var it=r.pick(BEST);
+  return mk(r,'下面哪种做法是<b>对的</b>？',it.a,it.w,it.e,'实践 · 对错判断');
+};
+
+/* ---- 故事呼应 / 昨夜故事 ---- */
+function allMetaphors(excludeId){
+  var L=[];
+  for(var i=0;i<STORIES.length;i++){
+    if(excludeId&&STORIES[i].id===excludeId)continue;
+    for(var j=0;j<STORIES[i].metaphors.length;j++){
+      L.push({m:STORIES[i].metaphors[j],night:STORIES[i].night,t:STORIES[i].t});
+    }
+  }
+  return L;
+}
+function metaphorQ(r,entry,tagPrefix,ctx){
+  var pool=allMetaphors(null);
+  var ws=[];
+  var shuf=r.shuffle(pool);
+  for(var i=0;i<shuf.length&&ws.length<3;i++){
+    var cand=shuf[i].m[1];
+    if(cand!==entry.m[1]&&ws.indexOf(cand)<0)ws.push(cand);
+  }
+  var st=STORIES.filter(function(s){return s.night===entry.night;})[0];
+  return mk(r,'第'+pad2(entry.night)+'夜《'+entry.t+'》里讲的「'+entry.m[0]+'」，真名是什么？',
+    entry.m[1],ws,
+    '画面「'+entry.m[0]+'」 = 真名「'+entry.m[1]+'」。故事里给每个概念都配了画面，靠画面回忆定义，比死背快得多。',
+    tagPrefix+' · 第'+pad2(entry.night)+'夜');
+}
+FAMS.pair=function(r,ctx){
+  var pool=allMetaphors(ctx.lastStory?ctx.lastStory.id:null);
+  if(!pool.length)pool=allMetaphors(null);
+  var it=pool[r.i(pool.length)];
+  return metaphorQ(r,it,'故事呼应',ctx);
+};
+FAMS.meta=function(r,ctx){
+  var st=ctx.lastStory;
+  if(!st)return FAMS.pair(r,ctx);
+  var entry={m:st.metaphors[r.i(st.metaphors.length)],night:st.night,t:st.t};
+  return metaphorQ(r,entry,'昨夜故事',ctx);
+};
+
+/* ---- 组卷：偏向昨晚收听 + 间隔复习 ---- */
+function byId(id){for(var i=0;i<STORIES.length;i++)if(STORIES[i].id===id)return STORIES[i];return null;}
+function genExam(seed,opts){
+  opts=opts||{};
+  var r=Rng(seed);
+  var listen=lastListenNight();
+  var lastStory=null;
+  if(listen&&listen.ids.length){
+    lastStory=byId(listen.ids[listen.ids.length-1])||byId(listen.ids[0]);
+  }
+  var plan=[];
+  if(opts.wrongFams&&opts.wrongFams.length){
+    var wf=opts.wrongFams.slice();
+    while(plan.length<10&&wf.length)plan.push(wf.splice(r.i(wf.length),1)[0]);
+    while(plan.length<10)plan.push(r.pick(ALLFAMS));
+  }else if(lastStory){
+    plan.push('meta');
+    plan.push(r.pick(lastStory.exam));
+    /* 间隔复习：更早听过的夜 */
+    var older=[];
+    var seen={};
+    for(var d in S.listens){
+      for(var i=0;i<S.listens[d].length;i++){
+        var id=S.listens[d][i];
+        if(lastStory&&id!==lastStory.id&&!seen[id]){seen[id]=1;older.push(id);}
+      }
+    }
+    older=r.shuffle(older);
+    for(var k=0;k<3&&older.length;k++){
+      var st=byId(older[k%older.length]);
+      if(st)plan.push(r.pick(st.exam));
+    }
+    var general=r.shuffle(ALLFAMS.slice());
+    while(plan.length<10)plan.push(general.pop()||r.pick(ALLFAMS));
+  }else{
+    var g2=r.shuffle(ALLFAMS.slice());
+    while(plan.length<10)plan.push(g2.pop()||r.pick(ALLFAMS));
+  }
+  var ctx={lastStory:lastStory,hard:!!opts.hard};
+  var qs=[],cnt={},stems={};
+  for(var p=0;p<plan.length&&qs.length<10;p++){
+    var fam=plan[p];
+    if((cnt[fam]||0)>=2){fam=r.pick(ALLFAMS);if((cnt[fam]||0)>=2)continue;}
+    var gen=FAMS[fam];
+    if(!gen)continue;
+    var q;
+    try{q=gen(r,ctx);}catch(e){continue;}
+    if(!q||!q.opts||q.ans<0)continue;
+    if(stems[q.stem])continue;
+    stems[q.stem]=1;cnt[fam]=(cnt[fam]||0)+1;
+    q.fam=fam;qs.push(q);
+  }
+  /* 兜底：数量不足时强行补足 */
+  var guard=0;
+  while(qs.length<10&&guard<80){
+    guard++;
+    var f3=r.pick(ALLFAMS);
+    var q2;
+    try{q2=FAMS[f3](r,ctx);}catch(e2){continue;}
+    if(!q2||!q2.opts||q2.ans<0||stems[q2.stem])continue;
+    stems[q2.stem]=1;q2.fam=f3;qs.push(q2);
+  }
+  qs=r.shuffle(qs);
+  return {seed:seed,qs:qs,lastStory:lastStory,listen:listen};
+}
+
+/* ============================================================
+   界面：播放卡片 · 各视图 · 考场 · 启动
+   ============================================================ */
+var PLAYERS=[];
+function broadcast(s){
+  for(var i=0;i<PLAYERS.length;i++){try{PLAYERS[i].upd(s);}catch(e){}}
+}
+function plain(s){return String(s).replace(/<[^>]+>/g,'');}
+function fmtSec(s){return pad2(Math.floor(s/60))+':'+pad2(s%60);}
+
+/* ---------- 播放卡片 ---------- */
+function mountPlayer(container,st){
+  var wrap=el('div','kc-player');
+  var dots='';
+  for(var i=0;i<st.paras.length;i++)dots+='<i></i>';
+  var paras='';
+  for(var j=0;j<st.paras.length;j++)paras+='<p class="kc-para" data-i="'+j+'">'+st.paras[j]+'</p>';
+  var imag='<ul>'+(st.imagine||[]).map(function(x){return '<li>'+x+'</li>';}).join('')+'</ul>';
+  wrap.innerHTML=
+    '<div class="kc-phead"><div class="knight">'+esc(st.sub)+'</div>'+
+    '<h3>第'+pad2(st.night)+'夜 ·《'+esc(st.t)+'》</h3>'+
+    '<div class="kmeta">约 '+st.mins+' 分钟 · '+st.paras.length+' 段 · 听完自动记录（开始播放即记录）</div></div>'+
+    '<div class="kc-dots">'+dots+'</div>'+
+    '<div class="kc-pbody">'+paras+'</div>'+
+    '<div class="kc-imag"><b>睡前三分钟 · 想象三件事</b>'+imag+'</div>'+
+    '<div class="kc-tomorrow">🌙 '+st.tomorrow+'</div>'+
+    '<div class="kc-ctl">'+
+      '<button class="kc-btn k-play">▶ 播放本夜</button>'+
+      '<button class="kc-btn ghost k-stop">⏹ 停止</button>'+
+      '<select class="k-rate" title="语速"><option value="0.85">慢速 0.85×</option><option value="1">常速 1×</option><option value="1.15">快速 1.15×</option><option value="1.3">更快 1.3×</option></select>'+
+      '<select class="k-timer" title="定时关闭"><option value="0">不设定时</option><option value="10">10 分钟后停</option><option value="20">20 分钟后停</option><option value="30">30 分钟后停</option></select>'+
+      '<button class="kc-btn ghost k-done">✅ 我听完了</button>'+
+    '</div>'+
+    '<div class="kc-state"></div>';
+  container.appendChild(wrap);
+
+  var bPlay=$('.k-play',wrap),bStop=$('.k-stop',wrap),bDone=$('.k-done',wrap);
+  var selRate=$('.k-rate',wrap),selTimer=$('.k-timer',wrap);
+  var state=$('.kc-state',wrap),body=$('.kc-pbody',wrap);
+  var dotEls=$$('.kc-dots i',wrap);
+  selRate.value=String(S.settings.rate||1);
+
+  function idle(){
+    bPlay.textContent='▶ 播放本夜';
+    state.textContent=TT.supported?'点播放，让声音读给你听':'此浏览器不支持朗读，可直接阅读文本';
+  }
+  var entry={id:st.id,upd:function(s){
+    var mine=TT.playing&&TT.story&&TT.story.id===st.id;
+    if(!mine){
+      if(s&&s.stopped||s&&s.finished){idle();}
+      if(!TT.playing){idle();}
+      return;
+    }
+    if(s.cursor!=null){
+      var it=s.it;
+      for(var i=0;i<dotEls.length;i++){
+        dotEls[i].className=i<s.cursor?'fin':(i===s.cursor?'sp':'');
+      }
+      var ps=$$('.kc-para',wrap);
+      for(var k=0;k<ps.length;k++){
+        var idx=parseInt(ps[k].getAttribute('data-i'),10);
+        ps[k].className='kc-para'+(idx<s.cursor?' done':'')+
+          (it&&it.type==='p'&&idx===it.i?' speaking':'');
+        if(it&&it.type==='p'&&idx===it.i){
+          try{ps[k].scrollIntoView({block:'nearest',behavior:'smooth'});}catch(e){}
+        }
+      }
+      if(it&&it.type!=='p'){
+        for(var z=0;z<ps.length;z++)ps[z].className='kc-para done';
+      }
+      bPlay.textContent='⏸ 暂停';
+      state.textContent='朗读中…（语速可在下方调整，定时随时可设）';
+    }
+    if(s.left!=null){state.textContent='⏳ 定时还剩 '+fmtSec(s.left)+'（到点自动停）';}
+    if(s.timerSet){state.textContent=s.timerSet>0?('定时已设：'+s.timerSet+' 分钟后停止'):'已取消定时';}
+    if(s.paused){bPlay.textContent='▶ 继续';state.textContent='已暂停';}
+    if(s.stopped){idle();for(var a=0;a<dotEls.length;a++)dotEls[a].className='';}
+    if(s.finished){
+      bPlay.textContent='▶ 再听一遍';
+      state.textContent='✓ 本夜听完，已记录收听';
+      for(var b=0;b<dotEls.length;b++)dotEls[b].className='fin';
+      var pp=$$('.kc-para',wrap);
+      for(var c=0;c<pp.length;c++){pp[c].className='kc-para done';}
+    }
+  }};
+  PLAYERS.push(entry);
+  entry.upd({});
+
+  bPlay.onclick=function(){
+    if(TT.playing&&TT.story&&TT.story.id===st.id){
+      if(TT.paused)TT.resume();else TT.pause();
+      return;
+    }
+    if(selTimer.value!=='0')TT.setTimer(parseInt(selTimer.value,10));
+    TT.play(st, broadcast);
+  };
+  bStop.onclick=function(){if(TT.story&&TT.story.id===st.id)TT.stop();};
+  bDone.onclick=function(){
+    if(TT.story&&TT.story.id===st.id&&TT.playing)TT.stop();
+    var fresh=markListen(st.id);
+    toast(fresh?'已记录：第'+pad2(st.night)+'夜完成，明早考它 🌙':'本夜已在记录中');
+    refreshAll();
+  };
+  selRate.onchange=function(){S.settings.rate=parseFloat(selRate.value);save();
+    toast('语速已设 '+selRate.value+'×（下一段生效）');};
+  selTimer.onchange=function(){
+    var v=parseInt(selTimer.value,10);
+    if(TT.playing)TT.setTimer(v);
+    else{state.textContent=v>0?('定时已预设 '+v+' 分钟，播放后生效'):'已取消定时';}
+  };
+  return wrap;
+}
+
+/* ---------- 今晚 ---------- */
+function nextUnlistened(){
+  var seen=allListenedIds();
+  for(var i=0;i<STORIES.length;i++){if(!seen[STORIES[i].id])return STORIES[i];}
+  return null;
+}
+function renderTonight(){
+  var slot=$('#kc-tonight-slot');if(!slot)return;
+  slot.innerHTML='';
+  var st=nextUnlistened();
+  var hint=el('div','goal');
+  if(!st){
+    var rr=Rng('review'+todayStr());
+    st=STORIES[rr.i(STORIES.length)];
+    hint.innerHTML='十四夜已全部听完 ✓ —— 今晚随机复习一夜，明早照常开考。';
+  }else{
+    var listen=lastListenNight();
+    if(listen){
+      var lastS=byId(listen.ids[listen.ids.length-1])||byId(listen.ids[0]);
+      hint.innerHTML='最近收听：<b>'+listen.date+'</b> · 第'+pad2(lastS.night)+'夜《'+lastS.t+'》'+
+        (listen.date===todayStr()?'（今晚已听 ✓，明早考场已偏向它）':'——今晚接着听下一夜，明早考场会先考它）。');
+    }else{
+      hint.innerHTML='还没有收听记录 —— <b>今夜就是第 01 夜</b>：听完点「我听完了」，明早考场按它出题。';
+    }
+  }
+  slot.appendChild(hint);
+  var box=el('div');slot.appendChild(box);
+  mountPlayer(box,st);
+  var more=el('p','small','<a href="#lib" data-goto="lib">查看全部十四夜 →</a>');
+  slot.appendChild(more);
+}
+
+/* ---------- 故事库 ---------- */
+function renderLib(){
+  var slot=$('#kc-lib-slot');if(!slot)return;
+  slot.innerHTML='';
+  var seen=allListenedIds();
+  for(var i=0;i<STORIES.length;i++){
+    (function(st){
+      var d=el('details','kc-lib');
+      var done=seen[st.id]?'<span class="kc-done">✓ 已听</span>':'<span class="kd">约 '+st.mins+' 分钟</span>';
+      var sum=el('summary',null,
+        '<span class="kn">第'+pad2(st.night)+'夜</span>'+
+        '<span class="kt">《'+esc(st.t)+'》</span>'+done);
+      d.appendChild(sum);
+      var full=el('div','kc-full');
+      var tb='<table class="kc-mtable"><tr><td colspan="2" style="color:var(--dim);border:0">画面 ↔ 真名对照</td></tr>';
+      for(var j=0;j<st.metaphors.length;j++){
+        tb+='<tr><td>'+esc(st.metaphors[j][0])+'</td><td>= '+esc(st.metaphors[j][1])+'</td></tr>';
+      }
+      tb+='</table>';
+      full.innerHTML='<p class="small" style="color:var(--dim)">'+esc(st.sub)+' · 今晚考点：'+esc(plain(st.tomorrow))+'</p>';
+      d.appendChild(full);
+      var pbox=el('div');d.appendChild(pbox);
+      var mbox=el('div');mbox.innerHTML=tb;d.appendChild(mbox);
+      d.addEventListener('toggle',function(){
+        if(d.open&&!pbox.firstChild){mountPlayer(pbox,st);}
+      });
+      slot.appendChild(d);
+    })(STORIES[i]);
+  }
+}
+
+/* ---------- 进度 ---------- */
+function renderMe(){
+  var slot=$('#kc-me-slot');if(!slot)return;
+  slot.innerHTML='';
+  var seen=allListenedIds();
+  var nights=0;for(var k in seen)nights++;
+  var examN=0,scoreSum=0,scoreN=0;
+  for(var d in S.exams){for(var i=0;i<S.exams[d].length;i++){
+    examN++;scoreSum+=S.exams[d][i].score;scoreN++;}}
+  var stats=el('div','kc-stat',
+    '<div class="ks"><b>'+nights+'/14</b><span>已听夜数</span></div>'+
+    '<div class="ks"><b>'+examN+'</b><span>考试场次</span></div>'+
+    '<div class="ks"><b>'+(scoreN?Math.round(scoreSum/scoreN):'—')+'</b><span>平均分</span></div>'+
+    '<div class="ks"><b>'+streakDays()+'</b><span>连续打卡(天)</span></div>');
+  slot.appendChild(stats);
+
+  var cal=el('div');cal.appendChild(el('h2','sec','近 14 天'));
+  var row=el('div','kc-cal');
+  for(var j=13;j>=0;j--){
+    var ds=todayStr(addDays(new Date(),-j));
+    var L=S.listens[ds]&&S.listens[ds].length;
+    var E=S.exams[ds]&&S.exams[ds].length;
+    row.appendChild(el('div','kd','<div class="kdd">'+mdStr(ds)+'</div><div class="kdm">'+
+      (L?'🌙':'')+(E?'📝':'')+(!L&&!E?'·':'')+'</div>'));
+  }
+  cal.appendChild(row);slot.appendChild(cal);
+
+  var set=el('div');set.appendChild(el('h2','sec','设置'));
+  var rate=el('div','card');
+  rate.innerHTML='<label>朗读语速 <select id="kc-set-rate"><option value="0.85">0.85× 慢</option><option value="1">1× 常速</option><option value="1.15">1.15× 快</option><option value="1.3">1.3× 更快</option></select></label>';
+  set.appendChild(rate);slot.appendChild(set);
+  var sr=$('#kc-set-rate',rate);sr.value=String(S.settings.rate||1);
+  sr.onchange=function(){S.settings.rate=parseFloat(sr.value);save();toast('语速已保存');};
+
+  var wsec=el('div');wsec.appendChild(el('h2','sec','错题本（'+S.wrongs.length+'）'));
+  if(!S.wrongs.length){
+    wsec.appendChild(el('div','card','错题本是空的。做错的题会自动记在这里，考前翻一遍最省时间。'));
+  }else{
+    var cap=S.wrongs.slice(-20).reverse();
+    for(var w=0;w<cap.length;w++){
+      var it=cap[w];
+      wsec.appendChild(el('div','kc-witem',
+        '<div class="kwf">'+(FAM_LABEL[it.fam]||it.fam)+' · '+it.date+'</div>'+
+        '<div class="kws">'+esc(plain(it.stem))+'</div>'));
+    }
+    var clr=el('button','kc-btn ghost small','清空错题本');
+    clr.onclick=function(){if(confirm('确定清空错题本？')){S.wrongs=[];save();refreshAll();toast('错题本已清空');}};
+    wsec.appendChild(clr);
+  }
+  slot.appendChild(wsec);
+
+  var rst=el('div');rst.appendChild(el('h2','sec','数据'));
+  var rb=el('button','kc-btn ghost small','重置全部进度（收听+考试+错题）');
+  rb.onclick=function(){if(confirm('将清空本页所有进度，确定？')){
+    S={listens:{},exams:{},wrongs:[],settings:S.settings,attempt:0};save();refreshAll();toast('已重置');}};
+  rst.appendChild(rb);slot.appendChild(rst);
+}
+
+/* ---------- 考场 ---------- */
+var EX={running:false,done:false,qs:[],i:0,ans:[],start:0,deadline:0,timer:null};
+function renderExamIdle(){
+  var brief=$('#kc-exam-brief'),hist=$('#kc-history');
+  if(!brief)return;
+  var listen=lastListenNight();
+  if(listen){
+    var st=byId(listen.ids[listen.ids.length-1])||byId(listen.ids[0]);
+    brief.innerHTML='<div class="card"><b>出题偏向</b>：最近收听 '+listen.date+' · 第'+pad2(st.night)+'夜《'+st.t+
+      '》——今晨卷子会优先考这一夜 + 抽查更早听过的夜 + 混合题。</div>';
+  }else{
+    brief.innerHTML='<div class="card"><b>今天是综合卷</b>：还没有睡前收听记录。听一夜故事再来，卷子就会按故事定向出题（体验完全不同）。</div>';
+  }
+  var list=[];
+  for(var d in S.exams){for(var i=0;i<S.exams[d].length;i++)list.push({d:d,e:S.exams[d][i]});}
+  list.sort(function(a,b){return a.d<b.d?1:-1;});
+  var h='<h2 class="sec">最近考试</h2>';
+  if(!list.length){h+='<div class="card small">还没有考过。点上方「开始今晨考试」，10 题 8 分钟。</div>';}
+  else{
+    h+='<div class="card"><ul class="list">';
+    for(var k=0;k<Math.min(10,list.length);k++){
+      var e=list[k].e;
+      h+='<li><span class="t">'+list[k].d+(e.mode==='wrong'?' · 错题卷':'')+
+        (e.story?' · 偏向第'+pad2(e.story.night)+'夜':' · 综合')+'</span><span class="n">'+
+        e.score+' 分（'+e.right+'/10 · '+e.dur+'s）</span></li>';
+    }
+    h+='</ul></div>';
+  }
+  hist.innerHTML=h;
+}
+function syncExamPane(){
+  var idle=$('#kc-exam-idle'),run=$('#kc-exam-run'),done=$('#kc-exam-done');
+  if(EX.running){idle.style.display='none';run.style.display='';done.style.display='none';}
+  else if(EX.done){idle.style.display='none';run.style.display='none';done.style.display='';}
+  else{idle.style.display='';run.style.display='none';done.style.display='none';}
+}
+function showPane(name){
+  $$('#kc-sub a').forEach(function(a){a.classList.toggle('on',a.getAttribute('data-pane')===name);});
+  $$('.kc-pane').forEach(function(p){p.classList.toggle('on',p.id==='pane-'+name);});
+  if(name==='exam')syncExamPane();
+}
+function startExam(mode){
+  var wrongFams=null;
+  if(mode==='wrong'){
+    wrongFams=[];var seenf={};
+    for(var i=0;i<S.wrongs.length;i++){if(!seenf[S.wrongs[i].fam]){seenf[S.wrongs[i].fam]=1;wrongFams.push(S.wrongs[i].fam);}}
+    if(!wrongFams.length){toast('错题本是空的，先做一套综合卷吧');showPane('exam');return;}
+  }
+  clearInterval(EX.timer);
+  S.attempt++;save();
+  var seed=todayStr()+'#'+S.attempt+'#'+Date.now();
+  var g=genExam(seed,{wrongFams:wrongFams});
+  if(!g.qs.length){toast('出题失败，请重试');return;}
+  EX={running:true,done:false,qs:g.qs,i:0,ans:[],start:Date.now(),
+      deadline:Date.now()+8*60000,timer:null,mode:mode,
+      story:g.lastStory?{night:g.lastStory.night,t:g.lastStory.t}:null,seed:seed};
+  for(var k=0;k<EX.qs.length;k++)EX.ans.push(null);
+  showPane('exam');syncExamPane();
+  renderQ();
+  clearInterval(EX.timer);
+  EX.timer=setInterval(function(){
+    var left=Math.max(0,Math.round((EX.deadline-Date.now())/1000));
+    var t=$('#kc-time');if(t)t.textContent=fmtSec(left);
+    if(left<=0){clearInterval(EX.timer);toast('时间到，自动交卷');submitExam(true);}
+  },400);
+}
+function renderQ(){
+  var run=$('#kc-exam-run');
+  var q=EX.qs[EX.i];
+  var dots='';
+  for(var i=0;i<EX.qs.length;i++){
+    dots+='<i class="'+(i===EX.i?'cur':(EX.ans[i]!=null?'ans':''))+'"></i>';
+  }
+  var left=Math.max(0,Math.round((EX.deadline-Date.now())/1000));
+  var opts='';
+  for(var j=0;j<q.opts.length;j++){
+    var cls='kc-opt'+(EX.ans[EX.i]===j?' sel':'');
+    opts+='<button class="'+cls+'" data-o="'+j+'"><span class="kl">'+'ABCD'[j]+'</span><span>'+q.opts[j]+'</span></button>';
+  }
+  run.innerHTML=
+    '<div class="kc-examtop"><span class="kq">第 '+(EX.i+1)+' / '+EX.qs.length+' 题</span>'+
+    '<div class="kpdots">'+dots+'</div><span class="ktimer" id="kc-time">'+fmtSec(left)+'</span></div>'+
+    '<div class="kc-qcard"><div class="kc-qstem">'+q.stem+'</div>'+
+    '<div class="kc-qtag">'+(q.tag||FAM_LABEL[q.fam]||q.fam)+'</div>'+
+    '<div class="kc-opts">'+opts+'</div>'+
+    '<div class="kc-qnav">'+
+      '<button class="kc-btn ghost small" id="kc-prev"'+(EX.i===0?' disabled':'')+'>← 上一题</button>'+
+      '<span class="small">已答 '+EX.ans.filter(function(x){return x!=null;}).length+' / '+EX.qs.length+'</span>'+
+      '<button class="kc-btn small" id="kc-next">'+(EX.i===EX.qs.length-1?'交卷 →':'下一题 →')+'</button>'+
+    '</div></div>';
+  $$('.kc-opt',run).forEach(function(b){
+    b.onclick=function(){
+      EX.ans[EX.i]=parseInt(b.getAttribute('data-o'),10);
+      renderQ();
+    };
+  });
+  var prev=$('#kc-prev',run);
+  prev.onclick=function(){if(EX.i>0){EX.i--;renderQ();}};
+  var next=$('#kc-next',run);
+  next.onclick=function(){
+    if(EX.i<EX.qs.length-1){EX.i++;renderQ();}
+    else{
+      var miss=0;for(var k=0;k<EX.ans.length;k++)if(EX.ans[k]==null)miss++;
+      if(miss>0&&!confirm('还有 '+miss+' 题没作答，确定交卷？'))return;
+      submitExam(false);
+    }
+  };
+  run.scrollIntoView&&setTimeout(function(){},0);
+}
+function submitExam(auto){
+  clearInterval(EX.timer);
+  var right=0,wrongFams=[];
+  for(var i=0;i<EX.qs.length;i++){
+    var q=EX.qs[i];
+    if(EX.ans[i]===q.ans)right++;
+    else{
+      wrongFams.push(q.fam);
+      S.wrongs.push({fam:q.fam,stem:q.stem,date:todayStr(),seed:EX.seed});
+    }
+  }
+  /* 错题卷做对 → 移除该题型一条旧错题 */
+  if(EX.mode==='wrong'){
+    for(var r=0;r<EX.qs.length;r++){
+      if(EX.ans[r]===EX.qs[r].ans){
+        for(var w=0;w<S.wrongs.length;w++){
+          if(S.wrongs[w].fam===EX.qs[r].fam){S.wrongs.splice(w,1);break;}
+        }
+      }
+    }
+  }
+  if(S.wrongs.length>60)S.wrongs=S.wrongs.slice(-60);
+  var score=right*10;
+  var dur=Math.round((Date.now()-EX.start)/1000);
+  var ds=todayStr();
+  if(!S.exams[ds])S.exams[ds]=[];
+  S.exams[ds].push({seed:EX.seed,score:score,right:right,n:EX.qs.length,dur:dur,
+    mode:EX.mode,story:EX.story,wrongFams:wrongFams});
+  save();
+  EX.running=false;EX.done=true;
+  renderDone(right,score,dur);
+  renderExamIdle();syncExamPane();
+  var dn=$('#kc-exam-done');if(dn)dn.scrollIntoView({block:'start'});
+}
+function renderDone(right,score,dur){
+  var dn=$('#kc-exam-done');
+  var grade=score>=85?['优秀','a']:(score>=60?['及格','b']:['继续加油','c']);
+  var h='<div class="kc-score"><div class="knum">'+score+'</div>'+
+    '<div><span class="kgrade '+grade[1]+'">'+grade[0]+'</span></div>'+
+    '<p class="small">答对 '+right+' / '+EX.qs.length+' · 用时 '+dur+' 秒'+
+    (EX.story?' · 偏向第'+pad2(EX.story.night)+'夜《'+EX.story.t+'》':' · 综合卷')+'</p></div>';
+  h+='<div class="kc-rev">';
+  for(var i=0;i<EX.qs.length;i++){
+    var q=EX.qs[i],a=EX.ans[i],ok=a===q.ans;
+    h+='<div class="kc-item"><div class="kh"><span class="mk '+(ok?'ok':'no')+'">'+(ok?'✓':'✗')+'</span>'+
+      '<b>'+(i+1)+'.</b> '+q.stem+'</div>'+
+      '<div class="kans">你的选择：'+(a!=null?esc(plain(q.opts[a])):'（未作答）')+
+      (ok?'':'<br>正确答案：<b>'+esc(plain(q.opts[q.ans]))+'</b>')+'</div>'+
+      '<div class="kc-expl">'+q.exp+'</div></div>';
+  }
+  h+='</div>';
+  h+='<div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0">'+
+     '<button class="kc-btn" id="kc-again">再来一套（全新题目）</button>'+
+     '<button class="kc-btn ghost" id="kc-back">回考场</button></div>';
+  dn.innerHTML=h;
+  $('#kc-again').onclick=function(){startExam('daily');};
+  $('#kc-back').onclick=function(){EX.done=false;syncExamPane();renderExamIdle();};
+}
+
+/* ---------- 启动 ---------- */
+function refreshAll(){
+  PLAYERS=[];
+  renderTonight();
+  renderLib();
+  renderMe();
+  if(!EX.running)renderExamIdle();
+}
+function boot(){
+  load();
+  $$('#kc-sub a').forEach(function(a){
+    a.addEventListener('click',function(ev){
+      ev.preventDefault();
+      showPane(a.getAttribute('data-pane'));
+      try{history.replaceState(null,'',a.getAttribute('href'));}catch(e){}
+    });
+  });
+  document.addEventListener('click',function(ev){
+    var t=ev.target;
+    while(t&&t!==document&&!(t.getAttribute&&t.getAttribute('data-goto')))t=t.parentNode;
+    if(t&&t.getAttribute&&t.getAttribute('data-goto')){ev.preventDefault();showPane(t.getAttribute('data-goto'));}
+  });
+  $('#kc-start').onclick=function(){startExam('daily');};
+  $('#kc-more').onclick=function(){startExam('daily');};
+  $('#kc-wrongonly').onclick=function(){startExam('wrong');};
+  refreshAll();
+  var hash=(location.hash||'').replace('#','');
+  var known={tonight:1,lib:1,exam:1,me:1};
+  if(known[hash])showPane(hash);
+  if(!TT.supported){/* 提示已在卡片内显示 */}
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);
+else boot();
+</script>
+</body>
+</html>
