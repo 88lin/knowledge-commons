@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>云计算 · 世赛备战中心 - 知识公社</title>
+<link rel="stylesheet" href="style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../manifest.json">
+<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<script defer src="../sw-reg.js"></script>
+<script defer src="../install-tip.js"></script>
+<!-- /kc-pwa -->
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>云计算 · 世界技能大赛备战 | 一条线：先学什么 · 在哪学 · 怎么练 · 拿什么考</span></div>
+<header class="hero">
+  <div class="kicker">CLOUD COMPUTING · WORLDSKILLS</div>
+  <h1>云计算 · 世赛备战中心</h1>
+  <p>零基础到赛场的一整条线。20 章保姆级教程、12 章知识地图、8 篇精通体系、224 篇真题库、官方标准中文版——本库全都有；这页负责把它们<b>串清楚</b>。</p>
+  <div class="badges"><span>零基础可入</span><span>每天 2 小时 · 8–12 个月</span><span>真题全中文</span><span>全程离线</span></div>
+</header>
+<nav class="tabs">
+  <a href="index.html">首页</a>
+  <a href="beginner.html">学堂</a>
+  <a href="calendar.html">日历</a>
+  <a href="archive.html">总目</a>
+  <a href="courses.html">课程</a>
+  <a href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a>
+  <a href="gongkao.html">公考</a>
+  <a href="skills.html">世赛</a>
+  <a href="red.html">红色</a>
+  <a href="socialism.html">实践</a>
+  <a href="ecommerce.html">创业</a>
+  <a class="on" href="cloud.html">云赛</a>
+  <a href="paths.html">路线</a>
+  <a href="../library.html">资源</a>
+  <a href="../download.html">下载</a>
+  <a href="about.html">简章</a>
+</nav>
+
+<div class="wrap">
+  <div class="card" id="kc-resume"></div>
+
+  <div class="goal">备赛只回答四个问题：<b>考什么（官方标准说了算）→ 学什么（20 章教程按序走）→ 练什么（224 篇真题轮着刷）→ 怎么拿分（评分思维 + 检查单）</b>。下面四张地图，每一步都直接点得到内容。  </div>
+
+  <div class="card">
+    <p><b>零基础第一周？</b> → <a href="cloud-week1.html">七天开蒙卡</a>（每天 30–60 分钟照做就行）；<b>想直接上手练？</b> → <a href="cloudlab.html">实战训练场</a>：L1 Linux → L2 网络服务 → L3 Docker → L4 Kubernetes 四关任务书 + 自动评分脚本（做对得分）+ 故障注入排错，环境方案与用法都在里面。路线图阶段三起请全程配合实训场。</p>
+  </div>
+
+  <section>
+    <h2 class="sec">① 考什么 · 三分钟认清赛项</h2>
+    <div class="card">
+      <p><b>云计算项目比的是「在时间压力下，按评分细则逐项精确交付企业级云环境」</b>——不是「会用云控制台」。典型赛程四天四模块：基础设施与网络 → 平台服务与自动化 → 故障排查 → 综合迁移与优化。评分以功能性验收为主：脚本逐项验证，做对得分，做错或没做不得分。</p>
+      <p class="small" style="margin-top:6px"><b>2026-10 实锤</b>：上海第 48 届世赛正式设云计算赛项（Skill 53），公有云平台为 AWS；官方技术描述（TD53）明确「四天赛程中两天整日排障、两天仅下午排障」——<b>排错占赛场时间约四分之三</b>。官方 TD 入库：<a href="../docs/official/WSC2026-TD53-云计算-中文导读.md">中文导读</a> · <a href="../docs/official/WSC2026-TD53-cloud-computing-en.pdf">英文原文 PDF</a></p>
+    <p class="small">项目全貌：<a href="../study.html#d=multiskill_01-信息与通信技术_云计算_项目总纲_md">项目总纲（从零到精通）</a> · <a href="../multiskill/01-信息与通信技术/云计算/总纲课.mp4">总纲课视频</a> · <a href="../multiskill/01-信息与通信技术/云计算/模拟训练.html">模拟训练（十题交互评分）</a></p>
+    </div>
+    <div class="card">
+      <p><b>官方评分权重（WSOS 2026 上海世赛职业标准，已译中文全文入库）</b>：</p>
+      <ul class="list">
+        <li><span class="t">问题解决、创新与创造力 —— 设计分层架构、排障、迁移方案</span><span class="n">20%</span></li>
+        <li><span class="t">网络安全 —— 认证授权、加密传输、安全组与基线</span><span class="n">20%</span></li>
+        <li><span class="t">可靠性、可扩展性与弹性 —— 高可用、负载均衡、弹性伸缩</span><span class="n">15%</span></li>
+        <li><span class="t">工作组织与管理 —— 读题拆解、交付顺序、时间管理</span><span class="n">10%</span></li>
+        <li><span class="t">性能与优化 / 运营考虑因素 / 可持续性</span><span class="n">各 10%</span></li>
+        <li><span class="t">沟通与人际交往 —— 交付文档写得清楚本身就是分</span><span class="n">5%</span></li>
+      </ul>
+          <div class="card">
+      <p><b>国内怎么打上去（晋级链）</b>：院校/单位报名 → <b>省市级选拔赛</b>（各省人社部门组织的世赛选拔，职业院校技能大赛云计算赛项同向练兵）→ <b>全国选拔赛</b>（中华人民共和国职业技能大赛等国家级赛事）→ <b>国家集训队</b>（第 48 届云计算项目中国集训基地含山西职业技术学院、天津电子信息职业技术学院等）→ 集训多轮考核 → <b>国家队</b> → 上海 2026 世赛。</p>
+      <p class="small">零基础视角：第一站是<b>本校/本省的选拔通道</b>——找到学校里的世赛班/竞赛队报名，或以社会选手渠道关注省人社厅当年选拔通知；练习对标直接用上面的真题地图（韩国题与里昂评分点是世赛同款难度）。</p>
+    </div>
+    <p class="small">一句话解读：<b>「把环境做对做稳」占 55%（解决 20 + 安全 20 + 可靠 15）</b>，手熟压倒一切；文档与沟通占 15%，别裸奔。全文：<a href="../study.html#d=official_WSOS-2026-cloud-computing-zh_txt">【中文】WSOS 2026 官方职业标准</a></p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">② 学什么 · 八大能力域 → 教程映射</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t">Linux 系统管理（用户/存储/服务/日志）→ <a href="../study.html#d=tutorial_01-Linux零基础-保姆级_md">第 1 章 · Linux 零基础</a></span><span class="n">地基</span></li>
+      <li><span class="t">网络工程（编址/路由/防火墙/DNS/负载均衡）→ <a href="../study.html#d=tutorial_02-网络零基础-保姆级_md">第 2 章</a> · <a href="../study.html#d=tutorial_05-DNS实战-保姆级_md">第 5 章</a> · <a href="../study.html#d=tutorial_06-负载均衡与高可用-保姆级_md">第 6 章</a></span><span class="n">地基</span></li>
+      <li><span class="t">服务器与加密传输（Nginx/systemd/HTTPS）→ <a href="../study.html#d=tutorial_03-服务器实战-保姆级_md">第 3 章</a> · <a href="../study.html#d=tutorial_04-HTTPS与证书-保姆级_md">第 4 章</a></span><span class="n">基础</span></li>
+      <li><span class="t">容器与编排（Docker/Kubernetes）→ <a href="../study.html#d=tutorial_10-Docker容器入门-保姆级_md">第 10 章</a> · <a href="../study.html#d=tutorial_11-Kubernetes入门-保姆级_md">第 11 章</a></span><span class="n">核心</span></li>
+      <li><span class="t">公有云核心服务（IAM/VPC/EC2/S3/RDS/监控）→ <a href="../study.html#d=tutorial_12-AWS云平台实战-保姆级_md">第 12 章 · AWS 实战</a></span><span class="n">核心</span></li>
+      <li><span class="t">自动化运维（Shell/Ansible/Terraform）→ <a href="../study.html#d=tutorial_09-Shell脚本进阶-保姆级_md">第 9 章</a> · <a href="../study.html#d=tutorial_13-自动化运维-保姆级_md">第 13 章</a></span><span class="n">分水岭</span></li>
+      <li><span class="t">安全加固（SSH 六件套/fail2ban/基线）→ <a href="../study.html#d=tutorial_15-安全加固-保姆级_md">第 15 章</a></span><span class="n">20% 权重</span></li>
+      <li><span class="t">排错方法论（六步破案法 + 18 个真实案例）→ <a href="../study.html#d=tutorial_07-故障排查专题-保姆级_md">第 7 章 · 故障排查专题</a></span><span class="n">分水岭</span></li>
+      <li><span class="t">虚拟化与私有云（概念补全）→ <a href="../study.html#d=knowledge_04-虚拟化与私有云_md">知识地图 · 虚拟化与私有云</a></span><span class="n">概念</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">③ 一年成长路线 · 可打卡（每天 2 小时）</h2>
+    <div class="lesson" id="c0">
+      <b>第 0 步 · 认知与装备（第 1 周）</b>
+      <p>读<a href="../study.html#d=tutorial_00-开始之前-零基础先读我_md">第 0 章 · 开始之前</a> → 读<a href="../study.html#d=official_WSOS-2026-cloud-computing-zh_txt">WSOS 官方标准中文版</a>（知道权重才知道劲往哪使）→ 玩一遍<a href="../multiskill/01-信息与通信技术/云计算/模拟训练.html">模拟训练</a> → 按<a href="../study.html#d=tutorial_01-Linux零基础-保姆级_md">第 1 章三方案</a>装好 Linux 练习机。<b>验收：能说出赛项四模块、评分逻辑、五大权重。</b></p>
+    </div>
+    <div class="lesson" id="c1">
+      <b>阶段一 · 地基（第 1–2 月）｜第 1–3 章</b>
+      <p>命令 → 文件权限 → 服务管理 → 管道脚本 → SSH → 网络 → 服务器实战（Nginx/MySQL/crontab）。这三章禁止跳读，每个动手环节必须真敲。<b>验收：不看资料，15 分钟完成一台新机的初始化、加固与网页发布。</b></p>
+    </div>
+    <div class="lesson" id="c2">
+      <b>阶段二 · 企业服务（第 3–5 月）｜第 4–9 章</b>
+      <p>HTTPS 证书 → DNS（BIND9 主从）→ 负载均衡与高可用（HAProxy/Keepalived）→ 故障排查 18 案例 → Windows Server 与 AD 域 → Shell 进阶三连。<b>验收：独立交付含域名、证书、双节点高可用的站点，并写出部署文档。</b></p>
+    </div>
+    <div class="lesson" id="c3">
+      <b>阶段三 · 云与容器（第 6–8 月）｜第 10–12 章 + 知识地图</b>
+      <p>Docker 全套 → Kubernetes 从 minikube 到 HPA → AWS（IAM/VPC/EC2/S3/RDS/ALB/ASG）。配套读<a href="../study.html#d=knowledge_06-容器与编排_md">知识地图 · 容器与编排</a>与<a href="../study.html#d=knowledge_04-虚拟化与私有云_md">虚拟化与私有云</a>。<b>验收：任一手工部署 30 分钟内脚本化重放，幂等。</b></p>
+    </div>
+    <div class="lesson" id="c4">
+      <b>阶段四 · 自动化与运维（第 9–10 月）｜第 13–15 章</b>
+      <p>Ansible → Terraform → CI/CD 一条龙 → Prometheus/Grafana 监控 → 安全加固打分。开始跑<a href="../study.html#d=mastery_06-365天训练系统_md">365 天训练系统</a>（每日 2–4 小时：40 分钟精读 + 全部上机）。<b>验收：一条龙自动化交付 + 告警可用 + 加固清单过 80%。</b></p>
+    </div>
+    <div class="lesson" id="c5">
+      <b>阶段五 · 竞赛级打磨（第 11–12 月起循环）</b>
+      <p>学<a href="../study.html#d=tutorial_16-真题实战-保姆级_md">第 16 章 · 黄金四步训练法</a> → 真题轮刷（见下方④真题地图）→ <a href="../study.html#d=tutorial_20-锐捷云平台基础-试题A实战_md">第 20 章 · 锐捷云平台真题带练</a> → 每月一次全真模拟，按评分表自评、复盘归因。配套<a href="../study.html#d=mastery_02-精通阶梯与自测_md">精通阶梯自测</a>。<b>验收：模拟赛稳定过目标线，每个失分点写得出原因与对策。</b></p>
+    </div>
+    <div class="lesson" id="c6">
+      <b>赛前一周 · 状态与纪律</b>
+      <p>重读<a href="../study.html#d=tutorial_16-真题实战-保姆级_md">现场十军规</a>与<a href="../study.html#d=sprint_00-72小时冲刺作战手册_md">72 小时冲刺手册</a>；检查单打印上墙；只做熟题不学新东西；环境快照习惯最后演练一遍。赛程四天，体能和心理也是考点。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">④ 练什么 · 真题地图（224 篇，全在资料中心）</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><a href="../study.html#d=test-projects_LYON2024-评分点全录_md">里昂 2024 世赛 · A/B/D 模块评分点全录（中文对照）</a><br><span class="small">官方评分脚本逐条翻译——最能看清「分是怎么给的」，附 Module B 评分脚本原文 8 份</span></span><span class="n">必读</span></li>
+      <li><span class="t"><a href="../study.html#d=test-projects_korean-zh_2024_korea_day1_day1_mission_txt">韩国 2021–2024 · 全国赛/地方赛题面 + 评分标准（中文版，59 篇）</a><br><span class="small">世赛强国真题矩阵，题面与评分标准成对练「按表交付」；资料中心搜「korean-zh」</span></span><span class="n">主粮</span></li>
+      <li><span class="t"><a href="../study.html#d=test-projects_cn-domestic_2021云计算技能竞赛真题卷_附标准答案_md">中国国赛真题 2018–2021（154 篇，含标准答案）</a><br><span class="small">含 2019 云计算技术与应用样卷、2020 公有云部署与运维赛卷等；资料中心搜「cn-domestic」</span></span><span class="n">主粮</span></li>
+      <li><span class="t"><a href="../study.html#d=tutorial_16-真题实战-保姆级_md">第 16 章 · 真题实战（训练法 + 12 周计划 + 十军规）</a></span><span class="n">方法</span></li>
+      <li><span class="t"><a href="../study.html#d=tutorial_20-锐捷云平台基础-试题A实战_md">第 20 章 · 锐捷云平台试题 A 实战（参数速查 + 防扣分）</a></span><span class="n">国内赛</span></li>
+      <li><span class="t"><a href="../study.html">工程仓库库：里昂 2024 T39 模块 / 2025 韩国日赛 / 2026 全国任务书</a><br><span class="small">真实选手工程文件（Terraform/K8s/ArgoCD/评分脚本），资料中心搜「repo_」按届次浏览</span></span><span class="n">进阶</span></li>
+    </ul></div>
+    <p class="small">刷题顺序建议：中国真题（找感觉）→ 韩国题面+评分标准（练按表交付）→ 里昂 2024 评分点（对齐世界级）→ 工程仓库（看顶尖做法）。</p>
+  </section>
+
+  <section>
+    <h2 class="sec">⑤ 怎么拿分 · 高频考点与赛场纪律</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t">幂等脚本 —— 重复执行结果一致，是自动化交付的底线</span><span class="n">考点</span></li>
+      <li><span class="t">健康检查 —— 必须探测真实服务端口与页面，不是 ping 通就算</span><span class="n">考点</span></li>
+      <li><span class="t">最小权限 —— 日常操作禁用最高权限；证书链要含中间证书</span><span class="n">考点</span></li>
+      <li><span class="t">分层排错 —— 链路 → 系统 → 服务 → 应用，逐层定位缩短 MTTR</span><span class="n">考点</span></li>
+      <li><span class="t">先通读任务与评分表，圈出验收方式再动手；按依赖排交付顺序</span><span class="n">纪律</span></li>
+      <li><span class="t">环境先拍快照；每完成一项立即按验收方式自验；变更随手记录</span><span class="n">纪律</span></li>
+      <li><span class="t">时间留二成缓冲给排错与复验；收工前全链路复验再提交</span><span class="n">纪律</span></li>
+    </ul></div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑥ 延伸体系与官方入口</h2>
+    <div class="card"><ul class="list">
+      <li><span class="t"><a href="../study.html#d=mastery_00-总纲-像说话一样掌握云计算_md">精通体系 8 篇 · 像说话一样掌握云计算</a>（疆域全景/架构模式/全平台地图/365 训练）</span><span class="n">进阶</span></li>
+      <li><span class="t"><a href="../study.html">知识地图 12 章 · 知识体系全集</a>（Linux/网络/私有云/公有云/容器/IaC/安全）</span><span class="n">地图</span></li>
+      <li><span class="t"><a href="../study.html#d=sprint_01-最快精通时间表_md">最快精通时间表 · 72 小时冲刺套件</a></span><span class="n">冲刺</span></li>
+      <li><span class="t"><a href="https://worldskills.org/skills/id/545/">世赛官方 · 云计算赛项页（WorldSkills International）</a></span><span class="n">官方</span></li>
+      <li><span class="t"><a href="wsvideos.html">世赛比赛视频馆 · 上海2026开闭幕式与历届影像（逐条验证）</a></span><span class="n">视频</span></li>
+      <li><span class="t"><a href="http://worldskillschina.mohrss.gov.cn">世界技能大赛中国（人社部）· 选拔赛与集训基地</a></span><span class="n">国内</span></li>
+      <li><span class="t"><a href="http://www.chinaskills-jsw.org">全国职业院校技能大赛 · 规程赛卷（云计算赛项）</a></span><span class="n">国赛</span></li>
+      <li><span class="t"><a href="../library.html#g=0">资源总库 · 世赛板块（标准/真题/模拟器/认证免费课/实验平台）</a></span><span class="n">导航</span></li>
+    </ul></div>
+  </section>
+
+  <p class="note">路线综合自本库 20 章教程学习节奏与项目总纲 · WSOS 权重为 2026 上海世赛官方职业标准（中文版已入库）· 2026-10-09 整理（同日二次核补 TD53 与晋级链）· 赛项细节以当届官方文件为准</p>
+  <p><a href="skills.html">← 回世赛全技能库</a> · <a href="archive.html">资料总目</a></p>
+</div>
+<script src="kc-learn.js"></script>
+</body>
+</html>
