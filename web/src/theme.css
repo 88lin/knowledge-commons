@@ -301,11 +301,23 @@
   }
 
   pre {
-    background: #241f19; color: #f0e8d8; padding: 12px 14px; border-radius: 6px;
-    overflow-x: auto; font-size: 12.5px; line-height: 1.7;
+    background: #241814; color: #f3ece2; padding: 14px 16px; border-radius: 10px;
+    border: 1px solid rgba(42, 29, 24, .18);
+    overflow-x: auto; font-size: 12.5px; line-height: 1.75;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     -webkit-overflow-scrolling: touch; max-width: 100%;
   }
-  code { font-family: ui-monospace, Menlo, Consolas, monospace; }
+  /* 行内 code 浅底深字；pre 内 code 继承深底浅字（修复白底白字） */
+  :not(pre) > code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: rgba(42, 29, 24, .07); color: #5a2e1f;
+    border: 1px solid rgba(42, 29, 24, .12); border-radius: 5px;
+    padding: 1.5px 6px; font-size: .9em;
+  }
+  pre code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: none; color: inherit; border: none; padding: 0; font-size: inherit;
+  }
 
   /* 世赛行内链接组 */
   .kc-lk, .lk { display: inline-flex; gap: 6px; flex: none; flex-wrap: wrap; justify-content: flex-end; }

@@ -978,18 +978,35 @@
     font-family: var(--font-serif-cn);
   }
   pre {
-    background: #241f19;
-    color: #f0e8d8;
-    padding: 12px 14px;
-    border-radius: 6px;
+    background: #241814;
+    color: #f3ece2;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(42, 29, 24, .18);
     overflow-x: auto;
     font-size: 12.5px;
-    line-height: 1.7;
+    line-height: 1.75;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     -webkit-overflow-scrolling: touch;
     max-width: 100%;
   }
-  code {
-    font-family: ui-monospace, Menlo, Consolas, monospace;
+  /* 行内 code 与 pre 内 code 分开：行内走浅底深字（品牌暖调），代码块内继承深底浅字 */
+  :not(pre) > code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: rgba(42, 29, 24, .07);
+    color: #5a2e1f;
+    border: 1px solid rgba(42, 29, 24, .12);
+    border-radius: 5px;
+    padding: 1.5px 6px;
+    font-size: .9em;
+  }
+  pre code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font-size: inherit;
   }
   .kc-lk, .lk {
     display: inline-flex;
@@ -1587,7 +1604,7 @@ td .mid{color:var(--amber);font-weight:600}
 .lbtn:hover{background:var(--blue);color:#fff}
 .lbtn.solid{background:var(--blue);color:#fff}
 .note{font-size:12.5px;color:var(--gray);line-height:1.9;padding:0 18px 16px}
-code{font-family:Consolas,"Courier New",monospace;background:#f6f8fb;border:1px solid var(--line);border-radius:3px;padding:1px 6px;font-size:12.5px}
+/* 旧全局 code 规则已删：行内 code 统一由 :not(pre)>code 规则负责（暖调浅底深字） */
 footer{background:var(--color-ink,#2b2620);color:#cfc6b4;margin-top:26px}
 .foot-in{max-width:900px;margin:0 auto;padding:22px 16px 30px;font-size:13px;line-height:2;text-align:center}
 #iosBanner{display:none;background:#fff8e6;border:1px solid #ecd9a6;color:#8a5b12;font-size:13.5px;padding:10px 14px;border-radius:4px;margin-bottom:14px;line-height:1.8}

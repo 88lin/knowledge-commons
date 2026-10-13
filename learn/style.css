@@ -157,9 +157,12 @@ h3.sub{font-size:var(--fs);margin:18px 0 8px;color:var(--red-dk);font-family:var
 .rs-item .rate{color:var(--red-dk);flex:none;font-family:var(--serif)}
 .rs-item .tags{color:var(--dim);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .note{color:var(--dim);font-size:12px;line-height:2;border-top:1px solid var(--line);margin-top:34px;padding-top:14px;font-family:var(--serif)}
-pre{background:#241f19;color:#f0e8d8;padding:12px 14px;border-radius:6px;overflow-x:auto;font-size:12.5px;line-height:1.7;
+pre{background:#241814;color:#f3ece2;padding:14px 16px;border-radius:10px;border:1px solid rgba(42,29,24,.18);overflow-x:auto;font-size:12.5px;line-height:1.75;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
   -webkit-overflow-scrolling:touch;max-width:100%}
-code{font-family:ui-monospace,Menlo,Consolas,monospace}
+:not(pre)>code{background:rgba(42,29,24,.07);color:#5a2e1f;border:1px solid rgba(42,29,24,.12);border-radius:5px;padding:1.5px 6px;font-size:.9em}
+pre code{background:none;border:none;padding:0;color:inherit;font-size:inherit}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
 .pill b{color:var(--red-dk)}
 .goal{background:#fbf5ea;border-left:4px solid var(--gold);border-radius:0 6px 6px 0;padding:10px 14px;font-size:13.5px;margin:10px 0}
 .check{background:#f6f4ec;border:1px dashed var(--line);border-radius:6px;padding:10px 14px;font-size:13.5px;margin:10px 0}
