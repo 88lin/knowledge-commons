@@ -14,6 +14,7 @@
 <script defer src="../sw-reg.js"></script>
 <script defer src="../install-tip.js"></script>
 <script defer src="kc-learn.js"></script>
+<script defer src="kc-srs.js"></script>
 <!-- /kc-pwa -->
 </head>
 <body>
@@ -46,6 +47,7 @@
 </nav>
 
 <div class="wrap">
+  <div id="kc-review"></div>
   <form class="searchbar" onsubmit="location.href='search.html?q='+encodeURIComponent(this.q.value);return false;">
     <input name="q" placeholder="全站检索：课程 · 篇目 · 资料…" autocomplete="off">
     <button type="submit">检索</button>
