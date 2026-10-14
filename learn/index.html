@@ -13,7 +13,8 @@
 <link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
 <script defer src="../sw-reg.js"></script>
 <script defer src="../install-tip.js"></script>
-<script defer src="kc-learn.js"></script>
+<script defer src="kc-learn.js?v=2"></script>
+<script defer src="kc-srs.js?v=2"></script>
 <!-- /kc-pwa -->
 </head>
 <body>
@@ -37,7 +38,7 @@
   <a href="skills.html">世赛</a>
   <a href="red.html">红色</a>
   <a href="socialism.html">实践</a>
-  <a href="ecommerce.html">创业</a><a href="cloud.html">云赛</a><a href="cloudlab.html">实训</a><a href="wsvideos.html">视频</a>
+  <a href="ecommerce.html">创业</a><a href="cloud.html">云赛</a><a href="cloud-4weeks.html">4周冲刺</a><a href="aws-educate.html">AWS</a><a href="cloudlab.html">实训</a><a href="wsvideos.html">视频</a>
   <a href="sleep.html">睡前</a>
   <a href="paths.html">路线</a>
   <a href="../library.html">资源</a>
@@ -46,10 +47,17 @@
 </nav>
 
 <div class="wrap">
+  <div id="kc-review"></div>
   <form class="searchbar" onsubmit="location.href='search.html?q='+encodeURIComponent(this.q.value);return false;">
     <input name="q" placeholder="全站检索：课程 · 篇目 · 资料…" autocomplete="off">
     <button type="submit">检索</button>
   </form>
+  <a class="card" href="cloud-4weeks.html" style="display:block;text-decoration:none;border:2px solid #9e2b25;background:#fff8f4">
+    <div class="kicker" style="color:#9e2b25;font-size:12px;letter-spacing:3px">零基础 · 下个月就要比赛 · 从这里开始</div>
+    <h3 style="margin:6px 0">4 周云计算冲刺：每天一个可验收的产出</h3>
+    <p style="margin:4px 0">啥都不懂也能进：第 1 天装一台 Linux，第 7 天能默写 20 条命令，第 14 天独立交付一个带 HTTPS 的网站，第 21 天把它搬到云上，第 28 天完成两套限时真题。</p>
+    <p class="small" style="margin:6px 0 0">每天 1.5–2 小时 · 做完打勾 · 问题不过夜 <b>→ 打开今天的任务</b></p>
+  </a>
   <div class="card" id="kc-resume"></div>
   <div class="actionbar">
     <a class="actbtn" href="beginner.html">零基础学堂 · 从第一课开始</a>
@@ -143,6 +151,12 @@
         <b>云计算 · 世赛备战中心</b>
         <div class="desc">零基础到世赛赛场一条线：20 章保姆级教程按序学、224 篇真题按轮刷、WSOS 官方标准中文版权重表、一年可打卡成长路线——库里云计算内容全部串成一条线。</div>
         <div class="meta">八大能力域 · 真题全中文 · 可打卡路线</div>
+      </a>
+      <a class="mod gold" href="aws-educate.html">
+        <div class="ico">云</div>
+        <b>AWS 管理控制台入门 · 官方课全文</b>
+        <div class="desc">AWS Educate 官方课件（Canvas #982）简体中文全文：5 节 53 张幻灯片，屏幕文字与旁白字幕逐条对齐，另附实操速查与 28 条中英术语对照。控制台导览、账户注册、全球基础设施、服务检索、小工具与快捷键，一节不落。</div>
+        <div class="meta">5 节 53 张 · 简体中文全文 + 实操清单 · 附 71 门课程库总目录</div>
       </a>
       <a class="mod" href="cloudlab.html">
         <div class="ico">训</div>

@@ -36,6 +36,10 @@
       'cursor:pointer;letter-spacing:1px;transition:border-color .2s,background .2s,color .2s}',
       '.kc-done:hover{border-color:#9e2b25;color:#7c1f1a}',
       '.kc-done.on{border:1.5px solid #4c6b4f;background:#f2f7f0;color:#3c5a3f}',
+      '.kc-done[data-s=doing]{border-style:solid;border-color:#c9a227;background:#fdf9ec;color:#8a6d1f}',
+      '.kc-done[data-s=skip]{border-style:dotted;border-color:#b9b0a0;background:#f4f2ee;color:#8a8478}',
+      '.kc-done .kc-done-hint{display:block;font-size:11px;color:#a89e8c;margin-top:2px;letter-spacing:0}',
+      '.lesson[data-s=skip]{opacity:.55}',
       '.qz{border:1px solid #e6dfd0;background:#fffcf5;border-radius:10px;padding:14px 16px;margin:14px 0 6px}',
       '.qz-q{font-weight:700;color:#2b2620;margin-bottom:10px;font-family:"Songti SC","Noto Serif CJK SC",serif}',
       '.qz-o{display:block;width:100%;text-align:left;border:1.5px solid #e6dfd0;background:#fff;border-radius:8px;',
@@ -83,6 +87,8 @@
     var PKEY = 'kc:course:' + fname;
     var st = load(PKEY, { done: {} });
     if (!st.done) st.done = {};
+    st.state = st.state || {};
+    for (var _k in st.done) if (st.done[_k] && !st.state[_k]) st.state[_k] = 'done';
     var title = (document.title || '').split('·')[0].trim() || '课程';
 
     var bar = mk('div'); bar.id = 'kc-progress';
@@ -112,10 +118,10 @@
       });
     });
 
-    function count() { return Object.keys(st.done).length; }
+    function count() { var _n = 0; for (var _k in st.state) if (st.state[_k] === 'done') _n++; return _n; }
     function allDone() { return lessons.length > 0 && count() >= lessons.length; }
     function nextLesson() {
-      for (var i = 0; i < lessons.length; i++) if (!st.done[lessons[i].id]) return lessons[i];
+      for (var i = 0; i < lessons.length; i++) { var _s = st.state[lessons[i].id]; if (_s !== 'done' && _s !== 'skip') return lessons[i]; }
       return null;
     }
     function completedToast() { toast('🎉 本册 ' + lessons.length + ' 讲全部学完，厉害！'); }
@@ -123,9 +129,11 @@
     function refresh() {
       lessons.forEach(function (L) {
         var b = L.querySelector('.kc-done'); if (!b) return;
-        var d = !!st.done[L.id];
-        b.classList.toggle('on', d);
-        b.textContent = d ? '✓ 已学完' : '标记学完这一讲';
+        var _st = st.state[L.id] || '';
+        b.dataset.s = _st; L.dataset.s = _st;
+        b.classList.toggle('on', _st === 'done');
+        b.innerHTML = (_st === 'done' ? '✓ 已学完' : _st === 'doing' ? '学习中…' : _st === 'skip' ? '已跳过' : '标记学完这一讲')
+          + '<span class="kc-done-hint">点一下切换：学习中 → 已学完 → 跳过</span>';
       });
       barI.style.width = (count() / lessons.length * 100) + '%';
       fab.innerHTML = '<span class="kc-fab-n">进度 ' + count() + '/' + lessons.length + ' 讲</span>' +
@@ -136,11 +144,12 @@
     }
 
     function toggle(id) {
-      if (st.done[id]) { delete st.done[id]; }
-      else {
-        st.done[id] = 1;
-        if (allDone()) setTimeout(completedToast, 120);
-      }
+      var cur = st.state[id] || '';
+      var nx = cur === '' ? 'doing' : cur === 'doing' ? 'done' : cur === 'done' ? 'skip' : '';
+      if (nx) st.state[id] = nx; else delete st.state[id];
+      delete st.done[id];
+      if (nx === 'done' && allDone()) setTimeout(completedToast, 120);
+      if (nx === 'skip') toast('这一讲先跳过。跳过不是欠债，是取舍。');
       refresh();
     }
 
@@ -164,9 +173,8 @@
         box.classList.add('done');
         var why = box.querySelector('.qz-why'); if (why) why.hidden = false;
         var L = o.closest('.lesson');
-        if (L && L.id && !st.done[L.id]) {
-          st.done[L.id] = 1;
-          if (allDone()) setTimeout(completedToast, 150);
+        if (L && L.id && st.state[L.id] !== 'done') {
+          if (st.state[L.id] !== 'skip') { st.state[L.id] = 'done'; if (allDone()) setTimeout(completedToast, 150); }
           refresh();
         }
       } else {

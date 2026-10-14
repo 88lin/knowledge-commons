@@ -20,7 +20,7 @@
 <header class="hero">
   <div class="kicker">ROADMAPS · START FROM ZERO</div>
   <h1>从零到精通 · 学习路线</h1>
-  <p>算法竞赛 / 公务员 / 专升本 / 高考 —— 四个方向，四份路线图</p>
+  <p>云计算 / 算法竞赛 / 公务员 / 专升本 / 高考 —— 五个方向，五份路线图</p>
 </header>
 <nav class="tabs">
   <a href="index.html">首页</a>
@@ -47,6 +47,24 @@
     <div class="card"><p>四条路线的每一行，都对应学堂里的一节零基础第一课：先花 5 分钟看清「这是什么、第一步做什么」，再进入下面的阶段计划。</p>
     <p class="small"><a href="beginner.html">→ 进入零基础学堂（9 节视频课 + 图文讲义）</a></p></div>
   </section>
+  <section>
+    <h2 class="sec"> 云计算 · 从零到世赛（12 个月）<span class="small"> · <a href="beginner.html#01">先看学堂第一课</a></span></h2>
+    <div class="card">
+      <p class="small">先把比赛看明白：世赛云计算（Trade 39）一届通常 <b>4 个模块</b>——Linux 系统 / Windows·AD / 公有云架构（AWS）/ 自动化与故障排查。
+      <b>AWS 只是其中一块</b>，所以这条路线的地基是 Linux 与网络，不是云。<a href="cloud.html">→ 比赛本身怎么考，看云赛页第一节</a></p>
+      <div class="pill"><b>阶段 0 · 建地图（1 周）</b><br>读完云赛页「先读懂比赛本身」，知道 4 个模块各自考什么、评分脚本长什么样；确定自己主攻方向。<br>检查点：能口述每个模块的典型题面和评分点。</div>
+      <div class="pill"><b>阶段 1 · 地基：Linux + 网络（2–3 个月）</b><br>命令行、用户权限、服务与 systemd、日志排查；TCP/IP、DNS、HTTP/HTTPS、防火墙、抓包。<br>材料：云赛页第 1–6 章 + 零基础学堂第一课。<br>检查点：<b>不看教程</b>独立搭出一台 Web 服务器 + 域名解析 + HTTPS 证书。</div>
+      <div class="pill"><b>阶段 2 · AWS 公有云（2 个月）</b><br>先刷 AWS Educate 六门基础课（云计算入门 101 → 存储 / 计算 / 网络 / 数据库 / 安全入门），再读本站
+      <a href="aws-educate.html">AWS 管理控制台入门 · 中文全文</a>，然后做四门动手课（用户数据处理 / EC2 Instance Connect 登录 Linux / EBS 快照 / CloudWatch）。<br>
+      <a class="small" href="aws-educate-catalog.html">→ AWS Educate 71 门课程中文总目录</a><br>检查点：不看教程起一套 VPC + EC2 + S3 + RDS，并能说清区域与可用区的取舍。</div>
+      <div class="pill"><b>阶段 3 · Windows 与 AD（1–2 个月）</b><br>AD 域控、组策略、DNS/DHCP 集成、文件共享与权限、委派管理。<br>世界赛与国赛都有这块，且是与 Linux 并重的评分模块。<br>检查点：从零建一个域，把客户端加域并按组策略下发配置。</div>
+      <div class="pill"><b>阶段 4 · 自动化与 IaC（2–3 个月）</b><br>Shell / PowerShell 脚本 → Ansible → Terraform → CI/CD；再进容器与 K8s（韩国赛路线：EKS + ArgoCD + GitOps）。<br>检查点：用 Terraform 一键重建整套实验环境。</div>
+      <div class="pill"><b>阶段 5 · 冲金（3 个月+）</b><br>拿韩国近五年真题（本中心 <code>exam/</code> 题库）<b>限时裸做</b> → 对照评分点复盘 → 循环。补上成本优化与 SLO 意识——韩国题面细到实例规格和 SLO 百分比。</div>
+      <p class="small">配套资源：<a href="cloud.html">云计算备战中心</a>（20 章教程 + 224 篇真题 + WSOS 权重表）· <a href="cloudlab.html">实战训练场</a> ·
+      <a href="aws-educate-catalog.html">AWS 课程库</a> · <a href="wsvideos.html">世赛视频馆</a> · 长期路线见本中心 <code>README-总导航.md</code> 的 L0–L10 十级体系。</p>
+    </div>
+  </section>
+
   <section>
     <h2 class="sec"> 算法竞赛 · 从零到冲金（12–24 个月）<span class="small"> · <a href="beginner.html#02">先看学堂「算法竞赛第一课」</a></span></h2>
     <div class="card">

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>零基础 · 4 周云计算冲刺 · 知识公社</title>
+<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#9e2b25">
+<link rel="manifest" href="../manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
+<script defer src="../sw-reg.js"></script>
+<script defer src="../install-tip.js"></script>
+<script defer src="kc-learn.js?v=2"></script>
+<script defer src="kc-srs.js?v=2"></script>
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>零基础 · 4 周冲刺 | 每天 1.5–2 小时，做完打勾</span></div>
+<header class="hero">
+  <div class="kicker">FROM ZERO · 4 WEEKS</div>
+  <h1>零基础 · 4 周云计算冲刺</h1>
+  <p>你不需要先懂任何东西。照天数走，每天一个可验收的产出。</p>
+  <p>目标不是拿牌，是<b>不交白卷、把能拿的分全拿到</b>。</p>
+</header>
+<nav class="tabs">
+  <a href="index.html">首页</a><a href="beginner.html">学堂</a><a href="calendar.html">日历</a>
+  <a href="archive.html">总目</a><a href="courses.html">课程</a><a href="contest.html">竞赛</a>
+  <a href="exams.html">升学</a><a href="gongkao.html">公考</a><a href="skills.html">世赛</a>
+  <a href="red.html">红色</a><a href="socialism.html">实践</a><a href="ecommerce.html">创业</a>
+  <a href="cloud.html">云赛</a><a class="on" href="cloud-4weeks.html">4周冲刺</a><a href="aws-educate.html">AWS</a>
+  <a href="cloudlab.html">实训</a><a href="wsvideos.html">视频</a><a href="sleep.html">睡前</a><a href="paths.html">路线</a>
+  <a href="../library.html">资源</a><a href="../download.html">下载</a><a href="about.html">简章</a>
+</nav>
+<div class="wrap">
+  <div class="card" id="kc-sprint-top">
+    <p><b>先说实话：</b>4 周零基础，不可能精通云计算。但比赛里<b>基础操作分、部署分、排障分</b>是能抢的——
+    抢到这些分，你就不是最后一名。这个页面只做一件事：告诉你今天该做什么。</p>
+    <p><b>每天怎么用：</b>① 照「做什么」动手（一定要自己敲）② 需要细节就点「读哪一节」③
+    做完对照「验收」自测，过了就点当天卡片下面的「标记学完这一讲」。</p>
+    <p><b>我该从哪天开始：</b><input id="kc-start-date" type="date" style="font:inherit;padding:4px 8px;border:1px solid #e6dfd0;border-radius:8px">
+    <button class="actbtn ghost" id="kc-set-date" style="padding:4px 12px">设为第 1 天</button>
+    <span id="kc-day-hint" class="meta"></span></p>
+    <p class="meta">只剩不到一周？直接跳到 <a href="#emergency">底部应急通道</a>。</p>
+  </div>
+  <div id="kc-review"></div>
+
+<section class="card"><h2>第 1 周 · 先能操作（把 Linux 用起来）</h2><div class="lesson" id="d1"><h3>第 1 天 · 装一台属于你的 Linux</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>装 VMware/VirtualBox + Ubuntu Server（或直接开一台云主机、或用你电脑的 WSL），记住登录口令与 IP。</li><li>打开终端，敲：<code>whoami<code>、<code>hostname<code>、<code>ip a<code>、<code>ls /etc<code>。看不懂没关系，先让手记住位置。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第1章">《第1章 · Linux零基础》</a></p><p><b>验收：</b>能自己开机 → 登录 → 打开终端 → 打出上面 4 条命令。</p></div><div class="lesson" id="d2"><h3>第 2 天 · 命令行生存技能</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>文件操作：<code>cd<code> <code>ls<code> <code>cp<code> <code>mv<code> <code>rm<code> <code>mkdir<code> <code>cat<code> <code>less<code>；管道与重定向：<code>|<code> <code>&gt;<code> <code>&gt;&gt;<code>。</li><li>检索三件套：<code>grep<code>、<code>find<code>、<code>wc<code>。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第1章">《第1章 · Linux零基础》</a></p><p><b>验收：</b>不用鼠标完成：找出 /etc 下所有 .conf 文件并数出总数。</p></div><div class="lesson" id="d3"><h3>第 3 天 · 用户与权限（比赛必考）</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li><code>useradd<code> <code>passwd<code> <code>usermod<code> <code>id<code>；<code>chmod<code> 数字法 755/750/644；<code>chown<code>；<code>sudo<code>。</li><li>建一个用户，给它一个目录的 750 权限，用该用户登录验证能不能进。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第1章">《第1章 · Linux零基础》</a></p><p><b>验收：</b>能解释 750 每一位代表什么；能复现一遍。</p></div><div class="lesson" id="d4"><h3>第 4 天 · 装软件：把 Nginx 装上</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li><code>apt update<code> / <code>apt install nginx<code>（或 <code>dnf<code>），记住包管理器是干什么的。</li><li>浏览器访问服务器 IP，看到 Nginx 默认页。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第3章">《第3章 · 服务器实战》</a></p><p><b>验收：</b>换一台干净的机器，5 分钟内装上并访问成功。</p></div><div class="lesson" id="d5"><h3>第 5 天 · 服务与日志（故障排查的地基）</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li><code>systemctl start/enable/status/restart<code>；用 <code>journalctl -u nginx<code> 看日志。</li><li>把 Nginx 设为开机自启，然后重启机器验证。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第7章">《第7章 · 故障排查专题》</a></p><p><b>验收：</b>服务起不来时，知道先看 `systemctl status` 再看 `journalctl`。</p></div><div class="lesson" id="d6"><h3>第 6 天 · 网络基础（半小时版）</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>IP / 子网 / 网关 / DNS / 端口，这五个词能用自己的话解释。</li><li>实操：<code>ip a<code> 看地址、<code>ping<code> 通外网、<code>ss -tlnp<code> 看 80 端口在监听、<code>curl -I<code> 看响应头。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第2章">《第2章 · 网络零基础》</a></p><p><b>验收：</b>能指着屏幕说清：这台机器的 IP、网关、DNS 各是多少，谁在监听 80。</p></div><div class="lesson" id="d7"><h3>第 7 天 · 第 1 周复盘（不学新东西）</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>把前 6 天做过的操作，不看笔记再走一遍；卡住的地方记下来当复习点。</li><li>默写常用命令 20 条。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第0章">《第0章 · 开始之前》</a></p><p><b>验收：</b>能连续说出 20 条命令及其用途。</p></div><div class="qz"><div class="qz-q">第 1 周检查：服务起不来，最先看哪里？</div><button class="qz-o" type="button" data-a="0">直接重装系统</button><button class="qz-o" type="button" data-a="1">systemctl status 服务名，再看 journalctl -u 服务名</button><button class="qz-o" type="button" data-a="0">改配置文件随便试试</button><div class="qz-why" hidden>故障排查第一步永远是看状态和日志，不是猜配置。</div></div></section>
+<section class="card"><h2>第 2 周 · 能提供服务（网站 / 数据库 / 安全）</h2><div class="lesson" id="d8"><h3>第 8 天 · 域名解析：DNS 与 hosts</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>解析流程（浏览器 → hosts → DNS → IP）用自己话讲一遍。</li><li>改本地 hosts 文件，把一个假域名指向你的服务器 IP。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第5章">《第5章 · DNS实战》</a></p><p><b>验收：</b>能用 hosts 让 `test.local` 打到你的 Nginx。</p></div><div class="lesson" id="d9"><h3>第 9 天 · 把网站配起来（虚拟主机）</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>在 <code>/etc/nginx/<code> 下加一个自己的站点配置，DocumentRoot 指到你建的目录。</li><li>放一个 index.html，重载 Nginx 并访问。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第3章">《第3章 · 服务器实战》</a></p><p><b>验收：</b>改配置 → `nginx -t` 检查 → `systemctl reload nginx` → 生效，这条链能背下来。</p></div><div class="lesson" id="d10"><h3>第 10 天 · HTTPS 与证书</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>用 openssl 自签一张证书，配置 Nginx 443，并让 http 跳到 https。</li><li>浏览器里点开锁图标，看证书内容。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第4章">《第4章 · HTTPS与证书》</a></p><p><b>验收：</b>能独立让一个站点跑在 https 上（自签也算）。</p></div><div class="lesson" id="d11"><h3>第 11 天 · 数据库入门</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>装 MariaDB/MySQL，<code>mysql -u root -p<code> 进去，建库建表插数据查数据。</li><li>备份/恢复各做一次：<code>mysqldump<code> 导出、导回去。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第3章">《第3章 · 服务器实战》</a></p><p><b>验收：</b>能建库建表插 3 条数据，并成功备份+恢复。</p></div><div class="lesson" id="d12"><h3>第 12 天 · 让网站用上数据库</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>写一个最简页面（PHP 或 Python）从数据库读数据并显示。</li><li>顺手练：给数据库用户授权、限制只允许本机访问。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第3章">《第3章 · 服务器实战》</a></p><p><b>验收：</b>浏览器打开页面能看到数据库里的内容。</p></div><div class="lesson" id="d13"><h3>第 13 天 · 防火墙与 SSH 加固（拿分点）</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>开防火墙只放 22/80/443；SSH 改端口、禁用 root 直登、换密钥登录。</li><li>改之前先开第二个终端保底，别把自己关在门外。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第15章">《第15章 · 安全加固》</a></p><p><b>验收：</b>能独立完成一份「最小暴露面」加固清单。</p></div><div class="lesson" id="d14"><h3>第 14 天 · 第 2 周复盘：从零跑通一遍</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>新开一台机器，**不看教程**，把「域名 → 网站 → HTTPS → 数据库」完整跑一遍。</li><li>把卡住的地方写进错题本（页面右下角会自动记）。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第16章">《第16章 · 真题实战》</a></p><p><b>验收：</b>2 小时内独立交付一个带 HTTPS 的站点。</p></div><div class="qz"><div class="qz-q">第 2 周检查：Nginx 改完配置后，正确的生效顺序是？</div><button class="qz-o" type="button" data-a="0">直接重启服务器</button><button class="qz-o" type="button" data-a="1">nginx -t 检查语法 → systemctl reload nginx</button><button class="qz-o" type="button" data-a="0">删掉配置重装</button><div class="qz-why" hidden>先验证语法再重载，是比赛和工作中都通用的习惯。</div></div></section>
+<section class="card"><h2>第 3 周 · 云平台（把东西搬到云上）</h2><div class="lesson" id="d15"><h3>第 15 天 · 云平台第一天：控制台与区域</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>登录 AWS 控制台（或用比赛指定的云平台），找到：区域切换、服务搜索、最近访问。</li><li>先把区域切到离你最近的（如东京/新加坡）。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第12章">《第12章 · AWS实战》</a></p><p><b>验收：</b>不看教程能在 30 秒内找到任意一个指定服务。</p></div><div class="lesson" id="d16"><h3>第 16 天 · IAM：账号与权限</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>建用户、建用户组、给组挂策略、给用户配访问密钥。</li><li>搞清根用户和 IAM 用户的区别（这是比赛和真实工作都考的）。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第12章">《第12章 · AWS实战》</a></p><p><b>验收：</b>能说清「为什么不直接用根用户干活」。</p></div><div class="lesson" id="d17"><h3>第 17 天 · VPC 与安全组</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>建一个 VPC + 子网 + 路由表 + 互联网网关，建安全组开放 22/80。</li><li>画一张图：数据从公网进来经过什么。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第12章">《第12章 · AWS实战》</a></p><p><b>验收：</b>能解释安全组和防火墙的区别。</p></div><div class="lesson" id="d18"><h3>第 18 天 · EC2：把服务器开到云上</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>选镜像起一台实例，配好密钥对，SSH 进去。</li><li>在云主机上重复第 4 天的操作：装 Nginx 并访问公网 IP。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第12章">《第12章 · AWS实战》</a></p><p><b>验收：</b>15 分钟内从零起一台能访问的 Web 服务器。</p></div><div class="lesson" id="d19"><h3>第 19 天 · S3：对象存储与静态网站</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>建桶、上传文件、开静态网站托管、访问桶的访问端点。</li><li>练一次生命周期/权限设置。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第12章">《第12章 · AWS实战》</a></p><p><b>验收：</b>能说清「S3 和 EBS 有什么区别」。</p></div><div class="lesson" id="d20"><h3>第 20 天 · 托管数据库与备份</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>起一个 RDS（最小规格），连上去建表；做一次快照并了解恢复流程。</li><li>顺手看账单页面，知道钱花在哪。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第12章">《第12章 · AWS实战》</a></p><p><b>验收：</b>能说清快照和备份的区别、什么时候用哪个。</p></div><div class="lesson" id="d21"><h3>第 21 天 · 第 3 周复盘：把站搬到云上</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>把第 2 周做的站点，整体搬到云上（EC2 + S3 + RDS 或最小组合）。</li><li>限时 2 小时，超时也要产出。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第16章">《第16章 · 真题实战》</a></p><p><b>验收：</b>限时 2 小时完成，并写出 5 行部署说明。</p></div><div class="qz"><div class="qz-q">第 3 周检查：安全组和防火墙的区别，下面哪句对？</div><button class="qz-o" type="button" data-a="0">是同一个东西</button><button class="qz-o" type="button" data-a="1">安全组作用在云平台侧（实例外围），防火墙作用在服务器系统内部</button><button class="qz-o" type="button" data-a="0">防火墙在云平台侧</button><div class="qz-why" hidden>云上题目经常要求「两层都要配」，少配一层就不通。</div></div></section>
+<section class="card"><h2>第 4 周 · 真题与拿分（对准初级赛）</h2><div class="lesson" id="d22"><h3>第 22 天 · 一条龙综合演练（初级赛的典型题）</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>同一台机器上同时跑起来：Nginx 网站 + 数据库 + DNS 解析，并让它们互相打通。</li><li>限时 90 分钟，不看教程；卡住才回去查。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第3章">《第3章 · 服务器实战》</a></p><p><b>验收：</b>90 分钟内从零交付「域名 → 网站 → 数据库」三件套。</p></div><div class="lesson" id="d23"><h3>第 23 天 · 排障专项：自己造坏再修好</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>固定六步：① 现象 ② 看日志 ③ 查端口与服务 ④ 查配置 ⑤ 查资源 ⑥ 改回来验证。</li><li>自己造 5 个故障：改坏 Nginx 配置、停掉服务、占满 80 端口、写错 hosts、权限改成 000，逐个修好。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第7章">《第7章 · 故障排查专题》</a></p><p><b>验收：</b>拿到一个坏环境，能在 10 分钟内说出下一步看哪里。</p></div><div class="lesson" id="d24"><h3>第 24 天 · 命令盲测 + 口述演练（练表达）</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>把常用的 30 条命令用白纸默写一遍，写不出的回去复习。</li><li>对着手机录音，用 1 分钟讲清：「网站打不开，我怎么查」——比赛里裁判会问你思路。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第0章">《第0章 · 开始之前》</a></p><p><b>验收：</b>能不看任何资料，边做边说清排查思路。</p></div><div class="lesson" id="d25"><h3>第 25 天 · 真题一 · 限时 2 小时</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>拿一套真题，**限时 2 小时**做，模拟比赛节奏：不查答案、不求助。</li><li>做完立刻记下：哪些没做完、卡在哪。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第16章">《第16章 · 真题实战》</a></p><p><b>验收：</b>限时产出，哪怕只完成一半也要交卷。</p></div><div class="lesson" id="d26"><h3>第 26 天 · 真题复盘（5 问，当天必须写完）</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>① 错在哪一步 ② 当时为什么那么想 ③ 正确的做法是什么 ④ 下次怎么识别这类题 ⑤ 重做计划。</li><li>把 25 号没做完的题，第二天重做一遍。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第16章">《第16章 · 真题实战》</a></p><p><b>验收：</b>5 问写完，且重做题能独立完成。</p></div><div class="lesson" id="d27"><h3>第 27 天 · 真题二 · 限时 3 小时 + 抗干扰</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>限时 3 小时完整做一套；中途故意让自己被打断一次（模拟赛场干扰），看还接不接得上。</li><li>做完按评分点自评打分。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第16章">《第16章 · 真题实战》</a></p><p><b>验收：</b>有完整的时间分配策略：哪部分先做、哪部分保底。</p></div><div class="lesson" id="d28"><h3>第 28 天 · 赛前 24 小时清单</h3><p><b>做什么（1.5–2 小时）</b></p><ul><li>准备：比赛环境确认、常用命令手册、账号密码、网络与打印机等外部条件。</li><li>把三周的高频命令抄成一页 A4；把易错点写成 10 条。</li><li>今天不学新东西，只过手册。早睡。</li></ul><p class="meta">读哪一节：<a href="../study.html#d=第0章">《第0章 · 开始之前》</a></p><p><b>验收：</b>手里有一页自己写的命令手册 + 10 条易错点。</p></div><div class="qz"><div class="qz-q">第 4 周检查：限时真题做完后，最该立刻做的一件事是？</div><button class="qz-o" type="button" data-a="0">马上换下一套继续刷</button><button class="qz-o" type="button" data-a="1">写 5 问复盘：错在哪、为什么、正确做法、识别信号、重做计划</button><button class="qz-o" type="button" data-a="0">把答案背下来</button><div class="qz-why" hidden>世赛选手的共同做法是「问题不过夜」；不复盘的刷题只是重复犯错。</div></div></section>
+<section class="card" id="ladder"><h2>往上打的阶梯（你现在在哪一级）</h2>
+  <table>
+    <tr><td><b>初级</b><br><span class="meta">校赛 / 市赛 / 省选拔初赛</span></td>
+        <td>Linux 基础操作（命令、权限、用户）→ 服务部署（Web / 数据库 / DNS）→ 简单网络配置 → 云平台开机器。<br>
+        <span class="meta">这 4 周练的就是这一级。别学超纲的东西，把这一级练到「闭着眼能做」最关键。</span></td></tr>
+    <tr><td><b>中级</b><br><span class="meta">省赛 / 国赛预选</span></td>
+        <td>在上面基础上加：<b>Windows Server + AD 域</b>、负载均衡与高可用（Nginx/HAProxy/Keepalived）、Docker 容器、监控与日志。<br>
+        <span class="meta">晋级后学：<a href="../study.html#d=tutorial_08-WindowsServer基础-保姆级_md">第8章 Windows Server</a> ·
+        <a href="../study.html#d=tutorial_06-负载均衡与高可用-保姆级_md">第6章 负载均衡</a> ·
+        <a href="../study.html#d=tutorial_10-Docker容器入门-保姆级_md">第10章 Docker</a></span></td></tr>
+    <tr><td><b>高级</b><br><span class="meta">国赛 / 世赛选拔</span></td>
+        <td>Kubernetes 与编排、IaC（Ansible / Terraform）、CI/CD 流水线、全场景故障排查、成本与性能优化、SLO 意识。<br>
+        <span class="meta">再往上：<a href="../study.html#d=tutorial_11-Kubernetes入门-保姆级_md">第11章 K8s</a> ·
+        <a href="../study.html#d=tutorial_13-自动化运维-保姆级_md">第13章 自动化运维</a> ·
+        <a href="../study.html#d=official_WSOS-2026-cloud-computing-zh_txt">WSOS 官方标准（权重表）</a></span></td></tr>
+  </table>
+  <p><b>周期参考：</b>初级从零到能打 ≈ 4–8 周；中级 ≈ 3–6 个月；高级 ≈ 12 个月以上（世赛选手备赛约 1000 小时）。
+  <b>每打完一级再学上一级的东西，不要提前跳。</b></p>
+</section>
+
+<section class="card" id="emergency"><h2>应急通道</h2>
+  <p><b>只剩 7 天：</b>D2 命令行走一遍 → D4 装 Nginx → D5 服务与日志 → D15 控制台 → D18 起 EC2 → D25 做一套真题 → D28 赛前清单。</p>
+  <p><b>只剩 3 天（72 小时）：</b>直接用站里的 <a href="../study.html#d=sprint_00-72小时冲刺作战手册_md">《72 小时冲刺作战手册》</a>，
+  它的取舍比这份更狠。</p>
+  <p><b>明天就考：</b>只看三张纸——常用命令 20 条、服务排障六步、云上开机器流程。今天早睡，考场上的清醒比多学一条命令值钱。</p>
+</section>
+
+<section class="card"><h2>关于"能不能拿牌"</h2>
+  <p>世赛级别的选手通常备赛 <b>约 1000 小时</b>，韩国选手日均训练 12 小时以上。4 周 = 50~80 小时，
+  现实目标应定在：<b>完成基础模块、部署类题目拿到分、排障题能说出思路</b>。</p>
+  <p>但你这 4 周练出来的方法（看日志、按套路排查、限时自测、当天复盘）是<b>可迁移</b>的——
+  下一届、下一个赛项，都靠这套。所以别把它当"临时抱佛脚"，把它当第一次行军。</p>
+  <p class="meta">延伸：<a href="cloud.html">云计算备战中心</a>（20 章教程 + 真题 + WSOS 权重表）·
+  <a href="aws-educate.html">AWS 官方课中文全文</a> · <a href="../study.html#d=mastery_06-365天训练系统_md">365 天训练系统</a> ·
+  <a href="paths.html">从零到世赛 12 个月路线</a></p>
+</section>
+</div>
+<footer><div class="foot-in">零基础 4 周冲刺 · 每天 1.5–2 小时 · 做完打勾 · 问题不过夜</div></footer>
+<script>
+(function(){
+  var KEY='kc:sprint';
+  function get(){try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}}}
+  var s=get();
+  var inp=document.getElementById('kc-start-date');
+  var hint=document.getElementById('kc-day-hint');
+  if(s.start) inp.value=s.start;
+  function render(){
+    var st=get(); if(!st.start){hint.textContent='（设了开始日期，页面会自动告诉你今天该做第几天）';return;}
+    var d0=new Date(st.start+'T00:00:00'), now=new Date(); now.setHours(0,0,0,0);
+    var n=Math.floor((now-d0)/86400000)+1;
+    hint.textContent = n<1 ? '还没到开始日' : n>28 ? '计划已过完（第 '+n+' 天）' : '今天是第 '+n+' 天：'+ (window.__DAYS&&window.__DAYS[n]?window.__DAYS[n]:'往下看第 '+n+' 天那张卡');
+    var el=document.getElementById('d'+n);
+    if(el){el.style.outline='2px solid #9e2b25';el.style.borderRadius='10px';el.scrollIntoView({block:'center'});}
+  }
+  document.getElementById('kc-set-date').onclick=function(){
+    var st=get(); st.start=inp.value; localStorage.setItem(KEY,JSON.stringify(st)); render();
+  };
+  render();
+})();
+</script>
+</body>
+</html>
