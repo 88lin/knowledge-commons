@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>AWS 管理控制台入门 · 知识公社</title>
+<title>AWS 管理控制台入门 · 官方课中文全文 · 知识公社</title>
 <link rel="stylesheet" href="style.css">
 <meta name="theme-color" content="#9e2b25">
 <link rel="manifest" href="../manifest.json">
@@ -17,8 +17,8 @@
 <header class="hero">
   <div class="kicker">AWS EDUCATE · CANVAS #982</div>
   <h1>AWS 管理控制台入门</h1>
-  <p>Introduction to the AWS Management Console（繁體中文版）全文整理</p>
-  <p>5 节 · 53 张幻灯片 · 屏上文字 + 旁白字幕逐条对齐</p>
+  <p>Introduction to the AWS Management Console —— 官方课件中文全文</p>
+  <p>5 节 · 53 张幻灯片 · 屏幕文字 + 旁白字幕逐条对齐</p>
 </header>
 <nav class="tabs">
   <a href="index.html">首页</a><a href="beginner.html">学堂</a><a href="calendar.html">日历</a>
@@ -31,733 +31,778 @@
 </nav>
 <div class="wrap">
   <div class="card">
-    <p><b>课程来源：</b>AWS Educate（Canvas 实例 <code>awseducate.instructure.com</code>，课程 ID 982）。
-    课件由 Content Controller 以 SCORM 包分发，本页内容由课件数据自动提取整理。</p>
-    <p><b>怎么用：</b>先看下面的「章节速览」建立地图，再点开每一节看逐张幻灯片的屏上文字与旁白。
-    原文为繁體中文，与 AWS 官方英文课一一对应；关键术语保留了英文，便于对照官方文档。</p>
-    <p><b>版权：</b>课程内容版权归 Amazon Web Services, Inc. 所有（© 2023）。本页仅作个人学习笔记归档，不得商用。</p>
+    <p><b>这是什么：</b>AWS Educate 官方课《Introduction to the AWS Management Console》的完整中文整理版。
+    原课件由 Content Controller 以 SCORM 包分发，本页把每张幻灯片的<b>屏幕文字</b>与<b>旁白字幕</b>逐条提取、
+    繁转简后对齐，随课件的实操步骤原样保留。</p>
+    <p><b>怎么学：</b>第 1 节看全貌 → 第 2 节学导览 → 第 3 节打基础（区域 / 可用区）→
+    <b>第 4 节上手实操</b>（登录控制台逐项点一遍，边做边对照）→ 第 5 节快捷键提速。</p>
+    <p><b>版权：</b>课程内容版权归 Amazon Web Services, Inc. 所有（© 2023）。本页为个人学习笔记性质的中文整理，不得商用。</p>
   </div>
   <div class="actionbar">
-    <a class="actbtn" href="#outline">章节速览</a>
-    <a class="actbtn ghost" href="cloud.html">云计算赛项体系</a>
-    <a class="actbtn ghost" href="cloudlab.html">实训环境</a>
+    <a class="actbtn" href="#lab">直达实操</a>
+    <a class="actbtn ghost" href="#outline">章节速览</a>
+    <a class="actbtn ghost" href="#glossary">术语对照</a>
+    <a class="actbtn ghost" href="cloudlab.html">云实训环境</a>
   </div>
+
+  <section class="card" id="lab"><h2>实操怎么练</h2>
+    <p>这门课的实操是<b>在真实 AWS 控制台里按字幕一步步点</b>，不是模拟器。练之前先有三样东西：</p>
+    <ol>
+      <li><b>一个 AWS 账号</b>——课程第 2 节讲了注册全过程（根用户 vs IAM 用户、邮箱验证码、账户组邮箱的建议）。</li>
+      <li><b>能打开控制台首页</b>——登录后看到的就是课程里讲的"控制台主页"，控制台区域（Region）先在右上角切到离你最近的一个（如 ap-northeast-1 东京 / ap-southeast-1 新加坡）。</li>
+      <li><b>第 4 节的练习清单</b>，逐条做完即可覆盖全部考点：</li>
+    </ol>
+    <div id="labsteps"><p><b>实作练习</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>实作练习</li></ul><p><b>简介</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>简介</li><li>脚本：</li><li>在本节中，您将有机会练习在本课程中学习的一些知识。</li><li>选取</li></ul><p><b>访问 AWS 服务</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>访问 AWS 服务</li><li>脚本：</li><li>首先，您将练习寻找、启动服务，及将服务保存为我的最爱。</li><li>有几种方式可以访问</li></ul><p><b>服务链接</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>脚本：</li><li>请注意，在此窗口中，您可通过另外几个选项来访问</li><li>AWS</li><li>服务：页面顶部有三个其他选项：</li></ul><p><b>服务清单</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>服务清单</li><li>脚本：</li><li>选取保存。</li></ul><p><b>服务类别</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>服务类别</li><li>脚本：</li><li>您现在可以查看所有</li><li>AWS</li></ul><p><b>我的最爱指定</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>我的最爱指定</li><li>脚本：</li><li>星号已变成橙色，您刚刚将 S3 设为我的最爱。现在，当您下次想要访问 S3 时，其将显示于我的最爱清单中。</li><li>若要导览回我的最爱清单，请使用滚动条向上卷动回顶部。</li></ul><p><b>选取 Favorites (我的最爱)</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>选取</li><li>Favorites</li><li>(我的最爱)</li><li>脚本：</li></ul><p><b>选取 S3</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>选取 S3</li><li>脚本：</li><li>现在</li><li>S3</li></ul><p><b>全球链接</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>全球链接</li><li>脚本：</li><li>现在您位于</li><li>S3</li></ul><p><b>全球服务</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>全球服务</li><li>脚本：</li><li>这会打开区域选项的下拉列表。</li><li>除了区域和局部</li></ul><p><b>搜索服务</b></p><ul><li>© 2023, Amazon Web Services, Inc.</li><li>搜索服务</li><li>脚本：</li><li>这一次，您将使用搜索功能来寻找</li><li>EC2</li></ul></div>
+    <p class="meta">提示：练习过程中产生的所有操作都在你自己的账号里，做完记得回控制台首页用 Validate（校验）类向导收尾；新账号注意"账单注意事项"那一节讲的计费提醒与小工具。</p>
+  </section>
+
   <section class="card" id="outline"><h2>章节速览</h2><ol id="toc">
-<li><a href="#sec1">第 1 节</a> —— 歡迎 / AWS 管理主控台 / 在本單元中 / 總結</li>
-<li><a href="#sec2">第 2 节</a> —— 導覽 AWS 管理主控台 / 在本節中 / 如何啟動 AWS 管理主控台 / 設定 AWS 帳戶</li>
-<li><a href="#sec3">第 3 节</a> —— 帳單注意事項 / 在本節中 / AWS 全球基礎設施 / 區域的地圖</li>
-<li><a href="#sec4">第 4 节</a> —— 實作練習 / 簡介 / 存取 AWS 服務 / 服務連結</li>
-<li><a href="#sec5">第 5 节</a> —— 鍵盤快速鍵</li>
+<li><a href="#sec1">第 1 节</a> —— 欢迎 / AWS 管理控制台 / 在本单元中 / 总结</li>
+<li><a href="#sec2">第 2 节</a> —— 导览 AWS 管理控制台 / 在本节中 / 如何启动 AWS 管理控制台 / 设置 AWS 帐户</li>
+<li><a href="#sec3">第 3 节</a> —— 帐单注意事项 / 在本节中 / AWS 全球基础设施 / 区域的地图</li>
+<li><a href="#sec4">第 4 节</a> —— 实作练习 / 简介 / 访问 AWS 服务 / 服务链接</li>
+<li><a href="#sec5">第 5 节</a> —— 键盘快速键</li>
 </ol></section>
 <section class="card" id="sec1"><h2>第 1 节</h2>
-<details open><summary>1.1 歡迎</summary>
+<details open><summary>1.1 欢迎</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>自動播放投影片</li>
+<li>自动播放投视频</li>
 <li>Introduction to the AWS Management Console (Traditional Chinese)</li>
-<li>腳本：</li>
-<li>歡迎學習「處理使用者資料」課程。如果您想要讓每張投影片自動播放，請切換自動播放開關。為取得更好的體驗，建議您這樣做。</li>
+<li>脚本：</li>
+<li>欢迎学习「处理用户数据」课程。如果您想要让每张投视频自动播放，请切换自动播放开关。为取得更好的体验，建议您这样做。</li>
 </ul>
 </details>
-<details><summary>1.2 AWS 管理主控台</summary>
+<details><summary>1.2 AWS 管理控制台</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>AWS 管理主控台</li>
-<li>腳本：</li>
+<li>AWS 管理控制台</li>
+<li>脚本：</li>
 <li>AWS</li>
-<li>管理主控台是一款</li>
+<li>管理控制台是一款</li>
 <li>Web</li>
-<li>應用程式，其包含並引用了一組用於管理 AWS 資源的服務主控台。首次登入時，您會看到主控台首頁。首頁可存取各項服務主控台，並提供單一位置來存取執行</li>
-<li>相關任務所需的資訊。它還可讓您透過新增、移除和重新排列各種小工具來自訂主控台首頁體驗。</li>
+<li>应用程序，其包含并引用了一组用于管理 AWS 资源的服务控制台。首次登录时，您会看到控制台首页。首页可访问各项服务控制台，并提供单一位置来访问运行</li>
+<li>相关任务所需的信息。它还可让您通过添加、移除和重新排列各种小工具来自订控制台首页体验。</li>
 </ul>
-<blockquote class="narr">AWS 管理主控台是一款 Web 應用程式，其包含並引用了一組用於管理 AWS 資源的服務主控台。 首次登入時，您會看到主控台首頁。 首頁提供各項服務主控台的存取權限，並提供單一位置來存取執行 AWS 相關任務所需的資訊。 它還可讓您透過新增、移除和重新排列各種小工具來自訂主控台首頁體驗。</blockquote>
+<blockquote class="narr">AWS 管理控制台是一款 Web 应用程序，其包含并引用了一组用于管理 AWS 资源的服务控制台。 首次登录时，您会看到控制台首页。 首页提供各项服务控制台的访问权限，并提供单一位置来访问运行 AWS 相关任务所需的信息。 它还可让您通过添加、移除和重新排列各种小工具来自订控制台首页体验。</blockquote>
 </details>
-<details><summary>1.3 在本單元中</summary>
+<details><summary>1.3 在本单元中</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>導覽</li>
+<li>导览</li>
 <li>AWS</li>
-<li>管理主控台</li>
-<li>帳單注意事項</li>
-<li>實作練習</li>
-<li>在本單元中</li>
-<li>腳本：</li>
-<li>在本單元結束時，您將能夠了解並順利導覽</li>
-<li>管理主控台、了解帳單注意事項，並獲得實作體驗。</li>
+<li>管理控制台</li>
+<li>帐单注意事项</li>
+<li>实作练习</li>
+<li>在本单元中</li>
+<li>脚本：</li>
+<li>在本单元结束时，您将能够了解并顺利导览</li>
+<li>管理控制台、了解帐单注意事项，并获得实作体验。</li>
 </ul>
-<blockquote class="narr">在本單元結束時，您將可了解並順利導覽 AWS 管理主控台、了解帳單注意事項，並獲得實作體驗。 選擇 Next (下一步) 即可開始。</blockquote>
+<blockquote class="narr">在本单元结束时，您将可了解并顺利导览 AWS 管理控制台、了解帐单注意事项，并获得实作体验。 选择 Next (下一步) 即可开始。</blockquote>
 </details>
-<details><summary>1.4 總結</summary>
+<details><summary>1.4 总结</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>恭喜！ 您已順利完成本課程。</li>
-<li>請瀏覽</li>
+<li>恭喜！ 您已顺利完成本课程。</li>
+<li>请浏览</li>
 <li>AWS Educate</li>
-<li>目錄，查看其他課程。</li>
-<li>在本課程中，您學習了以下技能：</li>
-<li>了解並導覽</li>
+<li>目录，查看其他课程。</li>
+<li>在本课程中，您学习了以下技能：</li>
+<li>了解并导览</li>
 <li>AWS</li>
-<li>管理主控台的功能。</li>
-<li>了解不同區域和服務的帳單注意事項。</li>
-<li>獲得</li>
+<li>管理控制台的功能。</li>
+<li>了解不同区域和服务的帐单注意事项。</li>
+<li>获得</li>
 </ul>
-<blockquote class="narr">我們來檢閱本課程函蓋的內容。 您學習了 AWS 管理主控台的功能，並可以順利地在其中進行導覽， 您了解了不同區域和服務的帳單注意事項，並獲得了實作經驗。 恭喜！ 您已順利完成本課程。</blockquote>
+<blockquote class="narr">我们来检阅本课程函盖的内容。 您学习了 AWS 管理控制台的功能，并可以顺利地在其中进行导览， 您了解了不同区域和服务的帐单注意事项，并获得了实作经验。 恭喜！ 您已顺利完成本课程。</blockquote>
 </details>
-<details><summary>1.5 感謝您</summary>
+<details><summary>1.5 感谢您</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>感謝您</li>
+<li>感谢您</li>
 </ul>
 </details>
 </section>
 <section class="card" id="sec2"><h2>第 2 节</h2>
-<details open><summary>2.1 導覽 AWS 管理主控台</summary>
+<details open><summary>2.1 导览 AWS 管理控制台</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>導覽</li>
+<li>导览</li>
 <li>AWS</li>
-<li>管理主控台</li>
+<li>管理控制台</li>
 </ul>
 </details>
-<details><summary>2.2 在本節中</summary>
+<details><summary>2.2 在本节中</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>在本節中</li>
-<li>腳本：</li>
-<li>在本節結束時，您將了解如何設定您的</li>
+<li>在本节中</li>
+<li>脚本：</li>
+<li>在本节结束时，您将了解如何设置您的</li>
 <li>AWS</li>
-<li>帳戶、啟動</li>
-<li>管理主控台、了解其目的，並了解如何與其功能互動。</li>
-<li>設定您的</li>
-<li>帳戶。</li>
-<li>啟動</li>
-<li>管理主控台。</li>
+<li>帐户、启动</li>
+<li>管理控制台、了解其目的，并了解如何与其功能交互。</li>
+<li>设置您的</li>
+<li>帐户。</li>
+<li>启动</li>
+<li>管理控制台。</li>
 </ul>
-<blockquote class="narr">本節結束後，您將了解如何設定 AWS 帳戶、 如何啟動 AWS 管理主控台、了解其用途 及如何與其功能互動。</blockquote>
+<blockquote class="narr">本节结束后，您将了解如何设置 AWS 帐户、 如何启动 AWS 管理控制台、了解其用途 及如何与其功能交互。</blockquote>
 </details>
-<details><summary>2.3 如何啟動 AWS 管理主控台</summary>
+<details><summary>2.3 如何启动 AWS 管理控制台</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>如何啟動</li>
+<li>如何启动</li>
 <li>AWS</li>
-<li>管理主控台</li>
-<li>腳本：</li>
-<li>請注意，當您學習 AWS Educate 中的課程時，您將在一個無需使用自己帳戶的實驗室平台上。這能讓您免費練習，而不影響您自己的帳戶服務。</li>
-<li>現在，讓我們開始學習如何啟動 AWS 管理主控台。</li>
-<li>當您學習</li>
+<li>管理控制台</li>
+<li>脚本：</li>
+<li>请注意，当您学习 AWS Educate 中的课程时，您将在一个无需使用自己帐户的实验室平台上。这能让您免费练习，而不影响您自己的帐户服务。</li>
+<li>现在，让我们开始学习如何启动 AWS 管理控制台。</li>
+<li>当您学习</li>
 <li>AWS Educate</li>
-<li>的課程時， 您將在一個無需使用自己帳戶的實驗室平台上。</li>
+<li>的课程时， 您将在一个无需使用自己帐户的实验室平台上。</li>
 </ul>
-<blockquote class="narr">Source Version: 6.75.30269.0 請注意，當您學習 AWS Educate 中的課程和實驗時，您將在一個無需使用自己帳戶的實驗室平台上。 這能讓您「在」不影響自己帳戶服務的情況下練習。 現在，讓我們開始學習如何啟動 AWS 管理主控台。</blockquote>
+<blockquote class="narr">Source Version: 6.75.30269.0 请注意，当您学习 AWS Educate 中的课程和实验时，您将在一个无需使用自己帐户的实验室平台上。 这能让您「在」不影响自己帐户服务的情况下练习。 现在，让我们开始学习如何启动 AWS 管理控制台。</blockquote>
 </details>
-<details><summary>2.4 設定 AWS 帳戶</summary>
+<details><summary>2.4 设置 AWS 帐户</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>設定</li>
+<li>设置</li>
 <li>AWS</li>
-<li>帳戶</li>
-<li>腳本：</li>
-<li>開始之前需要注意的是，以不同方式存取主控台時，例如透過您自己的帳戶或透過以 IAM 使用者身分授予他人帳戶存取權限，看到的主控台可能有所不同。</li>
-<li>開始時，開啟 Amazon Web Services 首頁。然後選擇 Create an AWS account (建立 AWS 帳戶)。若您最近曾登入 AWS，則該選項可能不會顯示。</li>
-<li>如果沒有顯示，請選擇 Sign in to the Console (登入主控台) 或 Complete Sign Up (完成註冊) ，如圖所示。</li>
-<li>如果 Create a new AWS account (建立新 AWS 帳戶) 仍未顯示，請先選擇 Sign in to a different account (登入其他帳戶)，然後選擇 Create a new AWS account (建立新 AWS 帳戶)。</li>
-<li>以不同方式存取主控台時，看到的主控台可能有所不同。</li>
+<li>帐户</li>
+<li>脚本：</li>
+<li>开始之前需要注意的是，以不同方式访问控制台时，例如通过您自己的帐户或通过以 IAM 用户身分授予他人帐户访问权限，看到的控制台可能有所不同。</li>
+<li>开始时，打开 Amazon Web Services 首页。然后选择 Create an AWS account (创建 AWS 帐户)。若您最近曾登录 AWS，则该选项可能不会显示。</li>
+<li>如果没有显示，请选择 Sign in to the Console (登录控制台) 或 Complete Sign Up (完成注册) ，如图所示。</li>
+<li>如果 Create a new AWS account (创建新 AWS 帐户) 仍未显示，请先选择 Sign in to a different account (登录其他帐户)，然后选择 Create a new AWS account (创建新 AWS 帐户)。</li>
+<li>以不同方式访问控制台时，看到的控制台可能有所不同。</li>
 </ul>
-<blockquote class="narr">開始之前請務必注意，如果以不同方式存取，主控台看起來可能有所不同， 例如透過您自己的帳戶或以 IAM 使用者身分向其他人的帳戶授予存取權限。 開始時，開啟 Amazon Web Services 首頁。 然後選擇 Create an AWS account (建立 AWS 帳戶)。 若您最近曾登入 AWS，則該選項可能不會顯示。 如果未顯示，請選擇 Sign In (登入) 或 Complete Sign Up (完成註冊)。</blockquote>
+<blockquote class="narr">开始之前请务必注意，如果以不同方式访问，控制台看起来可能有所不同， 例如通过您自己的帐户或以 IAM 用户身分向其他人的帐户授予访问权限。 开始时，打开 Amazon Web Services 首页。 然后选择 Create an AWS account (创建 AWS 帐户)。 若您最近曾登录 AWS，则该选项可能不会显示。 如果未显示，请选择 Sign In (登录) 或 Complete Sign Up (完成注册)。</blockquote>
 </details>
-<details><summary>2.5 設定 AWS 帳戶</summary>
+<details><summary>2.5 设置 AWS 帐户</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>設定 AWS 帳戶</li>
-<li>腳本：</li>
-<li>接下來，您需要選擇以根使用者還是</li>
+<li>设置 AWS 帐户</li>
+<li>脚本：</li>
+<li>接下来，您需要选择以根用户还是</li>
 <li>IAM</li>
-<li>使用者身分註冊。</li>
-<li>由於帳戶的</li>
+<li>用户身分注册。</li>
+<li>由于帐户的</li>
 <li>AWS</li>
-<li>帳戶根使用者極為關鍵，我們強烈建議您使用可以由一個群組，而非僅供個人存取的電子郵件地址。這樣，即使註冊該</li>
-<li>帳戶的人離開公司，該</li>
-<li>帳戶也仍可使用，因為所使用的電子郵件地址仍可存取。</li>
+<li>帐户根用户极为关键，我们强烈建议您使用可以由一个群组，而非仅供个人访问的电子邮件地址。这样，即使注册该</li>
+<li>帐户的人离开公司，该</li>
+<li>帐户也仍可使用，因为所使用的电子邮件地址仍可访问。</li>
 </ul>
-<blockquote class="narr">Source Version: 6.75.30269.0 接下來，您需要選擇以根使用者還是 IAM 使用者身分註冊。 由於帳戶的 AWS 帳戶根使用者極為關鍵，我們強烈建議您使用可以由一個群組，而非僅供某個人存取的電子郵件地址。 這樣，即使註冊該 AWS 帳戶的人離開公司，該帳戶也仍可使用，因為所使用的電子郵件地址仍可存取。 如果您無法存取與該 AWS 帳戶相關聯的電子郵件地址，且密碼丟失，則您將無法復原對該帳戶的存取。 輸入您的帳戶資訊，然後選擇 Verify email address (驗證電子郵件地址)。 這會向指定的電子郵件地址傳送驗證碼。 驗證程序完成後，您將可存取 AWS 管理主控台首頁。</blockquote>
+<blockquote class="narr">Source Version: 6.75.30269.0 接下来，您需要选择以根用户还是 IAM 用户身分注册。 由于帐户的 AWS 帐户根用户极为关键，我们强烈建议您使用可以由一个群组，而非仅供某个人访问的电子邮件地址。 这样，即使注册该 AWS 帐户的人离开公司，该帐户也仍可使用，因为所使用的电子邮件地址仍可访问。 如果您无法访问与该 AWS 帐户相关联的电子邮件地址，且密码丢失，则您将无法复原对该帐户的访问。 输入您的帐户信息，然后选择 Verify email address (验证电子邮件地址)。 这会向指定的电子邮件地址发送验证码。 验证进程完成后，您将可访问 AWS 管理控制台首页。</blockquote>
 </details>
 <details><summary>2.6 小工具</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
 <li>小工具</li>
-<li>腳本：</li>
-<li>每次直接登入</li>
+<li>脚本：</li>
+<li>每次直接登录</li>
 <li>AWS</li>
-<li>管理主控台時，您都會看到主控台首頁。您可以自訂主控台視圖以滿足自己的需求。小工具會顯示</li>
-<li>環境相關重要資訊並提供服務捷徑。</li>
-<li>您可以重新排列或新增和移除小工具來自訂使用體驗。 若要新增小工具，請選擇頁面右上角或右下角的</li>
+<li>管理控制台时，您都会看到控制台首页。您可以自订控制台视图以满足自己的需求。小工具会显示</li>
+<li>环境相关重要信息并提供服务捷径。</li>
+<li>您可以重新排列或添加和移除小工具来自订使用体验。 若要添加小工具，请选择页面右上角或右下角的</li>
 <li>Add widgets</li>
-<li>(新增小工具) 按鈕。在</li>
-<li>(新增小工具) 選單中，選取要新增至主控台的小工具，然後選擇</li>
+<li>(添加小工具) 按钮。在</li>
+<li>(添加小工具) 菜单中，选取要添加至控制台的小工具，然后选择</li>
 </ul>
-<blockquote class="narr">每次直接登入 AWS 管理主控台時，您都會看到主控台首頁。 您可以自訂主控台視圖以滿足自己的需求。 小工具會顯示 AWS 環境相關重要資訊並提供服務捷徑。 您可以重新排列或新增和移除小工具來自訂使用體驗。 若要新增小工具，請選擇頁面右上角或右下角的 Add widgets (新增小工具)。 在 Add widgets (新增小工具) 選單中，選取要新增至主控台的小工具，然後選擇 Add (新增)。 若要移除小工具，請選擇由三個垂直點表示的小工具選單圖示，然後選擇 Remove widget (移除小工具)。 若要重新排列您的小工具，請選擇小工具的標題列進行拖放。 若要調整小工具大小，請選擇選單圖示，然後選擇 Change size (變更大小)。 選擇您偏好的視圖，然後選擇 Change size (變更大小)。 請注意，部分小工具 (如 Explore AWS) 不支援變更大小。 若要將頁面重設回預設配置，請選擇 Reset to default layout (重設為預設配置)，然後選擇 Reset (重設)。 若要將小工具儲存為我的最愛，請選擇 Add widgets (新增小工具)，然後選取 Favorites (我的最愛)。 新增之後，向下捲動至頁面底部，然後將其拖放至頁面頂部。 請注意，您對主控台所做的任何變更都不會影響共享使用者的視圖。 此外，您也無法建立或自訂小工具。</blockquote>
+<blockquote class="narr">每次直接登录 AWS 管理控制台时，您都会看到控制台首页。 您可以自订控制台视图以满足自己的需求。 小工具会显示 AWS 环境相关重要信息并提供服务捷径。 您可以重新排列或添加和移除小工具来自订使用体验。 若要添加小工具，请选择页面右上角或右下角的 Add widgets (添加小工具)。 在 Add widgets (添加小工具) 菜单中，选取要添加至控制台的小工具，然后选择 Add (添加)。 若要移除小工具，请选择由三个垂直点表示的小工具菜单图标，然后选择 Remove widget (移除小工具)。 若要重新排列您的小工具，请选择小工具的标题列进行拖放。 若要调整小工具大小，请选择菜单图标，然后选择 Change size (变更大小)。 选择您偏好的视图，然后选择 Change size (变更大小)。 请注意，部分小工具 (如 Explore AWS) 不支持变更大小。 若要将页面重设回默认配置，请选择 Reset to default layout (重设为默认配置)，然后选择 Reset (重设)。 若要将小工具保存为我的最爱，请选择 Add widgets (添加小工具)，然后选取 Favorites (我的最爱)。 添加之后，向下卷动至页面底部，然后将其拖放至页面顶部。 请注意，您对控制台所做的任何变更都不会影响共享用户的视图。 此外，您也无法创建或自订小工具。</blockquote>
 </details>
-<details><summary>2.7 尋找服務</summary>
+<details><summary>2.7 寻找服务</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>尋找服務</li>
-<li>腳本：</li>
+<li>寻找服务</li>
+<li>脚本：</li>
 <li>AWS</li>
-<li>管理主控台提供了多種方式來導覽個別服務主控台。若要開啟某項服務的主控台，請執行以下動作：</li>
-<li>在導覽列的搜尋方塊中，輸入完整或部分服務名稱，</li>
-<li>然後從搜尋結果清單中選擇所需服務。</li>
+<li>管理控制台提供了多种方式来导览个别服务控制台。若要打开某项服务的控制台，请运行以下动作：</li>
+<li>在导览列的搜索方块中，输入完整或部分服务名称，</li>
+<li>然后从搜索结果清单中选择所需服务。</li>
 <li>Recently visited</li>
-<li>(最近造訪) 服務小工具中，選擇服務名稱。</li>
-<li>(最近造訪) 服務小工具中，選擇 View all AWS services (檢視所有 AWS 服務)。然後，在</li>
+<li>(最近造访) 服务小工具中，选择服务名称。</li>
+<li>(最近造访) 服务小工具中，选择 View all AWS services (查看所有 AWS 服务)。然后，在</li>
 </ul>
-<blockquote class="narr">AWS 管理主控台提供了多種方式來導覽個別服務主控台。 若要開啟某項服務的主控台，請執行以下動作： 在導覽列的搜尋方塊中，輸入完整或部分服務名稱， 然後從搜尋結果清單中選擇所需服務。 在 Recently visited (最近造訪) 服務小工具中，選擇服務名稱。 在 Recently visited (最近造訪) 服務小工具中，選擇 View all AWS services (檢視所有 AWS 服務)。 然後，在 All AWS services (所有 AWS 服務) 頁面，選擇一個服務名稱。 在導覽列中，選擇 Services (服務) 開啟服務的完整清單。 同樣，您在這裡有多種選擇。 您可以選擇左上角顯示的 Recently visited (最近造訪)、Favorites (我的最愛) 或 All services (所有服務) 下的服務。 或者，您可以選擇將顯示服務清單的服務類別，或從 Recently visited (最近造訪) 面板中選擇服務。</blockquote>
+<blockquote class="narr">AWS 管理控制台提供了多种方式来导览个别服务控制台。 若要打开某项服务的控制台，请运行以下动作： 在导览列的搜索方块中，输入完整或部分服务名称， 然后从搜索结果清单中选择所需服务。 在 Recently visited (最近造访) 服务小工具中，选择服务名称。 在 Recently visited (最近造访) 服务小工具中，选择 View all AWS services (查看所有 AWS 服务)。 然后，在 All AWS services (所有 AWS 服务) 页面，选择一个服务名称。 在导览列中，选择 Services (服务) 打开服务的完整清单。 同样，您在这里有多种选择。 您可以选择左上角显示的 Recently visited (最近造访)、Favorites (我的最爱) 或 All services (所有服务) 下的服务。 或者，您可以选择将显示服务清单的服务类别，或从 Recently visited (最近造访) 面板中选择服务。</blockquote>
 </details>
-<details><summary>2.8 如何新增 Favorites (我的最愛) 小工具</summary>
+<details><summary>2.8 如何添加 Favorites (我的最爱) 小工具</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>如何新增 Favorites (我的最愛) 小工具</li>
-<li>腳本：</li>
-<li>為更快速地存取您的常用服務，您可將其服務主控台儲存至我的最愛清單。</li>
-<li>請注意，我的最愛目前儲存於瀏覽器 Cookie 中。如果您刪除主控台工作階段之間的 Cookie，則我的最愛清單將被清除。</li>
-<li>您可透過選擇右上角的 Add widgets (新增小工具) 按鈕來新增我的最愛小工具。</li>
-<li>在 Add widgets (新增小工具) 選單中，選取要新增至主控台的我的最愛，然後選擇 Add (新增)。</li>
-<li>我的最愛將新增至主控台首頁底部。您需要向下捲動至我的最愛小工具，然後透過選取其頂部的標題列對其進行拖放，將其拖曳至頁面上的新位置。</li>
+<li>如何添加 Favorites (我的最爱) 小工具</li>
+<li>脚本：</li>
+<li>为更快速地访问您的常用服务，您可将其服务控制台保存至我的最爱清单。</li>
+<li>请注意，我的最爱目前保存于浏览器 Cookie 中。如果您删除控制台工作阶段之间的 Cookie，则我的最爱清单将被清除。</li>
+<li>您可通过选择右上角的 Add widgets (添加小工具) 按钮来添加我的最爱小工具。</li>
+<li>在 Add widgets (添加小工具) 菜单中，选取要添加至控制台的我的最爱，然后选择 Add (添加)。</li>
+<li>我的最爱将添加至控制台首页底部。您需要向下卷动至我的最爱小工具，然后通过选取其顶部的标题列对其进行拖放，将其拖曳至页面上的新位置。</li>
 </ul>
-<blockquote class="narr">為更快速地存取您的常用服務，您可將其服務主控台儲存至我的最愛清單。 請注意，我的最愛目前儲存於瀏覽器 Cookie 中。 如果您刪除主控台工作階段之間的 Cookie，則我的最愛清單將被清除。 您可透過選擇 Add widgets (新增小工具) 來新增 Favorites (我的最愛) 小工具。 在 Add widgets (新增小工具) 對話方塊中，選取 Favorites (我的最愛)，然後選擇 Add (新增)。 Favorites (我的最愛) 小工具將新增至主控台首頁底部。 您需要捲動至 Favorites (我的最愛) 小工具，然後將其拖放至頁面上的新位置。</blockquote>
+<blockquote class="narr">为更快速地访问您的常用服务，您可将其服务控制台保存至我的最爱清单。 请注意，我的最爱目前保存于浏览器 Cookie 中。 如果您删除控制台工作阶段之间的 Cookie，则我的最爱清单将被清除。 您可通过选择 Add widgets (添加小工具) 来添加 Favorites (我的最爱) 小工具。 在 Add widgets (添加小工具) 对话框中，选取 Favorites (我的最爱)，然后选择 Add (添加)。 Favorites (我的最爱) 小工具将添加至控制台首页底部。 您需要卷动至 Favorites (我的最爱) 小工具，然后将其拖放至页面上的新位置。</blockquote>
 </details>
-<details><summary>2.9 如何新增服務至我的最愛</summary>
+<details><summary>2.9 如何添加服务至我的最爱</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>如何新增服務至我的最愛</li>
-<li>腳本：</li>
-<li>若要新增服務至</li>
+<li>如何添加服务至我的最爱</li>
+<li>脚本：</li>
+<li>若要添加服务至</li>
 <li>Favorites</li>
-<li>(我的最愛) 小工具，在導覽列中，選擇</li>
+<li>(我的最爱) 小工具，在导览列中，选择</li>
 <li>Services</li>
-<li>(服務)。</li>
+<li>(服务)。</li>
 <li>Recently visited</li>
-<li>(最近造訪) 清單或</li>
+<li>(最近造访) 清单或</li>
 </ul>
-<blockquote class="narr">若要新增服務至 Favorites (我的最愛) 小工具，在導覽列中，選擇 Services (服務)。 在 Recently visited (最近造訪) 清單或 All services (所有服務) 清單中，將滑鼠懸停在您想要新增為我的最愛的服務名稱上。 選擇服務名稱左側的星號。 這會讓星號變為橙色，從而將該服務指定為我的最愛。 重複上述步驟，將您想要的所有服務新增至我的最愛清單中。</blockquote>
+<blockquote class="narr">若要添加服务至 Favorites (我的最爱) 小工具，在导览列中，选择 Services (服务)。 在 Recently visited (最近造访) 清单或 All services (所有服务) 清单中，将鼠标悬停在您想要添加为我的最爱的服务名称上。 选择服务名称左侧的星号。 这会让星号变为橙色，从而将该服务指定为我的最爱。 重复上述步骤，将您想要的所有服务添加至我的最爱清单中。</blockquote>
 </details>
-<details><summary>2.10 導覽 AWS 管理主控台摘要</summary>
+<details><summary>2.10 导览 AWS 管理控制台摘要</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>導覽</li>
+<li>导览</li>
 <li>AWS</li>
-<li>管理主控台摘要</li>
-<li>其他資源：</li>
-<li>管理主控台功能</li>
-<li>管理主控台常見問答集</li>
-<li>新增和移除我的最愛</li>
-<li>搜尋產品、服務、功能等</li>
-<li>建立免費帳戶</li>
-<li>管理主控台</li>
+<li>管理控制台摘要</li>
+<li>其他资源：</li>
+<li>管理控制台功能</li>
+<li>管理控制台常见问答集</li>
+<li>添加和移除我的最爱</li>
+<li>搜索产品、服务、功能等</li>
+<li>创建免费帐户</li>
+<li>管理控制台</li>
 </ul>
-<blockquote class="narr">Source Version: 6.75.30269.0 在本節中，您學習了如何設定 AWS 帳戶、如何啟動 AWS 管理主控台、了解其目的，及如何與其功能互動。 請複習本節的關鍵要點和其他資源以進一步了解。 選擇 Next (下一頁) 繼續。</blockquote>
+<blockquote class="narr">Source Version: 6.75.30269.0 在本节中，您学习了如何设置 AWS 帐户、如何启动 AWS 管理控制台、了解其目的，及如何与其功能交互。 请复习本节的关键要点和其他资源以进一步了解。 选择 Next (下一页) 继续。</blockquote>
 </details>
 </section>
 <section class="card" id="sec3"><h2>第 3 节</h2>
-<details open><summary>3.1 帳單注意事項</summary>
+<details open><summary>3.1 帐单注意事项</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>帳單注意事項</li>
+<li>帐单注意事项</li>
 </ul>
 </details>
-<details><summary>3.2 在本節中</summary>
+<details><summary>3.2 在本节中</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>在本節中</li>
-<li>腳本：</li>
-<li>本節結束後，您將能夠</li>
+<li>在本节中</li>
+<li>脚本：</li>
+<li>本节结束后，您将能够</li>
 <li>了解</li>
 <li>AWS</li>
-<li>區域</li>
-<li>及其對服務和帳單的影響，</li>
-<li>能夠描述</li>
-<li>付款模式，並</li>
+<li>区域</li>
+<li>及其对服务和帐单的影响，</li>
+<li>能够描述</li>
+<li>付款模式，并</li>
 <li>AWS Cost Explorer</li>
 </ul>
-<blockquote class="narr">本節結束時，您將熟悉 AWS 區域及其對服務和帳單的影響， 能夠描述 AWS 付款模式， 及了解如何使用 AWS Cost Explorer 來檢視和分析您的 AWS 成本與用量。</blockquote>
+<blockquote class="narr">本节结束时，您将熟悉 AWS 区域及其对服务和帐单的影响， 能够描述 AWS 付款模式， 及了解如何使用 AWS Cost Explorer 来查看和分析您的 AWS 成本与用量。</blockquote>
 </details>
-<details><summary>3.3 AWS 全球基礎設施</summary>
+<details><summary>3.3 AWS 全球基础设施</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>AWS 全球基礎設施</li>
-<li>腳本：</li>
-<li>在 AWS 主控台上選擇服務時，了解 AWS 區域的影響非常重要。區域是個區隔的地理區域，AWS 資料中心在其中儲存用於構建雲端基礎設施的硬體。</li>
+<li>AWS 全球基础设施</li>
+<li>脚本：</li>
+<li>在 AWS 控制台上选择服务时，了解 AWS 区域的影响非常重要。区域是个区隔的地理区域，AWS 数据中心在其中保存用于构建云端基础设施的硬件。</li>
 </ul>
-<blockquote class="narr">在 AWS 主控台上選擇服務時，了解 AWS 區域的影響非常重要。 區域是個區隔的地理區域，AWS 資料中心在其中儲存用於構建雲端基礎設施的硬體。</blockquote>
+<blockquote class="narr">在 AWS 控制台上选择服务时，了解 AWS 区域的影响非常重要。 区域是个区隔的地理区域，AWS 数据中心在其中保存用于构建云端基础设施的硬件。</blockquote>
 </details>
-<details><summary>3.4 區域的地圖</summary>
+<details><summary>3.4 区域的地图</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
 <li>AWS</li>
-<li>區域的地圖</li>
-<li>區域</li>
-<li>會定期新增區域。</li>
-<li>請參閱</li>
-<li>全球基礎設施</li>
-<li>獲取最新的區域地圖。</li>
-<li>腳本：</li>
-<li>選擇服務時，選擇提供服務及離客戶最近的區域將是最佳實務。例如，若一家美國公司將為澳洲的客戶託管一個新網路，則該公司應選擇澳洲雪梨區域。此區域離客戶最近，將有助於降低延遲。</li>
-<li>務必要清楚的是，您選擇的區域會影響您可用的服務、服務成本以及對使用者的延遲。</li>
+<li>区域的地图</li>
+<li>区域</li>
+<li>会定期添加区域。</li>
+<li>请参阅</li>
+<li>全球基础设施</li>
+<li>获取最新的区域地图。</li>
+<li>脚本：</li>
+<li>选择服务时，选择提供服务及离客户最近的区域将是最佳实务。例如，若一家美国公司将为澳洲的客户托管一个新网络，则该公司应选择澳洲雪梨区域。此区域离客户最近，将有助于降低延迟。</li>
+<li>务必要清楚的是，您选择的区域会影响您可用的服务、服务成本以及对用户的延迟。</li>
 </ul>
-<blockquote class="narr">選擇服務時，選擇提供服務及離客戶最近的區域將是最佳實務。 例如，若一家美國公司將為澳洲的客戶託管一個新網路，則該公司應選擇澳洲雪梨區域。 此區域離客戶最近，將有助於降低延遲。 務必要清楚的是，您選擇的區域會影響您可用的服務、服務成本以及對使用者的延遲。 然而，區域並不會影響您資料的安全性、對您資料的存取或您可以儲存的資料量。 此外，由於法律原因，區域資料合規性要求某些資料必須保留在特定區域。</blockquote>
+<blockquote class="narr">选择服务时，选择提供服务及离客户最近的区域将是最佳实务。 例如，若一家美国公司将为澳洲的客户托管一个新网络，则该公司应选择澳洲雪梨区域。 此区域离客户最近，将有助于降低延迟。 务必要清楚的是，您选择的区域会影响您可用的服务、服务成本以及对用户的延迟。 然而，区域并不会影响您数据的安全性、对您数据的访问或您可以保存的数据量。 此外，由于法律原因，区域数据合规性要求某些数据必须保留在特定区域。</blockquote>
 </details>
-<details><summary>3.5 區域</summary>
+<details><summary>3.5 区域</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>區域</li>
-<li>腳本：</li>
-<li>並非每個區域都提供所有服務。例如，左側的服務對所有</li>
+<li>区域</li>
+<li>脚本：</li>
+<li>并非每个区域都提供所有服务。例如，左侧的服务对所有</li>
 <li>AWS</li>
-<li>區域皆可用。右側的服務僅在少數區域中可用，其中許多服務顯示為灰色。</li>
-<li>維尼亞吉北部是</li>
-<li>的主要區域。其提供所有</li>
-<li>服務的存取，且應被視為在</li>
-<li>上進行培訓時使用的區域。</li>
+<li>区域皆可用。右侧的服务仅在少数区域中可用，其中许多服务显示为灰色。</li>
+<li>维尼亚吉北部是</li>
+<li>的主要区域。其提供所有</li>
+<li>服务的访问，且应被视为在</li>
+<li>上进行培训时使用的区域。</li>
 </ul>
-<blockquote class="narr">並非每個區域都提供所有服務。 在本範例中，左側的服務對所有 AWS 區域皆可用。 右側的服務僅在少數區域中可用，其中許多服務顯示為灰色。 維尼亞吉北部是 AWS 的主要區域。 其提供所有 AWS 服務的存取，且應被視為在 AWS 上進行培訓時使用的區域。</blockquote>
+<blockquote class="narr">并非每个区域都提供所有服务。 在本范例中，左侧的服务对所有 AWS 区域皆可用。 右侧的服务仅在少数区域中可用，其中许多服务显示为灰色。 维尼亚吉北部是 AWS 的主要区域。 其提供所有 AWS 服务的访问，且应被视为在 AWS 上进行培训时使用的区域。</blockquote>
 </details>
-<details><summary>3.6 可用區域</summary>
+<details><summary>3.6 可用区域</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>可用區域</li>
-<li>腳本：</li>
+<li>可用区域</li>
+<li>脚本：</li>
 <li>AWS</li>
-<li>區域由一個或多個稱為「可用區域」的隔離位置組成。</li>
-<li>「可用區域」由具有超低延遲和備援的小型建築群 (資料中心) 組成。其相互連接並連接至網際網路，因此其不會同時受到共同命運事件 (如地震) 或常見故障點 (如發電機) 的影響。</li>
-<li>可用區域在區域中。</li>
+<li>区域由一个或多个称为「可用区域」的隔离位置组成。</li>
+<li>「可用区域」由具有超低延迟和备援的小型建筑群 (数据中心) 组成。其相互连接并连接至互联网，因此其不会同时受到共同命运事件 (如地震) 或常见故障点 (如发电机) 的影响。</li>
+<li>可用区域在区域中。</li>
 </ul>
-<blockquote class="narr">AWS 區域由一個或多個稱為「可用區域」的隔離位置組成。 「可用區域」由具有超低延遲和備援的小型建築群 (資料中心) 組成。 其相互連接並連接至網際網路，因此其不會同時受到共同命運事件 (如地震) 或常見故障點 (如發電機) 的影響。</blockquote>
+<blockquote class="narr">AWS 区域由一个或多个称为「可用区域」的隔离位置组成。 「可用区域」由具有超低延迟和备援的小型建筑群 (数据中心) 组成。 其相互连接并连接至互联网，因此其不会同时受到共同命运事件 (如地震) 或常见故障点 (如发电机) 的影响。</blockquote>
 </details>
 <details><summary>3.7 AWS 付款模式</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>腳本：</li>
+<li>脚本：</li>
 <li>使用</li>
 <li>AWS</li>
-<li>時，您只為所需的個別服務和使用的時間付費，無需長期合約或複雜的授權。這種付款模式讓組織能夠保持敏捷、及時回應，並始終能夠滿足擴展需求。</li>
-<li>選擇付款模式按鈕以了解詳情。</li>
+<li>时，您只为所需的个别服务和使用的时间付费，无需长期合约或复杂的授权。这种付款模式让组织能够保持敏捷、及时回应，并始终能够满足扩展需求。</li>
+<li>选择付款模式按钮以了解详情。</li>
 <li>付款模式</li>
-<li>只為您所需的個別服務和使用的時間付費，無需長期合約或複雜的授權。</li>
-<li>這讓組織能夠保持敏捷、及時回應，並能夠滿足擴展需求。</li>
-<li>選擇每個付款模式以了解詳情。</li>
-<li>按用量計費</li>
+<li>只为您所需的个别服务和使用的时间付费，无需长期合约或复杂的授权。</li>
+<li>这让组织能够保持敏捷、及时回应，并能够满足扩展需求。</li>
+<li>选择每个付款模式以了解详情。</li>
+<li>按用量计费</li>
 </ul>
-<blockquote class="narr">Source Version: 6.75.30269.0 使用 AWS 時，您可以按用量付費。 這表示您只為所需的個別服務和使用的時間付費，無需長期合約或複雜的授權。 這讓組織能夠保持敏捷、及時回應，並始終能夠滿足擴展需求。 選擇每個付款模式以了解詳情。</blockquote>
+<blockquote class="narr">Source Version: 6.75.30269.0 使用 AWS 时，您可以按用量付费。 这表示您只为所需的个别服务和使用的时间付费，无需长期合约或复杂的授权。 这让组织能够保持敏捷、及时回应，并始终能够满足扩展需求。 选择每个付款模式以了解详情。</blockquote>
 </details>
-<details><summary>3.8 AWS 免費方案</summary>
+<details><summary>3.8 AWS 免费方案</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
 <li>AWS</li>
-<li>免費方案</li>
-<li>腳本：</li>
-<li>為了協助新加入的 AWS 客戶開始使用雲端，AWS 為新客戶提供了高達一年的免費用量方案 (AWS 免費方案)。當免費方案在作用中時，您可以嘗試選取服務實驗一下，看看哪種服務適合您。這些服務用於生產還是非生產環境並不會影響免費方案。</li>
-<li>免費方案有三種類型：</li>
-<li>短期免費試用方案從啟用特定服務日開始。</li>
-<li>還有一個 12 個月免費方案，其將在您首次註冊 AWS 之日起一年後到期。</li>
-<li>還有一些永遠免費的方案，其不會過期，並始終對所有 AWS 客戶可用。</li>
-<li>這些永遠免費的方案通常以基本組態和配額為基礎。請注意，12 個月免費方案不涵蓋高效能執行個體。</li>
-<li>免費用量方案類型</li>
+<li>免费方案</li>
+<li>脚本：</li>
+<li>为了协助新加入的 AWS 客户开始使用云端，AWS 为新客户提供了高达一年的免费用量方案 (AWS 免费方案)。当免费方案在作用中时，您可以尝试选取服务实验一下，看看哪种服务适合您。这些服务用于生产还是非生产环境并不会影响免费方案。</li>
+<li>免费方案有三种类型：</li>
+<li>短期免费试用方案从激活特定服务日开始。</li>
+<li>还有一个 12 个月免费方案，其将在您首次注册 AWS 之日起一年后到期。</li>
+<li>还有一些永远免费的方案，其不会过期，并始终对所有 AWS 客户可用。</li>
+<li>这些永远免费的方案通常以基本组态和配额为基础。请注意，12 个月免费方案不涵盖高性能运行个体。</li>
+<li>免费用量方案类型</li>
 </ul>
-<blockquote class="narr">為了協助新加入的 AWS 客戶開始使用雲端，AWS 為新客戶提供了高達一年的免費用量方案 (AWS 免費方案)。 當免費方案在作用中時，您可以嘗試選取服務實驗一下，看看哪種服務適合您。 這些服務用於生產還是非生產環境並不會影響免費用量方案。 免費方案有三種類型： 短期免費試用方案從啟用特定服務日開始。 還有一個 12 個月免費方案，其將在您首次註冊 AWS 之日起一年後到期。 還有一些永遠免費的方案，其不會過期，並始終對所有 AWS 客戶可用。 這些永遠免費的方案通常以基本組態和配額為基礎。 請注意，12 個月免費方案不涵蓋高效能運算執行個體。</blockquote>
+<blockquote class="narr">为了协助新加入的 AWS 客户开始使用云端，AWS 为新客户提供了高达一年的免费用量方案 (AWS 免费方案)。 当免费方案在作用中时，您可以尝试选取服务实验一下，看看哪种服务适合您。 这些服务用于生产还是非生产环境并不会影响免费用量方案。 免费方案有三种类型： 短期免费试用方案从激活特定服务日开始。 还有一个 12 个月免费方案，其将在您首次注册 AWS 之日起一年后到期。 还有一些永远免费的方案，其不会过期，并始终对所有 AWS 客户可用。 这些永远免费的方案通常以基本组态和配额为基础。 请注意，12 个月免费方案不涵盖高性能计算运行个体。</blockquote>
 </details>
-<details><summary>3.9 服務成本因素</summary>
+<details><summary>3.9 服务成本因素</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>服務成本因素</li>
-<li>腳本：</li>
-<li>務必檢閱您使用的定價服務，並了解帳單對您所使用服務的每個狀態和元件的影響。例如，當您停止</li>
+<li>服务成本因素</li>
+<li>脚本：</li>
+<li>务必检阅您使用的定价服务，并了解帐单对您所使用服务的每个状态和组件的影响。例如，当您停止</li>
 <li>EC2</li>
-<li>執行個體時，您將仍需為磁碟區資源付費，但無需為運算資源付費。</li>
+<li>运行个体时，您将仍需为磁盘区资源付费，但无需为运算资源付费。</li>
 <li>AWS Cost Explorer</li>
-<li>檢視和分析您的</li>
+<li>查看和分析您的</li>
 <li>AWS</li>
 </ul>
-<blockquote class="narr">務必檢閱您所使用服務的定價。 您應了解您的選擇對帳單的影響。 例如，當您停止 EC2 執行個體時，您將仍需為磁碟區資源付費，但無需為運算資源付費。 使用 AWS Cost Explorer 檢視和分析您的 AWS 成本與用量。 這個工具提供預設報告，幫助您在較高層級或資源層級 (如 EC2 執行個體 ID) 上視覺化 AWS 帳戶和服務的成本與用量。</blockquote>
+<blockquote class="narr">务必检阅您所使用服务的定价。 您应了解您的选择对帐单的影响。 例如，当您停止 EC2 运行个体时，您将仍需为磁盘区资源付费，但无需为运算资源付费。 使用 AWS Cost Explorer 查看和分析您的 AWS 成本与用量。 这个工具提供默认报告，帮助您在较高层级或资源层级 (如 EC2 运行个体 ID) 上可视化 AWS 帐户和服务的成本与用量。</blockquote>
 </details>
-<details><summary>3.10 AWS 定價因區域和服務而異</summary>
+<details><summary>3.10 AWS 定价因区域和服务而异</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
 <li>AWS</li>
-<li>定價因區域和服務而異</li>
-<li>腳本：</li>
-<li>服務的定價因區域和構成應用程式的服務而異。</li>
-<li>例如，如果一個應用程式只在美圖和愛爾蘭使用</li>
+<li>定价因区域和服务而异</li>
+<li>脚本：</li>
+<li>服务的定价因区域和构成应用程序的服务而异。</li>
+<li>例如，如果一个应用程序只在美图和爱尔兰使用</li>
 <li>AWS Lambda</li>
-<li>，則成本是相同的，因為美國和愛爾蘭的</li>
+<li>，则成本是相同的，因为美国和爱尔兰的</li>
 <li>Lambda</li>
-<li>定價相同。但是，如果該應用程式在香港使用</li>
-<li>，則價格更高。</li>
+<li>定价相同。但是，如果该应用程序在香港使用</li>
+<li>，则价格更高。</li>
 </ul>
-<blockquote class="narr">Source Version: 6.75.30269.0 AWS 服務的定價因區域而異。 例如，如果一個應用程式在美國和愛爾蘭區域使用 AWS Lambda，則成本是相同的，因為美國和愛爾蘭的 Lambda 定價相同。 但是，如果該應用程式在香港使用 AWS Lambda，則價格更高。 同樣，應用程式在美國使用 Amazon Kinesis Data Streams 的費用比在法蘭克福低 20%。 因此，在確定 AWS 服務的真實總成本時，考慮所有服務和區域至關重要。</blockquote>
+<blockquote class="narr">Source Version: 6.75.30269.0 AWS 服务的定价因区域而异。 例如，如果一个应用程序在美国和爱尔兰区域使用 AWS Lambda，则成本是相同的，因为美国和爱尔兰的 Lambda 定价相同。 但是，如果该应用程序在香港使用 AWS Lambda，则价格更高。 同样，应用程序在美国使用 Amazon Kinesis Data Streams 的费用比在法兰克福低 20%。 因此，在确定 AWS 服务的真实总成本时，考虑所有服务和区域至关重要。</blockquote>
 </details>
-<details><summary>3.11 帳單注意事項摘要</summary>
+<details><summary>3.11 帐单注意事项摘要</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>帳單注意事項摘要</li>
-<li>其他資源：</li>
-<li>在本節中，您學習了</li>
+<li>帐单注意事项摘要</li>
+<li>其他资源：</li>
+<li>在本节中，您学习了</li>
 <li>AWS</li>
-<li>區域</li>
-<li>對服務和帳單的影響，回顧了</li>
-<li>付款模式，並學習了如何</li>
+<li>区域</li>
+<li>对服务和帐单的影响，回顾了</li>
+<li>付款模式，并学习了如何</li>
 <li>使用</li>
 <li>AWS Cost Explorer</li>
 </ul>
-<blockquote class="narr">在本節中，您學習了 AWS 區域對服務帳單的影響，複習了 AWS 付款模式， 並了解了如何使用 AWS Cost Explorer 來檢視和分析 AWS 成本與用量。 請複習關鍵要點和其他資源以進一步了解。 選擇 Next (下一步) 繼續。</blockquote>
+<blockquote class="narr">在本节中，您学习了 AWS 区域对服务帐单的影响，复习了 AWS 付款模式， 并了解了如何使用 AWS Cost Explorer 来查看和分析 AWS 成本与用量。 请复习关键要点和其他资源以进一步了解。 选择 Next (下一步) 继续。</blockquote>
 </details>
 </section>
 <section class="card" id="sec4"><h2>第 4 节</h2>
-<details open><summary>4.1 實作練習</summary>
+<details open><summary>4.1 实作练习</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>實作練習</li>
+<li>实作练习</li>
 </ul>
 </details>
-<details><summary>4.2 簡介</summary>
+<details><summary>4.2 简介</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>簡介</li>
-<li>腳本：</li>
-<li>在本節中，您將有機會練習在本課程中學習的一些知識。</li>
-<li>選取</li>
+<li>简介</li>
+<li>脚本：</li>
+<li>在本节中，您将有机会练习在本课程中学习的一些知识。</li>
+<li>选取</li>
 <li>Next</li>
-<li>(下一步) 開始。</li>
+<li>(下一步) 开始。</li>
 </ul>
-<blockquote class="narr">在本節中，您將練習在本課程中學習的一些知識。 選擇 Next (下一步) 開始。</blockquote>
+<blockquote class="narr">在本节中，您将练习在本课程中学习的一些知识。 选择 Next (下一步) 开始。</blockquote>
 </details>
-<details><summary>4.3 存取 AWS 服務</summary>
+<details><summary>4.3 访问 AWS 服务</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>存取 AWS 服務</li>
-<li>腳本：</li>
-<li>首先，您將練習尋找、啟動服務，及將服務儲存為我的最愛。</li>
-<li>有幾種方式可以存取</li>
+<li>访问 AWS 服务</li>
+<li>脚本：</li>
+<li>首先，您将练习寻找、启动服务，及将服务保存为我的最爱。</li>
+<li>有几种方式可以访问</li>
 <li>AWS</li>
-<li>服務：查看您的練習範例，您可以看到顯示了幾種服務，並可以從</li>
+<li>服务：查看您的练习范例，您可以看到显示了几种服务，并可以从</li>
 <li>Recently visited</li>
-<li>(最近造訪) 小工具中存取。</li>
-<li>您也可以選取小工具底部的</li>
+<li>(最近造访) 小工具中访问。</li>
+<li>您也可以选取小工具底部的</li>
 <li>View all services</li>
 </ul>
-<blockquote class="narr">首先，您將練習尋找、啟動服務，及將服務儲存為我的最愛。 可以透過幾種方式找到 AWS 服務。 在此練習範例中，一些服務可以從 Recently visited (最近造訪) 小工具中存取。 您也可以選擇小工具底部的 View all services (檢視所有服務)，導覽至 AWS 服務清單。 您可以使用頁面頂部的 Search (搜尋) 方塊或選擇頁面左上角的 Services (服務) 選單來搜尋服務。 在此範例中，選擇 Services (服務)。</blockquote>
+<blockquote class="narr">首先，您将练习寻找、启动服务，及将服务保存为我的最爱。 可以通过几种方式找到 AWS 服务。 在此练习范例中，一些服务可以从 Recently visited (最近造访) 小工具中访问。 您也可以选择小工具底部的 View all services (查看所有服务)，导览至 AWS 服务清单。 您可以使用页面顶部的 Search (搜索) 方块或选择页面左上角的 Services (服务) 菜单来搜索服务。 在此范例中，选择 Services (服务)。</blockquote>
 </details>
-<details><summary>4.4 服務連結</summary>
+<details><summary>4.4 服务链接</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>腳本：</li>
-<li>請注意，在此視窗中，您可透過另外幾個選項來存取</li>
+<li>脚本：</li>
+<li>请注意，在此窗口中，您可通过另外几个选项来访问</li>
 <li>AWS</li>
-<li>服務：頁面頂部有三個其他選項：</li>
+<li>服务：页面顶部有三个其他选项：</li>
 <li>Recently visited</li>
-<li>(最近造訪)、Favorites (我的最愛) 和</li>
+<li>(最近造访)、Favorites (我的最爱) 和</li>
 <li>All Services</li>
-<li>(所有服務)，以及服務類別清單。</li>
-<li>在此練習範例中，您將按類別清單中的服務來搜尋。若不知道要搜尋的服務類別，您可以使用選單頂部的搜尋列。</li>
-<li>但在此範例中，您知道 S3 是一種儲存服務。然而，「S」類別在畫面上不可見，因此您需要向下捲動以檢視清單的其餘部分。</li>
+<li>(所有服务)，以及服务类别清单。</li>
+<li>在此练习范例中，您将按类别清单中的服务来搜索。若不知道要搜索的服务类别，您可以使用菜单顶部的搜索列。</li>
+<li>但在此范例中，您知道 S3 是一种保存服务。然而，「S」类别在画面上不可见，因此您需要向下卷动以查看清单的其余部分。</li>
 </ul>
-<blockquote class="narr">請注意，在 Services (服務) 選單中，還有另外幾個選項可以存取 AWS 服務。 在選單頂部，有三個額外選項： Recently visited (最近造訪)、Favorites (我的最愛) 和 All Services (所有服務)，以及服務類別清單。 在此練習範例中，您將從類別清單中搜尋服務。 若不知道要搜尋的服務類別，您可以使用選單頂部的搜尋列。 但在此範例中，您知道 Amazon S3 是一種儲存服務。 然而，「S」類別不在畫面上，因此您需要捲動以檢視清單的其餘部分。 選擇捲軸。</blockquote>
+<blockquote class="narr">请注意，在 Services (服务) 菜单中，还有另外几个选项可以访问 AWS 服务。 在菜单顶部，有三个额外选项： Recently visited (最近造访)、Favorites (我的最爱) 和 All Services (所有服务)，以及服务类别清单。 在此练习范例中，您将从类别清单中搜索服务。 若不知道要搜索的服务类别，您可以使用菜单顶部的搜索列。 但在此范例中，您知道 Amazon S3 是一种保存服务。 然而，「S」类别不在画面上，因此您需要卷动以查看清单的其余部分。 选择滚动条。</blockquote>
 </details>
-<details><summary>4.5 服務清單</summary>
+<details><summary>4.5 服务清单</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>服務清單</li>
-<li>腳本：</li>
-<li>選取儲存。</li>
+<li>服务清单</li>
+<li>脚本：</li>
+<li>选取保存。</li>
 </ul>
-<blockquote class="narr">選取儲存。</blockquote>
+<blockquote class="narr">选取保存。</blockquote>
 </details>
-<details><summary>4.6 服務類別</summary>
+<details><summary>4.6 服务类别</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>服務類別</li>
-<li>腳本：</li>
-<li>您現在可以查看所有</li>
+<li>服务类别</li>
+<li>脚本：</li>
+<li>您现在可以查看所有</li>
 <li>AWS</li>
-<li>儲存服務的清單。</li>
-<li>此時，我們可以將</li>
+<li>保存服务的清单。</li>
+<li>此时，我们可以将</li>
 <li>S3</li>
-<li>指定為我的最愛服務，因此其將顯示於我的最愛清單中。為此，請將滑鼠懸停於</li>
-<li>上，它的旁邊會出現一個白色線條星號。選取星號，其會變成橙色，表示</li>
-<li>現已列於我的最愛清單中。</li>
+<li>指定为我的最爱服务，因此其将显示于我的最爱清单中。为此，请将鼠标悬停于</li>
+<li>上，它的旁边会出现一个白色线条星号。选取星号，其会变成橙色，表示</li>
+<li>现已列于我的最爱清单中。</li>
 </ul>
-<blockquote class="narr">現在，所有 AWS 儲存服務的清單會出現。 此時，您可以將 S3 指定為我的最愛服務，這樣它就會顯示在我的最愛清單中。 為此，請將滑鼠懸停於 S3 上，一個白色星號會出現。 選擇星號，其會變成橙色，表示 S3 現已列於我的最愛清單中。 選擇 S3 旁邊的星號。</blockquote>
+<blockquote class="narr">现在，所有 AWS 保存服务的清单会出现。 此时，您可以将 S3 指定为我的最爱服务，这样它就会显示在我的最爱清单中。 为此，请将鼠标悬停于 S3 上，一个白色星号会出现。 选择星号，其会变成橙色，表示 S3 现已列于我的最爱清单中。 选择 S3 旁边的星号。</blockquote>
 </details>
-<details><summary>4.7 我的最愛指定</summary>
+<details><summary>4.7 我的最爱指定</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>我的最愛指定</li>
-<li>腳本：</li>
-<li>星號已變成橙色，您剛剛將 S3 設為我的最愛。現在，當您下次想要存取 S3 時，其將顯示於我的最愛清單中。</li>
-<li>若要導覽回我的最愛清單，請使用捲軸向上捲動回頂部。</li>
+<li>我的最爱指定</li>
+<li>脚本：</li>
+<li>星号已变成橙色，您刚刚将 S3 设为我的最爱。现在，当您下次想要访问 S3 时，其将显示于我的最爱清单中。</li>
+<li>若要导览回我的最爱清单，请使用滚动条向上卷动回顶部。</li>
 </ul>
-<blockquote class="narr">星號已變成橙色，您剛剛將 S3 設為我的最愛。 現在，當您下次想要存取 S3 時，其將顯示於我的最愛清單中。 若要導覽回我的最愛清單，請使用捲軸捲動至選單頂部。</blockquote>
+<blockquote class="narr">星号已变成橙色，您刚刚将 S3 设为我的最爱。 现在，当您下次想要访问 S3 时，其将显示于我的最爱清单中。 若要导览回我的最爱清单，请使用滚动条卷动至菜单顶部。</blockquote>
 </details>
-<details><summary>4.8 選取 Favorites (我的最愛)</summary>
+<details><summary>4.8 选取 Favorites (我的最爱)</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>選取</li>
+<li>选取</li>
 <li>Favorites</li>
-<li>(我的最愛)</li>
-<li>腳本：</li>
-<li>(我的最愛)。</li>
+<li>(我的最爱)</li>
+<li>脚本：</li>
+<li>(我的最爱)。</li>
 </ul>
-<blockquote class="narr">選擇 Favorites (我的最愛)。</blockquote>
+<blockquote class="narr">选择 Favorites (我的最爱)。</blockquote>
 </details>
-<details><summary>4.9 選取 S3</summary>
+<details><summary>4.9 选取 S3</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>選取 S3</li>
-<li>腳本：</li>
-<li>現在</li>
+<li>选取 S3</li>
+<li>脚本：</li>
+<li>现在</li>
 <li>S3</li>
-<li>已列入我的最愛清單中。</li>
-<li>選取</li>
-<li>以開啟。</li>
+<li>已列入我的最爱清单中。</li>
+<li>选取</li>
+<li>以打开。</li>
 </ul>
-<blockquote class="narr">現在 S3 已列入我的最愛清單中。 選擇 S3 以開啟。</blockquote>
+<blockquote class="narr">现在 S3 已列入我的最爱清单中。 选择 S3 以打开。</blockquote>
 </details>
-<details><summary>4.10 全球連結</summary>
+<details><summary>4.10 全球链接</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>全球連結</li>
-<li>腳本：</li>
-<li>現在您位於</li>
+<li>全球链接</li>
+<li>脚本：</li>
+<li>现在您位于</li>
 <li>S3</li>
-<li>首頁。</li>
-<li>讓我們指向全球服務。選取視窗右上角的</li>
+<li>首页。</li>
+<li>让我们指向全球服务。选取窗口右上角的</li>
 <li>Global</li>
-<li>(全球) 連結。</li>
+<li>(全球) 链接。</li>
 </ul>
-<blockquote class="narr">現在您位於 S3 首頁。 讓我們指向全球服務。選擇頁面右上角的 Global (全球)。</blockquote>
+<blockquote class="narr">现在您位于 S3 首页。 让我们指向全球服务。选择页面右上角的 Global (全球)。</blockquote>
 </details>
-<details><summary>4.11 全球服務</summary>
+<details><summary>4.11 全球服务</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>全球服務</li>
-<li>腳本：</li>
-<li>這會開啟區域選項的下拉式清單。</li>
-<li>除了區域和區域性</li>
+<li>全球服务</li>
+<li>脚本：</li>
+<li>这会打开区域选项的下拉列表。</li>
+<li>除了区域和局部</li>
 <li>AWS</li>
-<li>服務外，還有一小部分</li>
-<li>服務的控制平面和資料平面並不獨立存在於每個區域。因為它們的資源並非區域專用的，它們通常被稱為全球服務。全球</li>
-<li>服務仍遵循傳統的</li>
-<li>設計模式，將控制平面和資料平面分開，以實現靜態穩定性。大多數全球服務的顯著區別在於，它們的控制平面託管在單一</li>
-<li>區域，而它們的資料平面則分散於全球各地。</li>
+<li>服务外，还有一小部分</li>
+<li>服务的控制平面和数据平面并不独立存在于每个区域。因为它们的资源并非区域专用的，它们通常被称为全球服务。全球</li>
+<li>服务仍遵循传统的</li>
+<li>设计模式，将控制平面和数据平面分开，以实现静态稳定性。大多数全球服务的显著区别在于，它们的控制平面托管在单一</li>
+<li>区域，而它们的数据平面则分散于全球各地。</li>
 </ul>
-<blockquote class="narr">這會開啟 Regions (區域) 選項的下拉式清單。 除了區域和區域性 AWS 服務外，還有一小部分 AWS 服務的控制平面和資料平面並不獨立存在於每個區域。 因為它們的資源並非區域專用的，它們通常被稱為全球服務。 全球 AWS 服務仍遵循傳統的 AWS 設計模式，將控制平面和資料平面分開，以實現靜態穩定性。 大多數全球服務的顯著區別在於，它們的控制平面託管在單一 AWS 區域，而它們的資料平面則分散於全球各地。 在下一項任務中，請使用 Service (服務) 選單來尋找 EC2。 選擇 Services (服務)。</blockquote>
+<blockquote class="narr">这会打开 Regions (区域) 选项的下拉列表。 除了区域和局部 AWS 服务外，还有一小部分 AWS 服务的控制平面和数据平面并不独立存在于每个区域。 因为它们的资源并非区域专用的，它们通常被称为全球服务。 全球 AWS 服务仍遵循传统的 AWS 设计模式，将控制平面和数据平面分开，以实现静态稳定性。 大多数全球服务的显著区别在于，它们的控制平面托管在单一 AWS 区域，而它们的数据平面则分散于全球各地。 在下一项任务中，请使用 Service (服务) 菜单来寻找 EC2。 选择 Services (服务)。</blockquote>
 </details>
-<details><summary>4.12 搜尋服務</summary>
+<details><summary>4.12 搜索服务</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>搜尋服務</li>
-<li>腳本：</li>
-<li>這一次，您將使用搜尋功能來尋找</li>
+<li>搜索服务</li>
+<li>脚本：</li>
+<li>这一次，您将使用搜索功能来寻找</li>
 <li>EC2</li>
-<li>。若您不確定服務在哪個類別下，此功能特別實用。</li>
-<li>選取搜尋列。</li>
+<li>。若您不确定服务在哪个类别下，此功能特别实用。</li>
+<li>选取搜索列。</li>
 </ul>
-<blockquote class="narr">這一次，您將使用搜尋功能來尋找 EC2。 若您不確定服務在哪個類別下，此功能特別實用。 選取搜尋列。</blockquote>
+<blockquote class="narr">这一次，您将使用搜索功能来寻找 EC2。 若您不确定服务在哪个类别下，此功能特别实用。 选取搜索列。</blockquote>
 </details>
-<details><summary>4.13 搜尋列</summary>
+<details><summary>4.13 搜索列</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>搜尋列</li>
-<li>腳本：</li>
-<li>在您輸入時，將出現與您的查詢內容相符的選項。在此範例中，</li>
+<li>搜索列</li>
+<li>脚本：</li>
+<li>在您输入时，将出现与您的查找内容相符的选项。在此范例中，</li>
 <li>EC2</li>
-<li>出現在搜尋結果頂部。</li>
-<li>注意它旁邊的白色星號。回想一下將</li>
+<li>出现在搜索结果顶部。</li>
+<li>注意它旁边的白色星号。回想一下将</li>
 <li>S3</li>
-<li>新增至我的最愛清單的方法，選取這個星號會將</li>
-<li>新增至我的最愛。</li>
-<li>立即執行此動作。選取</li>
+<li>添加至我的最爱清单的方法，选取这个星号会将</li>
+<li>添加至我的最爱。</li>
+<li>立即运行此动作。选取</li>
 </ul>
-<blockquote class="narr">在您輸入時，將出現與您的查詢內容相符的選項。 在此範例中，EC2 出現在搜尋結果頂部。 注意它旁邊的白色星號。 回想一下將 S3 新增至我的最愛清單的方法，選擇這個星號會將 EC2 新增至我的最愛。 讓我們立即執行此動作。選擇 EC2 旁邊的星號。</blockquote>
+<blockquote class="narr">在您输入时，将出现与您的查找内容相符的选项。 在此范例中，EC2 出现在搜索结果顶部。 注意它旁边的白色星号。 回想一下将 S3 添加至我的最爱清单的方法，选择这个星号会将 EC2 添加至我的最爱。 让我们立即运行此动作。选择 EC2 旁边的星号。</blockquote>
 </details>
-<details><summary>4.14 EC2 被標記為我的最愛</summary>
+<details><summary>4.14 EC2 被标记为我的最爱</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>EC2 被標記為我的最愛</li>
-<li>腳本：</li>
-<li>我們再次看到星號變成橙色，表示</li>
+<li>EC2 被标记为我的最爱</li>
+<li>脚本：</li>
+<li>我们再次看到星号变成橙色，表示</li>
 <li>EC2</li>
-<li>也在我的最愛類別中。此外，您可以看到我的最愛直接出現在</li>
+<li>也在我的最爱类别中。此外，您可以看到我的最爱直接出现在</li>
 <li>Services</li>
-<li>(服務) 連結下方</li>
-<li>現在選取</li>
+<li>(服务) 链接下方</li>
+<li>现在选取</li>
 </ul>
-<blockquote class="narr">同樣，星號現在是橙色，表示 EC2 也在我的最愛類別中。 此外，您可以看到我的最愛直接出現在 Services (服務) 選單下方。 現在選擇 EC2。</blockquote>
+<blockquote class="narr">同样，星号现在是橙色，表示 EC2 也在我的最爱类别中。 此外，您可以看到我的最爱直接出现在 Services (服务) 菜单下方。 现在选择 EC2。</blockquote>
 </details>
 <details><summary>4.15 EC2</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
 <li>EC2</li>
-<li>腳本：</li>
-<li>是一項區域服務，且您目前位於俄亥俄區域。您在這裡看到的所有資料，例如執行中的執行個體和負載平衡器，均為您在俄亥俄區域佈建的資源。</li>
-<li>如果您選取其他區域，這些值全部都會變更為顯示您在該特定區域執行的服務。</li>
-<li>然而，儘管</li>
-<li>屬於區域服務，它也有全球視圖。</li>
-<li>選取頁面左上角的</li>
+<li>脚本：</li>
+<li>是一项区域服务，且您目前位于俄亥俄区域。您在这里看到的所有数据，例如运行中的运行个体和负载平衡器，均为您在俄亥俄区域布建的资源。</li>
+<li>如果您选取其他区域，这些值全部都会变更为显示您在该特定区域运行的服务。</li>
+<li>然而，尽管</li>
+<li>属于区域服务，它也有全球视图。</li>
+<li>选取页面左上角的</li>
 <li>EC2 Global view</li>
-<li>全球視圖</li>
+<li>全球视图</li>
 </ul>
-<blockquote class="narr">EC2 是一項區域服務，且您目前位於俄亥俄區域。 您在這裡看到的所有資料，例如執行中的執行個體和負載平衡器，均為您在俄亥俄區域佈建的資源。 如果您選擇其他區域，這些值都會變更為顯示您在該特定區域執行的服務。 然而，儘管 EC2 屬於區域服務，它也有全球視圖。 選擇頁面頂部的 EC2 Global view (EC2 全球視圖)。</blockquote>
+<blockquote class="narr">EC2 是一项区域服务，且您目前位于俄亥俄区域。 您在这里看到的所有数据，例如运行中的运行个体和负载平衡器，均为您在俄亥俄区域布建的资源。 如果您选择其他区域，这些值都会变更为显示您在该特定区域运行的服务。 然而，尽管 EC2 属于区域服务，它也有全球视图。 选择页面顶部的 EC2 Global view (EC2 全球视图)。</blockquote>
 </details>
 <details><summary>4.16 EC2 全球</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
 <li>EC2 全球</li>
-<li>腳本：</li>
-<li>在這裡，您可以在</li>
+<li>脚本：</li>
+<li>在这里，您可以在</li>
 <li>Instances</li>
-<li>(執行個體) 下方查看在多少個區域中有多少個執行個體。在此範例中，兩個區域中有五個執行個體。</li>
-<li>選取</li>
+<li>(运行个体) 下方查看在多少个区域中有多少个运行个体。在此范例中，两个区域中有五个运行个体。</li>
+<li>选取</li>
 <li>Next</li>
-<li>(下一步) 繼續。</li>
+<li>(下一步) 继续。</li>
 </ul>
-<blockquote class="narr">下方的 Instances (執行個體) 顯示了您在多少個區域中有多少個執行個體。 在此範例中，兩個區域中有五個執行個體。 選擇 Next (下一步) 繼續。</blockquote>
+<blockquote class="narr">下方的 Instances (运行个体) 显示了您在多少个区域中有多少个运行个体。 在此范例中，两个区域中有五个运行个体。 选择 Next (下一步) 继续。</blockquote>
 </details>
-<details><summary>4.17 使用服務選單尋找 RDS</summary>
+<details><summary>4.17 使用服务菜单寻找 RDS</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>使用服務選單尋找 RDS</li>
-<li>腳本：</li>
-<li>接下來使用</li>
+<li>使用服务菜单寻找 RDS</li>
+<li>脚本：</li>
+<li>接下来使用</li>
 <li>All Services</li>
-<li>(所有服務) 連結尋找</li>
+<li>(所有服务) 链接寻找</li>
 <li>RDS</li>
-<li>立即選取</li>
+<li>立即选取</li>
 <li>All services</li>
-<li>(所有服務)。</li>
+<li>(所有服务)。</li>
 </ul>
-<blockquote class="narr">接下來，使用 All Services (所有服務) 連結來尋找 Amazon Relational Database Service (Amazon RDS)。 立即選擇 All services (所有服務)。</blockquote>
+<blockquote class="narr">接下来，使用 All Services (所有服务) 链接来寻找 Amazon Relational Database Service (Amazon RDS)。 立即选择 All services (所有服务)。</blockquote>
 </details>
-<details><summary>4.18 向下捲動</summary>
+<details><summary>4.18 向下卷动</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>向下捲動</li>
-<li>腳本：</li>
-<li>您需要使用捲軸來尋找服務。</li>
-<li>選取捲軸以尋找「</li>
+<li>向下卷动</li>
+<li>脚本：</li>
+<li>您需要使用滚动条来寻找服务。</li>
+<li>选取滚动条以寻找「</li>
 <li>」部分。</li>
 </ul>
-<blockquote class="narr">您需要使用捲軸來尋找服務。 選擇捲軸以尋找「R」部分。</blockquote>
+<blockquote class="narr">您需要使用滚动条来寻找服务。 选择滚动条以寻找「R」部分。</blockquote>
 </details>
-<details><summary>4.19 選取 RDS</summary>
+<details><summary>4.19 选取 RDS</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>選取 RDS</li>
-<li>腳本：</li>
-<li>選取</li>
+<li>选取 RDS</li>
+<li>脚本：</li>
+<li>选取</li>
 <li>RDS</li>
 </ul>
-<blockquote class="narr">選擇 RDS。</blockquote>
+<blockquote class="narr">选择 RDS。</blockquote>
 </details>
 <details><summary>4.20 RDS</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
 <li>RDS</li>
-<li>腳本：</li>
-<li>現在您在</li>
-<li>儀表板上，並會注意到這裡沒有全球視圖選項。請記住，並非每項服務都是全球服務。您必須非常謹慎地選擇佈建資源的位置，並注意哪些區域有資源。否則，您將需要從一個區域到另一個區域，以查看您是否佈建了任何其他資料庫。</li>
+<li>脚本：</li>
+<li>现在您在</li>
+<li>仪表板上，并会注意到这里没有全球视图选项。请记住，并非每项服务都是全球服务。您必须非常谨慎地选择布建资源的位置，并注意哪些区域有资源。否则，您将需要从一个区域到另一个区域，以查看您是否布建了任何其他数据库。</li>
 </ul>
-<blockquote class="narr">現在您在 Amazon RDS 儀表板上，並且您應該注意到了這裡沒有全球視圖選項。 請記住，並非每項服務都是全球服務。 您必須非常謹慎地選擇佈建資源的位置，並注意哪些區域有資源。 否則，您將需要從一個區域到另一個區域，查看您是否佈建了任何其他資料庫。 選擇 Next (下一步) 繼續。</blockquote>
+<blockquote class="narr">现在您在 Amazon RDS 仪表板上，并且您应该注意到了这里没有全球视图选项。 请记住，并非每项服务都是全球服务。 您必须非常谨慎地选择布建资源的位置，并注意哪些区域有资源。 否则，您将需要从一个区域到另一个区域，查看您是否布建了任何其他数据库。 选择 Next (下一步) 继续。</blockquote>
 </details>
-<details><summary>4.21 區域費用</summary>
+<details><summary>4.21 区域费用</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>區域費用</li>
-<li>腳本：</li>
-<li>請務必了解，您在其他區域可能需要支付服務費用，因此您需要確定要在哪個區域使用。</li>
-<li>現在，讓我們透過另一項服務</li>
+<li>区域费用</li>
+<li>脚本：</li>
+<li>请务必了解，您在其他区域可能需要支付服务费用，因此您需要确定要在哪个区域使用。</li>
+<li>现在，让我们通过另一项服务</li>
 <li>VPC</li>
-<li>來嘗試一下。</li>
-<li>選取服務連結。</li>
+<li>来尝试一下。</li>
+<li>选取服务链接。</li>
 </ul>
-<blockquote class="narr">請務必了解，您在其他區域可能需要支付服務費用，因此您需要確定要在哪個區域使用。 現在讓我們透過另一項服務 Amazon Virtual Private Cloud (Amazon VPC) 來試一下。 選擇 Services (服務) 選單。</blockquote>
+<blockquote class="narr">请务必了解，您在其他区域可能需要支付服务费用，因此您需要确定要在哪个区域使用。 现在让我们通过另一项服务 Amazon Virtual Private Cloud (Amazon VPC) 来试一下。 选择 Services (服务) 菜单。</blockquote>
 </details>
-<details><summary>4.22 選取 All Services (所有服務)</summary>
+<details><summary>4.22 选取 All Services (所有服务)</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>選取 All Services (所有服務)</li>
-<li>腳本：</li>
-<li>選取</li>
+<li>选取 All Services (所有服务)</li>
+<li>脚本：</li>
+<li>选取</li>
 <li>All services</li>
-<li>(所有服務)。</li>
+<li>(所有服务)。</li>
 </ul>
-<blockquote class="narr">選擇 All services (所有服務)。</blockquote>
+<blockquote class="narr">选择 All services (所有服务)。</blockquote>
 </details>
-<details><summary>4.23 向下捲動</summary>
+<details><summary>4.23 向下卷动</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>向下捲動</li>
-<li>腳本：</li>
-<li>選取捲軸以尋找「</li>
+<li>向下卷动</li>
+<li>脚本：</li>
+<li>选取滚动条以寻找「</li>
 <li>」部分。</li>
 </ul>
-<blockquote class="narr">選擇捲軸以尋找「V」部分。</blockquote>
+<blockquote class="narr">选择滚动条以寻找「V」部分。</blockquote>
 </details>
-<details><summary>4.24 選取 VPC</summary>
+<details><summary>4.24 选取 VPC</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>選取 VPC</li>
-<li>腳本：</li>
-<li>選取</li>
+<li>选取 VPC</li>
+<li>脚本：</li>
+<li>选取</li>
 <li>VPC</li>
 </ul>
-<blockquote class="narr">選擇 VPC。</blockquote>
+<blockquote class="narr">选择 VPC。</blockquote>
 </details>
-<details><summary>4.25 檢視您有資源的所有區域</summary>
+<details><summary>4.25 查看您有资源的所有区域</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>檢視您有資源的所有區域</li>
-<li>腳本：</li>
-<li>在這裡，您可以看到您有資源的所有區域。</li>
-<li>選取</li>
+<li>查看您有资源的所有区域</li>
+<li>脚本：</li>
+<li>在这里，您可以看到您有资源的所有区域。</li>
+<li>选取</li>
 <li>VPC</li>
 <li>下方的</li>
 <li>See all Regions</li>
-<li>(查看所有區域)。</li>
+<li>(查看所有区域)。</li>
 </ul>
-<blockquote class="narr">在這裡，您可以看到您有資源的所有區域。 選擇 VPC 下方的 See all Regions (查看所有區域)。</blockquote>
+<blockquote class="narr">在这里，您可以看到您有资源的所有区域。 选择 VPC 下方的 See all Regions (查看所有区域)。</blockquote>
 </details>
-<details><summary>4.26 檢視您有資源的所有區域</summary>
+<details><summary>4.26 查看您有资源的所有区域</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>檢視您有資源的所有區域</li>
-<li>腳本：</li>
-<li>您將產生一個顯示區域的下拉式方塊。</li>
-<li>這樣就完成了實作練習活動。</li>
-<li>選取</li>
+<li>查看您有资源的所有区域</li>
+<li>脚本：</li>
+<li>您将产生一个显示区域的下拉式方块。</li>
+<li>这样就完成了实作练习活动。</li>
+<li>选取</li>
 <li>Next</li>
-<li>(下一步) 按鈕繼續。</li>
+<li>(下一步) 按钮继续。</li>
 </ul>
-<blockquote class="narr">這會展開顯示區域的下拉式清單。 這樣就完成了實作練習。 選擇 Next (下一步) 繼續。</blockquote>
+<blockquote class="narr">这会展开显示区域的下拉列表。 这样就完成了实作练习。 选择 Next (下一步) 继续。</blockquote>
 </details>
 </section>
 <section class="card" id="sec5"><h2>第 5 节</h2>
-<details open><summary>5.1 鍵盤快速鍵</summary>
+<details open><summary>5.1 键盘快速键</summary>
 <ul>
 <li>© 2023, Amazon Web Services, Inc.</li>
-<li>鍵盤快速鍵</li>
+<li>键盘快速键</li>
 <li>Mac</li>
-<li>按鍵</li>
+<li>按键</li>
 <li>Windows</li>
-<li>播放/暫停</li>
+<li>播放/暂停</li>
 <li>Ctrl+Alt+P</li>
-<li>上一張投影片</li>
-<li>Ctrl+Alt+, (逗號)</li>
-<li>下一張投影片</li>
-<li>Ctrl+Alt+. (句號)</li>
+<li>上一张投视频</li>
+<li>Ctrl+Alt+, (逗号)</li>
+<li>下一张投视频</li>
+<li>Ctrl+Alt+. (句号)</li>
 </ul>
 </details>
 </section>
+<section class="card" id="glossary"><h2>术语对照（英 → 中）</h2>
+<table>
+<tr><td><code>Add</code></td><td>添加</td></tr>
+<tr><td><code>Add widgets</code></td><td>添加小工具</td></tr>
+<tr><td><code>All AWS services</code></td><td>所有 AWS 服务</td></tr>
+<tr><td><code>All services</code></td><td>所有服务</td></tr>
+<tr><td><code>All Services</code></td><td>所有服务</td></tr>
+<tr><td><code>Change size</code></td><td>变更大小</td></tr>
+<tr><td><code>Complete Sign Up</code></td><td>完成注册</td></tr>
+<tr><td><code>Create a new AWS account</code></td><td>创建新 AWS 帐户</td></tr>
+<tr><td><code>Create an AWS account</code></td><td>创建 AWS 帐户</td></tr>
+<tr><td><code>Favorites</code></td><td>我的最爱</td></tr>
+<tr><td><code>Global</code></td><td>全球</td></tr>
+<tr><td><code>Instances</code></td><td>运行个体</td></tr>
+<tr><td><code>Next</code></td><td>下一步</td></tr>
+<tr><td><code>Recently visited</code></td><td>最近造访</td></tr>
+<tr><td><code>Regions</code></td><td>区域</td></tr>
+<tr><td><code>Remove widget</code></td><td>移除小工具</td></tr>
+<tr><td><code>Reset</code></td><td>重设</td></tr>
+<tr><td><code>Reset to default layout</code></td><td>重设为默认配置</td></tr>
+<tr><td><code>Search</code></td><td>搜索</td></tr>
+<tr><td><code>See all Regions</code></td><td>查看所有区域</td></tr>
+<tr><td><code>Service</code></td><td>服务</td></tr>
+<tr><td><code>Services</code></td><td>服务</td></tr>
+<tr><td><code>Sign In</code></td><td>登录</td></tr>
+<tr><td><code>Sign in to a different account</code></td><td>登录其他帐户</td></tr>
+<tr><td><code>Sign in to the Console</code></td><td>登录控制台</td></tr>
+<tr><td><code>Verify email address</code></td><td>验证电子邮件地址</td></tr>
+<tr><td><code>View all AWS services</code></td><td>查看所有 AWS 服务</td></tr>
+<tr><td><code>View all services</code></td><td>查看所有服务</td></tr>
+</table></section>
 </div>
-<footer><div class="foot-in">内容提取自 AWS Educate 课程课件，仅供个人学习交流 · 版权归 Amazon Web Services, Inc. 所有 ·
-<a style="color:#d7deea" href="https://github.com/TaiMaBenJi/worldskills-cloud" target="_blank" rel="noopener">GitHub 仓库</a></div></footer>
+<footer><div class="foot-in">内容提取自 AWS Educate 官方课件并译为简体中文，仅供个人学习交流 · 版权归 Amazon Web Services, Inc. 所有 ·
+<a style="color:#d7deea" href="https://github.com/TaiMaBenJi/knowledge-commons" target="_blank" rel="noopener">GitHub 仓库</a></div></footer>
 </body>
 </html>
