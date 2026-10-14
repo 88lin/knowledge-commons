@@ -1,0 +1,1854 @@
+{
+ "course": "Introduction to the AWS Management Console (Traditional Chinese)",
+ "canvas_course_id": 982,
+ "scenes": [
+  {
+   "scene": 3,
+   "slides": [
+    {
+     "id": "6iwTSZ86ZRN",
+     "title": "歡迎",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "自動播放投影片",
+      "Introduction to the AWS Management Console (Traditional Chinese)",
+      "腳本：",
+      "歡迎學習「處理使用者資料」課程。如果您想要讓每張投影片自動播放，請切換自動播放開關。為取得更好的體驗，建議您這樣做。"
+     ],
+     "narration": [],
+     "captions": [
+      "6iwTSZ86ZRN",
+      "5XIF0OovsXz",
+      "5cCW0HP3tKl",
+      "6FXrD81ABeV",
+      "61hkebJhujq",
+      "5hRT13SgHtS",
+      "6BmRZj3OL43",
+      "6ZN3GUhiz3M",
+      "66X8DXoV7wq",
+      "6C4z2EnGxXp",
+      "6TYbuHqzueU",
+      "6asCsfhpHCZ",
+      "66X8DXoV7wq",
+      "6TPKb9gZrO8",
+      "6PbYA7U1VCx",
+      "5rhINHr7YxQ"
+     ]
+    },
+    {
+     "id": "6NNT6dDjCPV",
+     "title": "AWS 管理主控台",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "AWS 管理主控台",
+      "腳本：",
+      "AWS",
+      "管理主控台是一款",
+      "Web",
+      "應用程式，其包含並引用了一組用於管理 AWS 資源的服務主控台。首次登入時，您會看到主控台首頁。首頁可存取各項服務主控台，並提供單一位置來存取執行",
+      "相關任務所需的資訊。它還可讓您透過新增、移除和重新排列各種小工具來自訂主控台首頁體驗。"
+     ],
+     "narration": [
+      "AWS 管理主控台是一款 Web 應用程式，其包含並引用了一組用於管理 AWS 資源的服務主控台。 首次登入時，您會看到主控台首頁。 首頁提供各項服務主控台的存取權限，並提供單一位置來存取執行 AWS 相關任務所需的資訊。 它還可讓您透過新增、移除和重新排列各種小工具來自訂主控台首頁體驗。"
+     ],
+     "captions": [
+      "6NNT6dDjCPV",
+      "69taYzuJ9Ar",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "66rgetESKcN",
+      "6pTI6hnSFtu",
+      "6AtE7rECahy"
+     ]
+    },
+    {
+     "id": "5YenpXw6cnR",
+     "title": "在本單元中",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "導覽",
+      "AWS",
+      "管理主控台",
+      "帳單注意事項",
+      "實作練習",
+      "在本單元中",
+      "腳本：",
+      "在本單元結束時，您將能夠了解並順利導覽",
+      "管理主控台、了解帳單注意事項，並獲得實作體驗。",
+      "請"
+     ],
+     "narration": [
+      "在本單元結束時，您將可了解並順利導覽 AWS 管理主控台、了解帳單注意事項，並獲得實作體驗。 選擇 Next (下一步) 即可開始。"
+     ],
+     "captions": [
+      "5YenpXw6cnR",
+      "60KgrSJUgin",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5b6btZ0lOJy",
+      "6XMPnrTFvMI",
+      "6fKq2AT5czV",
+      "6YkPgvyhQtf",
+      "6Ly62hMTftv",
+      "5ggA3qsTN9G",
+      "68YvMYV4qKJ",
+      "64xxgqgSVk8",
+      "6DsdDq5I69l",
+      "6fTcYGXyxyr",
+      "6NDU9tHHIiY",
+      "5jG3hgMdCOG",
+      "5ivCWZDZkpf",
+      "5tqJMgJZMqx",
+      "622runWciUe"
+     ]
+    },
+    {
+     "id": "6CtpdT7Xyww",
+     "title": "總結",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "恭喜！ 您已順利完成本課程。",
+      "請瀏覽",
+      "AWS Educate",
+      "目錄，查看其他課程。",
+      "在本課程中，您學習了以下技能：",
+      "了解並導覽",
+      "AWS",
+      "管理主控台的功能。",
+      "了解不同區域和服務的帳單注意事項。",
+      "獲得"
+     ],
+     "narration": [
+      "我們來檢閱本課程函蓋的內容。 您學習了 AWS 管理主控台的功能，並可以順利地在其中進行導覽， 您了解了不同區域和服務的帳單注意事項，並獲得了實作經驗。 恭喜！ 您已順利完成本課程。"
+     ],
+     "captions": [
+      "6CtpdT7Xyww",
+      "5d297ISYugP",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5nMIFHvqLVW",
+      "6hcRxOu3QOV",
+      "5oFM8KNDPTX",
+      "5f1qEvg0SrR",
+      "6ekpXHJkuYw",
+      "6h4L1MwAO8q",
+      "5a1YU7ulkeW",
+      "5ZeEZqlF0mF",
+      "5VKcOHZ3PIj",
+      "6JO0hD03IBJ"
+     ]
+    },
+    {
+     "id": "67ffSjXvMBQ",
+     "title": "感謝您",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "感謝您"
+     ],
+     "narration": [],
+     "captions": [
+      "67ffSjXvMBQ",
+      "5XIF0OovsXz",
+      "5cCW0HP3tKl",
+      "6JxAuSWnqT1",
+      "6BScJfY8K1e",
+      "6UC7ySh6t1d",
+      "6TZWGP8hU91",
+      "5ZzuuQ6hNRN"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 4,
+   "slides": [
+    {
+     "id": "6GNEyxRPP8m",
+     "title": "導覽 AWS 管理主控台",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "導覽",
+      "AWS",
+      "管理主控台"
+     ],
+     "narration": [],
+     "captions": [
+      "6GNEyxRPP8m",
+      "5XIF0OovsXz",
+      "5cCW0HP3tKl",
+      "5sg0eGRoS3s",
+      "5e2p25GvdnS",
+      "6US0Xsm3REU",
+      "6gizvl45BKW"
+     ]
+    },
+    {
+     "id": "5xhiKdE8BOB",
+     "title": "在本節中",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "在本節中",
+      "腳本：",
+      "在本節結束時，您將了解如何設定您的",
+      "AWS",
+      "帳戶、啟動",
+      "管理主控台、了解其目的，並了解如何與其功能互動。",
+      "設定您的",
+      "帳戶。",
+      "啟動",
+      "管理主控台。"
+     ],
+     "narration": [
+      "本節結束後，您將了解如何設定 AWS 帳戶、 如何啟動 AWS 管理主控台、了解其用途 及如何與其功能互動。"
+     ],
+     "captions": [
+      "5xhiKdE8BOB",
+      "6RWwQbebejv",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6cHoe2LTYZn",
+      "5WCpihkHc7a",
+      "5jMeTMIblIO",
+      "6mO1u0aBE7v",
+      "6TWRaDKjWo5",
+      "5nKjlI8hASg",
+      "5zqQ16AzP02",
+      "5fQXxIcN0Y9",
+      "6FRYOvRZcgL",
+      "5z6fT7SfP3K",
+      "6cDl7bUpIZf",
+      "6iwmDXfrNge",
+      "5ccR7d3LJYr"
+     ]
+    },
+    {
+     "id": "5VFUlQKrg7b",
+     "title": "如何啟動 AWS 管理主控台",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "如何啟動",
+      "AWS",
+      "管理主控台",
+      "腳本：",
+      "請注意，當您學習 AWS Educate 中的課程時，您將在一個無需使用自己帳戶的實驗室平台上。這能讓您免費練習，而不影響您自己的帳戶服務。",
+      "現在，讓我們開始學習如何啟動 AWS 管理主控台。",
+      "當您學習",
+      "AWS Educate",
+      "中",
+      "的課程時，\r您將在一個無需使用自己帳戶的實驗室平台上。"
+     ],
+     "narration": [
+      "Source Version: 6.75.30269.0 請注意，當您學習 AWS Educate 中的課程和實驗時，您將在一個無需使用自己帳戶的實驗室平台上。 這能讓您「在」不影響自己帳戶服務的情況下練習。 現在，讓我們開始學習如何啟動 AWS 管理主控台。"
+     ],
+     "captions": [
+      "5VFUlQKrg7b",
+      "6GhLBQYXe12",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5j889r9X38E",
+      "5o9t4gZgQh5",
+      "6jTWCLG3ZD8",
+      "5fk9363gUfF"
+     ]
+    },
+    {
+     "id": "6Q5x9sNCwRz",
+     "title": "設定 AWS 帳戶",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "設定",
+      "AWS",
+      "帳戶",
+      "腳本：",
+      "開始之前需要注意的是，以不同方式存取主控台時，例如透過您自己的帳戶或透過以 IAM 使用者身分授予他人帳戶存取權限，看到的主控台可能有所不同。",
+      "開始時，開啟 Amazon Web Services 首頁。然後選擇 Create an AWS account (建立 AWS 帳戶)。若您最近曾登入 AWS，則該選項可能不會顯示。",
+      "如果沒有顯示，請選擇 Sign in to the Console (登入主控台) 或 Complete Sign Up (完成註冊) ，如圖所示。",
+      "如果 Create a new AWS account (建立新 AWS 帳戶) 仍未顯示，請先選擇 Sign in to a different account (登入其他帳戶)，然後選擇 Create a new AWS account (建立新 AWS 帳戶)。",
+      "以不同方式存取主控台時，看到的主控台可能有所不同。"
+     ],
+     "narration": [
+      "開始之前請務必注意，如果以不同方式存取，主控台看起來可能有所不同， 例如透過您自己的帳戶或以 IAM 使用者身分向其他人的帳戶授予存取權限。 開始時，開啟 Amazon Web Services 首頁。 然後選擇 Create an AWS account (建立 AWS 帳戶)。 若您最近曾登入 AWS，則該選項可能不會顯示。 如果未顯示，請選擇 Sign In (登入) 或 Complete Sign Up (完成註冊)。"
+     ],
+     "captions": [
+      "6Q5x9sNCwRz",
+      "5Z8W4JUetp4",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6o93Snbyecu",
+      "5k4O7jfWzA5",
+      "5jeHhs1ZFiR",
+      "6WI3LSGd07V",
+      "6WNFyfL655d",
+      "6kdxeFJn51q",
+      "6Ra7QKyfmJ5",
+      "60cmW1hxfJw",
+      "6BJy3h91zFA",
+      "5n1SvqYb9C7",
+      "5h4iT39AIcv",
+      "6bYm8V9Irvh",
+      "6gjs2BzMNND",
+      "6YBrNgxic4u"
+     ]
+    },
+    {
+     "id": "6X6Of1o6Rik",
+     "title": "設定 AWS 帳戶",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "設定 AWS 帳戶",
+      "腳本：",
+      "接下來，您需要選擇以根使用者還是",
+      "IAM",
+      "使用者身分註冊。",
+      "由於帳戶的",
+      "AWS",
+      "帳戶根使用者極為關鍵，我們強烈建議您使用可以由一個群組，而非僅供個人存取的電子郵件地址。這樣，即使註冊該",
+      "帳戶的人離開公司，該",
+      "帳戶也仍可使用，因為所使用的電子郵件地址仍可存取。"
+     ],
+     "narration": [
+      "Source Version: 6.75.30269.0 接下來，您需要選擇以根使用者還是 IAM 使用者身分註冊。 由於帳戶的 AWS 帳戶根使用者極為關鍵，我們強烈建議您使用可以由一個群組，而非僅供某個人存取的電子郵件地址。 這樣，即使註冊該 AWS 帳戶的人離開公司，該帳戶也仍可使用，因為所使用的電子郵件地址仍可存取。 如果您無法存取與該 AWS 帳戶相關聯的電子郵件地址，且密碼丟失，則您將無法復原對該帳戶的存取。 輸入您的帳戶資訊，然後選擇 Verify email address (驗證電子郵件地址)。 這會向指定的電子郵件地址傳送驗證碼。 驗證程序完成後，您將可存取 AWS 管理主控台首頁。"
+     ],
+     "captions": [
+      "6X6Of1o6Rik",
+      "6ORH0EmcNxN",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6loHUVKiWDI",
+      "5rSeIVlnupb",
+      "6FP5IzBug5Y",
+      "6aZQv9I6y4j",
+      "5qkIE096i3Q",
+      "6eabnND0yyI",
+      "6qHfGPw0DzQ"
+     ]
+    },
+    {
+     "id": "5aY1p5Kd4kV",
+     "title": "小工具",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "小工具",
+      "腳本：",
+      "每次直接登入",
+      "AWS",
+      "管理主控台時，您都會看到主控台首頁。您可以自訂主控台視圖以滿足自己的需求。小工具會顯示",
+      "環境相關重要資訊並提供服務捷徑。",
+      "您可以重新排列或新增和移除小工具來自訂使用體驗。  若要新增小工具，請選擇頁面右上角或右下角的",
+      "Add widgets",
+      "(新增小工具) 按鈕。在",
+      "(新增小工具) 選單中，選取要新增至主控台的小工具，然後選擇"
+     ],
+     "narration": [
+      "每次直接登入 AWS 管理主控台時，您都會看到主控台首頁。 您可以自訂主控台視圖以滿足自己的需求。 小工具會顯示 AWS 環境相關重要資訊並提供服務捷徑。 您可以重新排列或新增和移除小工具來自訂使用體驗。 若要新增小工具，請選擇頁面右上角或右下角的 Add widgets (新增小工具)。 在 Add widgets (新增小工具) 選單中，選取要新增至主控台的小工具，然後選擇 Add (新增)。",
+      "若要移除小工具，請選擇由三個垂直點表示的小工具選單圖示，然後選擇 Remove widget (移除小工具)。",
+      "若要重新排列您的小工具，請選擇小工具的標題列進行拖放。 若要調整小工具大小，請選擇選單圖示，然後選擇 Change size (變更大小)。 選擇您偏好的視圖，然後選擇 Change size (變更大小)。 請注意，部分小工具 (如 Explore AWS) 不支援變更大小。 若要將頁面重設回預設配置，請選擇 Reset to default layout (重設為預設配置)，然後選擇 Reset (重設)。 若要將小工具儲存為我的最愛，請選擇 Add widgets (新增小工具)，然後選取 Favorites (我的最愛)。 新增之後，向下捲動至頁面底部，然後將其拖放至頁面頂部。 請注意，您對主控台所做的任何變更都不會影響共享使用者的視圖。 此外，您也無法建立或自訂小工具。"
+     ],
+     "captions": [
+      "5aY1p5Kd4kV",
+      "5moCyeBIpen",
+      "5iBlk9MbLPe",
+      "6pQiYtvid2c",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5yuuXJdkqNC",
+      "6H0dlYw4sjB",
+      "6MAeUVrnfwk",
+      "6TCslk6jiAX",
+      "5rVskBmNBpb",
+      "6Uv9497RRml",
+      "6Ne710NbG8S",
+      "6XXc4BY98D9",
+      "6PEyrSR8hL8"
+     ]
+    },
+    {
+     "id": "6ZSRo0Lf4hC",
+     "title": "尋找服務",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "尋找服務",
+      "腳本：",
+      "AWS",
+      "管理主控台提供了多種方式來導覽個別服務主控台。若要開啟某項服務的主控台，請執行以下動作：",
+      "在導覽列的搜尋方塊中，輸入完整或部分服務名稱，",
+      "然後從搜尋結果清單中選擇所需服務。",
+      "在",
+      "Recently visited",
+      "(最近造訪) 服務小工具中，選擇服務名稱。",
+      "(最近造訪) 服務小工具中，選擇 View all AWS services (檢視所有 AWS 服務)。然後，在"
+     ],
+     "narration": [
+      "AWS 管理主控台提供了多種方式來導覽個別服務主控台。 若要開啟某項服務的主控台，請執行以下動作： 在導覽列的搜尋方塊中，輸入完整或部分服務名稱， 然後從搜尋結果清單中選擇所需服務。 在 Recently visited (最近造訪) 服務小工具中，選擇服務名稱。 在 Recently visited (最近造訪) 服務小工具中，選擇 View all AWS services (檢視所有 AWS 服務)。 然後，在 All AWS services (所有 AWS 服務) 頁面，選擇一個服務名稱。 在導覽列中，選擇 Services (服務) 開啟服務的完整清單。 同樣，您在這裡有多種選擇。 您可以選擇左上角顯示的 Recently visited (最近造訪)、Favorites (我的最愛) 或 All services (所有服務) 下的服務。 或者，您可以選擇將顯示服務清單的服務類別，或從 Recently visited (最近造訪) 面板中選擇服務。"
+     ],
+     "captions": [
+      "6ZSRo0Lf4hC",
+      "5vG9Mmp3qIc",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6M6rgV5WlfU",
+      "5wT9FKprxn5",
+      "5q1ykgUHS9M",
+      "6YrzLjOz9s1",
+      "6Q1k1FFtIxj",
+      "6Jxn3Wpl2Vo",
+      "6kMgMPAjWOj",
+      "5o5kin6CqYX",
+      "6p69Hd3eBeu",
+      "5dQbCdXiSTo",
+      "6HBf6cUVT4m",
+      "6idZDbgcZDX",
+      "6XTlwqkLRRs",
+      "6GDcatMjrOC",
+      "6ARjIjsjG5r",
+      "6ouNeUKSguA",
+      "5hAhB6cfwaV",
+      "6eEbQvzV1t8"
+     ]
+    },
+    {
+     "id": "6rQ2hJPMpgh",
+     "title": "如何新增 Favorites (我的最愛) 小工具",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "如何新增 Favorites (我的最愛) 小工具",
+      "腳本：",
+      "為更快速地存取您的常用服務，您可將其服務主控台儲存至我的最愛清單。",
+      "請注意，我的最愛目前儲存於瀏覽器 Cookie 中。如果您刪除主控台工作階段之間的 Cookie，則我的最愛清單將被清除。",
+      "您可透過選擇右上角的 Add widgets (新增小工具) 按鈕來新增我的最愛小工具。",
+      "在 Add widgets (新增小工具) 選單中，選取要新增至主控台的我的最愛，然後選擇 Add (新增)。",
+      "我的最愛將新增至主控台首頁底部。您需要向下捲動至我的最愛小工具，然後透過選取其頂部的標題列對其進行拖放，將其拖曳至頁面上的新位置。"
+     ],
+     "narration": [
+      "為更快速地存取您的常用服務，您可將其服務主控台儲存至我的最愛清單。 請注意，我的最愛目前儲存於瀏覽器 Cookie 中。 如果您刪除主控台工作階段之間的 Cookie，則我的最愛清單將被清除。 您可透過選擇 Add widgets (新增小工具) 來新增 Favorites (我的最愛) 小工具。 在 Add widgets (新增小工具) 對話方塊中，選取 Favorites (我的最愛)，然後選擇 Add (新增)。 Favorites (我的最愛) 小工具將新增至主控台首頁底部。 您需要捲動至 Favorites (我的最愛) 小工具，然後將其拖放至頁面上的新位置。"
+     ],
+     "captions": [
+      "6rQ2hJPMpgh",
+      "5YjWLlceItz",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6LNECbJV0Uw",
+      "6AlwktmO4vs",
+      "6XX3UGjahAA",
+      "6TD97kdgxyw"
+     ]
+    },
+    {
+     "id": "60szk37PuDA",
+     "title": "如何新增服務至我的最愛",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "如何新增服務至我的最愛",
+      "腳本：",
+      "若要新增服務至",
+      "Favorites",
+      "(我的最愛) 小工具，在導覽列中，選擇",
+      "Services",
+      "(服務)。",
+      "在",
+      "Recently visited",
+      "(最近造訪) 清單或"
+     ],
+     "narration": [
+      "若要新增服務至 Favorites (我的最愛) 小工具，在導覽列中，選擇 Services (服務)。 在 Recently visited (最近造訪) 清單或 All services (所有服務) 清單中，將滑鼠懸停在您想要新增為我的最愛的服務名稱上。 選擇服務名稱左側的星號。 這會讓星號變為橙色，從而將該服務指定為我的最愛。 重複上述步驟，將您想要的所有服務新增至我的最愛清單中。"
+     ],
+     "captions": [
+      "60szk37PuDA",
+      "5gOyfPKo3PM",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5umi1wumNLf",
+      "5wGZGe3P6M7",
+      "5rfLttdZfIk"
+     ]
+    },
+    {
+     "id": "6cW91pAYcj3",
+     "title": "導覽 AWS 管理主控台摘要",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "導覽",
+      "AWS",
+      "管理主控台摘要",
+      "其他資源：",
+      "管理主控台功能",
+      "管理主控台常見問答集",
+      "新增和移除我的最愛",
+      "搜尋產品、服務、功能等",
+      "建立免費帳戶",
+      "管理主控台"
+     ],
+     "narration": [
+      "Source Version: 6.75.30269.0 在本節中，您學習了如何設定 AWS 帳戶、如何啟動 AWS 管理主控台、了解其目的，及如何與其功能互動。 請複習本節的關鍵要點和其他資源以進一步了解。 選擇 Next (下一頁) 繼續。"
+     ],
+     "captions": [
+      "6cW91pAYcj3",
+      "6ZjSX6IFbeA",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5mlY162QGml",
+      "5j5iI8LdjsV",
+      "5r3WNFTdZs0",
+      "5rvOP8xvqgb",
+      "5oF4RqVtXwi",
+      "5vgKYS3pUJm",
+      "6dpoG48Yd8D",
+      "6ExWRNjDoYm",
+      "6CS20r54yM0",
+      "5mfkQcoCOND"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 5,
+   "slides": [
+    {
+     "id": "6oljIp3BQvJ",
+     "title": "帳單注意事項",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "帳單注意事項"
+     ],
+     "narration": [],
+     "captions": [
+      "6oljIp3BQvJ",
+      "5XIF0OovsXz",
+      "5cCW0HP3tKl",
+      "5sg0eGRoS3s",
+      "5e2p25GvdnS",
+      "6US0Xsm3REU",
+      "5WgFko8E9Gt"
+     ]
+    },
+    {
+     "id": "6VDRMHvvosG",
+     "title": "在本節中",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "在本節中",
+      "腳本：",
+      "本節結束後，您將能夠",
+      "了解",
+      "AWS",
+      "區域",
+      "及其對服務和帳單的影響，",
+      "能夠描述",
+      "付款模式，並",
+      "AWS Cost Explorer"
+     ],
+     "narration": [
+      "本節結束時，您將熟悉 AWS 區域及其對服務和帳單的影響， 能夠描述 AWS 付款模式， 及了解如何使用 AWS Cost Explorer 來檢視和分析您的 AWS 成本與用量。"
+     ],
+     "captions": [
+      "6VDRMHvvosG",
+      "6ZYtBG7mUc8",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5aUlEqGWBmz",
+      "6LK6MF4pkM9",
+      "6Vuct0tDpaJ",
+      "6rSdjS4VYpB",
+      "6iWQPEQaLsZ",
+      "6QHbJkomXWv",
+      "6J77SB2l3qf",
+      "6JKy3Plu0Ey",
+      "6YtoSzb8Y1j",
+      "5pncXIhGYSX",
+      "6Y8MLW2WsoK",
+      "6Us0AgYUTdJ",
+      "6mFO34UzFWX"
+     ]
+    },
+    {
+     "id": "6UJ7DjkalWC",
+     "title": "AWS 全球基礎設施",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "AWS 全球基礎設施",
+      "腳本：",
+      "在 AWS 主控台上選擇服務時，了解 AWS 區域的影響非常重要。區域是個區隔的地理區域，AWS 資料中心在其中儲存用於構建雲端基礎設施的硬體。"
+     ],
+     "narration": [
+      "在 AWS 主控台上選擇服務時，了解 AWS 區域的影響非常重要。 區域是個區隔的地理區域，AWS 資料中心在其中儲存用於構建雲端基礎設施的硬體。"
+     ],
+     "captions": [
+      "6UJ7DjkalWC",
+      "6AFltzGXhOt",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5fkfLg5Ka0x",
+      "6BKt4HjXydG",
+      "5zIu6f4dZkr",
+      "5nN3FEBQE0K",
+      "6JEiikQpwtZ"
+     ]
+    },
+    {
+     "id": "6DkcxnXexFh",
+     "title": "區域的地圖",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "AWS",
+      "區域的地圖",
+      "區域",
+      "會定期新增區域。",
+      "請參閱",
+      "全球基礎設施",
+      "獲取最新的區域地圖。",
+      "腳本：",
+      "選擇服務時，選擇提供服務及離客戶最近的區域將是最佳實務。例如，若一家美國公司將為澳洲的客戶託管一個新網路，則該公司應選擇澳洲雪梨區域。此區域離客戶最近，將有助於降低延遲。",
+      "務必要清楚的是，您選擇的區域會影響您可用的服務、服務成本以及對使用者的延遲。"
+     ],
+     "narration": [
+      "選擇服務時，選擇提供服務及離客戶最近的區域將是最佳實務。 例如，若一家美國公司將為澳洲的客戶託管一個新網路，則該公司應選擇澳洲雪梨區域。 此區域離客戶最近，將有助於降低延遲。 務必要清楚的是，您選擇的區域會影響您可用的服務、服務成本以及對使用者的延遲。 然而，區域並不會影響您資料的安全性、對您資料的存取或您可以儲存的資料量。 此外，由於法律原因，區域資料合規性要求某些資料必須保留在特定區域。"
+     ],
+     "captions": [
+      "6DkcxnXexFh",
+      "5iX8SgIvSAq",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6lONO1cs25T",
+      "6EJidyAnjfR",
+      "6jytaK12RSO",
+      "6EmTjZcRtzL",
+      "5l3YZjXpUrD",
+      "6JE1P6BrUW5",
+      "6JZOrGpNydO",
+      "6k0dJjUHtYG",
+      "6PwP23Nm5Z4",
+      "5yR1UaOl8EO",
+      "5ZUJb8MgT0B",
+      "5arSCPsslFX",
+      "5tZ8obHxVGz",
+      "6IQro75SpdA",
+      "6SLBDHl0Q0B",
+      "6I72bvhFe0K",
+      "5d8sGKkTcYO",
+      "5Yzq2OuOsmy",
+      "6jbCgoKRi9y",
+      "6qojRKtX9d8",
+      "6juAK4IoJ3Y",
+      "6gsx6gXNdn8",
+      "5skoF4dsRma",
+      "5lhr5SZuatu",
+      "5cqKASJmEpB",
+      "5tSbGi4Za1P",
+      "6BX8qCimgEx",
+      "6IdLhOJDf2j",
+      "6ZNliwdKOqS",
+      "5yRvnViiX47",
+      "5vZ7XwLTZHZ",
+      "65jdUJdZUwT",
+      "6RWjEVaPsYN",
+      "5xRUldbRL1U",
+      "5o3kRdFrWe2",
+      "6OckGEhPcxl",
+      "6fIf3c3Y0Z5",
+      "6FMi2lUZeL6",
+      "5cIsibJ5NEJ",
+      "5rSxnruch3L",
+      "6H5OePW27gJ",
+      "5W1ZGy0O0PM"
+     ]
+    },
+    {
+     "id": "6ptvnk09uRa",
+     "title": "區域",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "區域",
+      "腳本：",
+      "並非每個區域都提供所有服務。例如，左側的服務對所有",
+      "AWS",
+      "區域皆可用。右側的服務僅在少數區域中可用，其中許多服務顯示為灰色。",
+      "維尼亞吉北部是",
+      "的主要區域。其提供所有",
+      "服務的存取，且應被視為在",
+      "上進行培訓時使用的區域。"
+     ],
+     "narration": [
+      "並非每個區域都提供所有服務。 在本範例中，左側的服務對所有 AWS 區域皆可用。 右側的服務僅在少數區域中可用，其中許多服務顯示為灰色。 維尼亞吉北部是 AWS 的主要區域。 其提供所有 AWS 服務的存取，且應被視為在 AWS 上進行培訓時使用的區域。"
+     ],
+     "captions": [
+      "6ptvnk09uRa",
+      "66UeDKQEzjy",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6GFT40IUEDJ",
+      "6WzmZtPDz3r",
+      "5hYJ8fSobti",
+      "6UfXrbWOBWY",
+      "5jVLnlR734l",
+      "5lUNYzagRrb",
+      "5zPaCRTNNhJ",
+      "6E9jRgaBiWU",
+      "5ooAxJ18nRV",
+      "6oL7aUiINBw",
+      "6aeMFEcxRCZ",
+      "6iDOdUobiPn"
+     ]
+    },
+    {
+     "id": "5lxDPUSMDLp",
+     "title": "可用區域",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "可用區域",
+      "腳本：",
+      "AWS",
+      "區域由一個或多個稱為「可用區域」的隔離位置組成。",
+      "「可用區域」由具有超低延遲和備援的小型建築群 (資料中心) 組成。其相互連接並連接至網際網路，因此其不會同時受到共同命運事件 (如地震) 或常見故障點 (如發電機) 的影響。",
+      "可用區域在區域中。"
+     ],
+     "narration": [
+      "AWS 區域由一個或多個稱為「可用區域」的隔離位置組成。 「可用區域」由具有超低延遲和備援的小型建築群 (資料中心) 組成。 其相互連接並連接至網際網路，因此其不會同時受到共同命運事件 (如地震) 或常見故障點 (如發電機) 的影響。"
+     ],
+     "captions": [
+      "5lxDPUSMDLp",
+      "5kn8lbT9SBf",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6g2i9rlUi9A",
+      "6fx8W6REuX9",
+      "5zIeYjuf98o",
+      "6bl7LLn5HC5",
+      "6Rj2fExh4bt",
+      "5p5KaLKAy58",
+      "6OGPE2awbl2",
+      "6HUlJaFUczo",
+      "600rQHuO7i5",
+      "6QbKDfIT1ef"
+     ]
+    },
+    {
+     "id": "6r6wS6HchdV",
+     "title": "AWS 付款模式",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "腳本：",
+      "使用",
+      "AWS",
+      "時，您只為所需的個別服務和使用的時間付費，無需長期合約或複雜的授權。這種付款模式讓組織能夠保持敏捷、及時回應，並始終能夠滿足擴展需求。",
+      "選擇付款模式按鈕以了解詳情。",
+      "付款模式",
+      "只為您所需的個別服務和使用的時間付費，無需長期合約或複雜的授權。",
+      "這讓組織能夠保持敏捷、及時回應，並能夠滿足擴展需求。",
+      "選擇每個付款模式以了解詳情。",
+      "按用量計費"
+     ],
+     "narration": [
+      "Source Version: 6.75.30269.0 使用 AWS 時，您可以按用量付費。 這表示您只為所需的個別服務和使用的時間付費，無需長期合約或複雜的授權。 這讓組織能夠保持敏捷、及時回應，並始終能夠滿足擴展需求。 選擇每個付款模式以了解詳情。"
+     ],
+     "captions": [
+      "6UL6YPxFOF5",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6NgLVm74Tgt",
+      "6fisYM8or0p",
+      "6SIi09zzoLy",
+      "6n3kcHQwSAO",
+      "68afBdyeYLp",
+      "6IzmaN0Kp2f",
+      "6BUyXyTlBYs",
+      "5nAvP4DeQU2",
+      "6TqwogZ9z0L",
+      "5obTLgBIv5a",
+      "6bbF5FDIVL0",
+      "5wpBzoShhwh",
+      "6VOl8byzGe3",
+      "5x1Zvoiygpt",
+      "5vrcGOxRt3g",
+      "6pu6PIG9EV4",
+      "6imHgqVzAYc",
+      "5p6S3ZULYDt",
+      "60okqtI8YEy",
+      "5sdLkTZ1LfD",
+      "6cUaQ0XD8GE",
+      "6KejpR6MLLb",
+      "6WWMtnaDtxf",
+      "6H1YfuAj47q",
+      "5uU2zizCOYo",
+      "6boeWZo55NQ",
+      "6lP3YqZZbp2",
+      "5ayejz60xFU",
+      "6PUL9dNdGFO",
+      "6l0j2t19P1k",
+      "5Vi96BlYrCY",
+      "6lBMFZyqXfD",
+      "6cl2QOnE0Ts",
+      "6mYbouGe7PB",
+      "5cbEm9yvQcJ",
+      "6pq4x9qz3wP",
+      "6MQzZGr9Cb3",
+      "5qwj975dStS",
+      "6PwoAywqP4w",
+      "6M04aTaH72b",
+      "6j7nbxX6pls",
+      "5a8PTF86maw",
+      "6XWoXxjDgm4",
+      "66kOnbEmh2L",
+      "5rauIvEJeQ0",
+      "6APa7HuwuNl",
+      "5bKABA6smC0",
+      "5msKeIOLJJG",
+      "61CzlZEJSba",
+      "5XRfoXCG9J5",
+      "6gLwBiOQNSU",
+      "6lxD3RKu7mQ",
+      "6fpPX2PA3gv",
+      "6p70aoHJbGZ",
+      "6PRBmmRyGsk",
+      "6r6wS6HchdV"
+     ]
+    },
+    {
+     "id": "5WrcjjMR2ex",
+     "title": "AWS 免費方案",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "AWS",
+      "免費方案",
+      "腳本：",
+      "為了協助新加入的 AWS 客戶開始使用雲端，AWS 為新客戶提供了高達一年的免費用量方案 (AWS 免費方案)。當免費方案在作用中時，您可以嘗試選取服務實驗一下，看看哪種服務適合您。這些服務用於生產還是非生產環境並不會影響免費方案。",
+      "免費方案有三種類型：",
+      "短期免費試用方案從啟用特定服務日開始。",
+      "還有一個 12 個月免費方案，其將在您首次註冊 AWS 之日起一年後到期。",
+      "還有一些永遠免費的方案，其不會過期，並始終對所有 AWS 客戶可用。",
+      "這些永遠免費的方案通常以基本組態和配額為基礎。請注意，12 個月免費方案不涵蓋高效能執行個體。",
+      "免費用量方案類型"
+     ],
+     "narration": [
+      "為了協助新加入的 AWS 客戶開始使用雲端，AWS 為新客戶提供了高達一年的免費用量方案 (AWS 免費方案)。 當免費方案在作用中時，您可以嘗試選取服務實驗一下，看看哪種服務適合您。 這些服務用於生產還是非生產環境並不會影響免費用量方案。 免費方案有三種類型： 短期免費試用方案從啟用特定服務日開始。 還有一個 12 個月免費方案，其將在您首次註冊 AWS 之日起一年後到期。 還有一些永遠免費的方案，其不會過期，並始終對所有 AWS 客戶可用。 這些永遠免費的方案通常以基本組態和配額為基礎。 請注意，12 個月免費方案不涵蓋高效能運算執行個體。"
+     ],
+     "captions": [
+      "5WrcjjMR2ex",
+      "6pIpURkD2d0",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6SmgA9rSYIH",
+      "5ZVs6LrAHwd",
+      "6Lol16OiMTQ",
+      "6iV9fvDrYUG",
+      "5Xq9mytFHKP",
+      "5p58mG4tq2D",
+      "6ICozm9Xm4Q",
+      "6HJAbUNExf6",
+      "6KveBoDSYHO",
+      "6jtZWid3Ybo",
+      "6TYPyYXxANN",
+      "60CQIs7Hxoo",
+      "6m7zaHttsEn",
+      "6jfaSIAOt0K",
+      "6B4PLCSogPI",
+      "6qlxc7nxNCf",
+      "6WX6TaHuk0M",
+      "6dR4O5l3dMG",
+      "63lw0Zx6Svp"
+     ]
+    },
+    {
+     "id": "6KD32REXCbN",
+     "title": "服務成本因素",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "服務成本因素",
+      "腳本：",
+      "務必檢閱您使用的定價服務，並了解帳單對您所使用服務的每個狀態和元件的影響。例如，當您停止",
+      "EC2",
+      "執行個體時，您將仍需為磁碟區資源付費，但無需為運算資源付費。",
+      "使",
+      "用",
+      "AWS Cost Explorer",
+      "檢視和分析您的",
+      "AWS"
+     ],
+     "narration": [
+      "務必檢閱您所使用服務的定價。 您應了解您的選擇對帳單的影響。 例如，當您停止 EC2 執行個體時，您將仍需為磁碟區資源付費，但無需為運算資源付費。 使用 AWS Cost Explorer 檢視和分析您的 AWS 成本與用量。 這個工具提供預設報告，幫助您在較高層級或資源層級 (如 EC2 執行個體 ID) 上視覺化 AWS 帳戶和服務的成本與用量。"
+     ],
+     "captions": [
+      "6KD32REXCbN",
+      "6RlCqtiq34e",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "65dWpY1PjKQ",
+      "6FpIUooerPn",
+      "5ohryPJWcIy",
+      "5jpSTtpnUa8",
+      "64sx8SwfoT7"
+     ]
+    },
+    {
+     "id": "6P4oKzwY7Bl",
+     "title": "AWS 定價因區域和服務而異",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "AWS",
+      "定價因區域和服務而異",
+      "腳本：",
+      "服務的定價因區域和構成應用程式的服務而異。",
+      "例如，如果一個應用程式只在美圖和愛爾蘭使用",
+      "AWS Lambda",
+      "，則成本是相同的，因為美國和愛爾蘭的",
+      "Lambda",
+      "定價相同。但是，如果該應用程式在香港使用",
+      "，則價格更高。"
+     ],
+     "narration": [
+      "Source Version: 6.75.30269.0 AWS 服務的定價因區域而異。 例如，如果一個應用程式在美國和愛爾蘭區域使用 AWS Lambda，則成本是相同的，因為美國和愛爾蘭的 Lambda 定價相同。 但是，如果該應用程式在香港使用 AWS Lambda，則價格更高。 同樣，應用程式在美國使用 Amazon Kinesis Data Streams 的費用比在法蘭克福低 20%。 因此，在確定 AWS 服務的真實總成本時，考慮所有服務和區域至關重要。"
+     ],
+     "captions": [
+      "6P4oKzwY7Bl",
+      "640YJoNhJGm",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6OXJhQ57KFM",
+      "5cF5nQ8leyr",
+      "68bzciaRH56",
+      "6E8pIFpnuVT",
+      "6l721KIzdy0",
+      "5bccCnlLQ3E",
+      "6hjWLxqWrmz",
+      "6GGruz30YOt",
+      "5ZDBPU4quzJ",
+      "6LN7vUFx90c",
+      "6Y4n7RYhZtQ",
+      "5kJcYmNIUHn",
+      "6IJjcHEOYAK",
+      "67I30UFJ6pn",
+      "5xUoHW4iLNW",
+      "5oxTZmqZ7CY",
+      "6GgmI0xPmaH",
+      "61ThBHEk8pF",
+      "60Bka6UkvrV",
+      "6TUMNY9b3hn",
+      "6XmN0ZVEicT",
+      "6cjX6NZUymX",
+      "5j6pcJRqFhs",
+      "6ORer2HXSKZ",
+      "6oLPIGYM73o",
+      "67CP5QMZqrq",
+      "5rs1zNuk8ey",
+      "5vrzhrizPQH",
+      "677P120FF0a",
+      "6Jp1W18VRaY",
+      "6ULDYW4g9qa",
+      "6TwGVDeCOy2",
+      "5VYewQYurX8",
+      "6VJQu3vqkt0",
+      "5wwHl62Msqn",
+      "6SgnJy29YQd",
+      "6HUgLowbCgv",
+      "6HIoiTUyTC8",
+      "5aaXx9wOjEm",
+      "5VQrwVolSco",
+      "5UnrODgn8bz",
+      "6gSNVdhEYtq",
+      "6iocAzPl26L",
+      "5fhyuWyYxDe",
+      "6ZbqPicTihX",
+      "5gztY1CKH27",
+      "5zbYNbF1RsI",
+      "6CCqhJNJuNn"
+     ]
+    },
+    {
+     "id": "5kf8IpqAKhD",
+     "title": "帳單注意事項摘要",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "帳單注意事項摘要",
+      "其他資源：",
+      "在本節中，您學習了",
+      "AWS",
+      "區域",
+      "對服務和帳單的影響，回顧了",
+      "付款模式，並學習了如何",
+      "使用",
+      "AWS Cost Explorer",
+      "來"
+     ],
+     "narration": [
+      "在本節中，您學習了 AWS 區域對服務帳單的影響，複習了 AWS 付款模式， 並了解了如何使用 AWS Cost Explorer 來檢視和分析 AWS 成本與用量。 請複習關鍵要點和其他資源以進一步了解。 選擇 Next (下一步) 繼續。"
+     ],
+     "captions": [
+      "5kf8IpqAKhD",
+      "65JFhrm8nST",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6oDgS7roln9",
+      "6AHwH0t7Cnu",
+      "6ijO4iStvw8",
+      "65iXipLgdtx",
+      "5qTsv45mSxX",
+      "6aHkCWHHUuE",
+      "6DrUEHbrRFi",
+      "6Xt6evx38Tc"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 6,
+   "slides": [
+    {
+     "id": "6UgXQGMey5z",
+     "title": "實作練習",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "實作練習"
+     ],
+     "narration": [],
+     "captions": [
+      "6UgXQGMey5z",
+      "5XIF0OovsXz",
+      "5cCW0HP3tKl",
+      "5sg0eGRoS3s",
+      "5e2p25GvdnS",
+      "6US0Xsm3REU",
+      "6482f5DAsHh"
+     ]
+    },
+    {
+     "id": "6arMtZo2IqE",
+     "title": "簡介",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "簡介",
+      "腳本：",
+      "在本節中，您將有機會練習在本課程中學習的一些知識。",
+      "選取",
+      "Next",
+      "(下一步) 開始。"
+     ],
+     "narration": [
+      "在本節中，您將練習在本課程中學習的一些知識。 選擇 Next (下一步) 開始。"
+     ],
+     "captions": [
+      "6arMtZo2IqE",
+      "6DgSEn4eURy",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5zpogpCyw0B",
+      "6mfBkyQmGCu",
+      "64naRDhYVpM"
+     ]
+    },
+    {
+     "id": "5oCkwTeP7yf",
+     "title": "存取 AWS 服務",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "存取 AWS 服務",
+      "腳本：",
+      "首先，您將練習尋找、啟動服務，及將服務儲存為我的最愛。",
+      "有幾種方式可以存取",
+      "AWS",
+      "服務：查看您的練習範例，您可以看到顯示了幾種服務，並可以從",
+      "Recently visited",
+      "(最近造訪) 小工具中存取。",
+      "您也可以選取小工具底部的",
+      "View all services"
+     ],
+     "narration": [
+      "首先，您將練習尋找、啟動服務，及將服務儲存為我的最愛。 可以透過幾種方式找到 AWS 服務。 在此練習範例中，一些服務可以從 Recently visited (最近造訪) 小工具中存取。 您也可以選擇小工具底部的 View all services (檢視所有服務)，導覽至 AWS 服務清單。 您可以使用頁面頂部的 Search (搜尋) 方塊或選擇頁面左上角的 Services (服務) 選單來搜尋服務。 在此範例中，選擇 Services (服務)。"
+     ],
+     "captions": [
+      "5oCkwTeP7yf",
+      "5mCQl6e5i52",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6FmTK7aC40h",
+      "6W6hDP6YfIK",
+      "6KRmMYCyHyZ",
+      "6mbmRgnLUqZ",
+      "5zLreV08LX6",
+      "5XaeVgJSHSy",
+      "5xlqeAAcmtV",
+      "5xUJ34bVNrk",
+      "68z2BWw7i2s"
+     ]
+    },
+    {
+     "id": "65tArQYRJWg",
+     "title": "服務連結",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "腳本：",
+      "請注意，在此視窗中，您可透過另外幾個選項來存取",
+      "AWS",
+      "服務：頁面頂部有三個其他選項：",
+      "Recently visited",
+      "(最近造訪)、Favorites (我的最愛) 和",
+      "All Services",
+      "(所有服務)，以及服務類別清單。",
+      "在此練習範例中，您將按類別清單中的服務來搜尋。若不知道要搜尋的服務類別，您可以使用選單頂部的搜尋列。",
+      "但在此範例中，您知道 S3 是一種儲存服務。然而，「S」類別在畫面上不可見，因此您需要向下捲動以檢視清單的其餘部分。"
+     ],
+     "narration": [
+      "請注意，在 Services (服務) 選單中，還有另外幾個選項可以存取 AWS 服務。 在選單頂部，有三個額外選項： Recently visited (最近造訪)、Favorites (我的最愛) 和 All Services (所有服務)，以及服務類別清單。 在此練習範例中，您將從類別清單中搜尋服務。 若不知道要搜尋的服務類別，您可以使用選單頂部的搜尋列。 但在此範例中，您知道 Amazon S3 是一種儲存服務。 然而，「S」類別不在畫面上，因此您需要捲動以檢視清單的其餘部分。 選擇捲軸。"
+     ],
+     "captions": [
+      "65tArQYRJWg",
+      "6GR7aicFKE5",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5ba4ryAUdEs",
+      "5Zydgkd7ZU8",
+      "60sjCOlhl4F",
+      "6aFnctgGf84",
+      "5hr9ybwT4Cj",
+      "6bajbiQFlUt",
+      "6evHaRLD1iA"
+     ]
+    },
+    {
+     "id": "6isvT1BGhDi",
+     "title": "服務清單",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "服務清單",
+      "腳本：",
+      "選取儲存。"
+     ],
+     "narration": [
+      "選取儲存。"
+     ],
+     "captions": [
+      "6isvT1BGhDi",
+      "5Xrc3XJtg4D",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6FKUKjH53SK",
+      "6oKbASOnU1T",
+      "6I1uSmdTje2",
+      "6aDt9WGxb0a",
+      "6aYS206MYk6"
+     ]
+    },
+    {
+     "id": "6fPRve0dZ3O",
+     "title": "服務類別",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "服務類別",
+      "腳本：",
+      "您現在可以查看所有",
+      "AWS",
+      "儲存服務的清單。",
+      "此時，我們可以將",
+      "S3",
+      "指定為我的最愛服務，因此其將顯示於我的最愛清單中。為此，請將滑鼠懸停於",
+      "上，它的旁邊會出現一個白色線條星號。選取星號，其會變成橙色，表示",
+      "現已列於我的最愛清單中。"
+     ],
+     "narration": [
+      "現在，所有 AWS 儲存服務的清單會出現。 此時，您可以將 S3 指定為我的最愛服務，這樣它就會顯示在我的最愛清單中。 為此，請將滑鼠懸停於 S3 上，一個白色星號會出現。 選擇星號，其會變成橙色，表示 S3 現已列於我的最愛清單中。 選擇 S3 旁邊的星號。"
+     ],
+     "captions": [
+      "6fPRve0dZ3O",
+      "6F9ZHY5apJP",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5Wa34RZgZAA",
+      "5pstg9FjXVt",
+      "6WLXIvQo4yW",
+      "661rzUWrA7J",
+      "5WgXRmZxYQy",
+      "6AR5USl77Y6",
+      "6qG6SU8rie3"
+     ]
+    },
+    {
+     "id": "6pHcvrc4MBG",
+     "title": "我的最愛指定",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "我的最愛指定",
+      "腳本：",
+      "星號已變成橙色，您剛剛將 S3 設為我的最愛。現在，當您下次想要存取 S3 時，其將顯示於我的最愛清單中。",
+      "若要導覽回我的最愛清單，請使用捲軸向上捲動回頂部。"
+     ],
+     "narration": [
+      "星號已變成橙色，您剛剛將 S3 設為我的最愛。 現在，當您下次想要存取 S3 時，其將顯示於我的最愛清單中。 若要導覽回我的最愛清單，請使用捲軸捲動至選單頂部。"
+     ],
+     "captions": [
+      "6pHcvrc4MBG",
+      "5lLd3YHv0Qd",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6hbRViOfXVr",
+      "645KtHdlavQ",
+      "67nvB6QLMYh",
+      "66CUJFYXuW6",
+      "5lN3IZdHub6",
+      "6fTT4pfKlHA",
+      "5Vxeq286W7z",
+      "5tY1V4xfyxx",
+      "5mSifAhFZIQ",
+      "6EpNIdjQ4SC"
+     ]
+    },
+    {
+     "id": "5UkDHWs7qvX",
+     "title": "選取 Favorites (我的最愛)",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "選取",
+      "Favorites",
+      "(我的最愛)",
+      "腳本：",
+      "(我的最愛)。"
+     ],
+     "narration": [
+      "選擇 Favorites (我的最愛)。"
+     ],
+     "captions": [
+      "5UkDHWs7qvX",
+      "6NmVPqhcLJ7",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6MevQaTobtL",
+      "6QvRbcbrAuN",
+      "5inXoWjwSfg",
+      "6msxGYpo1KQ",
+      "6Y4A626li0x"
+     ]
+    },
+    {
+     "id": "6nuluZlaj0l",
+     "title": "選取 S3",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "選取 S3",
+      "腳本：",
+      "現在",
+      "S3",
+      "已列入我的最愛清單中。",
+      "選取",
+      "以開啟。"
+     ],
+     "narration": [
+      "現在 S3 已列入我的最愛清單中。 選擇 S3 以開啟。"
+     ],
+     "captions": [
+      "6nuluZlaj0l",
+      "6IaKhuXoTTk",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5speuxOsFfN",
+      "5rMDXRv8Mwi",
+      "6BKhN9lMkUu",
+      "5Y4ckVJezWq",
+      "5tNa41tUa06",
+      "5xDZVdulwlW"
+     ]
+    },
+    {
+     "id": "5YMBHnVaS0b",
+     "title": "全球連結",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "全球連結",
+      "腳本：",
+      "現在您位於",
+      "S3",
+      "首頁。",
+      "讓我們指向全球服務。選取視窗右上角的",
+      "Global",
+      "(全球) 連結。"
+     ],
+     "narration": [
+      "現在您位於 S3 首頁。 讓我們指向全球服務。選擇頁面右上角的 Global (全球)。"
+     ],
+     "captions": [
+      "5YMBHnVaS0b",
+      "6WQ2et8N9vG",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "66W89uoLWBZ",
+      "6KrK6gk3Eg7",
+      "5vMK6oWTPy1",
+      "6d6xYUGe0NI",
+      "5kXO2OcF7ih"
+     ]
+    },
+    {
+     "id": "6Mo6s38nQ23",
+     "title": "全球服務",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "全球服務",
+      "腳本：",
+      "這會開啟區域選項的下拉式清單。",
+      "除了區域和區域性",
+      "AWS",
+      "服務外，還有一小部分",
+      "服務的控制平面和資料平面並不獨立存在於每個區域。因為它們的資源並非區域專用的，它們通常被稱為全球服務。全球",
+      "服務仍遵循傳統的",
+      "設計模式，將控制平面和資料平面分開，以實現靜態穩定性。大多數全球服務的顯著區別在於，它們的控制平面託管在單一",
+      "區域，而它們的資料平面則分散於全球各地。"
+     ],
+     "narration": [
+      "這會開啟 Regions (區域) 選項的下拉式清單。 除了區域和區域性 AWS 服務外，還有一小部分 AWS 服務的控制平面和資料平面並不獨立存在於每個區域。 因為它們的資源並非區域專用的，它們通常被稱為全球服務。 全球 AWS 服務仍遵循傳統的 AWS 設計模式，將控制平面和資料平面分開，以實現靜態穩定性。 大多數全球服務的顯著區別在於，它們的控制平面託管在單一 AWS 區域，而它們的資料平面則分散於全球各地。 在下一項任務中，請使用 Service (服務) 選單來尋找 EC2。 選擇 Services (服務)。"
+     ],
+     "captions": [
+      "6Mo6s38nQ23",
+      "6GizgEkSjWl",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5tp8YPzptZO",
+      "6BoxpzWnyCC",
+      "5XtcKahj5n7",
+      "5V9kjOIApN4",
+      "6ke6cQfCSPL",
+      "5fUmoLnyvSI"
+     ]
+    },
+    {
+     "id": "5bLq5dWdHWQ",
+     "title": "搜尋服務",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "搜尋服務",
+      "腳本：",
+      "這一次，您將使用搜尋功能來尋找",
+      "EC2",
+      "。若您不確定服務在哪個類別下，此功能特別實用。",
+      "選取搜尋列。"
+     ],
+     "narration": [
+      "這一次，您將使用搜尋功能來尋找 EC2。 若您不確定服務在哪個類別下，此功能特別實用。 選取搜尋列。"
+     ],
+     "captions": [
+      "5bLq5dWdHWQ",
+      "5bwPq1IIeKC",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6hiU4NQZhjk",
+      "6RUDY0VQ8ku",
+      "6411Dd7jUHQ",
+      "5Vr0i0HBE9c",
+      "69ydBvofA4r",
+      "5zI5kSapJR3",
+      "64fCRL1tSvC",
+      "6ELi4Gf7iY1"
+     ]
+    },
+    {
+     "id": "5oYctNeuf9g",
+     "title": "搜尋列",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "搜尋列",
+      "腳本：",
+      "在您輸入時，將出現與您的查詢內容相符的選項。在此範例中，",
+      "EC2",
+      "出現在搜尋結果頂部。",
+      "注意它旁邊的白色星號。回想一下將",
+      "S3",
+      "新增至我的最愛清單的方法，選取這個星號會將",
+      "新增至我的最愛。",
+      "立即執行此動作。選取"
+     ],
+     "narration": [
+      "在您輸入時，將出現與您的查詢內容相符的選項。 在此範例中，EC2 出現在搜尋結果頂部。 注意它旁邊的白色星號。 回想一下將 S3 新增至我的最愛清單的方法，選擇這個星號會將 EC2 新增至我的最愛。 讓我們立即執行此動作。選擇 EC2 旁邊的星號。"
+     ],
+     "captions": [
+      "5oYctNeuf9g",
+      "5bY4CjZwceY",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5i5bJ6Nz7X8",
+      "6LCFomgG0sG",
+      "5kk7VL1NDDk",
+      "6hI7Y8YcySZ",
+      "6PSL1ZdVfhs",
+      "6nprkPmo6LY",
+      "6qN3qld5KOr",
+      "666KjiOgNn1",
+      "61nAPpI2aXI"
+     ]
+    },
+    {
+     "id": "5e6sWim1LsD",
+     "title": "EC2 被標記為我的最愛",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "EC2 被標記為我的最愛",
+      "腳本：",
+      "我們再次看到星號變成橙色，表示",
+      "EC2",
+      "也在我的最愛類別中。此外，您可以看到我的最愛直接出現在",
+      "Services",
+      "(服務) \r連結下方",
+      "。",
+      "現在選取"
+     ],
+     "narration": [
+      "同樣，星號現在是橙色，表示 EC2 也在我的最愛類別中。 此外，您可以看到我的最愛直接出現在 Services (服務) 選單下方。 現在選擇 EC2。"
+     ],
+     "captions": [
+      "5e6sWim1LsD",
+      "5nBJ61j5dTM",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5iupQSmfYVG",
+      "6BzKt3a11JV",
+      "5Y31rRWQZRB",
+      "6nszhSAhmq0",
+      "5Wp3pDaMQU5",
+      "622qgUyufyZ",
+      "6GzqmwSKxl6",
+      "6nGcnjlCEb3",
+      "63rLs4OFMY3",
+      "6p50IEDR61S",
+      "6p0dLi46BqD",
+      "6MueiLXhJ19",
+      "6lOAFphJvQr",
+      "63rtDxMjmIe",
+      "6jJey5G3Qze",
+      "6qeMGe8qyJ1"
+     ]
+    },
+    {
+     "id": "5mefKf5FUvj",
+     "title": "EC2",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "EC2",
+      "腳本：",
+      "是一項區域服務，且您目前位於俄亥俄區域。您在這裡看到的所有資料，例如執行中的執行個體和負載平衡器，均為您在俄亥俄區域佈建的資源。",
+      "如果您選取其他區域，這些值全部都會變更為顯示您在該特定區域執行的服務。",
+      "然而，儘管",
+      "屬於區域服務，它也有全球視圖。",
+      "選取頁面左上角的",
+      "EC2 Global view",
+      "(",
+      "全球視圖"
+     ],
+     "narration": [
+      "EC2 是一項區域服務，且您目前位於俄亥俄區域。 您在這裡看到的所有資料，例如執行中的執行個體和負載平衡器，均為您在俄亥俄區域佈建的資源。 如果您選擇其他區域，這些值都會變更為顯示您在該特定區域執行的服務。 然而，儘管 EC2 屬於區域服務，它也有全球視圖。 選擇頁面頂部的 EC2 Global view (EC2 全球視圖)。"
+     ],
+     "captions": [
+      "5mefKf5FUvj",
+      "6kl4GZbvW9R",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6o69ZqNNprR",
+      "6b0ctTuHRbV",
+      "6HJNe1HA0mS",
+      "6jqJMhv5opK",
+      "5fuocOKolNH",
+      "5VzFLfabyLR",
+      "5k8Hs0u0VEF",
+      "5hKlnwKgpEy",
+      "6a4db4GAKNG",
+      "6CmEUdf9vDE"
+     ]
+    },
+    {
+     "id": "6J8Ae0agpI9",
+     "title": "EC2 全球",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "EC2 全球",
+      "腳本：",
+      "在這裡，您可以在",
+      "Instances",
+      "(執行個體) 下方查看在多少個區域中有多少個執行個體。在此範例中，兩個區域中有五個執行個體。",
+      "選取",
+      "Next",
+      "(下一步) 繼續。",
+      "5",
+      "2"
+     ],
+     "narration": [
+      "下方的 Instances (執行個體) 顯示了您在多少個區域中有多少個執行個體。 在此範例中，兩個區域中有五個執行個體。 選擇 Next (下一步) 繼續。"
+     ],
+     "captions": [
+      "6J8Ae0agpI9",
+      "6M2oyxD9xf6",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6JeiEVnh5hC",
+      "6LKC2kpkQkr",
+      "6DWADznEQqF",
+      "6TGLhSxiH9H",
+      "5iIc01Jom4D",
+      "62FbgkfeP92",
+      "5o1sQsfbmXz",
+      "6AYA8gj7wg6",
+      "5yB3RPRviby",
+      "5oMWi1DI91d",
+      "6dx0qa2tzaZ"
+     ]
+    },
+    {
+     "id": "6aKmhx2DBIO",
+     "title": "使用服務選單尋找 RDS",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "使用服務選單尋找 RDS",
+      "腳本：",
+      "接下來使用",
+      "All Services",
+      "(所有服務) 連結尋找",
+      "RDS",
+      "。",
+      "立即選取",
+      "All services",
+      "(所有服務)。"
+     ],
+     "narration": [
+      "接下來，使用 All Services (所有服務) 連結來尋找 Amazon Relational Database Service (Amazon RDS)。 立即選擇 All services (所有服務)。"
+     ],
+     "captions": [
+      "6aKmhx2DBIO",
+      "6gClh2hCPPE",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "63A3ShyedT3",
+      "5ziiYgy0wkU",
+      "5wO3aKD5hNw",
+      "6QpdvzDqYdI",
+      "6WjWazbxyaL"
+     ]
+    },
+    {
+     "id": "6p0hhJvNYqw",
+     "title": "向下捲動",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "向下捲動",
+      "腳本：",
+      "您需要使用捲軸來尋找服務。",
+      "選取捲軸以尋找「",
+      "R",
+      "」部分。"
+     ],
+     "narration": [
+      "您需要使用捲軸來尋找服務。 選擇捲軸以尋找「R」部分。"
+     ],
+     "captions": [
+      "6p0hhJvNYqw",
+      "5eS4tgBkgB7",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "65gYIuwItJv",
+      "6IR8w8v9rWm",
+      "6McJ6SOjArb",
+      "5lXv0fA63DG",
+      "63hJVnPEymF"
+     ]
+    },
+    {
+     "id": "5fuqNFzThny",
+     "title": "選取 RDS",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "選取 RDS",
+      "腳本：",
+      "選取",
+      "RDS",
+      "。"
+     ],
+     "narration": [
+      "選擇 RDS。"
+     ],
+     "captions": [
+      "5fuqNFzThny",
+      "6hYb6RarDX3",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6CV7EHwsLrr",
+      "5xSjT1Ngao1",
+      "5t4W6I7Mfz2",
+      "6N65lUHV2xb",
+      "5l0zBXfRGNv"
+     ]
+    },
+    {
+     "id": "64wXD6nLd8X",
+     "title": "RDS",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "RDS",
+      "腳本：",
+      "現在您在",
+      "儀表板上，並會注意到這裡沒有全球視圖選項。請記住，並非每項服務都是全球服務。您必須非常謹慎地選擇佈建資源的位置，並注意哪些區域有資源。否則，您將需要從一個區域到另一個區域，以查看您是否佈建了任何其他資料庫。"
+     ],
+     "narration": [
+      "現在您在 Amazon RDS 儀表板上，並且您應該注意到了這裡沒有全球視圖選項。 請記住，並非每項服務都是全球服務。 您必須非常謹慎地選擇佈建資源的位置，並注意哪些區域有資源。 否則，您將需要從一個區域到另一個區域，查看您是否佈建了任何其他資料庫。",
+      "選擇 Next (下一步) 繼續。"
+     ],
+     "captions": [
+      "64wXD6nLd8X",
+      "6Gh7pYM1n33",
+      "65n13eAY4Le",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5ZHop246tR5",
+      "64bhv9JYmx0",
+      "6qZEpeviS3t",
+      "6mugUlfLkGt"
+     ]
+    },
+    {
+     "id": "6hwDXwCGFcF",
+     "title": "區域費用",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "區域費用",
+      "腳本：",
+      "請務必了解，您在其他區域可能需要支付服務費用，因此您需要確定要在哪個區域使用。",
+      "現在，讓我們透過另一項服務",
+      "VPC",
+      "來嘗試一下。",
+      "選取服務連結。"
+     ],
+     "narration": [
+      "請務必了解，您在其他區域可能需要支付服務費用，因此您需要確定要在哪個區域使用。 現在讓我們透過另一項服務 Amazon Virtual Private Cloud (Amazon VPC) 來試一下。 選擇 Services (服務) 選單。"
+     ],
+     "captions": [
+      "6hwDXwCGFcF",
+      "6qukLPzbV1x",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "63LkP4h0qzI",
+      "5YcGiCpCcyZ",
+      "5pUyxm0LQNC",
+      "5h7BJPxw4y5",
+      "6HPLbrurKOz"
+     ]
+    },
+    {
+     "id": "6e9Tt5leBwL",
+     "title": "選取 All Services (所有服務)",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "選取 All Services (所有服務)",
+      "腳本：",
+      "選取",
+      "All services",
+      "(所有服務)。"
+     ],
+     "narration": [
+      "選擇 All services (所有服務)。"
+     ],
+     "captions": [
+      "6e9Tt5leBwL",
+      "6IsCZwcpXdc",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6gbUjIzkp9y",
+      "5xf1dqaW4BN",
+      "6MLmJtFozGn",
+      "5o9m0uMJSEP",
+      "5oQfjCbjGtU"
+     ]
+    },
+    {
+     "id": "6bsjE3gYQYv",
+     "title": "向下捲動",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "向下捲動",
+      "腳本：",
+      "選取捲軸以尋找「",
+      "V",
+      "」部分。"
+     ],
+     "narration": [
+      "選擇捲軸以尋找「V」部分。"
+     ],
+     "captions": [
+      "6bsjE3gYQYv",
+      "5sJcYm0I7UO",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5m5agR7j0sS",
+      "6YfPn0rI4fN",
+      "6gzEevzGvR2",
+      "6hmTokV4sMV",
+      "5hjkS0rSBQT"
+     ]
+    },
+    {
+     "id": "5vV0DHZ3oPZ",
+     "title": "選取 VPC",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "選取 VPC",
+      "腳本：",
+      "選取",
+      "VPC",
+      "。"
+     ],
+     "narration": [
+      "選擇 VPC。"
+     ],
+     "captions": [
+      "5vV0DHZ3oPZ",
+      "6FuDIyGaT7X",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6DvVWbOGen5",
+      "6azeSVp8etS",
+      "6ZqfYR1e62a",
+      "5uxT3IqmW4C",
+      "6govu4RGSBs"
+     ]
+    },
+    {
+     "id": "6aaPyVIewO7",
+     "title": "檢視您有資源的所有區域",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "檢視您有資源的所有區域",
+      "腳本：",
+      "在這裡，您可以看到您有資源的所有區域。",
+      "選取",
+      "VPC",
+      "下方的",
+      "See all Regions",
+      "(查看所有區域)。"
+     ],
+     "narration": [
+      "在這裡，您可以看到您有資源的所有區域。 選擇 VPC 下方的 See all Regions (查看所有區域)。"
+     ],
+     "captions": [
+      "6aaPyVIewO7",
+      "5afJudTKhva",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "5rMZ7ktkrK4",
+      "67HminIs4d0",
+      "6X1DkAxksDG",
+      "6Jnc7KAOK7x",
+      "6HJ4W3Zodzs"
+     ]
+    },
+    {
+     "id": "5ajTKomO1yN",
+     "title": "檢視您有資源的所有區域",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "檢視您有資源的所有區域",
+      "腳本：",
+      "您將產生一個顯示區域的下拉式方塊。",
+      "這樣就完成了實作練習活動。",
+      "選取",
+      "Next",
+      "(下一步) 按鈕繼續。"
+     ],
+     "narration": [
+      "這會展開顯示區域的下拉式清單。 這樣就完成了實作練習。 選擇 Next (下一步) 繼續。"
+     ],
+     "captions": [
+      "5ajTKomO1yN",
+      "6BoV0IURDXc",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6XUjNqDs4A9",
+      "6FNDBLrRwGs",
+      "5WMcqt5wktA",
+      "6OPeJMOWfy7"
+     ]
+    }
+   ]
+  },
+  {
+   "scene": 7,
+   "slides": [
+    {
+     "id": "6HDEte0PCmE",
+     "title": "鍵盤快速鍵",
+     "texts": [
+      "© 2023, Amazon Web Services, Inc.",
+      "或其關係企業。保留所有權利。",
+      "鍵盤快速鍵",
+      "Mac",
+      "按鍵",
+      "Windows",
+      "播放/暫停",
+      "Ctrl+Alt+P",
+      "上一張投影片",
+      "Ctrl+Alt+, (逗號)",
+      "下一張投影片",
+      "Ctrl+Alt+. (句號)"
+     ],
+     "narration": [],
+     "captions": [
+      "6HDEte0PCmE",
+      "LightboxWnd",
+      "LightboxWnd",
+      "5l6bgMX1p0g",
+      "6QN0pb5eFaH",
+      "6DdwhImG7cR",
+      "64F2IhJvNPG",
+      "5d9T9em16yA",
+      "5jQCnERIrml",
+      "5jQCnERIrml",
+      "6mNOWxdvDVN",
+      "6mNOWxdvDVN",
+      "5uTxcSIvAvn",
+      "5wMgsBa7TU0"
+     ]
+    }
+   ]
+  }
+ ]
+}
