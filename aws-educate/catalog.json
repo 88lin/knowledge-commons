@@ -1,0 +1,499 @@
+[
+ {
+  "en": "Cloud Support Associate Day in the Life",
+  "zh": "云支持工程师的一天",
+  "level": "Foundational",
+  "hours": "0.5",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Explore Cloud Building",
+  "zh": "探索云上构建",
+  "level": "Foundational",
+  "hours": "0.5",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Explore Cloud Computing",
+  "zh": "探索云计算",
+  "level": "Foundational",
+  "hours": "0.5",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Explore Cloud Storage",
+  "zh": "探索云存储",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Explore Hardware & Software",
+  "zh": "探索硬件与软件",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Explore Internet Basics",
+  "zh": "探索互联网基础",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Explore Virtual Compute Power",
+  "zh": "探索虚拟算力",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Explore Websites in the Cloud",
+  "zh": "探索云上网站",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Explore using the Cloud",
+  "zh": "探索如何使用云",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Getting Started with Cloud Operations",
+  "zh": "云运维入门",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Getting Started with Compute",
+  "zh": "计算入门",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Getting Started with Databases",
+  "zh": "数据库入门",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Getting Started with Serverless",
+  "zh": "无服务器入门",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Getting Started with Storage",
+  "zh": "存储入门",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Introduction to Cloud 101",
+  "zh": "云计算入门 101",
+  "level": "Foundational",
+  "hours": "3",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Introduction to the AWS Cloud and Sustainability",
+  "zh": "AWS 云与可持续发展入门",
+  "level": "Foundational",
+  "hours": "0.5",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Introduction to the AWS Management Console",
+  "zh": "AWS 管理控制台入门",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Twitch Episode 1: Get Confident in... Cloud Basics",
+  "zh": "Twitch 第 1 集：搞定云基础",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Twitch Episode 2: Get Confident in... Storage",
+  "zh": "Twitch 第 2 集：搞定存储",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Twitch Episode 3: Get Confident in... Compute",
+  "zh": "Twitch 第 3 集：搞定计算",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Twitch Episode 5: Get Confident in... Databases",
+  "zh": "Twitch 第 5 集：搞定数据库",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Logging into a Linux Instance Using Amazon EC2 Instance Connect",
+  "zh": "用 EC2 Instance Connect 登录 Linux 实例",
+  "level": "Intermediate",
+  "hours": "0.75",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Working with Amazon EBS Snapshots",
+  "zh": "Amazon EBS 快照实战",
+  "level": "Intermediate",
+  "hours": "0.75",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "Working with User Data",
+  "zh": "用户数据处理实战",
+  "level": "Intermediate",
+  "hours": "0.75",
+  "cat": "Cloud Computing"
+ },
+ {
+  "en": "AWS Sustainability in the Cloud",
+  "zh": "AWS 云的可持续性",
+  "level": "Foundational",
+  "hours": "1.5",
+  "cat": "Network & Infrastructure"
+ },
+ {
+  "en": "Explore Cloud Connections",
+  "zh": "探索云上连接",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Network & Infrastructure"
+ },
+ {
+  "en": "Explore Cloud Redundancy",
+  "zh": "探索云端冗余",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Network & Infrastructure"
+ },
+ {
+  "en": "Explore Digital Divide",
+  "zh": "探索数字鸿沟",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Network & Infrastructure"
+ },
+ {
+  "en": "Explore Global Impact",
+  "zh": "探索全球影响",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Network & Infrastructure"
+ },
+ {
+  "en": "Explore Internet Routing",
+  "zh": "探索互联网路由",
+  "level": "Foundational",
+  "hours": "0.5",
+  "cat": "Network & Infrastructure"
+ },
+ {
+  "en": "Getting Started with Networking",
+  "zh": "网络入门",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Network & Infrastructure"
+ },
+ {
+  "en": "Twitch Episode 4: Get Confident in... Networking",
+  "zh": "Twitch 第 4 集：搞定网络",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Network & Infrastructure"
+ },
+ {
+  "en": "Explore Cyber Security",
+  "zh": "探索网络安全基础",
+  "level": "Foundational",
+  "hours": "0.5",
+  "cat": "Security"
+ },
+ {
+  "en": "Explore Cybersecurity",
+  "zh": "探索网络安全实践",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Security"
+ },
+ {
+  "en": "Explore Data Safety",
+  "zh": "探索数据安全",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Security"
+ },
+ {
+  "en": "Explore Online Privacy",
+  "zh": "探索在线隐私",
+  "level": "Foundational",
+  "hours": "0.5",
+  "cat": "Security"
+ },
+ {
+  "en": "Explore Securing the Cloud",
+  "zh": "探索云安全防护",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Security"
+ },
+ {
+  "en": "Getting Started with Security",
+  "zh": "安全入门",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Security"
+ },
+ {
+  "en": "Explore Artificial Intelligence",
+  "zh": "探索人工智能",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Machine Learning & AI"
+ },
+ {
+  "en": "Explore Machine Learning",
+  "zh": "探索机器学习",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Machine Learning & AI"
+ },
+ {
+  "en": "Explore Virtual Reality",
+  "zh": "探索虚拟现实",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Machine Learning & AI"
+ },
+ {
+  "en": "Introduction to Amazon Bedrock",
+  "zh": "Amazon Bedrock 入门",
+  "level": "Foundational",
+  "hours": "0.75",
+  "cat": "Machine Learning & AI"
+ },
+ {
+  "en": "Introduction to Amazon Q Developer",
+  "zh": "Amazon Q Developer 入门",
+  "level": "Foundational",
+  "hours": "0.75",
+  "cat": "Machine Learning & AI"
+ },
+ {
+  "en": "Introduction to PartyRock",
+  "zh": "PartyRock 入门",
+  "level": "Foundational",
+  "hours": "0.75",
+  "cat": "Machine Learning & AI"
+ },
+ {
+  "en": "Introduction to Responsible AI",
+  "zh": "负责任的人工智能入门",
+  "level": "Foundational",
+  "hours": "0.75",
+  "cat": "Machine Learning & AI"
+ },
+ {
+  "en": "Machine Learning Foundations",
+  "zh": "机器学习基础",
+  "level": "Foundational",
+  "hours": "3",
+  "cat": "Machine Learning & AI"
+ },
+ {
+  "en": "Twitch Episode 6: Get Confident in... Gen AI and Amazon Q",
+  "zh": "Twitch 第 6 集：搞定生成式 AI 与 Amazon Q",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Machine Learning & AI"
+ },
+ {
+  "en": "Using Amazon Q Developer",
+  "zh": "使用 Amazon Q Developer",
+  "level": "Foundational",
+  "hours": "0.75",
+  "cat": "Machine Learning & AI"
+ },
+ {
+  "en": "Introduction to Generative Artificial Intelligence",
+  "zh": "生成式人工智能入门",
+  "level": "Intermediate",
+  "hours": "0.75",
+  "cat": "Machine Learning & AI"
+ },
+ {
+  "en": "Cloud Rescue! Koalas",
+  "zh": "云端救援！考拉篇",
+  "level": "Foundational",
+  "hours": "1.5",
+  "cat": "Analytics"
+ },
+ {
+  "en": "Explore Big Data",
+  "zh": "探索大数据",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Analytics"
+ },
+ {
+  "en": "Explore Data Analysis",
+  "zh": "探索数据分析",
+  "level": "Foundational",
+  "hours": "0.5",
+  "cat": "Analytics"
+ },
+ {
+  "en": "Explore Data Models",
+  "zh": "探索数据模型",
+  "level": "Foundational",
+  "hours": "0.5",
+  "cat": "Analytics"
+ },
+ {
+  "en": "Explore Data Transformation",
+  "zh": "探索数据转换",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Analytics"
+ },
+ {
+  "en": "Introduction to Amazon CloudWatch",
+  "zh": "Amazon CloudWatch 入门",
+  "level": "Foundational",
+  "hours": "0.75",
+  "cat": "Analytics"
+ },
+ {
+  "en": "Sports Data Analytics",
+  "zh": "体育数据分析",
+  "level": "Foundational",
+  "hours": "1.5",
+  "cat": "Analytics"
+ },
+ {
+  "en": "Cancer Hunters in the Cloud",
+  "zh": "云端的癌症猎手",
+  "level": "Intermediate",
+  "hours": "1.5",
+  "cat": "Analytics"
+ },
+ {
+  "en": "Chatbots for Accessibility",
+  "zh": "无障碍聊天机器人",
+  "level": "Foundational",
+  "hours": "1.5",
+  "cat": "Development"
+ },
+ {
+  "en": "Explore Algorithms",
+  "zh": "探索算法",
+  "level": "Foundational",
+  "hours": "0.5",
+  "cat": "Development"
+ },
+ {
+  "en": "Explore Program Design",
+  "zh": "探索程序设计",
+  "level": "Foundational",
+  "hours": "0.5",
+  "cat": "Development"
+ },
+ {
+  "en": "Explore Programming",
+  "zh": "探索编程",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Development"
+ },
+ {
+  "en": "Explore Troubleshooting",
+  "zh": "探索故障排查",
+  "level": "Foundational",
+  "hours": "3",
+  "cat": "Development"
+ },
+ {
+  "en": "Explore Variables",
+  "zh": "探索变量",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Development"
+ },
+ {
+  "en": "AWS Startups",
+  "zh": "AWS 与初创企业",
+  "level": "Foundational",
+  "hours": "10",
+  "cat": "Professional skills"
+ },
+ {
+  "en": "Amazon Innovation",
+  "zh": "亚马逊的创新方法",
+  "level": "Foundational",
+  "hours": "2",
+  "cat": "Professional skills"
+ },
+ {
+  "en": "Communication",
+  "zh": "沟通表达",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Professional skills"
+ },
+ {
+  "en": "Goal Setting",
+  "zh": "目标设定",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Professional skills"
+ },
+ {
+  "en": "Introduction to Professional Skills",
+  "zh": "职业技能入门",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Professional skills"
+ },
+ {
+  "en": "Networking",
+  "zh": "人脉经营",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Professional skills"
+ },
+ {
+  "en": "Problem-Solving Process",
+  "zh": "问题解决流程",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Professional skills"
+ },
+ {
+  "en": "Resume Creation",
+  "zh": "简历撰写",
+  "level": "Foundational",
+  "hours": "1",
+  "cat": "Professional skills"
+ }
+]
