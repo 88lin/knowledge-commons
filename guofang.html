@@ -100,10 +100,24 @@ const tbCount = document.getElementById('tbCount');
 
 function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+/* 选项乱序：每次开始答题/速览都重新打乱选项位置，正确答案随之变动，不再是固定位置 */
+function randomizeOptions(){
+  const strip = s => String(s).replace(/^[A-G]\s*[、.．]\s*/, '');
+  DATA.q.forEach(q => {
+    if(q.t === 'j'){ q.o = shuffle(['正确','错误'].slice()); return; }
+    const texts = q.o.map(strip);
+    const corr = {};
+    q.a.split('').forEach(c => { corr[LETTERS.indexOf(c)] = 1; });
+    const idx = texts.map((_, i) => i);
+    shuffle(idx);
+    q.o = idx.map((oldI, i) => LETTERS[i] + '、' + texts[oldI]);
+    q.a = idx.map((oldI, i) => corr[oldI] ? LETTERS[i] : '').join('');
+  });
+}
 function fmtTime(ms){ const s=Math.round(ms/1000); return s<60 ? s+' 秒' : Math.floor(s/60)+' 分 '+(s%60)+' 秒'; }
 function typeName(t){ return t==='s'?'单选题':t==='m'?'多选题':'判断题'; }
 function typeTag(t){ return t==='s'?'<span class="tag">单选</span>':t==='m'?'<span class="tag m">多选</span>':'<span class="tag j">判断</span>'; }
-function optsOf(q){ return q.t==='j' ? ['正确','错误'] : q.o; }
+function optsOf(q){ return q.t==='j' ? (q.o || ['正确','错误']) : q.o; }
 function ansText(q){
   if(q.t==='j') return q.a;
   if(q.t==='m') return q.a;
@@ -174,6 +188,7 @@ function pickPool(pool, n, preferWrong){
 }
 
 function startQuiz(title, pool, n, preferWrong){
+  randomizeOptions();
   const total = Math.min(n, pool.length);
   const list = pickPool(pool, total, preferWrong);
   run = { title, items: list.map(qi => ({qi, retry:0})), i:0, sel:[], locked:false,
@@ -316,6 +331,7 @@ function renderResult(){
 
 /* ---------- 答案速览 ---------- */
 function renderList(){
+  randomizeOptions();
   setTop(true, '答案速览', Q.length + ' 题', 100);
   let h = '<div class="wrap" style="padding-top:14px">';
   ['s','m','j'].forEach(t => {
