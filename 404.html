@@ -23,30 +23,37 @@ ul{padding-left:1.2rem}</style>
 <p class="mono" id="from"></p>
 <script>
 var MAP = {
-    "learn/aws-educate-catalog.html": "/learn/courses/aws-educate-catalog.html",
-    "learn/aws-educate.html": "/learn/courses/aws-educate.html",
-    "learn/calendar.html": "/learn/exam/calendar.html",
-    "learn/cloud-4weeks.html": "/learn/cloud/4weeks.html",
-    "learn/cloud-net.html": "/learn/cloud/net.html",
-    "learn/cloud-sprint.html": "/learn/cloud/sprint.html",
-    "learn/cloud-week1.html": "/learn/cloud/week1.html",
-    "learn/cloud.html": "/learn/cloud",
-    "learn/cloudlab.html": "/learn/cloud/lab.html",
-    "learn/course-algo.html": "/learn/courses/algo.html",
-    "learn/course-algo2.html": "/learn/courses/algo2.html",
-    "learn/course-gongkao.html": "/learn/courses/gongkao.html",
-    "learn/course-python.html": "/learn/courses/python.html",
-    "learn/exams.html": "/learn/exam",
-    "learn/gongkao.html": "/learn/exam/gongkao.html",
-    "learn/pdfview.html": "/learn/media/pdfview.html",
-    "learn/quiz.html": "/learn/exam/quiz.html",
-    "learn/red.html": "/learn/red",
-    "learn/socialism.html": "/learn/red/socialism.html",
-    "learn/wsvideos.html": "/learn/media/wsvideos.html",
+    "learn/aws-educate-catalog.html": "learn/courses/aws-educate-catalog.html",
+    "learn/aws-educate.html": "learn/courses/aws-educate.html",
+    "learn/calendar.html": "learn/exam/calendar.html",
+    "learn/cloud-4weeks.html": "learn/cloud/4weeks.html",
+    "learn/cloud-net.html": "learn/cloud/net.html",
+    "learn/cloud-sprint.html": "learn/cloud/sprint.html",
+    "learn/cloud-week1.html": "learn/cloud/week1.html",
+    "learn/cloud.html": "learn/cloud",
+    "learn/cloudlab.html": "learn/cloud/lab.html",
+    "learn/course-algo.html": "learn/courses/algo.html",
+    "learn/course-algo2.html": "learn/courses/algo2.html",
+    "learn/course-gongkao.html": "learn/courses/gongkao.html",
+    "learn/course-python.html": "learn/courses/python.html",
+    "learn/exams.html": "learn/exam",
+    "learn/gongkao.html": "learn/exam/gongkao.html",
+    "learn/pdfview.html": "learn/media/pdfview.html",
+    "learn/quiz.html": "learn/exam/quiz.html",
+    "learn/red.html": "learn/red",
+    "learn/socialism.html": "learn/red/socialism.html",
+    "learn/wsvideos.html": "learn/media/wsvideos.html",
 };
-var p = location.pathname.replace(/\/+$/, "/");
-var key = p.replace(/^\//, "");
-var hit = MAP[key] || MAP[key + "/"] || MAP[key.replace(/\.html$/, "")];
+var path = location.pathname.replace(/\/+$/, "/");
+var hit = null, bestLen = -1;
+for (var k in MAP) {
+  var tail = "/" + k.replace(/\/$/, "");
+  var i = path.lastIndexOf(tail);
+  if (i >= 0 && i + tail.length >= path.replace(/\/$/, "").length && k.length > bestLen) {
+    hit = path.slice(0, i + 1) + MAP[k].replace(/^\//, "");
+    bestLen = k.length;
+  }
+}
 if (hit) { location.replace(hit + location.search + location.hash); }
 document.getElementById("from").textContent = "访问路径：" + location.pathname;
 </script>
