@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>实战训练场 · 云计算世赛 - 知识公社</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 <!-- kc-pwa -->
 <meta name="theme-color" content="#9e2b25">
 <meta name="color-scheme" content="light">
-<link rel="manifest" href="../manifest.json">
-<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
-<script defer src="../sw-reg.js"></script>
-<script defer src="../install-tip.js"></script>
+<link rel="manifest" href="../../manifest.json">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../../icons/icon-192.png">
+<script defer src="../../sw-reg.js"></script>
+<script defer src="../../install-tip.js"></script>
 <!-- /kc-pwa -->
 </head>
 <body>
@@ -24,31 +24,31 @@
   <div class="badges"><span>L1 Linux</span><span>L2 网络服务</span><span>L3 Docker</span><span>L4 Kubernetes</span><span>故障注入</span></div>
 </header>
 <nav class="tabs">
-  <a href="index.html">首页</a>
-  <a href="beginner.html">学堂</a>
-  <a href="calendar.html">日历</a>
-  <a href="archive.html">总目</a>
-  <a href="courses.html">课程</a>
-  <a href="contest.html">竞赛</a>
-  <a href="exams.html">升学</a>
-  <a href="gongkao.html">公考</a>
-  <a href="skills.html">世赛</a>
-  <a href="red.html">红色</a>
-  <a href="socialism.html">实践</a>
-  <a href="ecommerce.html">创业</a>
-  <a href="cloud.html">云赛</a>
-  <a class="on" href="cloudlab.html">实训</a>
-  <a href="sleep.html">睡前</a>
-  <a href="paths.html">路线</a>
-  <a href="../library.html">资源</a>
-  <a href="../download.html">下载</a>
-  <a href="about.html">简章</a>
+  <a href="../index.html">首页</a>
+  <a href="../beginner.html">学堂</a>
+  <a href="../exam/calendar.html">日历</a>
+  <a href="../archive.html">总目</a>
+  <a href="../courses.html">课程</a>
+  <a href="../contest.html">竞赛</a>
+  <a href="../exam/index.html">升学</a>
+  <a href="../exam/gongkao.html">公考</a>
+  <a href="../skills.html">世赛</a>
+  <a href="../red/index.html">红色</a>
+  <a href="../red/socialism.html">实践</a>
+  <a href="../ecommerce.html">创业</a>
+  <a href="index.html">云赛</a>
+  <a class="on" href="lab.html">实训</a>
+  <a href="../sleep.html">睡前</a>
+  <a href="../paths.html">路线</a>
+  <a href="../../library.html">资源</a>
+  <a href="../../download.html">下载</a>
+  <a href="../about.html">简章</a>
 </nav>
 
 <div class="wrap">
   <div class="card" id="kc-resume"></div>
 
-  <div class="card" style="margin-bottom:14px"><p><b>还没装虚拟机 / 完全零基础？</b>先去 <a href="cloud-week1.html">七天开蒙卡</a>（Day 1 就是装机，跟着做就行），第七天再回来这里开打四关。</p></div>
+  <div class="card" style="margin-bottom:14px"><p><b>还没装虚拟机 / 完全零基础？</b>先去 <a href="week1.html">七天开蒙卡</a>（Day 1 就是装机，跟着做就行），第七天再回来这里开打四关。</p></div>
 
   <div class="goal">练法三步（跟世赛流程一样）：<b>① 拿任务书（题面）→ ② 在你的 Linux 虚拟机里交付 → ③ 跑评分脚本验收</b>。评分前别看脚本检查逻辑——先做，再用 <code>-v</code> 复盘，差距就是要补的课。</div>
 
@@ -67,23 +67,23 @@
         <div class="desc">完全免费。配置要求相同，装完记得上 Guest Additions。</div>
         <div class="meta">零成本练手</div>
       </a>
-      <a class="mod" href="../library.html#g=0">
+      <a class="mod" href="../../library.html#g=0">
         <div class="ico">C</div>
         <b>云主机免费额度 / 在线实验室</b>
         <div class="desc">华为云 KooLabs、阿里云试用、AWS 免费套餐；K8s 可先上 Killercoda / Play with Kubernetes 白嫖集群。</div>
         <div class="meta">没有实体机也能练</div>
       </a>
     </div>
-    <p class="small">装完必做：<b>拍快照</b>（命名 L0-干净系统）→ 系统更新 → 记 IP 配 SSH 终端。详见<a href="../docs/cloudlab/README.md">总说明书</a>。</p>
+    <p class="small">装完必做：<b>拍快照</b>（命名 L0-干净系统）→ 系统更新 → 记 IP 配 SSH 终端。详见<a href="../../docs/cloudlab/README.md">总说明书</a>。</p>
   </section>
 
   <section>
     <h2 class="sec">第二步 · 按关卡开打（每关满分 100）</h2>
     <div class="card"><ul class="list">
-      <li><span class="t"><a href="../docs/cloudlab/tasks/L1-Linux.md">L1 · Linux 基础 —— 初始化 / systemd 服务 / 备份计划任务 / 磁盘挂载</a><br><span class="small">16 评分点 · 限时 90 分钟 · 对应第 1/3/9 章 · <a href="../docs/cloudlab/grade/grade_l1.sh">评分脚本</a></span></span><span class="n">第一关</span></li>
-      <li><span class="t"><a href="../docs/cloudlab/tasks/L2-网络服务.md">L2 · 网络服务 —— DNS / HTTPS 证书 / HAProxy 负载均衡与健康检查</a><br><span class="small">11 评分点 · 限时 120 分钟 · 对应第 2/4/5/6 章 · <a href="../docs/cloudlab/grade/grade_l2.sh">评分脚本</a></span></span><span class="n">第二关</span></li>
-      <li><span class="t"><a href="../docs/cloudlab/tasks/L3-Docker.md">L3 · 容器化 —— Dockerfile / 数据卷 / Compose / 私有仓库</a><br><span class="small">11 评分点 · 限时 120 分钟 · 对应第 10 章 · <a href="../docs/cloudlab/grade/grade_l3.sh">评分脚本</a></span></span><span class="n">第三关</span></li>
-      <li><span class="t"><a href="../docs/cloudlab/tasks/L4-Kubernetes.md">L4 · Kubernetes —— 集群 / 工作负载 / 服务暴露 / 存储 / 配置 / 弹性</a><br><span class="small">11 评分点 · 限时 180 分钟 · 对应第 11 章 · <a href="../docs/cloudlab/grade/grade_l4.sh">评分脚本</a></span></span><span class="n">第四关</span></li>
+      <li><span class="t"><a href="../../docs/cloudlab/tasks/L1-Linux.md">L1 · Linux 基础 —— 初始化 / systemd 服务 / 备份计划任务 / 磁盘挂载</a><br><span class="small">16 评分点 · 限时 90 分钟 · 对应第 1/3/9 章 · <a href="../../docs/cloudlab/grade/grade_l1.sh">评分脚本</a></span></span><span class="n">第一关</span></li>
+      <li><span class="t"><a href="../../docs/cloudlab/tasks/L2-网络服务.md">L2 · 网络服务 —— DNS / HTTPS 证书 / HAProxy 负载均衡与健康检查</a><br><span class="small">11 评分点 · 限时 120 分钟 · 对应第 2/4/5/6 章 · <a href="../../docs/cloudlab/grade/grade_l2.sh">评分脚本</a></span></span><span class="n">第二关</span></li>
+      <li><span class="t"><a href="../../docs/cloudlab/tasks/L3-Docker.md">L3 · 容器化 —— Dockerfile / 数据卷 / Compose / 私有仓库</a><br><span class="small">11 评分点 · 限时 120 分钟 · 对应第 10 章 · <a href="../../docs/cloudlab/grade/grade_l3.sh">评分脚本</a></span></span><span class="n">第三关</span></li>
+      <li><span class="t"><a href="../../docs/cloudlab/tasks/L4-Kubernetes.md">L4 · Kubernetes —— 集群 / 工作负载 / 服务暴露 / 存储 / 配置 / 弹性</a><br><span class="small">11 评分点 · 限时 180 分钟 · 对应第 11 章 · <a href="../../docs/cloudlab/grade/grade_l4.sh">评分脚本</a></span></span><span class="n">第四关</span></li>
     </ul></div>
     <div class="card">
       <p>在虚拟机里验收（以 L1 为例）：</p>
@@ -97,7 +97,7 @@
     <div class="card">
       <p>官方技术描述实锤：赛程四天里<b>排障约占四分之三</b>。L1 冲到优秀后，让脚本给你的机器埋 6 个真实故障，限时 30 分钟修回满分：</p>
       <p><code>curl -fsSL https://taimabenji.github.io/knowledge-commons/docs/cloudlab/fault/make_fault_l1.sh -o make_fault_l1.sh && sudo bash make_fault_l1.sh</code></p>
-      <p class="small">口诀（<a href="../study.html#d=tutorial_07-故障排查专题-保姆级_md">第 7 章 · 六步破案法</a>）：链路 → 系统 → 服务 → 应用，先 <code>systemctl status</code> 再 <code>journalctl -xe</code>。每次故障与修法记进命令笔记本。</p>
+      <p class="small">口诀（<a href="../../study.html#d=tutorial_07-故障排查专题-保姆级_md">第 7 章 · 六步破案法</a>）：链路 → 系统 → 服务 → 应用，先 <code>systemctl status</code> 再 <code>journalctl -xe</code>。每次故障与修法记进命令笔记本。</p>
     </div>
   </section>
 
@@ -125,13 +125,13 @@
     </div>
     <div class="lesson" id="p5">
       <b>出关 · 接真题轮</b>
-      <p>回<a href="cloud.html">备战中心</a>进入阶段五：里昂 2024 评分点 → 韩国题面+评分标准 → 中国真题，用第 16 章黄金四步法限时刷。</p>
+      <p>回<a href="index.html">备战中心</a>进入阶段五：里昂 2024 评分点 → 韩国题面+评分标准 → 中国真题，用第 16 章黄金四步法限时刷。</p>
     </div>
   </section>
 
-  <p class="note">任务与评分为独立设计的训练体系（对标世赛「评分点制」逻辑）· 兼容 Rocky 9 / Ubuntu 24.04 · 2026-10-09 上线 · 官方标准以世界技能组织当届文件为准 · <a href="../docs/cloudlab/README.md">总说明书</a></p>
-  <p><a href="cloud.html">← 云计算 · 世赛备战中心</a> · <a href="skills.html">世赛全技能库</a></p>
+  <p class="note">任务与评分为独立设计的训练体系（对标世赛「评分点制」逻辑）· 兼容 Rocky 9 / Ubuntu 24.04 · 2026-10-09 上线 · 官方标准以世界技能组织当届文件为准 · <a href="../../docs/cloudlab/README.md">总说明书</a></p>
+  <p><a href="index.html">← 云计算 · 世赛备战中心</a> · <a href="../skills.html">世赛全技能库</a></p>
 </div>
-<script src="kc-learn.js"></script>
+<script src="../kc-learn.js"></script>
 </body>
 </html>

@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>云计算 · 30 天夺金冲刺手册 - 知识公社</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 <!-- kc-pwa -->
 <meta name="theme-color" content="#9e2b25">
 <meta name="color-scheme" content="light">
-<link rel="manifest" href="../manifest.json">
-<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
-<script defer src="../sw-reg.js"></script>
-<script defer src="../install-tip.js"></script>
+<link rel="manifest" href="../../manifest.json">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../../icons/icon-192.png">
+<script defer src="../../sw-reg.js"></script>
+<script defer src="../../install-tip.js"></script>
 <!-- /kc-pwa -->
 <style>
   .tbl{width:100%;border-collapse:collapse;margin:.6rem 0;font-size:.9rem}
@@ -36,24 +36,24 @@
   <div class="badges"><span>11 月开赛专用</span><span>每天 8–10 小时</span><span>题型重复度 80%+</span><span>四周四级跳</span></div>
 </header>
 <nav class="tabs">
-  <a href="index.html">首页</a>
-  <a href="beginner.html">学堂</a>
-  <a href="calendar.html">日历</a>
-  <a href="archive.html">总目</a>
-  <a href="courses.html">课程</a>
-  <a href="contest.html">竞赛</a>
-  <a href="exams.html">升学</a>
-  <a href="gongkao.html">公考</a>
-  <a href="skills.html">世赛</a>
-  <a href="red.html">红色</a>
-  <a href="socialism.html">实践</a>
-  <a href="ecommerce.html">创业</a>
-  <a class="on" href="cloud.html">云赛</a>
-  <a href="sleep.html">睡前</a>
-  <a href="paths.html">路线</a>
-  <a href="../library.html">资源</a>
-  <a href="../download.html">下载</a>
-  <a href="about.html">简章</a>
+  <a href="../index.html">首页</a>
+  <a href="../beginner.html">学堂</a>
+  <a href="../exam/calendar.html">日历</a>
+  <a href="../archive.html">总目</a>
+  <a href="../courses.html">课程</a>
+  <a href="../contest.html">竞赛</a>
+  <a href="../exam/index.html">升学</a>
+  <a href="../exam/gongkao.html">公考</a>
+  <a href="../skills.html">世赛</a>
+  <a href="../red/index.html">红色</a>
+  <a href="../red/socialism.html">实践</a>
+  <a href="../ecommerce.html">创业</a>
+  <a class="on" href="index.html">云赛</a>
+  <a href="../sleep.html">睡前</a>
+  <a href="../paths.html">路线</a>
+  <a href="../../library.html">资源</a>
+  <a href="../../download.html">下载</a>
+  <a href="../about.html">简章</a>
 </nav>
 
 <div class="wrap">
@@ -61,7 +61,7 @@
 
   <div class="goal gold"><b>先说结论，不许自欺：</b>30 天零基础到金奖是高难度动作，能不能成取决于三个变量——<b>每天投入小时数、同场对手水平、你搭环境的速度</b>。但这个赛项有个对速通者极有利的事实：<b>它是模板题大赛</b>。对比 2020–2023 四年国赛卷，40 种高频题逐年复现 80% 以上：OpenStack 那条搭建链、K8s 那套 YAML、GitLab CI/CD、KubeEdge、华为云控制台路径……<b>金奖选手不是懂云计算最多的人，是把这 40 种操作练到闭卷零失误的人。</b>你的全部任务：四周内把高频模板各亲手敲 3–5 遍，考场上不失误。每天保底 8 小时冲金奖线；只有 4–6 小时，目标改为一等奖/拿奖，进度表整体 ×1.5。</div>
 
-  <div class="warn">📌 <b>开跑前 1 小时做完这三件事：</b>① 确认赛项版本：省赛/国赛卷（OpenStack+K8s+华为云，按本页打）还是世赛选拔卷（Linux/Windows/AWS，改用 <a href="../study.html#d=sprint_00-72小时冲刺作战手册_md">72 小时手册</a>+韩国题路线）；② 把训练环境搭起来（一台 16G+ 内存的电脑 + VMware/VirtualBox 双机虚拟机，见<a href="cloudlab.html">实战训练场</a>的环境方案）；③ 建一个 <code>错题本.md</code>，30 天里每踩一个坑记一行。有队友就按模块分工（一人私有云、一人容器+公有云），每天交叉考核。</div>
+  <div class="warn">📌 <b>开跑前 1 小时做完这三件事：</b>① 确认赛项版本：省赛/国赛卷（OpenStack+K8s+华为云，按本页打）还是世赛选拔卷（Linux/Windows/AWS，改用 <a href="../../study.html#d=sprint_00-72小时冲刺作战手册_md">72 小时手册</a>+韩国题路线）；② 把训练环境搭起来（一台 16G+ 内存的电脑 + VMware/VirtualBox 双机虚拟机，见<a href="lab.html">实战训练场</a>的环境方案）；③ 建一个 <code>错题本.md</code>，30 天里每踩一个坑记一行。有队友就按模块分工（一人私有云、一人容器+公有云），每天交叉考核。</div>
 
   <section>
     <h2 class="sec">① 认清赛项 · 分数从哪来（以 2023 国赛 B 卷为例）</h2>
@@ -88,25 +88,25 @@
         <tr>
           <td><span class="phase">W1</span><br><b>D1–D7</b><br>地基周</td>
           <td>Linux + 网络服务 + Docker 入门<br><span class="note">一切题型的地基，不许打折</span></td>
-          <td>① Linux 40 必会命令（按场景练，见 72 小时手册 Day1）② 网站部署一条龙：Nginx 虚拟主机 → MySQL 建库建用户备份恢复 → PHP → HTTPS ③ DNS/负载均衡初体验 ④ Docker 12 命令 + Dockerfile + Compose。<br>资料：<a href="../study.html#d=sprint_00-72小时冲刺作战手册_md">72 小时手册 Day1–2</a> · <a href="cloudlab.html">训练场 L1/L2/L3</a> · <a href="../study.html#d=tutorial_01-Linux零基础-保姆级_md">教程第 1/2/3/10 章</a></td>
-          <td>15 分钟出"静态站+MySQL 库"；10 分钟 Docker 起站；<a href="cloudlab.html">L1 评分脚本</a>全绿</td>
+          <td>① Linux 40 必会命令（按场景练，见 72 小时手册 Day1）② 网站部署一条龙：Nginx 虚拟主机 → MySQL 建库建用户备份恢复 → PHP → HTTPS ③ DNS/负载均衡初体验 ④ Docker 12 命令 + Dockerfile + Compose。<br>资料：<a href="../../study.html#d=sprint_00-72小时冲刺作战手册_md">72 小时手册 Day1–2</a> · <a href="lab.html">训练场 L1/L2/L3</a> · <a href="../../study.html#d=tutorial_01-Linux零基础-保姆级_md">教程第 1/2/3/10 章</a></td>
+          <td>15 分钟出"静态站+MySQL 库"；10 分钟 Docker 起站；<a href="lab.html">L1 评分脚本</a>全绿</td>
         </tr>
         <tr>
           <td><span class="phase ph2">W2</span><br><b>D8–D14</b><br>私有云周</td>
           <td>OpenStack 全链 + 运维 8 件套 + Ansible</td>
-          <td>① 搭建链反复打：基础环境→Yum源→免密SSH→MariaDB 调优→Keystone→Glance→Nova→Neutron→Dashboard→Swift→Cinder，<b>练到闭卷 90 分钟内全链出活</b> ② 运维 8 件套：Heat 编排、KVM/系统调优、NFS 对接 Glance、Redis 主从、Ceph 部署+Glance/Cinder/Nova 三对接 ③ 排错两题思路链：Neutron/Cinder（先 status→日志→配置回滚）④ Shell 一键脚本 + Ansible 部署 ELK/Kafka。<br>资料：<a href="../study.html#d=test-projects_cn-domestic_2022年全国职业院校技能大赛_高职组_云计算_赛项赛卷①第一场次_私有云_md">2022 卷①私有云</a> · <a href="../study.html#d=test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B_私有云服务搭建解析笔记_md">2023 B 卷私有云解析笔记</a> · <a href="../study.html#d=tutorial_09-Shell脚本进阶-保姆级_md">教程第 9/13 章</a></td>
+          <td>① 搭建链反复打：基础环境→Yum源→免密SSH→MariaDB 调优→Keystone→Glance→Nova→Neutron→Dashboard→Swift→Cinder，<b>练到闭卷 90 分钟内全链出活</b> ② 运维 8 件套：Heat 编排、KVM/系统调优、NFS 对接 Glance、Redis 主从、Ceph 部署+Glance/Cinder/Nova 三对接 ③ 排错两题思路链：Neutron/Cinder（先 status→日志→配置回滚）④ Shell 一键脚本 + Ansible 部署 ELK/Kafka。<br>资料：<a href="../../study.html#d=test-projects_cn-domestic_2022年全国职业院校技能大赛_高职组_云计算_赛项赛卷①第一场次_私有云_md">2022 卷①私有云</a> · <a href="../../study.html#d=test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B_私有云服务搭建解析笔记_md">2023 B 卷私有云解析笔记</a> · <a href="../../study.html#d=tutorial_09-Shell脚本进阶-保姆级_md">教程第 9/13 章</a></td>
           <td>一套真题私有云模块限时 2.5h 拿 ≥80%；搭建链闭卷复述无误</td>
         </tr>
         <tr>
           <td><span class="phase ph3">W3</span><br><b>D15–D21</b><br>容器云+<br>公有云周</td>
           <td>K8s 全家桶 + 华为云控制台路径</td>
-          <td>① kubeadm 集群部署闭卷 30 分钟（+Harbor/Dashboard）② YAML 四件套模板：Deployment/Service/ConfigMap/Ingress ③ <b>运维 8 连</b>：MariaDB/Redis/Nginx/ERP 容器化+编排、GitLab+Runner+Agent、CI/CD 流水线 ④ 进阶三板斧各练 2 遍：Istio VirtualService、KubeVirt VMI、审计日志 ⑤ 华为云：ECS 购买→安全组→OBS→RDS→VPC 控制台路径背熟；KubeEdge cloudcore+edgecore 部署模板（2023 B 卷原题）。<br>资料：<a href="../study.html#d=tutorial_11-Kubernetes入门-保姆级_md">教程第 11 章</a> · <a href="../study.html#d=test-projects_cn-domestic_2022_年全国职业院校技能大赛高职组云计算赛项赛题解析_容器云_md">2022 容器云解析</a> · <a href="../study.html#d=test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B_公有云_md">2023 B 卷公有云</a> · <a href="cloudlab.html">训练场 L4</a></td>
+          <td>① kubeadm 集群部署闭卷 30 分钟（+Harbor/Dashboard）② YAML 四件套模板：Deployment/Service/ConfigMap/Ingress ③ <b>运维 8 连</b>：MariaDB/Redis/Nginx/ERP 容器化+编排、GitLab+Runner+Agent、CI/CD 流水线 ④ 进阶三板斧各练 2 遍：Istio VirtualService、KubeVirt VMI、审计日志 ⑤ 华为云：ECS 购买→安全组→OBS→RDS→VPC 控制台路径背熟；KubeEdge cloudcore+edgecore 部署模板（2023 B 卷原题）。<br>资料：<a href="../../study.html#d=tutorial_11-Kubernetes入门-保姆级_md">教程第 11 章</a> · <a href="../../study.html#d=test-projects_cn-domestic_2022_年全国职业院校技能大赛高职组云计算赛项赛题解析_容器云_md">2022 容器云解析</a> · <a href="../../study.html#d=test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_B_公有云_md">2023 B 卷公有云</a> · <a href="lab.html">训练场 L4</a></td>
           <td>集群闭卷 30 分钟；8 连部署限时 90 分钟 ≥7 个；KubeEdge 双端起活</td>
         </tr>
         <tr>
           <td><span class="phase ph4">W4</span><br><b>D22–D28</b><br>全真模拟周</td>
           <td>真题轮刷 + 错题清零 + 考场演练</td>
-          <td>节奏：<b>2 天一套完整真题</b>（第一天 4h 限时裸做 + 2h 对照评分复盘；第二天专项修弱项），其余半天背<a href="#tpl">模板库</a>与速查卡、把每类题再做第 3 遍。卷源优先级：你省近 2 年卷 → <a href="../study.html#d=test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_md">2023 国赛 A/B 卷</a> → <a href="../study.html#d=test-projects_cn-domestic_2022全国职业技能大赛_云计算竞赛真题附标准答案_md">2022 卷①②</a> → 2021 及更早（查缺）。<br>资料：<a href="../study.html#d=test-projects_cn-domestic_2021云计算技能竞赛真题卷_附标准答案_md">真题库 154 篇</a> · <a href="../study.html#d=tutorial_16-真题实战-保姆级_md">第 16 章 黄金四步训练法+十军规</a></td>
+          <td>节奏：<b>2 天一套完整真题</b>（第一天 4h 限时裸做 + 2h 对照评分复盘；第二天专项修弱项），其余半天背<a href="#tpl">模板库</a>与速查卡、把每类题再做第 3 遍。卷源优先级：你省近 2 年卷 → <a href="../../study.html#d=test-projects_cn-domestic_2023_年全国职业院校技能大赛_高职组_云计算应用_赛项赛卷_md">2023 国赛 A/B 卷</a> → <a href="../../study.html#d=test-projects_cn-domestic_2022全国职业技能大赛_云计算竞赛真题附标准答案_md">2022 卷①②</a> → 2021 及更早（查缺）。<br>资料：<a href="../../study.html#d=test-projects_cn-domestic_2021云计算技能竞赛真题卷_附标准答案_md">真题库 154 篇</a> · <a href="../../study.html#d=tutorial_16-真题实战-保姆级_md">第 16 章 黄金四步训练法+十军规</a></td>
           <td>完整卷限时 4h 拿 ≥70%（≈奖牌线）；错题本每条都"复做通过"</td>
         </tr>
       </table>
@@ -161,7 +161,7 @@
         <li>🧾 <b>交卷前 15 分钟检查单</b>：所有服务 enable？防火墙端口？题目要求的密码/主机名改了没？浮动 IP/端口映射通不通？草稿纸逐题打勾对一遍——防漏题。</li>
         <li>🫀 <b>心态</b>：手抖正常；遇到全不会的题，把已知步骤写上去（很多评分点给过程分）。你比的是"谁丢分少"。</li>
       </ul>
-      <p class="note">完整版见 <a href="../study.html#d=sprint_00-72小时冲刺作战手册_md">72 小时冲刺手册 · 考场生存 8 条</a> 与 <a href="../study.html#d=tutorial_16-真题实战-保姆级_md">现场十军规</a>。</p>
+      <p class="note">完整版见 <a href="../../study.html#d=sprint_00-72小时冲刺作战手册_md">72 小时冲刺手册 · 考场生存 8 条</a> 与 <a href="../../study.html#d=tutorial_16-真题实战-保姆级_md">现场十军规</a>。</p>
     </div>
   </section>
 
@@ -206,21 +206,21 @@
   <section>
     <h2 class="sec">⑦ 弹药库 · 一页指全</h2>
     <div class="card"><ul class="list">
-      <li><span class="t"><a href="cloudlab.html">实战训练场（L1 Linux → L4 K8s）</a>：任务书+自动评分脚本+故障注入，每天"做对得分"</span><span class="n">练</span></li>
-      <li><span class="t"><a href="../study.html#d=sprint_00-72小时冲刺作战手册_md">72 小时冲刺作战手册</a>：W1 的逐小时教案 + 考场生存 8 条</span><span class="n">教案</span></li>
-      <li><span class="t"><a href="../study.html#d=test-projects_cn-domestic_2021云计算技能竞赛真题卷_附标准答案_md">中国国赛真题 154 篇（2018–2023，含标准答案）</a>：W2–W4 全部卷源</span><span class="n">真题</span></li>
-      <li><span class="t"><a href="../study.html#d=tutorial_16-真题实战-保姆级_md">第 16 章 · 真题实战</a>：黄金四步训练法 + 12 周计划 + 现场十军规</span><span class="n">方法</span></li>
-      <li><span class="t"><a href="../study.html#d=tutorial_20-锐捷云平台基础-试题A实战_md">第 20 章 · 云平台真题带练</a>：参数速查+防扣分（锐捷系赛台同样适用）</span><span class="n">带练</span></li>
-      <li><span class="t"><a href="cloud-net.html">🌐 全网资源整合</a>：B站竞赛频道（zcloudedu=考纲）· 油管世赛现场 · GitHub 弹药库，按周分类挂接</span><span class="n">全网</span></li>
-      <li><span class="t"><a href="cloud-week1.html">七天开蒙卡</a>：若 W1 觉得吃力，用它补基本盘（每天 30–60 分钟）</span><span class="n">补基</span></li>
-      <li><span class="t"><a href="../multiskill/01-信息与通信技术/云计算/模拟训练.html">模拟训练（十题交互评分）</a>：碎片时间随手测</span><span class="n">自测</span></li>
-      <li><span class="t"><a href="wsvideos.html">世赛视频馆</a>（看真实赛场节奏）· <a href="../study.html#d=official_WSOS-2026-cloud-computing-zh_txt">WSOS 2026 官方标准中文版</a>（世赛选拔卷才需要精读）</span><span class="n">背景</span></li>
+      <li><span class="t"><a href="lab.html">实战训练场（L1 Linux → L4 K8s）</a>：任务书+自动评分脚本+故障注入，每天"做对得分"</span><span class="n">练</span></li>
+      <li><span class="t"><a href="../../study.html#d=sprint_00-72小时冲刺作战手册_md">72 小时冲刺作战手册</a>：W1 的逐小时教案 + 考场生存 8 条</span><span class="n">教案</span></li>
+      <li><span class="t"><a href="../../study.html#d=test-projects_cn-domestic_2021云计算技能竞赛真题卷_附标准答案_md">中国国赛真题 154 篇（2018–2023，含标准答案）</a>：W2–W4 全部卷源</span><span class="n">真题</span></li>
+      <li><span class="t"><a href="../../study.html#d=tutorial_16-真题实战-保姆级_md">第 16 章 · 真题实战</a>：黄金四步训练法 + 12 周计划 + 现场十军规</span><span class="n">方法</span></li>
+      <li><span class="t"><a href="../../study.html#d=tutorial_20-锐捷云平台基础-试题A实战_md">第 20 章 · 云平台真题带练</a>：参数速查+防扣分（锐捷系赛台同样适用）</span><span class="n">带练</span></li>
+      <li><span class="t"><a href="net.html">🌐 全网资源整合</a>：B站竞赛频道（zcloudedu=考纲）· 油管世赛现场 · GitHub 弹药库，按周分类挂接</span><span class="n">全网</span></li>
+      <li><span class="t"><a href="week1.html">七天开蒙卡</a>：若 W1 觉得吃力，用它补基本盘（每天 30–60 分钟）</span><span class="n">补基</span></li>
+      <li><span class="t"><a href="../../multiskill/01-信息与通信技术/云计算/模拟训练.html">模拟训练（十题交互评分）</a>：碎片时间随手测</span><span class="n">自测</span></li>
+      <li><span class="t"><a href="../media/wsvideos.html">世赛视频馆</a>（看真实赛场节奏）· <a href="../../study.html#d=official_WSOS-2026-cloud-computing-zh_txt">WSOS 2026 官方标准中文版</a>（世赛选拔卷才需要精读）</span><span class="n">背景</span></li>
     </ul></div>
   </section>
 
   <p class="note">30 天夺金冲刺 · 题型结构依据 2022/2023 国赛 B 卷与 154 篇省赛真题归纳 · 分值分布以当届赛程文件为准 · 2026-10-12 编成（配套：72 小时手册 / 实战训练场 / 真题库 154 篇）</p>
-  <p><a href="cloud.html">← 回云计算备战中心</a> · <a href="archive.html">资料总目</a></p>
+  <p><a href="index.html">← 回云计算备战中心</a> · <a href="../archive.html">资料总目</a></p>
 </div>
-<script src="kc-learn.js"></script>
+<script src="../kc-learn.js"></script>
 </body>
 </html>

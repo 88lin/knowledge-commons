@@ -4,15 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>PDF 阅读 · 知识公社</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 <!-- kc-pwa -->
 <meta name="theme-color" content="#9e2b25">
 <meta name="color-scheme" content="light">
-<link rel="manifest" href="../manifest.json">
-<link rel="apple-touch-icon" href="../icons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="../icons/icon-192.png">
-<script defer src="../sw-reg.js"></script>
-<script defer src="../install-tip.js"></script>
+<link rel="manifest" href="../../manifest.json">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../../icons/icon-192.png">
+<script defer src="../../sw-reg.js"></script>
+<script defer src="../../install-tip.js"></script>
 <!-- /kc-pwa -->
 <style>
 #cvs{width:100%;background:#fff;border:1px solid var(--line);border-radius:10px;margin:8px 0}
@@ -33,9 +33,9 @@
     <div id="msg" class="small"></div>
     <canvas id="cvs"></canvas>
   </div>
-  <p><a href="exams.html">← 返回升学考试</a> · <a href="index.html">学习中心</a></p>
+  <p><a href="../exam/index.html">← 返回升学考试</a> · <a href="../index.html">学习中心</a></p>
 </div>
-<script src="files/zsb/pdf.min.js"></script>
+<script src="../files/zsb/pdf.min.js"></script>
 <script>
 (function(){
   var q=new URLSearchParams(location.search);
@@ -45,7 +45,7 @@
   if(!f){d.textContent='缺少文件参数';return;}
   d.textContent=decodeURIComponent(f.split('/').pop());
   if(!window.pdfjsLib){msg.textContent='阅读器组件加载失败';return;}
-  pdfjsLib.GlobalWorkerOptions.workerSrc='files/zsb/pdf.worker.min.js';
+  pdfjsLib.GlobalWorkerOptions.workerSrc='../files/zsb/pdf.worker.min.js';
   var pdf=null,page=1,scale=1.3,rendering=false;
   function render(){
     if(!pdf)return;

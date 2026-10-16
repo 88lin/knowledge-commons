@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>页面已迁移 · 知识公社</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/learn/style.css">
+<style>body{font-family:system-ui,-apple-system,"Noto Sans SC",sans-serif;padding:2rem;line-height:1.9;max-width:44rem;margin:0 auto}
+h1{font-size:1.4rem}.mono{font-family:ui-monospace,monospace;font-size:.85rem;color:#666}
+ul{padding-left:1.2rem}</style>
+</head>
+<body>
+<h1>这一页搬家了</h1>
+<p>本站 2026-10-16 做过一次目录整理，旧链接会自动跳转到新位置；若没有跳转，请从下面的入口继续：</p>
+<ul>
+  <li><a href="/">知识公社首页</a></li>
+  <li><a href="/learn/">学习门户</a></li>
+  <li><a href="/learn/archive.html">总目 · 全站一页直达</a></li>
+  <li><a href="/learn/search.html">全站检索</a></li>
+  <li><a href="/library.html">资源总库</a></li>
+</ul>
+<p class="mono" id="from"></p>
+<script>
+var MAP = {
+    "learn/aws-educate-catalog.html": "/learn/courses/aws-educate-catalog.html",
+    "learn/aws-educate.html": "/learn/courses/aws-educate.html",
+    "learn/calendar.html": "/learn/exam/calendar.html",
+    "learn/cloud-4weeks.html": "/learn/cloud/4weeks.html",
+    "learn/cloud-net.html": "/learn/cloud/net.html",
+    "learn/cloud-sprint.html": "/learn/cloud/sprint.html",
+    "learn/cloud-week1.html": "/learn/cloud/week1.html",
+    "learn/cloud.html": "/learn/cloud",
+    "learn/cloudlab.html": "/learn/cloud/lab.html",
+    "learn/course-algo.html": "/learn/courses/algo.html",
+    "learn/course-algo2.html": "/learn/courses/algo2.html",
+    "learn/course-gongkao.html": "/learn/courses/gongkao.html",
+    "learn/course-python.html": "/learn/courses/python.html",
+    "learn/exams.html": "/learn/exam",
+    "learn/gongkao.html": "/learn/exam/gongkao.html",
+    "learn/pdfview.html": "/learn/media/pdfview.html",
+    "learn/quiz.html": "/learn/exam/quiz.html",
+    "learn/red.html": "/learn/red",
+    "learn/socialism.html": "/learn/red/socialism.html",
+    "learn/wsvideos.html": "/learn/media/wsvideos.html",
+};
+var p = location.pathname.replace(/\/+$/, "/");
+var key = p.replace(/^\//, "");
+var hit = MAP[key] || MAP[key + "/"] || MAP[key.replace(/\.html$/, "")];
+if (hit) { location.replace(hit + location.search + location.hash); }
+document.getElementById("from").textContent = "访问路径：" + location.pathname;
+</script>
+</body>
+</html>

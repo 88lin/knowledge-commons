@@ -210,7 +210,7 @@
       .filter(function (v) { return v && v.url && v.total; });
     arr.sort(function (a, b) { return (b.ts || 0) - (a.ts || 0); });
     if (!arr.length) {
-      resume.innerHTML = '<div class="kc-resume-empty">还没有学习记录 —— <a href="course-algo.html">从第一课开始：算法竞赛 · 第 1 讲 →</a></div>';
+      resume.innerHTML = '<div class="kc-resume-empty">还没有学习记录 —— <a href="courses/algo.html">从第一课开始：算法竞赛 · 第 1 讲 →</a></div>';
     } else {
       var it = arr[0];
       var link = it.url + (it.nextId ? '#' + it.nextId : '');
