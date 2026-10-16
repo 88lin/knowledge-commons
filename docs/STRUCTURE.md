@@ -10,8 +10,9 @@
 | `index.html` | 门户首页 | 别的页面都别学它往根目录堆 |
 | `library.html` | 资源总库（全网免费学习资源精选，数据内联） | |
 | `study.html` | 资料中心单文件应用（数据外置到 `study-data/`） | |
-| `download.html` `install.html` `viewer.html` `resources.html` `guofang.html` | 下载页 / 直装页 / 文档阅读器 / 资源导航 / 国防教育 | |
+| `download.html` `install.html` `viewer.html` | 下载页 / 直装页 / 文档阅读器 | |
 | `404.html` `sitemap.xml` `robots.txt` | 站点配套（旧链接跳转、收录、爬虫） | |
+| `cc59a7f8471abb6edf87c7919a17baff.txt` | IndexNow 站点验证文件（文件名＝密钥，内容同密钥）——**别删、别改名** | |
 | `manifest.json` `sw.js` `sw-reg.js` `install-tip.js` | PWA 三件套 | |
 | `learn/` | **全部学习页面** | 不放数据、不放视频 |
 | `multiskill/` | 世赛 50 赛项学习包（总纲 / 总纲课 / 模拟训练 / 图解） | |
@@ -19,6 +20,8 @@
 | `docs/` | 文档资料（课程文档 / 官方资料 / 研究文档 / 截图） | 不放页面入口 |
 | `study-data/` | 资料中心的数据分块（生成物） | 手改 |
 | `learn/files/` `learn/data/` `exam/` `aws-educate/` | 原始资料与源数据 | |
+| `lab/` | 云计算实训沙箱（引擎 + 场景 + `standalone.html`），被 `learn/cloud/lab.html` 与门户数据引用 | 不放别的实验 |
+| `video-ext/` | 逐集图解册读物（`tools/build_liquid.py` 的输入之一） | |
 | `app/` `assets/` `icons/` | 站点资源（门户数据 / 截图 / PWA 图标） | |
 | `clients/` | 六端客户端工程（android / ios / windows / macos / linux） | 不放内容 |
 | `tools/` | 构建与质检脚本（见 `tools/README.md`） | |
@@ -40,8 +43,8 @@ learn/
 ├── about.html          关于
 ├── cloud/              云计算：index(备战中心) lab(实训) week1 4weeks net sprint
 ├── courses/            原创课程：algo algo2 python gongkao aws-educate aws-educate-catalog
-├── exam/               考试：index 题库导航 / quiz 自测 / gongkao 公考 / calendar 考试日历
-├── media/              视频馆 wsvideos / 文档阅读 pdfview
+├── exam/               考试：index 导航 / quiz 自测 / gongkao 公考 / calendar 考试日历 / guofang 国防教育刷题
+├── media/              视频馆 wsvideos / B 站精选视频库 bilibili / 文档阅读 pdfview
 ├── red/                红色经典：index(入口) maoxuan(毛选全文) socialism(社会主义实践研究)
 ├── files/              课程与题库原始资料（730 份，仅被页面按需引用）
 ├── data/               学习引擎数据

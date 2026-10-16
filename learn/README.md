@@ -27,10 +27,12 @@
 | `courses/gongkao.html` | 行测入门 6 讲 |
 | `courses/aws-educate.html` `aws-educate-catalog.html` | AWS Educate 课程全文 / 71 门课目录 |
 | `exam/index.html` | 考试与题库导航 |
+| `exam/guofang.html` | 国防教育刷题（单选/多选/判断，判分与错题本） |
 | `exam/quiz.html` | 学堂自测（16 课 × 8 题，判分 + 解析，成绩存本机） |
 | `exam/gongkao.html` | 公考专区（图形推理 354 题逐题解析） |
 | `exam/calendar.html` | 全年考试日历（报名/笔试节奏 + 我的考试清单） |
 | `media/wsvideos.html` | 世赛比赛视频馆（历届官方影像 + B 站直看） |
+| `media/bilibili.html` | B 站精选视频库（装机 / 计算机科学 / 编译原理 / 云计算进阶，按 UP 主与时长筛选） |
 | `media/pdfview.html` | 站内文档阅读器 |
 | `red/index.html` | 红色经典入口 |
 | `red/maoxuan.html` | 《毛泽东选集》1–5 卷全文 229 篇 + 诗词 |
