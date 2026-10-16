@@ -18,6 +18,7 @@ var CORE = [
   './learn/contest.html', 'learn/exam/index.html', 'learn/exam/gongkao.html',
   './learn/skills.html', 'learn/red/index.html', 'learn/red/socialism.html', './learn/ecommerce.html', 'learn/cloud/index.html', 'learn/cloud/lab.html', 'learn/cloud/week1.html', 'learn/media/wsvideos.html', './learn/sleep.html', './learn/paths.html',
   './learn/about.html', './learn/beginner.html', 'learn/exam/calendar.html', 'learn/exam/quiz.html', './learn/search.html', 'learn/media/pdfview.html',
+  'learn/media/bilibili.html', 'learn/exam/guofang.html',
   'learn/courses/algo.html', 'learn/courses/algo2.html',
   'learn/courses/python.html', 'learn/courses/gongkao.html',
   './learn/red/poems.html',
