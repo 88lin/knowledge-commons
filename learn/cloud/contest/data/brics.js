@@ -24,8 +24,8 @@ window.KC_PAPERS['brics']={
   {title:'A1 · 基础环境与组件安装',
    brief:'<p>双机环境 controller/compute：</p>',
    checks:[
-    {d:'双机网络连通 + NTP 时间同步（chrony 状态正常）',p:2},
-    {d:'Yum/HTTP 源配置；FTP 服务按要求配置',p:2},
+    {d:'双机网络连通 + NTP 时间同步（chrony 状态正常）',p:3},
+    {d:'Yum/HTTP 源配置；FTP 服务按要求配置',p:3},
     {d:'MariaDB/Memcached/Etcd/RabbitMQ 全部运行并按规程调优',p:3}
    ],
    refs:['yum install -y chrony mariadb memcached etcd rabbitmq-server','chronyc sources -v'],
@@ -34,17 +34,17 @@ window.KC_PAPERS['brics']={
    brief:'<p>用安装脚本搭建 OpenStack 并检查组件状态：Keystone/Glance/Nova/Neutron/Cinder/Swift 六组件全部就绪。</p>',
    checks:[
     {d:'六组件服务状态全部正常（逐个验证命令通过）',p:4},
-    {d:'可创建云主机并挂载卷（Nova+Cinder 验证）',p:2},
-    {d:'Swift 对象可上传下载',p:1}
+    {d:'可创建云主机并挂载卷（Nova+Cinder 验证）',p:3},
+    {d:'Swift 对象可上传下载',p:2}
    ],
    refs:['openstack service list；openstack volume service list；swift list'],
    sol:'一键脚本 iaas-install 后逐组件 status；六组件即规程点名的验收面。'},
   {title:'A3 · 私有云运维与故障排除',
    brief:'<p>Shell 脚本运维管理（云主机/云存储/云网络/云数据库）+ Python 调用 OpenStack API + 故障排除：</p>',
    checks:[
-    {d:'Shell：云主机批量管理脚本（创建/停止/查询）',p:3},
-    {d:'Python：调用 OpenStack API 完成资源巡检输出报告',p:3},
-    {d:'排除注入故障 1 处，私有云恢复稳定运行',p:3}
+    {d:'Shell：云主机批量管理脚本（创建/停止/查询）',p:4},
+    {d:'Python：调用 OpenStack API 完成资源巡检输出报告',p:4},
+    {d:'排除注入故障 1 处，私有云恢复稳定运行',p:4}
    ],
    refs:['python3 -c "import openstack…"','tail -f /var/log/nova/*.log'],
    sol:'API 巡检脚本用 service auth；排错按 status→log→config→verify 四步。'}
@@ -58,9 +58,9 @@ window.KC_PAPERS['brics']={
   {title:'B1 · Docker 与私有仓库',
    brief:'<p>Docker 服务安装、私有容器仓库部署、镜像制作：</p>',
    checks:[
-    {d:'Docker 运行 + 私有仓库（registry）部署且可推送拉取',p:3},
-    {d:'Dockerfile 制作私有镜像并推送到私有仓库（分层合理）',p:3},
-    {d:'commit 方式制作镜像一次（规程点名）',p:2}
+    {d:'Docker 运行 + 私有仓库（registry）部署且可推送拉取',p:3.5},
+    {d:'Dockerfile 制作私有镜像并推送到私有仓库（分层合理）',p:3.5},
+    {d:'commit 方式制作镜像一次（规程点名）',p:3}
    ],
    refs:['docker run -d -p 5000:5000 --restart=always --name registry registry:2','docker commit <c> myimg:v1 && docker tag … && docker push …'],
    sol:'仓库记得 insecure-registries 配置；Dockerfile 与 commit 两种做镜像方式规程都要。'},
@@ -68,8 +68,8 @@ window.KC_PAPERS['brics']={
    brief:'<p>K8s 平台架构设计 + 模板文件编写搭建：</p>',
    checks:[
     {d:'集群搭建完成（master Ready + node Ready）',p:3},
-    {d:'Pod 网络 CNI 正常（跨节点 Pod 互通）',p:2},
-    {d:'Yaml 模板部署应用（Deployment+Service）',p:2}
+    {d:'Pod 网络 CNI 正常（跨节点 Pod 互通）',p:2.5},
+    {d:'Yaml 模板部署应用（Deployment+Service）',p:2.5}
    ],
    refs:['kubeadm init --pod-network-cidr … && kubectl apply -f <cni>.yaml'],
    sol:'规程写明"模板文件编写搭建"——手写 yaml 而非全靠 create。'},
@@ -123,7 +123,7 @@ window.KC_PAPERS['brics']={
    checks:[
     {d:'数据库定时备份脚本 + crond（带压缩与保留策略）',p:4},
     {d:'一键部署脚本（源码/容器任选，日志清晰可回滚）',p:4},
-    {d:'服务状态检测脚本（宕机告警+自动拉起）',p:4}
+    {d:'服务状态检测脚本（宕机告警+自动拉起）',p:3}
    ],
    refs:['mysqldump -x --single-transaction | gzip > /backup/db-$(date +%F).sql.gz','systemctl is-active nginx || (systemctl start nginx && notify)'],
    sol:'三个脚本按规程点名准备，定时/幂等/告警三要素齐全就是满分形态。'}

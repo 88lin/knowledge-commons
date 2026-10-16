@@ -1,94 +1,116 @@
 /* =====================================================================
-   全真模拟卷 · 广东省职业院校技能大赛（高职组）"云计算应用"赛项
-   依据：2024 广东省样题①公开模块分值结构（CSDN 公开资料，调研已核验）：
-   模块一 私有云 50 分 = 任务1 服务搭建10 + 任务2 服务运维25 + 任务3 运维开发15
-   模块二 容器云 50 分 = 任务1 服务搭建10 + 任务2 服务运维25 + 任务3 运维开发15
-   任务细节为同构原创（公开样题正文受平台限制，任务面按省赛典型题量编排）。
+   全真模拟卷 · 2024 广东省职业院校技能大赛（高职组）"云计算应用"赛项 样题①
+   依据：公开赛卷原文（CSDN 2401_86394104 发布样题①正文；调研题库 ZT-07
+   全文收录，见 cloud-competition/research/zhenti-bank.md）。
+   任务结构忠实原文：模块一 私有云 50 分 = 搭建10 + 运维25 + 开发15；
+   模块二 容器云 50 分 = 搭建10 + 运维25 + 开发15。
    ===================================================================== */
 (function(){
 window.KC_PAPERS=window.KC_PAPERS||{};
 window.KC_PAPERS['guangdong']={
  id:'guangdong',
- name:'广东省职业院校技能大赛 · 云计算应用 · 省赛全真卷',
- tag:'省赛线 · 全真结构',
- order:5,
- desc:'省赛是国赛的同构缩印：私有云 50 分 + 容器云 50 分，任务结构完全一致（搭建 10 + 运维 25 + 运维开发 15）。省赛建议 240 分钟连续作答——先拿满搭建分，运维题按模板化清单逐项落。',
- source:'2024 广东省职业院校技能大赛（高职组）"云计算应用"赛项样题①公开分值结构；任务细节为同构原创',
- env:'双机虚拟机（controller + compute）：CentOS 7.9 / openEuler，OpenStack Train 离线包，K8s 离线包；也可直接复用国赛卷的实验环境',
- rules:'<b>省赛要诀</b>：① 省赛评分通常比国赛更紧贴任务书字面——照题面参数原样落，别自由发挥 ② 搭建任务约 20 分是送分链，目标 40 分钟内完成 ③ 运维 25 分大题里必有「部署+配置+验证」三段，验证不做的等于白做。',
+ name:'2024 广东省赛真题全真卷 · 云计算应用 样题①',
+ tag:'省赛线 · 真题原文',
+ order:10,
+ desc:'2024 广东省样题①真题结构：私有云 50 分（含 Manila 前身的 13 小题搭建链、Ceph 三对接、Heat/KVM/Redis 运维面、ELK+Kafka 开发面）+ 容器云 50 分（ERP 编排、GitLab 全家桶 CI/CD、Istio VirtualService、KubeVirt VMI）。省赛同构卷的标杆。',
+ source:'公开赛卷原文摘录（CSDN 2401_86394104《2024 广东省样题①》，题库 ZT-07）；另有样题②-⑤同系列可轮换练习（见题库 ZT-08~ZT-11）',
+ env:'双机虚拟机：controller + compute（CentOS 7.9/openEuler，OpenStack Train 离线包）+ K8s 三节点离线包；IP 按赛卷规划表',
+ rules:'<b>省赛要诀</b>：① 照题面参数原样落，不自由发挥 ② 搭建 10 分是送分链，目标 40 分钟 ③ 运维 25 分每题含「做出来+验出来」两层 ④ 调优排错题只给范围——平时积累检查单。',
  modules:[
  {
   name:'模块一 私有云（50 分 · 建议 120 分钟）',
   minutes:120,
-  brief:'<p><b>环境</b>：双机 OpenStack（controller 192.168.100.10 / compute 192.168.100.20），镜像 cirros，离线 yum 源。企业背景题面：数字化平台聚焦 DevOps 与数据驱动。</p>',
+  brief:'<p><b>原文企业背景</b>：某企业实施数字化转型，规划数字化平台，聚焦"DevOps 开发运维一体化"和"数据驱动产品开发"，采用开源 OpenStack 搭建企业内部私有云平台。</p>',
   tasks:[
-  {title:'任务1 · 私有云服务搭建（10 分）',
-   brief:'<p>基础环境 + 核心组件安装链：</p>',
+  {title:'任务1 · 私有云服务搭建（10 分 · 13 小题）',
+   brief:'<p>原文 1.1.1–1.1.13（在国赛链基础上省赛略有增删）：</p>',
    checks:[
-    {d:'双机主机名/IP/hosts 配置正确；免密互通',p:1},
-    {d:'Yum 源 + 环境变量脚本生效',p:1},
-    {d:'MariaDB/RabbitMQ/Memcached 运行且调优参数生效',p:2},
-    {d:'Keystone/Glance/Nova/Neutron/Dashboard 五件套服务正常',p:4},
-    {d:'可创建云主机并可访问（全链验证）',p:2}
+    {d:'1.1.1 基础环境：双机主机名 + hosts 映射',p:1},
+    {d:'1.1.3 无秘钥 SSH：controller 免密 compute',p:0.5},
+    {d:'1.1.4 双机安装 openstack-iaas 包',p:0.5},
+    {d:'1.1.5 MariaDB/RabbitMQ 安装与调优',p:1.5},
+    {d:'1.1.6 Keystone 安装并创建用户',p:1},
+    {d:'1.1.7 Glance 安装；上传镜像并设置启动参数',p:1},
+    {d:'1.1.8 Nova 双端安装与配置',p:1},
+    {d:'1.1.9 Neutron 双端安装',p:1},
+    {d:'1.1.10 Dashboard 安装',p:0.5},
+    {d:'1.1.11 Swift 双端安装',p:0.5},
+    {d:'1.1.12 Cinder 双端安装；计算节点块存储扩容',p:0.5},
+    {d:'1.1.13 配置主机禁 ping（内核参数 net.ipv4.icmp_echo_ignore_all=1）',p:0.5},
+    {d:'全链验证：可创建云主机并可访问',p:0.5}
    ],
-   refs:['iaas-install 系列脚本或手装；openstack service list'],
-   sol:'省赛搭建题是国赛搭建链的子集：顺序不变，参数从题面抄。'},
+   refs:['iaas 系列脚本顺序：base→db/mq→keystone→glance→nova→neutron→dashboard→swift→cinder','sysctl -w net.ipv4.icmp_echo_ignore_all=1（持久化写 /etc/sysctl.conf）'],
+   sol:'禁 ping 是省赛特色小题：sysctl 内核参数题记得持久化，别只 echo 到运行时。'},
   {title:'任务2 · 私有云服务运维（25 分）',
-   brief:'<p>运维大题五连（每题都含「做出来+验出来」两层分）：</p>',
+   brief:'<p>原文 1.2.1–1.2.11：运维大题含 Ceph 全家桶三对接——这是省赛卷的分水岭：</p>',
    checks:[
-    {d:'Glance 对接 Cinder/Swift 后端并验证镜像创建',p:5},
-    {d:'Nova 平台管理：规格创建/资源配额调整/实例迁移',p:5},
-    {d:'Neutron 运维：新建租户网络拓扑并验证连通',p:5},
-    {d:'Cinder 扩容：卷扩容/快照/恢复全流程',p:5},
-    {d:'平台排错：修复 1 处组件故障并验证恢复',p:5}
+    {d:'1.2.1 Heat 模板创建用户（OS::Keystone::User 模板执行成功）',p:2.5},
+    {d:'1.2.2 KVM 优化（CPU/内存/IO 按题调优并重启服务生效）',p:2.5},
+    {d:'1.2.3 NFS 对接 Glance 后端存储（镜像落 NFS）',p:2.5},
+    {d:'1.2.4 Redis 主从（主从复制状态验证）',p:2},
+    {d:'1.2.5 Linux 系统调优——脏数据回写（vm.dirty_ratio 等参数）',p:2},
+    {d:'1.2.6 Glance 调优（缓存/进程参数按题）',p:2},
+    {d:'1.2.7 Ceph 部署（monitor/osd 全部 up）',p:3.5},
+    {d:'1.2.8 Glance 对接 Ceph 存储',p:2},
+    {d:'1.2.9 Cinder 对接 Ceph 存储',p:2},
+    {d:'1.2.10 Nova 对接 Ceph 存储（临时盘/配置走 RBD）',p:2},
+    {d:'1.2.11 平台调优或排错（范围题：按检查单自证）',p:2}
    ],
-   refs:['openstack flavor create --disk 10 --ram 2048 …','openstack volume snapshot create …','tail -f /var/log/neutron/server.log'],
-   sol:'每小题的验证命令平时就要背：运维 25 分里「验证层」的分不比操作层少。'},
+   refs:['ceph-deploy new controller compute && ceph-deploy mon create-initial && ceph-deploy osd create …','glance-api.conf: stores = rbd,default_store = rbd + rbd_store_* 参数','cinder.conf volume_driver = cinder.volume.drivers.rbd.RBDDriver','nova.conf images_type = rbd'],
+   sol:'Ceph 三对接是本卷最难也最稳的 9 分：部署好 Ceph 后三个组件的对接配置是模板化的，背熟。'},
   {title:'任务3 · 私有云运维开发（15 分）',
-   brief:'<p>脚本开发三连：</p>',
+   brief:'<p>原文 1.3.1–1.3.4：</p>',
    checks:[
-    {d:'Shell：按要求编写云主机管理脚本（参数化）',p:5},
-    {d:'OpenStack CLI/SDK：查询资源并按格式输出',p:5},
-    {d:'数据库操作：SQL 完成指定查询与统计',p:5}
+    {d:'1.3.1 Shell 一键部署脚本（幂等可重跑）',p:4},
+    {d:'1.3.2 Ansible 部署 ELK 服务（Playbook 结构完整、部署成功）',p:4},
+    {d:'1.3.3 Ansible 部署 Kafka 服务',p:4},
+    {d:'1.3.4 OpenStack 平台自动化运维工具（范围题）',p:3}
    ],
-   refs:['openstack server list --format csv','mysql -e "select …" nova'],
-   sol:'输出格式（csv/json）题面会明确要求——格式错了整题扣，抄好题面。'}
+   refs:['ansible-playbook -i hosts elk.yml（es/logstash/kibana 三角色）','kafka 依赖 zookeeper：先 zk 后 broker'],
+   sol:'Ansible 两题占 8 分：roles 目录结构 + idempotency 是评分眼。'}
   ]
  },
  {
   name:'模块二 容器云（50 分 · 建议 120 分钟）',
   minutes:120,
-  brief:'<p>单机 Docker + 三节点 K8s（可用 1 master 2 node 或全部一机模拟）。</p>',
+  brief:'<p>原文模块二：容器云平台 + ERP 编排 + GitLab 全家桶 + 服务网格 + KubeVirt。</p>',
   tasks:[
   {title:'任务1 · 容器云服务搭建（10 分）',
-   brief:'<p>容器环境与集群：</p>',
+   brief:'<p>原文 2.1.1：部署容器云平台。</p>',
    checks:[
-    {d:'Docker 安装 + 镜像加速器 + 私有仓库可用',p:3},
-    {d:'K8s 集群搭建完成（节点 Ready）',p:4},
-    {d:'Dashboard/metrics-server 任一组件按题要求部署',p:3}
+    {d:'kubeadm 集群就绪（节点 Ready、CNI、CoreDNS 正常）',p:6},
+    {d:'私有镜像仓库可用且集群可拉取',p:2},
+    {d:'metrics-server/ Dashboard 等按题面要求的组件就位',p:2}
    ],
-   refs:['kubeadm init --image-repository …；kubectl apply -f recommended.yaml'],
-   sol:'搭建 10 分要在 40 分钟内拿下——全部用离线包+脚本，现场不下载任何东西。'},
+   refs:['kubeadm init --kubernetes-version … --image-repository … --pod-network-cidr …'],
+   sol:'搭建 10 分要 40 分钟内拿下：离线包三处配置（swap/selinux/containerd）一次到位。'},
   {title:'任务2 · 容器云服务运维（25 分）',
-   brief:'<p>运维五连：</p>',
+   brief:'<p>原文 2.2.1–2.2.12：四连部署 + 编排 + CI/CD + 网格 + 虚拟机：</p>',
    checks:[
-    {d:'容器化部署 Web 应用（含 ConfigMap 配置挂载）',p:5},
-    {d:'数据库容器化 + PVC 持久化 + 备份策略',p:5},
-    {d:'Service/Ingress 暴露与域名访问',p:5},
-    {d:'HPA 伸缩 / 滚动更新 / 回滚三连操作',p:5},
-    {d:'集群排错：Pod 无法起/节点 NotReady 修复',p:5}
+    {d:'2.2.1 容器化部署 MariaDB（PVC 持久化 + Secret 传密）',p:2.5},
+    {d:'2.2.2 容器化部署 Redis',p:2},
+    {d:'2.2.3 容器化部署 Nginx',p:2},
+    {d:'2.2.4 容器化部署 ERP',p:2},
+    {d:'2.2.5 编排部署 ERP 管理系统（多资源清单联动，可访问）',p:2.5},
+    {d:'2.2.6 部署 GitLab',p:2},
+    {d:'2.2.7 部署 GitLab Runner',p:2},
+    {d:'2.2.8 部署 GitLab Agent（集群与 GitLab 连接）',p:2},
+    {d:'2.2.9 构建 CI/CD（提交→构建→部署全流程）',p:3},
+    {d:'2.2.10 Istio：创建 VirtualService（流量规则生效）',p:2.5},
+    {d:'2.2.11 KubeVirt 运维：创建 VMI（VirtualMachineInstance Running）',p:2},
+    {d:'2.2.12 容器云平台调优或排错（范围题）',p:0.5}
    ],
-   refs:['kubectl rollout undo deployment web；kubectl describe pod …（Events 定位）'],
-   sol:'排错优先看 Events 与 describe，90% 的省赛容器题在这两步内见答案。'},
+   refs:['kubectl apply -f erp-{deploy,svc,pvc}.yaml','gitlab-runner register --executor kubernetes …','kubectl apply -f virtualservice.yaml（hosts/route 配置）','KubeVirt：kubectl apply -f kubevirt-operator.yaml + kubevirt-cr.yaml，然后 VMI 清单'],
+   sol:'ERP 编排题注意资源依赖顺序（PVC→Secret→Deployment→Service）；VirtualService 需先有 Gateway/DestinationRule 铺垫。'},
   {title:'任务3 · 容器云运维开发（15 分）',
-   brief:'<p>开发三连：</p>',
+   brief:'<p>原文 2.3.1–2.3.3：</p>',
    checks:[
-    {d:'Dockerfile 编写并构建业务镜像（规范分层+元数据）',p:5},
-    {d:'Shell：容器/集群批量巡检脚本',p:5},
-    {d:'CI/CD 或编排开发：pipeline/chart 任一交付',p:5}
+    {d:'2.3.1 管理 Service 资源（创建/修改/排错验证）',p:5},
+    {d:'2.3.2 管理 Pod 服务（生命周期操作+字段配置验证）',p:5},
+    {d:'2.3.3 Kubernetes 平台自动化运维工具（范围题）',p:5}
    ],
-   refs:['docker build -t app:v1 -f Dockerfile .；helm create web'],
-   sol:'Dockerfile 押题：多阶段构建+HEALTHCHECK+非 root 用户是常见加分点。'}
+   refs:['kubectl expose / edit / patch …','client-python 或 kubectl json 输出 CSV 巡检'],
+   sol:'开发题都允许用「脚本+kubectl 组合」：关键是可重复执行和输出规范。'}
   ]
  }
  ]

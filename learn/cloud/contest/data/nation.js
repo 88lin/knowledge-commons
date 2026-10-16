@@ -24,7 +24,7 @@ window.KC_PAPERS['nation']={
   {title:'任务1 · 私有云服务搭建（5 分 · 13 小题）',
    brief:'<p>模板送分链，闭卷标准流程。逐小题验收：</p>',
    checks:[
-    {d:'Yum 源配置完成（本地 ISO 源 + 环境文件 /etc/profile 生效）',p:0.5},
+    {d:'Yum 源配置完成（本地 ISO 源 + 环境文件 /etc/profile 生效）',p:0.25},
     {d:'免密 SSH：controller↔compute 双向 ssh-copy-id 免密互通',p:0.5},
     {d:'MariaDB 安装调优：字符集 utf8、max_connections 调优参数生效',p:0.5},
     {d:'RabbitMQ：服务运行，创建 openstack 用户并授权',p:0.5},
@@ -32,7 +32,7 @@ window.KC_PAPERS['nation']={
     {d:'Glance：服务运行；上传 cirros 镜像并设置磁盘格式与启动参数（cpu_mode 等按要求）',p:0.5},
     {d:'Nova：controller+compute 双端安装，服务列表全部 up；nova-compute 注册成功',p:0.5},
     {d:'Neutron：provider 网络就绪，创建网络/子网/路由，外网网关正确',p:0.5},
-    {d:'Dashboard：http://controller/dashboard 可登录',p:0.5},
+    {d:'Dashboard：http://controller/dashboard 可登录',p:0.25},
     {d:'Swift：环生成成功，对象可上传下载',p:0.25},
     {d:'Cinder：卷服务正常，可创建/挂载卷到实例',p:0.25},
     {d:'创建云主机成功且能 ping 通/SSH 登录（全链验证）',p:0.5}
@@ -111,30 +111,30 @@ window.KC_PAPERS['nation']={
   {title:'任务7 · 公有云资源交付（控制台路径分）',
    brief:'<p>按需求交付：VPC+子网、安全组、ECS 双机、OBS 桶、RDS 实例、弹性公网。每小项都按控制台操作路径给分：</p>',
    checks:[
-    {d:'VPC（192.168.0.0/16）+ 2 子网 + 安全组（仅开放 80/443/22）',p:4},
-    {d:'ECS ×2：1 台 Web（装 Nginx）+1 台 Redis（内网互通）',p:6},
-    {d:'OBS 桶：上传静态页 + 桶策略公开读',p:4},
-    {d:'RDS MySQL：规格按题、白名单仅限 ECS 网段',p:6},
-    {d:'EIP 绑定 Web 机 + 域名解析（可用 hosts 模拟）',p:4},
-    {d:'云监控：CPU 告警规则（>80% 触发通知）',p:4}
+    {d:'VPC（192.168.0.0/16）+ 2 子网 + 安全组（仅开放 80/443/22）',p:3},
+    {d:'ECS ×2：1 台 Web（装 Nginx）+1 台 Redis（内网互通）',p:4},
+    {d:'OBS 桶：上传静态页 + 桶策略公开读',p:3},
+    {d:'RDS MySQL：规格按题、白名单仅限 ECS 网段',p:4},
+    {d:'EIP 绑定 Web 机 + 域名解析（可用 hosts 模拟）',p:3},
+    {d:'云监控：CPU 告警规则（>80% 触发通知）',p:3}
    ],
    refs:['控制台路径：网络控制台 → VPC → 创建；ECS → 购买 → 安全组配置；OBS → 桶策略；RDS → 白名单'],
    sol:'路径题的秘诀是「背路径」：本站教程第 12 章 AWS 实战与云厂商免费额度实操可直接映射。'},
   {title:'任务8 · KubeEdge 云边协同',
    brief:'<p>云端 K8s 集群 + 边缘节点 keadm 接入，边缘运行应用并上报数据：</p>',
    checks:[
-    {d:'keadm init 云端就绪 + keadm join 边缘节点接入（edge node Ready）',p:5},
-    {d:'边缘部署 Nginx（nodeSelector 指向边缘节点）外网可访问',p:5},
-    {d:'边缘数据上报：云端可见 edge 应用日志/指标',p:5}
+    {d:'keadm init 云端就绪 + keadm join 边缘节点接入（edge node Ready）',p:4},
+    {d:'边缘部署 Nginx（nodeSelector 指向边缘节点）外网可访问',p:4},
+    {d:'边缘数据上报：云端可见 edge 应用日志/指标',p:4}
    ],
    refs:['keadm init --advertise-address=<云端IP> --kubeedge-version=1.1x.x','keadm join --cloudcore-ipport=<IP>:10000 --token=…'],
    sol:'keadm 两命令就出活；注意云端 10000/10002 端口放行，边缘离线包提前备好。'},
   {title:'任务9 · 平台运维开发（脚本分）',
    brief:'<p>用云厂商 CLI/SDK 完成开发题：</p>',
    checks:[
-    {d:'CLI：脚本批量创建/释放 N 台 ECS（参数化）',p:6},
-    {d:'SDK：脚本列出所有资源并输出成本报表 CSV',p:6},
-    {d:'自动化：OOS/ROS 类编排模板一键建环境（或等价 Terraform）',p:4}
+    {d:'CLI：脚本批量创建/释放 N 台 ECS（参数化）',p:3},
+    {d:'SDK：脚本列出所有资源并输出成本报表 CSV',p:3},
+    {d:'自动化：OOS/ROS 类编排模板一键建环境（或等价 Terraform）',p:2}
    ],
    refs:['aliyun ecs RunInstances … / huaweicloud ecs create…（SDK pip install aliyun-python-sdk-ecs）'],
    sol:'CLI 路径题背 3 条核心命令；SDK 题用官方 quickstart 模板改参数。'}
