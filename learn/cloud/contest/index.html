@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>云计算全赛模拟中心 · 知识公社</title>
+<link rel="stylesheet" href="../../style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../../../manifest.json">
+<link rel="apple-touch-icon" href="../../../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192px" href="../../../icons/icon-192.png">
+<script defer src="../../../sw-reg.js"></script>
+<script defer src="../../../install-tip.js"></script>
+<!-- /kc-pwa -->
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>云计算 · 全赛模拟中心 | 省赛 → 国赛 → 世职赛 → 金砖 → 世赛，一条线全真模拟</span></div>
+<header class="hero">
+  <div class="kicker">CLOUD CONTEST SIMULATOR</div>
+  <h1>云计算全赛模拟中心</h1>
+  <p>把国内国际五条赛道全部搬进来：<b>省赛样卷、国赛全真卷、世界职业院校大赛卷、金砖大赛卷、世界技能大赛卷</b>——每卷真实赛制、真实时长、逐项评分。配全真执行器（计时/自评/交卷复盘）与真机环境脚本。</p>
+  <div class="badges"><span>6 套全真卷</span><span>真题原文改编</span><span>逐项评分</span><span>断点续做</span><span>全程离线</span></div>
+</header>
+<nav class="tabs">
+  <a href="../index.html">首页</a>
+  <a href="../beginner.html">学堂</a>
+  <a href="../exam/calendar.html">日历</a>
+  <a href="../archive.html">总目</a>
+  <a href="../courses.html">课程</a>
+  <a href="../contest.html">竞赛</a>
+  <a href="../exam/index.html">升学</a>
+  <a href="../exam/gongkao.html">公考</a>
+  <a href="../skills.html">世赛</a>
+  <a href="../red/index.html">红色</a>
+  <a href="../red/socialism.html">实践</a>
+  <a href="../ecommerce.html">创业</a>
+  <a class="on" href="../cloud/index.html">云赛</a>
+  <a href="index.html">模拟</a>
+  <a href="../cloud/lab.html">实训</a>
+  <a href="../media/wsvideos.html">视频</a>
+  <a href="../sleep.html">睡前</a>
+  <a href="../paths.html">路线</a>
+  <a href="../../library.html">资源</a>
+  <a href="../../download.html">下载</a>
+  <a href="../about.html">简章</a>
+</nav>
+
+<div class="wrap">
+  <div class="goal">模拟的唯一目的：<b>把「学过」变成「考场拿得出」</b>。流程固定——搭环境 → 开卷计时 → 按任务书实操 → 逐项自评 → 交卷复盘 → 弱项回炉。每卷都标注了「依据什么出题」：真题原文改编的写来源，官方标准命题的写权重，同构原创的写结构依据，<b>绝不含编造的"真题"</b>。</div>
+
+  <div class="card">
+    <p>🚀 <b>第一次来？三步开跑</b>：① 看下面「赛事地图」确认你的目标赛道 → ② 打开 <a href="sim.html"><b>全真模拟执行器</b></a> 选一张卷 → ③ 没环境？先读 <a href="env/README.md">真机环境搭建指南</a>（三条路线：纯云 / 双机虚拟机 / 一键脚本）。</p>
+  </div>
+
+  <section>
+    <h2 class="sec">① 赛事地图 · 五条赛道一张表</h2>
+    <div class="card">
+      <ul class="list">
+        <li><span class="t"><b>省赛线</b>（省职业院校技能大赛「云计算应用」）<br><span class="small">私有云 50 + 容器云 50；双机 OpenStack + K8s；结构稳定，是国赛的缩印</span></span><span class="n">双机环境</span></li>
+        <li><span class="t"><b>国赛线</b>（全国职业院校技能大赛，GZ075）<br><span class="small">私有云 30 + 容器云 30 + 公有云 40；2023 年起模块三年未大变</span></span><span class="n">双机+云</span></li>
+        <li><span class="t"><b>世职赛线</b>（世界职业院校技能大赛）<br><span class="small">2022 首届私有云/容器云/公有云；2025 起赛道制：争夺赛 ≤1h + 10 分钟展演，团队 2-4 人</span></span><span class="n">团队制</span></li>
+        <li><span class="t"><b>金砖线</b>（BRICS-FS-11）<br><span class="small">240 分钟：A 私有云 30% + B 容器编排 30% + C 自动化运维 40%——自动化权重之王</span></span><span class="n">双人赛</span></li>
+        <li><span class="t"><b>世赛线</b>（WorldSkills Cloud Computing · Skill 545）<br><span class="small">四天赛程 AWS 平台；上海 48 届为「唯一实时出分的心跳赛项」；中国已连续两届夺金（2022 陈新源 / 2024 黄佳杰 / 2026 上海尹志伟）</span></span><span class="n">AWS</span></li>
+      </ul>
+      <p class="small">官方依据均已入库：世赛 <a href="../../../docs/official/WSC2026-TD53-云计算-中文导读.md">TD53 中文导读</a> + <a href="../../../docs/official/WSOS-2026-cloud-computing-zh.txt">WSOS 2026 中文标准</a>；金砖规程原件（cloud-competition 目录）；韩国世赛同源真题 <a href="../../../exam/korea-zh/">exam/korea-zh（2021–2025 中译）</a>。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">② 全真卷矩阵 · 点开即考</h2>
+    <div class="card">
+      <ul class="list">
+        <li><span class="t"><a href="sim.html?paper=guangdong">省赛全真卷 · 私有云 50 + 容器云 50</a><br><span class="small">依据 2024 广东省样题①公开分值结构 · 240 分钟 · 零基础进阶第一卷</span></span><span class="n">240min</span></li>
+        <li><span class="t"><a href="sim.html?paper=nation">国赛全真卷 · 私有云 30 + 容器云 30 + 公有云 40</a><br><span class="small">依据 2023 国赛 B 卷公开结构 · 390 分钟（两场可分开打）· 主赛道</span></span><span class="n">390min</span></li>
+        <li><span class="t"><a href="sim.html?paper=wsjobs">世职赛全真卷 · 团队争夺赛 + 10 分钟展演</a><br><span class="small">依据 2025 教育部赛制与五要素评分 · 60+10 分钟 · 2-4 人组队打</span></span><span class="n">70min</span></li>
+        <li><span class="t"><a href="sim.html?paper=brics">金砖全真卷 · A30% + B30% + C40%（自动化之王）</a><br><span class="small">依据 2024 金砖规程原件 · 240 分钟 · 双人赛建议组队</span></span><span class="n">240min</span></li>
+        <li><span class="t"><a href="sim.html?paper=korea2025">韩国全国技能大赛 2025 · 真题原文全真卷（世赛同源）</a><br><span class="small">第 1/第 2 课题原文中译 · 双任务各 4 小时 · AWS：ECS/Aurora/DynamoDB/CloudFront/WAF 全家桶</span></span><span class="n">480min</span></li>
+        <li><span class="t"><a href="sim.html?paper=wsc2026">WSC2026 上海世赛 · 四日全真模考</a><br><span class="small">按官方 TD53 结构（两天整日排障+两天下午排障）与 WSOS 权重原创命题 · 含消息处理量/资源效率两类特色评分</span></span><span class="n">4×半天</span></li>
+      </ul>
+      <p class="small">所有卷共用一个执行器：<b>sim.html</b>（模块计时 ×1-×10 变速、逐项评分清单、断点续做、交卷成绩单、打印卷面）。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">③ 环境怎么搭 · 三条路线</h2>
+    <div class="card">
+      <ul class="list">
+        <li><span class="t"><a href="env/README.md">真机环境搭建指南（必读）</a><br><span class="small">路线 A 纯云（免费额度/AWS Academy）· 路线 B 双机虚拟机（省赛国赛金砖标准）· 路线 C 一键脚本</span></span><span class="n">指南</span></li>
+        <li><span class="t"><a href="env/openstack-train-allinone.sh">OpenStack 一键部署脚本</a> / <a href="env/k8s-cluster.sh">K8s 集群一键脚本</a><br><span class="small">对应省赛/国赛/金砖的标准双机环境；跑完直接开卷</span></span><span class="n">脚本</span></li>
+        <li><span class="t"><a href="../lab.html">浏览器实训场（零安装）</a><br><span class="small">22 个场景任务的浏览器内 Linux 沙箱：L1 Linux → L4 K8s 逐关过；先手感到位再上真机</span></span><span class="n">零安装</span></li>
+        <li><span class="t"><a href="../../../docs/cloudlab/README.md">四层通关任务书（真机）</a><br><span class="small">L1-L4 每层任务书 + 自动评分脚本 + 故障注入——与模拟卷配套的日常训练</span></span><span class="n">真机</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">④ 能力域 → 教程映射 · 失分了去哪补</h2>
+    <div class="card">
+      <ul class="list">
+        <li><span class="t">Linux/网络/服务地基</span><span class="n"><a href="../../../docs/tutorial/01-Linux零基础-保姆级.md">第 1 章</a> · <a href="../../../docs/tutorial/02-网络零基础-保姆级.md">第 2 章</a> · <a href="../../../docs/tutorial/03-服务器实战-保姆级.md">第 3 章</a></span></li>
+        <li><span class="t">OpenStack 私有云</span><span class="n"><a href="../../../docs/tutorial/09-Shell脚本进阶-保姆级.md">第 9 章</a> · <a href="../../../docs/tutorial/13-自动化运维-保姆级.md">第 13 章</a> · 冲刺手册 <a href="../cloud/sprint.html">W2 私有云周</a></span></li>
+        <li><span class="t">Docker / K8s 容器云</span><span class="n"><a href="../../../docs/tutorial/10-Docker容器入门-保姆级.md">第 10 章</a> · <a href="../../../docs/tutorial/11-Kubernetes入门-保姆级.md">第 11 章</a></span></li>
+        <li><span class="t">公有云 / AWS（世赛线）</span><span class="n"><a href="../../../docs/tutorial/12-AWS云平台实战-保姆级.md">第 12 章</a> · <a href="../../../docs/tutorial/16-真题实战-保姆级.md">第 16 章 真题实战</a></span></li>
+        <li><span class="t">排错方法论（世赛 75% 时间）</span><span class="n"><a href="../../../docs/tutorial/07-故障排查专题-保姆级.md">第 7 章</a> · 训练场 <a href="../cloud/lab.html">fix 系列场景</a></span></li>
+        <li><span class="t">监控 / 安全 / 自动化（金砖 40%）</span><span class="n"><a href="../../../docs/tutorial/14-监控与日志-保姆级.md">第 14 章</a> · <a href="../../../docs/tutorial/15-安全加固-保姆级.md">第 15 章</a> · <a href="../../../docs/tutorial/13-自动化运维-保姆级.md">第 13 章</a></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="sec">⑤ 模拟频次建议 · 把手感练成肌肉</h2>
+    <div class="card">
+      <p><b>备考期</b>（赛前 8 周）：每两周 1 卷全真（轮换赛道），错项回炉。<b>冲刺期</b>（最后 3 周）：每周 1 卷主赛道 + 1 卷弱项单模块（用执行器的模块开关只打弱项）。<b>赛前一周</b>：主赛道卷 ×1（全真计时）+ 早睡。每次打完把成绩单存档，纵向对比——分数不动说明练法要换。</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>云赛体系导航：<a href="../cloud/index.html">备战中心</a> · <a href="../cloud/sprint.html">30 天冲刺</a> · <a href="../cloud/net.html">全网资源</a> · <a href="sim.html">模拟执行器</a> · <a href="../media/wsvideos.html">视频课</a></p>
+    <p>知识公社 · 完全离线 · 完全免费 —— <a href="../../index.html">返回门户</a></p>
+  </footer>
+</div>
+</body>
+</html>

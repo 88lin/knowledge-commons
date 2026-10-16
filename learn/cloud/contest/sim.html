@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>全真模拟执行器 · 知识公社云计算</title>
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../../../manifest.json">
+<link rel="apple-touch-icon" href="../../../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192px" href="../../../icons/icon-192.png">
+<script defer src="../../../sw-reg.js"></script>
+<script defer src="../../../install-tip.js"></script>
+<style>
+:root{--bg:#f4f6fa;--text:#182338;--dim:#5b6b85;--dim2:#8a97ad;--line:#dfe6f0;--line2:#e9eef6;--blue:#2b5cd9;--blue-deep:#2450c0;--blue-tint:#edf2fd;--green:#0f9d6c;--green-tint:#eaf7f1;--red:#cf3830;--red-tint:#fdeeed;--amber:#b26a00;--amber-tint:#fff4e0;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","HarmonyOS Sans SC","Source Han Sans SC","Noto Sans SC",sans-serif;font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:980px;margin:0 auto;padding:12px 12px 90px}
+.topbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);padding:10px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.topbar .pn{font-weight:800;font-size:14.5px}
+.topbar .sp{flex:1}
+.chip{font-size:12px;border-radius:6px;padding:3px 10px;border:1px solid var(--line);background:#fff;color:var(--dim);white-space:nowrap}
+.chip.blue{color:var(--blue);background:var(--blue-tint);border-color:rgba(43,92,217,.3)}
+.chip.green{color:var(--green);background:var(--green-tint);border-color:rgba(15,157,108,.3)}
+.chip.red{color:var(--red);background:var(--red-tint);border-color:rgba(207,56,48,.3)}
+.chip.amber{color:var(--amber);background:var(--amber-tint);border-color:rgba(178,106,0,.3)}
+.chip b{font-size:13px}
+button.btn{background:var(--blue);border:none;border-radius:8px;color:#fff;font-size:13.5px;font-weight:700;padding:8px 16px;cursor:pointer}
+button.btn:active{background:var(--blue-deep)}
+button.btn.ghost{background:#fff;color:var(--blue);border:1px solid rgba(43,92,217,.4)}
+button.btn.green{background:var(--green)}
+button.btn.warn{background:#fff;color:var(--red);border:1px solid rgba(207,56,48,.4)}
+button.btn:disabled{opacity:.45;cursor:not-allowed}
+.hero{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+.hero h1{margin:0 0 4px;font-size:20px}
+.hero p{margin:4px 0;color:var(--dim);font-size:13.5px}
+.meta{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(24,35,56,.04)}
+.modbar{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px;margin-bottom:4px}
+.modbar .mtab{flex:0 0 auto;background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 14px;font-size:13px;font-weight:700;color:var(--dim);cursor:pointer;white-space:nowrap}
+.modbar .mtab.on{background:var(--blue-tint);border-color:rgba(43,92,217,.45);color:var(--blue-deep)}
+.modbar .mtab .sc{font-weight:800;margin-left:6px;color:var(--blue)}
+h2.sec{font-size:16px;margin:20px 2px 10px;letter-spacing:.5px;color:#1c2a45}
+.task{background:#fff;border:1px solid var(--line);border-radius:12px;padding:0;margin-bottom:14px;overflow:hidden}
+.task>.th{display:flex;align-items:baseline;gap:8px;padding:12px 16px;background:#fbfcfe;border-bottom:1px solid var(--line2);cursor:pointer}
+.task>.th .no{font-size:11.5px;color:var(--dim2);letter-spacing:1px;white-space:nowrap}
+.task>.th .tt{font-size:15px;font-weight:800;flex:1}
+.task>.th .tp{font-size:12.5px;font-weight:800;color:var(--blue);white-space:nowrap}
+.task>.th .st{font-size:11.5px;color:var(--dim2);white-space:nowrap}
+.task>.tb{display:none;padding:12px 16px 16px}
+.task.open>.tb{display:block}
+.task.done>.th .tt{color:var(--green)}
+.brief{font-size:14px;margin:2px 0 10px}
+.brief p{margin:6px 0}
+.brief table{border-collapse:collapse;width:100%;margin:8px 0;font-size:13px}
+.brief th,.brief td{border:1px solid var(--line);padding:5px 9px;text-align:left;vertical-align:top}
+.brief th{background:#f7f9fc;white-space:nowrap}
+.brief code,.refline code{background:#f1f4f9;border:1px solid var(--line2);border-radius:5px;padding:1px 6px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12.5px}
+.brief pre{background:#101828;color:#d7e3f8;border-radius:10px;padding:12px 14px;overflow-x:auto;font-size:12.5px;line-height:1.65;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.checks{margin:6px 0 4px}
+.ck{display:flex;gap:9px;align-items:flex-start;padding:7px 10px;border:1px solid var(--line2);border-radius:9px;margin:6px 0;cursor:pointer;font-size:13.5px;background:#fff}
+.ck:hover{border-color:rgba(43,92,217,.4)}
+.ck input{margin-top:4px;accent-color:var(--green);width:16px;height:16px;flex:0 0 auto}
+.ck .cp{margin-left:auto;font-weight:800;color:var(--dim2);font-size:12px;white-space:nowrap}
+.ck.on{background:var(--green-tint);border-color:rgba(15,157,108,.4)}
+.ck.on .cp{color:var(--green)}
+details.refs,details.solu{margin:8px 0 0;border:1px dashed var(--line);border-radius:9px;padding:8px 12px;font-size:13px}
+details.refs summary,details.solu summary{cursor:pointer;color:var(--blue);font-weight:700;font-size:12.5px}
+details.solu summary{color:var(--amber)}
+.refline{margin:5px 0;color:#33456b}
+.refline code{display:inline;margin-right:4px}
+details.solu pre{background:#101828;color:#d7e3f8;border-radius:10px;padding:12px 14px;overflow-x:auto;font-size:12.5px;line-height:1.7;font-family:ui-monospace,Menlo,Consolas,monospace}
+.scorebar{position:fixed;left:0;right:0;bottom:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:9px 12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.scorebar .big{font-size:17px;font-weight:800;color:var(--blue)}
+.scorebar .sp{flex:1}
+.tclock{font-variant-numeric:tabular-nums;font-weight:800;font-size:15px}
+.tclock.low{color:var(--red)}
+.note{background:var(--amber-tint);border:1px solid rgba(178,106,0,.25);border-radius:10px;padding:10px 14px;font-size:13px;color:#6b4c00;margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.pcard h3{margin:0;font-size:15px}
+.pcard .small{font-size:12px;color:var(--dim)}
+.pcard .go{margin-top:auto;display:flex;gap:8px}
+.small{font-size:12.5px;color:var(--dim)}
+.report .row{display:flex;justify-content:space-between;padding:7px 4px;border-bottom:1px dashed var(--line2);font-size:14px}
+.report .row b{font-variant-numeric:tabular-nums}
+.dialog{position:fixed;inset:0;background:rgba(20,28,45,.45);display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
+.dialog.on{display:flex}
+.dialog .box{background:#fff;border-radius:14px;max-width:520px;width:100%;max-height:86vh;overflow:auto;padding:20px}
+@media print{
+ .topbar,.scorebar,.modbar,.noprint{display:none!important}
+ body{background:#fff}
+ .task>.tb{display:block!important}
+ details.refs,details.solu{display:none!important}
+ .card,.task{box-shadow:none;break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="topbar noprint">
+  <span class="pn" id="pnName">全真模拟执行器</span>
+  <span class="sp"></span>
+  <span class="chip blue" id="ckTimer">—</span>
+  <span class="chip" id="ckSpeed">×1</span>
+  <button class="btn ghost" id="btnPause">暂停</button>
+  <button class="btn green" id="btnSubmit">交卷</button>
+</div>
+<div class="wrap" id="app"></div>
+<div class="scorebar noprint" id="scorebar" style="display:none">
+  <span class="big" id="sbScore">0 / 0</span>
+  <span class="chip" id="sbTasks">任务 0/0</span>
+  <span class="chip" id="sbMod">—</span>
+  <span class="sp"></span>
+  <button class="btn ghost" id="btnPrint">打印卷</button>
+  <button class="btn ghost" id="btnReset">重开</button>
+</div>
+<div class="dialog" id="dlg"><div class="box" id="dlgBox"></div></div>
+<script src="data/wsc2026.js"></script>
+<script src="data/korea2025.js"></script>
+<script src="data/nation.js"></script>
+<script src="data/guangdong.js"></script>
+<script src="data/brics.js"></script>
+<script src="data/wsjobs.js"></script>
+<script>
+/* ================= 全真模拟执行器 · 引擎 =================
+   数据驱动：试卷来自 data/*.js 注册到 window.KC_PAPERS
+   支持：模块计时 · 断点续做 · 逐项自评 · 参考命令 · 交卷复盘 · 打印 */
+'use strict';
+var PAPERS=window.KC_PAPERS||{};
+var app=document.getElementById('app');
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function getParam(k){var m=new RegExp('[?&]'+k+'=([^&]+)').exec(location.search);return m?decodeURIComponent(m[1]):'';}
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v);}catch(e){return null;}}
+function fmtHMS(sec){sec=Math.max(0,Math.floor(sec));var h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=sec%60;return (h?h+'时':'')+m+'分'+(h?'':s+'秒');}
+function fmtClock(sec){sec=Math.max(0,Math.floor(sec));var h=Math.floor(sec/3600),m=Math.floor(sec%3600/60),s=sec%60;function p(n){return (n<10?'0':'')+n;}return p(h)+':'+p(m)+':'+p(s);}
+function nowMs(){return Date.now();}
+
+/* ---------- 状态 ---------- */
+var S={paper:null,idx:null,mod:0,speed:1,paused:false,tick:null};
+function stKey(id){return 'kcsim.v2.'+id;}
+function loadState(id){try{return JSON.parse(ls(stKey(id))||'null');}catch(e){return null;}}
+function saveState(){if(!S.idx)return;S.idx.acc=st(S.idx).acc;ls(stKey(S.paper.id),JSON.stringify(S.idx));}
+function st(idx){return idx;}
+
+/* ---------- 目录视图 ---------- */
+function paperMax(p){var t=0;p.modules.forEach(function(m){m.tasks.forEach(function(x){(x.checks||[]).forEach(function(c){t+=c.p;});});});return t;}
+function paperTasks(p){var n=0;p.modules.forEach(function(m){n+=m.tasks.length;});return n;}
+function renderCatalog(){
+  document.getElementById('scorebar').style.display='none';
+  document.getElementById('btnSubmit').style.display='none';document.getElementById('btnPause').style.display='none';
+  var ks=Object.keys(PAPERS);
+  var h='';
+  h+='<header class="hero"><h1>全真模拟执行器</h1><p>像真正比赛一样打完一张卷：限定时长 · 逐项评分 · 断点续做 · 交卷复盘。环境在你自己的云账号/虚拟机上搭，这里负责「考官」：发题、计时、收分。</p>';
+  h+='<p class="small">用法：点开一张卷 → 按任务书在你自己的环境里实操 → 每完成一项就在评分清单里给自己勾分 → 时间到或做完就「交卷」看成绩单。想 accelerated？计时器支持 ×2/×4/×10 加速。</p></header>';
+  h+='<div class="note"><b>全真三纪律</b>：①开考前清空环境（韩国真题明文要求：比赛开始前删除所有默认服务）②只在勾选时对照验收标准，不提前看参考命令 ③交卷前留 10 分钟全链路自验。</div>';
+  if(!ks.length){h+='<div class="card">试卷数据加载中……请刷新或检查 data/ 目录。</div>';}
+  else{
+    h+='<h2 class="sec">选择一张模拟卷</h2><div class="grid">';
+    ks.sort(function(a,b){return (PAPERS[a].order||0)-(PAPERS[b].order||0);});
+    ks.forEach(function(k){var p=PAPERS[k];
+      var done=loadState(p.id);
+      var tag=done&&done.report?'<span class="chip green">上次 '+done.report.total+'/'+paperMax(p)+'</span>':(done?'<span class="chip amber">进行中</span>':'');
+      h+='<div class="pcard"><h3>'+esc(p.name)+'</h3><div class="meta">'+tag+
+        '<span class="chip">'+(p.tag||'模拟卷')+'</span><span class="chip">'+paperTasks(p)+' 任务</span><span class="chip">'+paperMax(p)+' 分</span></div>'+
+        '<div class="small">'+esc(p.desc||'')+'</div>'+
+        '<div class="small">来源：'+esc(p.source||'原创命题')+' · 环境：'+esc(p.env||'')+'</div>'+
+        '<div class="go"><button class="btn" data-go="'+esc(p.id)+'">'+(done&&!done.report?'继续作答':'开始模拟')+'</button>'+
+        (done?'<button class="btn ghost" data-hist="'+esc(p.id)+'">成绩单</button>':'')+'</div></div>';
+    });
+    h+='</div>';
+  }
+  h+='<div class="card" style="margin-top:14px"><p class="small"><b>配套</b>：<a href="index.html">模拟中心（赛事地图与全部卷目）</a> · <a href="../lab.html">浏览器实训场</a> · <a href="env/README.md">真机环境搭建</a> · <a href="../../../docs/cloudlab/README.md">四层通关任务书</a></p></div>';
+  app.innerHTML=h;
+  app.querySelectorAll('[data-go]').forEach(function(b){b.onclick=function(){location.search='?paper='+b.getAttribute('data-go');};});
+  app.querySelectorAll('[data-hist]').forEach(function(b){b.onclick=function(){showReport(PAPERS[b.getAttribute('data-hist')],loadState(b.getAttribute('data-hist')).report,true);};});
+}
+
+/* ---------- 作答视图 ---------- */
+function modMax(m){var t=0;(m.tasks||[]).forEach(function(x){(x.checks||[]).forEach(function(c){t+=c.p;});});return t;}
+function modScore(m,idx,mno){var t=0;m.tasks.forEach(function(x,ti){(x.checks||[]).forEach(function(c,ci){if(idx.checks&&idx.checks[mi(mno,ti,ci)])t+=c.p;});});return t;}
+function mi(m,ti,ci){return m+':'+ti+':'+ci;}
+function renderRun(){
+  var p=S.paper,idx=S.idx;
+  document.getElementById('scorebar').style.display='flex';
+  document.getElementById('btnSubmit').style.display='';document.getElementById('btnPause').style.display='';
+  var h='';
+  h+='<header class="hero"><h1>'+esc(p.name)+'</h1><p>'+esc(p.desc||'')+'</p>'+
+     '<p class="small">来源：'+esc(p.source||'')+'</p>'+
+     '<div class="meta"><span class="chip blue">环境：'+esc(p.env||'—')+'</span><span class="chip">总分 '+paperMax(p)+' 分</span><span class="chip">'+paperTasks(p)+' 个任务</span></div></header>';
+  if(p.rules){h+='<div class="note">'+p.rules+'</div>';}
+  h+='<div class="modbar" id="modbar"></div><div id="modArea"></div>';
+  app.innerHTML=h;
+  renderModBar();
+  renderMod();
+}
+function renderModBar(){
+  var p=S.paper,idx=S.idx,el=document.getElementById('modbar');var h='';
+  p.modules.forEach(function(m,i){
+    h+='<div class="mtab'+(i===S.mod?' on':'')+'" data-m="'+i+'">'+esc(m.name)+'<span class="sc">'+modScore(m,idx,i)+'</span>/'+modMax(m)+'</div>';
+  });
+  el.innerHTML=h;
+  el.querySelectorAll('.mtab').forEach(function(t){t.onclick=function(){S.mod=+t.getAttribute('data-m');renderMod();renderModBar();window.scrollTo(0,0);};});
+}
+function renderMod(){
+  var p=S.paper,idx=S.idx,m=p.modules[S.mod],el=document.getElementById('modArea');
+  var h='<h2 class="sec">'+esc(m.name)+' · '+modMax(m)+' 分 · 限时 '+fmtHMS((m.minutes||240)*60)+'</h2>';
+  if(m.brief)h+='<div class="card">'+m.brief+'</div>';
+  (m.tasks||[]).forEach(function(t,ti){
+    var allOn=(t.checks||[]).length>0&&(t.checks||[]).every(function(c,ci){return idx.checks&&idx.checks[mi(S.mod,ti,ci)];});
+    var pts=0;(t.checks||[]).forEach(function(c,ci){if(idx.checks&&idx.checks[mi(S.mod,ti,ci)])pts+=c.p;});
+    h+='<div class="task'+(allOn?' done':'')+(t.open||ti===0?' open':'')+'" id="task'+ti+'">'+
+      '<div class="th" data-t="'+ti+'"><span class="no">任务 '+(ti+1)+'</span><span class="tt">'+t.title+'</span>'+
+      '<span class="st">'+pts+'/'+(t.checks||[]).reduce(function(a,c){return a+c.p;},0)+'</span><span class="tp">'+(t.checks||[]).reduce(function(a,c){return a+c.p;},0)+' 分</span></div>'+
+      '<div class="tb"><div class="brief">'+(t.brief||'')+'</div>';
+    if(t.steps)h+='<div class="brief"><b>交付要点</b>'+t.steps+'</div>';
+    h+='<div class="checks">';
+    (t.checks||[]).forEach(function(c,ci){
+      var on=idx.checks&&idx.checks[mi(S.mod,ti,ci)];
+      h+='<label class="ck'+(on?' on':'')+'"><input type="checkbox" data-ck="'+ti+'_'+ci+'"'+(on?' checked':'')+'><span>'+c.d+'</span><span class="cp">+'+c.p+'</span></label>';
+    });
+    h+='</div>';
+    if(t.refs&&t.refs.length){h+='<details class="refs"><summary>📖 命令路标（卡住了再看）</summary>'+t.refs.map(function(r){return '<div class="refline"><code>'+esc(r)+'</code></div>';}).join('')+'</details>';}
+    if(t.sol){h+='<details class="solu" data-sol="'+ti+'"><summary>🔑 思路解析（交卷后自动展开）</summary><pre>'+esc(t.sol)+'</pre></details>';}
+    h+='</div></div>';
+  });
+  el.innerHTML=h;
+  el.querySelectorAll('.th').forEach(function(x){x.onclick=function(){document.getElementById('task'+x.getAttribute('data-t')).classList.toggle('open');};});
+  el.querySelectorAll('[data-ck]').forEach(function(c){c.onchange=function(){
+    var v=c.getAttribute('data-ck').split('_');var ti=+v[0],ci=+v[1];
+    if(!idx.checks)idx.checks={};
+    if(c.checked)idx.checks[mi(S.mod,ti,ci)]=1;else delete idx.checks[mi(S.mod,ti,ci)];
+    saveState();updateScore();
+    var task=c.closest('.task');var t=p.modules[S.mod].tasks[ti];
+    var allOn=(t.checks||[]).every(function(cc,ci2){return idx.checks&&idx.checks[mi(S.mod,ti,ci2)];});
+    task.classList.toggle('done',allOn);
+    task.querySelector('.st').textContent=(function(){var pts=0;(t.checks||[]).forEach(function(cc,ci2){if(idx.checks&&idx.checks[mi(S.mod,ti,ci2)])pts+=cc.p;});return pts+'/'+t.checks.reduce(function(a,x){return a+x.p;},0);})();
+    renderModBar();
+  };});
+  updateScore();
+}
+function updateScore(){
+  var p=S.paper,idx=S.idx,tot=0,max=paperMax(p);
+  p.modules.forEach(function(m,mi2){tot+=modScore(m,idx,mi2);});
+  /* 任务完成度 */
+  var dTask=0,aTask=0;
+  p.modules.forEach(function(m,mi2){(m.tasks||[]).forEach(function(t,ti){aTask++;var all=(t.checks||[]).length>0&&(t.checks||[]).every(function(c,ci){return idx.checks&&idx.checks[mi(mi2,ti,ci)];});if(all)dTask++;});});
+  document.getElementById('sbScore').textContent=tot+' / '+max;
+  document.getElementById('sbTasks').textContent='任务 '+dTask+'/'+aTask;
+  document.getElementById('sbMod').textContent=p.modules[S.mod].name;
+  return {tot:tot,max:max,dTask:dTask,aTask:aTask};
+}
+
+/* ---------- 计时 ---------- */
+function modRemain(mi2){var idx=S.idx;idx.mods=idx.mods||{};var m=S.paper.modules[mi2];
+  if(idx.mods[mi2]===undefined){idx.mods[mi2]=(m.minutes||240)*60*1000;}
+  return idx.mods[mi2];}
+function tick(){
+  if(S.paused)return;
+  var f=S.speed,idx=S.idx;
+  idx.acc=(idx.acc||0)+1000*f;
+  var r=modRemain(S.mod)-1000*f;
+  idx.mods[S.mod]=Math.max(0,r);
+  saveState();
+  paintClock();
+  if(r<=0){var next=-1;S.paper.modules.forEach(function(m,i){if(next<0&&modRemain(i)>0)next=i;});
+    if(next>=0){S.mod=next;renderMod();renderModBar();alert('本模块时间到，已切到下一模块。');}
+    else if(!idx.report){doSubmit(true);}}
+}
+function paintClock(){
+  var r=modRemain(S.mod)/1000;
+  var el=document.getElementById('ckTimer');
+  el.textContent='当前模块剩余 '+fmtClock(r);
+  el.className='chip '+(r<10*60?'red':r<30*60?'amber':'blue');
+  var sb=document.getElementById('sbMod');
+  sb.textContent=S.paper.modules[S.mod].name+' · '+fmtClock(r);
+  sb.className='chip '+(r<10*60?'red':'');
+}
+
+/* ---------- 交卷与报告 ---------- */
+function doSubmit(auto){
+  var idx=S.idx,p=S.paper;
+  var sc=updateScore();
+  idx.report={total:sc.tot,max:sc.max,at:nowMs(),mins:Math.round((idx.acc||0)/60000),auto:!!auto,
+    per:p.modules.map(function(m,i){return {name:m.name,got:modScore(m,idx),max:modMax(m),left:Math.round(modRemain(i)/60000)};})};
+  saveState();
+  if(S.tick){clearInterval(S.tick);S.tick=null;}
+  showReport(p,idx.report,false);
+}
+function showReport(p,rep,hist){
+  var dlg=document.getElementById('dlg'),box=document.getElementById('dlgBox');
+  var pct=rep.max?Math.round(rep.total/rep.max*100):0;
+  var grade=pct>=85?['🥇 金牌水准','green']:pct>=70?['🥈 奖牌线附近','blue']:pct>=60?['🥉 及格','amber']:['⚠️ 未过线','red'];
+  var h='<h2 style="margin:0 0 6px">成绩单 · '+esc(p.name)+'</h2>';
+  h+='<p class="small">'+(rep.auto?'⚠️ 时间到自动交卷。':'')+(rep.at?('完成于 '+new Date(rep.at).toLocaleString('zh-CN')+' · 用时 '+rep.mins+' 分钟'):'')+'</p>';
+  h+='<div style="text-align:center;margin:14px 0"><div style="font-size:46px;font-weight:800">'+rep.total+'<span style="font-size:20px;color:#8a97ad"> / '+rep.max+'</span></div>'+
+     '<div style="font-size:15px;font-weight:800;margin-top:2px">'+grade[0]+' · 得分率 '+pct+'%</div></div>';
+  h+='<div class="report">';
+  rep.per.forEach(function(r){var pr=r.max?Math.round(r.got/r.max*100):0;
+    h+='<div class="row"><span>'+esc(r.name)+'</span><b>'+r.got+' / '+r.max+'（'+pr+'%）'+(r.left!==undefined?' · 剩 '+r.left+' 分':'')+'</b></div>';
+  });
+  h+='</div>';
+  h+='<div class="note" style="margin-top:12px"><b>复盘三问</b>：①哪些高分项没拿到？→ 下次先做高分项 ②哪些是命令不熟？→ 进实训场专项练 ③时间花在哪了？→ 交付顺序要按分值与依赖重排。弱项对应的教程章节见模拟中心「能力域 → 教程映射」。</div>';
+  h+='<div style="display:flex;gap:8px;margin-top:14px"><button class="btn" id="dlgClose">关闭</button><button class="btn ghost" id="dlgPrint">打印成绩单</button></div>';
+  box.innerHTML=h;dlg.classList.add('on');
+  document.getElementById('dlgClose').onclick=function(){dlg.classList.remove('on');};
+  document.getElementById('dlgPrint').onclick=function(){window.print();};
+}
+
+/* ---------- 入口 ---------- */
+function boot(){
+  var id=getParam('paper');
+  if(!id||!PAPERS[id]){renderCatalog();return;}
+  var p=PAPERS[id];S.paper=p;
+  var idx=loadState(id);
+  if(!idx){idx={checks:{},mods:{},acc:0,speed:1,started:nowMs()};ls(stKey(id),JSON.stringify(idx));}
+  S.idx=idx;S.speed=idx.speed||1;
+  /* 找第一个没做完的模块 */
+  S.mod=0;
+  document.getElementById('pnName').textContent=p.name;
+  document.getElementById('ckSpeed').textContent='×'+S.speed;
+  renderRun();paintClock();
+  if(S.tick)clearInterval(S.tick);
+  S.tick=setInterval(tick,1000);
+}
+document.getElementById('btnPause').onclick=function(){
+  S.paused=!S.paused;this.textContent=S.paused?'继续':'暂停';
+  document.getElementById('ckTimer').textContent=S.paused?'⏸ 已暂停':'';
+};
+document.getElementById('ckSpeed').onclick=function(){
+  var seq=[1,2,4,10];S.speed=seq[(seq.indexOf(S.speed)+1)%seq.length];S.idx.speed=S.speed;
+  this.textContent='×'+S.speed;saveState();
+};
+document.getElementById('btnSubmit').onclick=function(){
+  var sc=updateScore();
+  if(!confirm('确认交卷？\n当前得分 '+sc.tot+' / '+sc.max+'。交卷后将展开全部解析并生成成绩单。'))return;
+  doSubmit(false);
+};
+document.getElementById('btnPrint').onclick=function(){window.print();};
+document.getElementById('btnReset').onclick=function(){
+  if(!confirm('清空本卷作答与计时，从零重开？'))return;
+  ls(stKey(S.paper.id),null);location.search='?paper='+S.paper.id;
+};
+boot();
+</script>
+</body>
+</html>

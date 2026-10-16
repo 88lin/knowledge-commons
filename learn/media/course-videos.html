@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>视频课 · 字幕精修版 - 知识公社</title>
+<link rel="stylesheet" href="../style.css">
+<!-- kc-pwa -->
+<meta name="theme-color" content="#9e2b25">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="../../manifest.json">
+<link rel="apple-touch-icon" href="../../icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192px" href="../../icons/icon-192.png">
+<script defer src="../../sw-reg.js"></script>
+<script defer src="../../install-tip.js"></script>
+<!-- /kc-pwa -->
+<script src="data/course-scripts.js"></script>
+<style>
+.vidwrap{position:relative;background:#000;border-radius:12px;overflow:hidden}
+.vidwrap video{width:100%;display:block}
+.capbar{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;background:linear-gradient(transparent,rgba(0,0,0,.78));color:#fff;font-size:14.5px;line-height:1.6;text-align:center;text-shadow:0 1px 3px rgba(0,0,0,.9);pointer-events:none}
+.capbar b{color:#ffd54f;font-weight:700;margin-right:6px}
+details.ep{background:#fff;border:1px solid #dfe6f0;border-radius:12px;margin-bottom:10px;overflow:hidden}
+details.ep>summary{cursor:pointer;padding:13px 16px;font-weight:800;display:flex;gap:8px;align-items:baseline;list-style:none}
+details.ep>summary::-webkit-details-marker{display:none}
+details.ep>summary .no{font-size:12px;color:#8a97ad;white-space:nowrap}
+details.ep>summary .du{margin-left:auto;font-size:12px;color:#8a97ad;font-weight:400;white-space:nowrap}
+.epbody{padding:0 16px 14px}
+.calib{display:flex;align-items:center;gap:10px;font-size:12.5px;color:#5b6b85;background:#f7f9fc;border:1px solid #e9eef6;border-radius:9px;padding:8px 12px;margin:8px 0}
+.calib input[type=range]{flex:1;accent-color:#2b5cd9}
+.outline{margin-top:8px}
+.outline .oi{display:flex;gap:8px;padding:6px 8px;border-radius:8px;font-size:13px;cursor:pointer;color:#33456b}
+.outline .oi:hover{background:#edf2fd}
+.outline .oi.on{background:#edf2fd;color:#2450c0;font-weight:700}
+.outline .oi .on-no{color:#8a97ad;font-variant-numeric:tabular-nums;flex:0 0 auto}
+.tip{font-size:12px;color:#8a97ad;margin:6px 2px 0}
+</style>
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>保姆级教程 · 视频课 | 18 集 · 参考字幕 + 可点击大纲 · 全离线</span></div>
+<header class="hero">
+  <div class="kicker">VIDEO COURSE · CAPTIONED</div>
+  <h1>视频课 · 字幕精修版</h1>
+  <p>18 集课程全部配<b>参考字幕</b>（按官方台词讲义逐画面生成，可用语速滑块校准）+ <b>可点击大纲</b>（点画面名直接跳到对应段落）。看视频建框架，读<a href="../../docs/tutorial/97-视频课-全讲义.md">全台词讲义</a>抠细节，进<a href="../cloud/lab.html">训练场</a>动手练。</p>
+  <div class="badges"><span>18 集 · 约 101 分钟</span><span>参考字幕</span><span>可点击大纲</span><span>字幕校准</span><span>全离线</span></div>
+</header>
+<nav class="tabs">
+  <a href="../index.html">首页</a><a href="../beginner.html">学堂</a><a href="../media/videos-cloud.html">视频总库</a><a href="wsvideos.html">世赛影像</a><a class="on" href="course-videos.html">视频课</a><a href="../cloud/index.html">云赛</a><a href="../about.html">简章</a>
+</nav>
+<div class="wrap">
+  <div class="card">
+    <p class="small"><b>字幕说明</b>：视频由台词讲义配音生成，字幕按「各画面台词长度占比」铺排到时间轴，属<b>参考字幕</b>——若某集整体偏移，拖动该集的「语速校准」滑块一次即可全程对齐；校准值按集保存在本机。想要逐字精校版？讲义本身就是逐字稿：<a href="../../docs/tutorial/97-视频课-全讲义.md">97 · 视频课全台词讲义</a>。</p>
+  </div>
+  <div id="eps"></div>
+  <footer class="foot"><p><a href="../beginner.html">零基础学堂（16 节入门视频）</a> · <a href="videos-cloud.html">备赛视频总库（90 条外链）</a> · <a href="../cloud/contest/index.html">全赛模拟中心</a></p></footer>
+</div>
+<script>
+'use strict';
+var DATA=window.KC_COURSE_SCRIPTS.eps;
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v);}catch(e){return null;}}
+/* 生成铺排：按台词长度占比分配时长 */
+function layout(ep,dur,rate){
+  var segs=DATA[ep].segs,w=[],tot=0;
+  segs.forEach(function(s){var x=Math.pow(s.text.length,0.85)/rate;w.push(x);tot+=x;});
+  var t=0;
+  segs.forEach(function(s,i){s.t0=dur*t/tot;t+=w[i];s.t1=dur*t/tot;});
+  return segs;
+}
+function segAt(segs,t){for(var i=0;i<segs.length;i++){if(t<segs[i].t1)return i;}return segs.length-1;}
+function buildCap(ep,vid,bar,outl){
+  var rate=parseFloat(ls('kccap.rate.'+ep)||'1');
+  var segs=null;
+  function rebuild(){segs=layout(ep,vid.duration||0,rate);renderOutline();}
+  function renderOutline(){
+    var h='';
+    segs.forEach(function(s,i){
+      h+='<div class="oi" data-i="'+i+'"><span class="on-no">'+String(s.n).padStart(2,'0')+'</span><span>'+esc(s.head.slice(0,42))+'</span></div>';
+    });
+    outl.innerHTML=h;
+    outl.querySelectorAll('.oi').forEach(function(o){o.onclick=function(){
+      vid.currentTime=Math.min(segs[+o.getAttribute('data-i')].t0+0.05,Math.max(0,vid.duration-0.3));
+      vid.play();
+    };});
+  }
+  vid.addEventListener('loadedmetadata',rebuild);
+  if(vid.duration)rebuild();
+  var cur=-1;
+  vid.addEventListener('timeupdate',function(){
+    if(!segs||!segs.length)return;
+    var i=segAt(segs,vid.currentTime);
+    if(i!==cur){cur=i;bar.innerHTML='<b>'+String(segs[i].n).padStart(2,'0')+'</b>'+esc(segs[i].text);renderOutline();
+      var on=outl.querySelector('.oi.on');if(on)on.classList.remove('on');
+      var el=outl.querySelector('[data-i="'+i+'"]');if(el){el.classList.add('on');if(el.scrollIntoView)el.scrollIntoView({block:'nearest'});}}
+  });
+  /* 校准滑块 */
+  var rng=document.getElementById('cal'+ep);
+  rng.value=rate;
+  rng.oninput=function(){rate=parseFloat(rng.value);ls('kccap.rate.'+ep,String(rate));segs=layout(ep,vid.duration||0,rate);cur=-1;};
+}
+var root=document.getElementById('eps'),h='';
+DATA.forEach(function(e){
+  var ep=String(e.ep).padStart(2,'0');
+  h+='<details class="ep" id="ep'+ep+'"><summary><span class="no">第 '+ep+' 集</span><span>'+esc(e.title)+'</span><span class="du">'+(e.segs.length)+' 段</span></summary>'+
+  '<div class="epbody">'+
+  '<div class="vidwrap"><video controls preload="metadata" poster="../../videos/course/covers/ep'+ep+'.png" src="../../videos/course/ep'+ep+'.mp4"></video><div class="capbar" id="cap'+ep+'"></div></div>'+
+  '<div class="calib"><span>语速校准</span><input type="range" id="cal'+ep+'" min="0.7" max="1.5" step="0.05" value="1"><span>字幕密度匹配视频实际语速（卡住时微调）</span></div>'+
+  '<div class="outline" id="out'+ep+'"></div>'+
+  '<p class="tip">配套图文：<a href="../../docs/tutorial/README-教程总览.md">保姆级教程总览</a> · <a href="../../docs/tutorial/97-视频课-全讲义.md">本集台词讲义</a></p>'+
+  '</div></details>';
+});
+root.innerHTML=h;
+DATA.forEach(function(e){
+  var ep=String(e.ep).padStart(2,'0');
+  var d=document.getElementById('ep'+ep);
+  d.addEventListener('toggle',function(){
+    if(d.open){
+      document.querySelectorAll('details.ep').forEach(function(x){if(x!==d&&x.open)x.open=false;});
+      buildCap(e.ep,d.querySelector('video'),document.getElementById('cap'+ep),document.getElementById('out'+ep));
+    }
+  });
+});
+</script>
+</body>
+</html>
