@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AWS Educate 课程库 · 中文总目录 · 知识公社</title>
+<link rel="stylesheet" href="../style.css">
+<meta name="theme-color" content="#9e2b25">
+<link rel="manifest" href="../../manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="../../icons/icon-192.png">
+<script defer src="../../sw-reg.js"></script>
+<script defer src="../../install-tip.js"></script>
+<script defer src="../kc-learn.js"></script>
+</head>
+<body>
+<div class="topbar"><span class="dot"></span><span>知识公社 · 知识共享 —— 我为人人，人人为我</span></div>
+<header class="hero">
+  <div class="kicker">AWS EDUCATE LIBRARY</div>
+  <h1>AWS Educate 课程库</h1>
+  <p>71 门官方课程 · 中文总目录</p>
+  <p>分级 · 时长 · 分类，一眼看清该先学哪门</p>
+</header>
+<nav class="tabs">
+  <a href="../index.html">首页</a><a href="../beginner.html">学堂</a><a href="../exam/calendar.html">日历</a>
+  <a href="../archive.html">总目</a><a href="../courses.html">课程</a><a href="../contest.html">竞赛</a>
+  <a href="../exam/index.html">升学</a><a href="../exam/gongkao.html">公考</a><a href="../skills.html">世赛</a>
+  <a href="../red/index.html">红色</a><a href="../red/socialism.html">实践</a><a href="../ecommerce.html">创业</a>
+  <a href="../cloud/index.html">云赛</a><a class="on" href="aws-educate.html">AWS</a><a href="../cloud/lab.html">实训</a>
+  <a href="../media/wsvideos.html">视频</a><a href="../sleep.html">睡前</a><a href="../paths.html">路线</a>
+  <a href="../../library.html">资源</a><a href="../../download.html">下载</a><a href="../about.html">简章</a>
+</nav>
+<div class="wrap">
+  <div class="card">
+    <p><b>这是什么：</b>AWS Educate 学习者面板里的<b>全部 %d 门课程</b>总目录，课程名统一译为中文并保留英文原名，
+    标注难度（基础 / 进阶）与官方时长，按领域分好组。</p>
+    <p><b>怎么用：</b>零基础按「云计算」组的
+    <b>云计算入门 101 → 存储 / 计算 / 网络 / 数据库 / 安全入门</b>走一遍；
+    想冲世赛或考 AWS 认证，重点刷「网络与基础设施」「安全」两组；
+    想做 AI，从<b>机器学习基础</b>再进生成式 AI 系列。</p>
+    <p><b>已有全文的那一门：</b><a href="aws-educate.html">AWS 管理控制台入门 · 官方课中文全文</a>（其余课程需在 AWS Educate 面板里逐门打开学习）。</p>
+    <p><b>说明：</b>课程版权归 Amazon Web Services, Inc. 所有。本页为中文索引，方便选课，不转载课程正文。</p>
+  </div>
+
+  <section class="card">
+    <h2>先回答一个高频问题：世赛云计算是不是就考 AWS？</h2>
+    <p><b>是 AWS，但不只是 AWS。</b></p>
+    <ul>
+      <li><b>AWS 是 WorldSkills 的全球合作伙伴</b>，世界技能大赛云计算项目（Trade / Skill 39）长期以 <b>AWS 公有云</b>作为公有云平台——所以「公有云架构」那一模块基本就是 AWS 主场。</li>
+      <li><b>但一届比赛通常 4 个模块</b>，覆盖 <b>Linux 系统、Windows/AD、公有云架构（AWS）、自动化与故障排查</b>。Linux、Windows/AD、网络服务这些模块跟 AWS 没关系，得靠实训打。</li>
+      <li><b>各国风格差别很大</b>：世界赛 / 欧洲赛偏传统基础设施 + 网络服务 + 故障排查（AWS 只是其中一块）；韩国赛是 AWS 全家桶 + Terraform + EKS + GitOps + 性能 SLO + 成本优化，接近真实 SRE；中国国赛（职业院校技能大赛云计算赛项）是 OpenStack 私有云 + 容器云 + 公有云三件套，偏技术栈广度。</li>
+      <li><b>成绩坐标</b>：2024 里昂金牌中国队黄佳杰，2022 特别赛金牌陈新源（深圳技师学院），下一届上海 2026。</li>
+    </ul>
+    <p><b>所以这批 AWS Educate 课怎么用</b>：它最适合把「公有云架构」那一块的底子打扎实，顺带把 AWS 控制台、核心服务、区域与可用区这套世界观建立起来。
+    但它<b>不覆盖</b> Linux / Windows AD / 网络服务那几个模块——那部分要另走实训路线（见 <a href="../cloud/index.html">云计算备战中心</a> / <a href="../cloud/lab.html">实战训练场</a>）。
+    <b>两手都硬，才够到世界级水平。</b></p>
+  </section>
+
+  <section class="card">
+    <h2>推荐刷课顺序（按这条线走，约 30 小时）</h2>
+    <ol>
+      <li><b>第一阶段 · 打地基（13 小时）</b>：云计算入门 101 → 存储入门 → 计算入门 → 网络入门 → 数据库入门 → 安全入门。<br>
+          <span class="meta">这 6 门是 AWS 官方设计的基础闭环，按顺序刷，别跳。</span></li>
+      <li><b>第二阶段 · 上手控制台（4 小时）</b>：<a href="aws-educate.html">AWS 管理控制台入门（本站有全文）</a> → 云运维入门 → 无服务器入门 → 云支持工程师的一天。<br>
+          <span class="meta">到这一步你应该能不看教程自己找到任意服务。</span></li>
+      <li><b>第三阶段 · 真动手（4 小时）</b>：用户数据处理实战 → 用 EC2 Instance Connect 登录 Linux 实例 → Amazon EBS 快照实战 → CloudWatch 入门。<br>
+          <span class="meta">这 4 门是「Working with…」系列，要真开资源练，注意账单。</span></li>
+      <li><b>第四阶段 · 追 AI（10 小时）</b>：机器学习基础 → 生成式 AI 入门 → Amazon Bedrock 入门 → Amazon Q Developer 入门 / 使用 → 负责任的人工智能入门。<br>
+          <span class="meta">面向 AWS Certified AI Practitioner 认证方向。</span></li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>怎么开始学</h2>
+    <ol>
+      <li>登录 <a href="https://www.awseducate.com/signin/SiteLogin" target="_blank" rel="noopener">awseducate.com</a>（18 岁以上走 AWS Builder ID，有邮箱密码的走 Email and Password）。</li>
+      <li>左侧菜单进 <b>Courses &amp; labs</b> —— 就是这 71 门课的列表。</li>
+      <li>点课程卡片 → 弹窗点 <b>Confirm</b> 选课 → 进入学习；进度会自动记录，卡片上显示百分比。</li>
+      <li>学完可拿<b>数字徽章</b>；徽章课完成后能进 AWS Emerging Talent Community（注意：该社区与 Job Board 公告将于 2026 年退役，课程本身不受影响）。</li>
+    </ol>
+  </section>
+<section class="card"><h2>云计算 <span class="meta">24 门</span></h2>
+<table>
+<tr><td>云支持工程师的一天<br><span class="meta">Cloud Support Associate Day in the Life</span></td><td>基础</td><td>0.5 小时</td></tr>
+<tr><td>探索云上构建<br><span class="meta">Explore Cloud Building</span></td><td>基础</td><td>0.5 小时</td></tr>
+<tr><td>探索云计算<br><span class="meta">Explore Cloud Computing</span></td><td>基础</td><td>0.5 小时</td></tr>
+<tr><td>探索云存储<br><span class="meta">Explore Cloud Storage</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>探索硬件与软件<br><span class="meta">Explore Hardware &amp; Software</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>探索互联网基础<br><span class="meta">Explore Internet Basics</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>探索虚拟算力<br><span class="meta">Explore Virtual Compute Power</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>探索云上网站<br><span class="meta">Explore Websites in the Cloud</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>探索如何使用云<br><span class="meta">Explore using the Cloud</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>云运维入门<br><span class="meta">Getting Started with Cloud Operations</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>计算入门<br><span class="meta">Getting Started with Compute</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>数据库入门<br><span class="meta">Getting Started with Databases</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>无服务器入门<br><span class="meta">Getting Started with Serverless</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>存储入门<br><span class="meta">Getting Started with Storage</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>云计算入门 101<br><span class="meta">Introduction to Cloud 101</span></td><td>基础</td><td>3 小时</td></tr>
+<tr><td>AWS 云与可持续发展入门<br><span class="meta">Introduction to the AWS Cloud and Sustainability</span></td><td>基础</td><td>0.5 小时</td></tr>
+<tr><td>AWS 管理控制台入门<br><span class="meta">Introduction to the AWS Management Console</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>Twitch 第 1 集：搞定云基础<br><span class="meta">Twitch Episode 1: Get Confident in... Cloud Basics</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>Twitch 第 2 集：搞定存储<br><span class="meta">Twitch Episode 2: Get Confident in... Storage</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>Twitch 第 3 集：搞定计算<br><span class="meta">Twitch Episode 3: Get Confident in... Compute</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>Twitch 第 5 集：搞定数据库<br><span class="meta">Twitch Episode 5: Get Confident in... Databases</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>用 EC2 Instance Connect 登录 Linux 实例<br><span class="meta">Logging into a Linux Instance Using Amazon EC2 Instance Connect</span></td><td>进阶</td><td>0.75 小时</td></tr>
+<tr><td>Amazon EBS 快照实战<br><span class="meta">Working with Amazon EBS Snapshots</span></td><td>进阶</td><td>0.75 小时</td></tr>
+<tr><td>用户数据处理实战<br><span class="meta">Working with User Data</span></td><td>进阶</td><td>0.75 小时</td></tr>
+</table></section>
+<section class="card"><h2>网络与基础设施 <span class="meta">8 门</span></h2>
+<table>
+<tr><td>AWS 云的可持续性<br><span class="meta">AWS Sustainability in the Cloud</span></td><td>基础</td><td>1.5 小时</td></tr>
+<tr><td>探索云上连接<br><span class="meta">Explore Cloud Connections</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>探索云端冗余<br><span class="meta">Explore Cloud Redundancy</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>探索数字鸿沟<br><span class="meta">Explore Digital Divide</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>探索全球影响<br><span class="meta">Explore Global Impact</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>探索互联网路由<br><span class="meta">Explore Internet Routing</span></td><td>基础</td><td>0.5 小时</td></tr>
+<tr><td>网络入门<br><span class="meta">Getting Started with Networking</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>Twitch 第 4 集：搞定网络<br><span class="meta">Twitch Episode 4: Get Confident in... Networking</span></td><td>基础</td><td>1 小时</td></tr>
+</table></section>
+<section class="card"><h2>安全 <span class="meta">6 门</span></h2>
+<table>
+<tr><td>探索网络安全基础<br><span class="meta">Explore Cyber Security</span></td><td>基础</td><td>0.5 小时</td></tr>
+<tr><td>探索网络安全实践<br><span class="meta">Explore Cybersecurity</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>探索数据安全<br><span class="meta">Explore Data Safety</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>探索在线隐私<br><span class="meta">Explore Online Privacy</span></td><td>基础</td><td>0.5 小时</td></tr>
+<tr><td>探索云安全防护<br><span class="meta">Explore Securing the Cloud</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>安全入门<br><span class="meta">Getting Started with Security</span></td><td>基础</td><td>2 小时</td></tr>
+</table></section>
+<section class="card"><h2>机器学习与人工智能 <span class="meta">11 门</span></h2>
+<table>
+<tr><td>探索人工智能<br><span class="meta">Explore Artificial Intelligence</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>探索机器学习<br><span class="meta">Explore Machine Learning</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>探索虚拟现实<br><span class="meta">Explore Virtual Reality</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>Amazon Bedrock 入门<br><span class="meta">Introduction to Amazon Bedrock</span></td><td>基础</td><td>0.75 小时</td></tr>
+<tr><td>Amazon Q Developer 入门<br><span class="meta">Introduction to Amazon Q Developer</span></td><td>基础</td><td>0.75 小时</td></tr>
+<tr><td>PartyRock 入门<br><span class="meta">Introduction to PartyRock</span></td><td>基础</td><td>0.75 小时</td></tr>
+<tr><td>负责任的人工智能入门<br><span class="meta">Introduction to Responsible AI</span></td><td>基础</td><td>0.75 小时</td></tr>
+<tr><td>机器学习基础<br><span class="meta">Machine Learning Foundations</span></td><td>基础</td><td>3 小时</td></tr>
+<tr><td>Twitch 第 6 集：搞定生成式 AI 与 Amazon Q<br><span class="meta">Twitch Episode 6: Get Confident in... Gen AI and Amazon Q</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>使用 Amazon Q Developer<br><span class="meta">Using Amazon Q Developer</span></td><td>基础</td><td>0.75 小时</td></tr>
+<tr><td>生成式人工智能入门<br><span class="meta">Introduction to Generative Artificial Intelligence</span></td><td>进阶</td><td>0.75 小时</td></tr>
+</table></section>
+<section class="card"><h2>数据分析 <span class="meta">8 门</span></h2>
+<table>
+<tr><td>云端救援！考拉篇<br><span class="meta">Cloud Rescue! Koalas</span></td><td>基础</td><td>1.5 小时</td></tr>
+<tr><td>探索大数据<br><span class="meta">Explore Big Data</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>探索数据分析<br><span class="meta">Explore Data Analysis</span></td><td>基础</td><td>0.5 小时</td></tr>
+<tr><td>探索数据模型<br><span class="meta">Explore Data Models</span></td><td>基础</td><td>0.5 小时</td></tr>
+<tr><td>探索数据转换<br><span class="meta">Explore Data Transformation</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>Amazon CloudWatch 入门<br><span class="meta">Introduction to Amazon CloudWatch</span></td><td>基础</td><td>0.75 小时</td></tr>
+<tr><td>体育数据分析<br><span class="meta">Sports Data Analytics</span></td><td>基础</td><td>1.5 小时</td></tr>
+<tr><td>云端的癌症猎手<br><span class="meta">Cancer Hunters in the Cloud</span></td><td>进阶</td><td>1.5 小时</td></tr>
+</table></section>
+<section class="card"><h2>开发 <span class="meta">6 门</span></h2>
+<table>
+<tr><td>无障碍聊天机器人<br><span class="meta">Chatbots for Accessibility</span></td><td>基础</td><td>1.5 小时</td></tr>
+<tr><td>探索算法<br><span class="meta">Explore Algorithms</span></td><td>基础</td><td>0.5 小时</td></tr>
+<tr><td>探索程序设计<br><span class="meta">Explore Program Design</span></td><td>基础</td><td>0.5 小时</td></tr>
+<tr><td>探索编程<br><span class="meta">Explore Programming</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>探索故障排查<br><span class="meta">Explore Troubleshooting</span></td><td>基础</td><td>3 小时</td></tr>
+<tr><td>探索变量<br><span class="meta">Explore Variables</span></td><td>基础</td><td>2 小时</td></tr>
+</table></section>
+<section class="card"><h2>职业技能 <span class="meta">8 门</span></h2>
+<table>
+<tr><td>AWS 与初创企业<br><span class="meta">AWS Startups</span></td><td>基础</td><td>10 小时</td></tr>
+<tr><td>亚马逊的创新方法<br><span class="meta">Amazon Innovation</span></td><td>基础</td><td>2 小时</td></tr>
+<tr><td>沟通表达<br><span class="meta">Communication</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>目标设定<br><span class="meta">Goal Setting</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>职业技能入门<br><span class="meta">Introduction to Professional Skills</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>人脉经营<br><span class="meta">Networking</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>问题解决流程<br><span class="meta">Problem-Solving Process</span></td><td>基础</td><td>1 小时</td></tr>
+<tr><td>简历撰写<br><span class="meta">Resume Creation</span></td><td>基础</td><td>1 小时</td></tr>
+</table></section>
+</div>
+<footer><div class="foot-in">目录整理自 AWS Educate 学习者面板（2026-10-14 快照）· 课程版权归 Amazon Web Services, Inc. 所有 ·
+<a style="color:#d7deea" href="https://github.com/TaiMaBenJi/knowledge-commons" target="_blank" rel="noopener">GitHub 仓库</a></div></footer>
+</body>
+</html>

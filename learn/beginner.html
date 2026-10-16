@@ -51,18 +51,21 @@
   <a href="archive.html">总目</a>
   <a href="courses.html">课程</a>
   <a href="contest.html">竞赛</a>
-  <a href="exams.html">升学</a>
-  <a href="gongkao.html">公考</a>
+  <a href="exam/index.html">升学</a>
+  <a href="exam/gongkao.html">公考</a>
   <a href="skills.html">世赛</a>
-  <a href="red.html">红色</a>
-  <a href="socialism.html">实践</a>
+<a href="red.html">红色</a>
+<a href="socialism.html">实践</a>
 <a href="ecommerce.html">创业</a><a href="cloud.html">云赛</a><a href="cloudlab.html">实训</a><a href="wsvideos.html">视频</a><a href="sleep.html">睡前</a><a href="paths.html">路线</a>
+<a href="red/index.html">红色</a>
+<a href="red/socialism.html">实践</a>
+<a href="ecommerce.html">创业</a><a href="cloud/index.html">云赛</a><a href="cloud/lab.html">实训</a><a href="media/wsvideos.html">视频</a><a href="sleep.html">睡前</a><a href="paths.html">路线</a>
   <a href="../library.html">资源</a>
   <a href="about.html">简章</a>
 </nav>
 
 <div class="wrap">
-  <div class="card" style="margin-bottom:14px"><b>学完一课？去 <a href="quiz.html">学堂自测</a> 用 5 道题检验一下（即时判分 + 解析，成绩存本机）。</div>
+  <div class="card" style="margin-bottom:14px"><b>学完一课？去 <a href="exam/quiz.html">学堂自测</a> 用 5 道题检验一下（即时判分 + 解析，成绩存本机）。</div>
   <div class="goal">不知道从哪开始，就从这个页面开始。每一课回答同一个套路的三件事：<b>这是什么</b>、<b>今天第一步做什么</b>、<b>学完去哪</b>。视频由本站 video-factory 流水线从分镜脚本自动生成，图文讲义随课附上。</div>
   <div id="lessons"></div>
 
@@ -71,7 +74,7 @@
     <div class="grid">
       <a class="mod" href="skills.html"><div class="ico">技</div><b>世界技能大赛</b><div class="desc">六大领域 50 赛项三件套：总纲（读）· 视频（看）· 模拟训练（练）。</div><div class="meta">50 赛项 · 全离线</div></a>
       <a class="mod green" href="courses.html"><div class="ico">课</div><b>原创课程</b><div class="desc">算法 13 讲 · Python 8 讲 · 行测 6 讲，从零讲到能上手。</div><div class="meta">27 讲 · 配套题库</div></a>
-      <a class="mod gold" href="../library.html"><div class="ico">库</div><b>资源总库</b><div class="desc">九大板块 580 条全网免费资源，分类可搜，直连与离线性逐条标注。</div><div class="meta">持续补充</div></a>
+      <a class="mod gold" href="../library.html"><div class="ico">库</div><b>资源总库</b><div class="desc">十三大板块 968 条全网免费资源，分类可搜，直连与离线性逐条标注。</div><div class="meta">持续补充</div></a>
     </div>
   </section>
 
@@ -104,21 +107,21 @@ var LESSONS=[
        ['四步拿下第一题','打开入门题单 → 读 A+B Problem → 抄示例代码提交 → 看到绿色 AC。'],
        ['抄代码不丢人','抄完改一次（加法改减法）再提交；同类第三道题起不看答案自己做。'],
        ['第一周节奏','每天 2-3 道入门题；做完问「属于哪个套路」；卡 30 分钟才看题解且必须重写。']]},
-{sec:'base',n:'03',g:'升学考试',t:'用真题备考，不用题海盲游',u:'exams.html',
+{sec:'base',n:'03',g:'升学考试',t:'用真题备考，不用题海盲游',u:'exam/index.html',
  d:'高考、专升本、考研方法一样：让真题当你的老师。',
  pts:[['为什么真题最好','真题告诉你考什么、怎么考；官方出题诚实，模拟题质量参差。'],
        ['真题四步法','① 裸做一份摸底 → ② 错题按章节归类 → ③ 只补高频失分章节 → ④ 限时再做一份对比。'],
        ['三个参考数字','先裸做 2 份；高频失分通常只占考纲 20%；真题至少过 3 轮（摸底/专项/限时）。'],
        ['本站配套','高考数学真卷（内置阅读器）、辽宁专升本助手、国家智慧教育平台直达。'],
        ['常见坑','别从头到尾平均用力；别只做模拟卷；错题要三刷（当天/周末/考前）。']]},
-{sec:'base',n:'04',g:'公务员 · 编制',t:'行测申论，五分钟说明白',u:'gongkao.html',
+{sec:'base',n:'04',g:'公务员 · 编制',t:'行测申论，五分钟说明白',u:'exam/gongkao.html',
  d:'考什么、怎么算分、第一步做什么——不背概念。',
  pts:[['笔试就两张卷','行测：120 分钟一百多道选择题，五大模块拼速度与取舍；申论：读材料、提炼、按格式写清楚。'],
        ['行测就是取舍','平均每题不到 1 分钟；先做又快又准的模块，难的放后面。'],
        ['申论就三个动作','小题答案八成在材料里；先学各题型格式再谈文采；大作文背结构不背范文。'],
        ['今天第一步','不限时做一份行测真题摸底，记下五模块正确率；从图形推理开始补（本站 354 题库）。'],
        ['常见坑','别一上来背常识；别按卷面顺序硬做；申论必须动手写完整套。']]},
-{sec:'base',n:'05',g:'红色经典 · 人文古籍',t:'从《实践论》开始读毛选',u:'red.html',
+{sec:'base',n:'05',g:'红色经典 · 人文古籍',t:'从《实践论》开始读毛选',u:'red/index.html',
  d:'经典那么厚，从哪篇开始？答案：从《实践论》。',
  pts:[['为什么是它','不到一万字讲「怎么正确认识一件事」；本身就是学习方法论；打通文风与概念。'],
        ['第一次怎么读','抓主线（感性→理性→回到实践）；用自己的经历替换例子；只抄三句打动你的话；一周后重读。'],
@@ -171,13 +174,13 @@ var LESSONS=[
        ['七日路线','day1 问答程序 → day2 评级器 → day3 猜数字 → day4 成绩册 → day5 函数化 → day6 文件读写 → day7 带菜单的管理系统。'],
        ['30 分钟切法','5 分钟回顾昨天 + 15 分钟学知识点 + 10 分钟写产出。'],
        ['七天去向','算法题单 / python-office 效率工具 / 资源总库编程板块任选深入。']]},
-{sec:'adv',n:'13',g:'升学考试',t:'进阶：三类考试，三套打法',u:'exams.html',
+{sec:'adv',n:'13',g:'升学考试',t:'进阶：三类考试，三套打法',u:'exam/index.html',
  d:'高考 / 专升本 / 考研各自的专用变速箱。',
  pts:[['高考','模块得分率为纲：数学优先，选择填空限时训练，真题由新到旧吃。'],
        ['专升本','考纲章节覆盖为纲：先划掉不考的；公共课保底、专业课拉分；邻省真题补量。'],
        ['考研','信息战 + 长线节奏：先定院校再复习；公共课跟名师免费课；自命题真题是命根。'],
        ['今天就能做','下载你的考试大纲存成 PDF；裸做一份真题按章节归错；列信息待办清单。']]},
-{sec:'adv',n:'14',g:'公务员 · 编制',t:'进阶：行测提分顺序与申论自练法',u:'gongkao.html',
+{sec:'adv',n:'14',g:'公务员 · 编制',t:'进阶：行测提分顺序与申论自练法',u:'exam/gongkao.html',
  d:'五大模块的性价比排序 + 申论写改重写闭环。',
  pts:[['提分顺序','资料分析 → 判断推理（354 题库）→ 言语理解；数量常识靠策略与日常。'],
        ['周节奏','周一至四专项 30 题 / 周五错题重做 / 周末整卷限时模考并复盘做题顺序。'],
@@ -207,7 +210,7 @@ LESSONS.forEach(function(L){
     '<div class="lesson-bd">'+
     '<div class="vwrap"><video controls preload="none" src="../videos/beginner/epb'+L.n+'.mp4" onerror="this.parentNode.querySelector(\'.vmiss\').style.display=\'block\';this.style.display=\'none\'"></video><div class="vmiss">本集视频尚未生成——用仓库里的 video-factory 流水线一键生成：<br>python3 video-factory/build_episode.py video-factory/scripts/beginner-b'+L.n+'.py</div></div>'+
     '<ul class="klist">'+pts+'</ul>'+
-    '<div class="lkbar"><a href="'+L.u+'">直达板块 →</a><a href="quiz.html#'+L.n+'">测一测 →</a><a href="../videos/beginner/epb'+L.n+'.mp4">本集视频（新窗口播放）</a><a href="archive.html">总目</a></div>'+
+    '<div class="lkbar"><a href="'+L.u+'">直达板块 →</a><a href="exam/quiz.html#'+L.n+'">测一测 →</a><a href="../videos/beginner/epb'+L.n+'.mp4">本集视频（新窗口播放）</a><a href="archive.html">总目</a></div>'+
     '</div>';
   el.querySelector('.lesson-hd').onclick=function(){el.classList.toggle('open');};
   box.appendChild(el);

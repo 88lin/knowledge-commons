@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>国防教育 · 刷题 · 知识公社</title>
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{background:#f4f5f7;color:#191c20;font-size:16px;line-height:1.55;
+ font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;
+ padding-bottom:32px}
+.wrap{max-width:680px;margin:0 auto;padding:0 14px}
+.topbar{position:sticky;top:0;z-index:9;background:#fff;border-bottom:1px solid #e5e7eb;
+ padding:10px 14px;display:flex;align-items:center;gap:10px}
+.topbar .ttl{font-size:15px;font-weight:600;flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar .cnt{font-size:13px;color:#6b7280;font-variant-numeric:tabular-nums}
+.bar{height:4px;background:#e5e7eb}
+.bar i{display:block;height:100%;background:#2f6fed;width:0;transition:width .25s}
+h1{font-size:22px;margin:18px 0 4px}
+.sub{color:#6b7280;font-size:13.5px;margin:0 0 16px}
+.card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 1px 2px rgba(16,24,40,.06),0 1px 3px rgba(16,24,40,.04);margin-bottom:14px}
+.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
+.statgrid b{display:block;font-size:19px;font-variant-numeric:tabular-nums}
+.statgrid span{font-size:11.5px;color:#6b7280}
+.btn{display:block;width:100%;border:0;border-radius:12px;background:#2f6fed;color:#fff;
+ font-size:16px;font-weight:600;padding:15px 14px;margin-bottom:10px;text-align:left;
+ font-family:inherit;cursor:pointer;transition:transform .06s,filter .15s}
+.btn:active{transform:scale(.985);filter:brightness(.95)}
+.btn.ghost{background:#fff;color:#2f6fed;border:1px solid #cfd9ee}
+.btn.warn{background:#fff;color:#b45309;border:1px solid #f3d9a4}
+.btn.dark{background:#1f2937}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.btn em{float:right;font-style:normal;font-weight:400;opacity:.8;font-size:13.5px}
+.sect{font-size:12.5px;color:#6b7280;margin:18px 0 8px;font-weight:600;letter-spacing:.04em}
+.qtags{display:flex;gap:6px;margin-bottom:10px;align-items:center}
+.tag{font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;background:#eef2ff;color:#3730a3}
+.tag.m{background:#fef3c7;color:#92400e}
+.tag.j{background:#dcfce7;color:#166534}
+.tag.idx{background:#f3f4f6;color:#4b5563;margin-left:auto}
+.stem{font-size:17px;line-height:1.6;font-weight:500;margin:4px 0 14px;word-break:break-word}
+.opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;font-family:inherit;
+ background:#fff;border:1.5px solid #e5e7eb;border-radius:12px;padding:13px 14px;margin-bottom:9px;
+ font-size:15.5px;color:#191c20;cursor:pointer;transition:border-color .12s,background .12s,transform .06s}
+.opt:active{transform:scale(.99)}
+.opt .k{font-weight:700;color:#6b7280;min-width:20px}
+.opt.sel{border-color:#2f6fed;background:#f2f6ff}
+.opt.sel .k{color:#2f6fed}
+.opt.ok{border-color:#16a34a;background:#f0fdf4}
+.opt.ok .k{color:#16a34a}
+.opt.bad{border-color:#dc2626;background:#fef2f2}
+.opt.bad .k{color:#dc2626}
+.opt[disabled]{pointer-events:none}
+.fb{border-radius:12px;padding:12px 14px;margin:12px 0 6px;font-size:15px;font-weight:600}
+.fb.ok{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
+.fb.bad{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
+.fb small{display:block;font-weight:400;font-size:13.5px;margin-top:4px;opacity:.9}
+.hint{background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;padding:10px 12px;font-size:13.5px;color:#475569;margin-top:10px}
+.result-hero{text-align:center;padding:22px 16px}
+.result-hero .pct{font-size:52px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.result-hero .lbl{color:#6b7280;font-size:13.5px;margin-top:6px}
+.wrongitem{border-left:3px solid #dc2626;background:#fff;border-radius:0 10px 10px 0;padding:10px 12px;margin-bottom:9px}
+.wrongitem .q{font-size:14.5px;font-weight:500}
+.wrongitem .a{font-size:13.5px;color:#065f46;margin-top:5px}
+.wrongitem .y{font-size:13px;color:#991b1b}
+.empty{color:#9ca3af;text-align:center;padding:14px;font-size:14px}
+footer{text-align:center;color:#9ca3af;font-size:12px;padding:10px 0 0}
+</style>
+</head>
+<body>
+<div class="topbar" id="topbar" style="display:none">
+  <div class="ttl" id="tbTitle">刷题</div>
+  <div class="cnt" id="tbCount"></div>
+</div>
+<div class="bar" id="bar" style="display:none"><i id="barFill"></i></div>
+<div id="app"></div>
+<footer>答错的题会自动进错题本 · 数据存在本机 · <a href="../../index.html" style="color:#6b7280">知识公社首页</a> · <a href="index.html" style="color:#6b7280">考试与题库</a></footer>
+<script>
+const DATA = {"q":[{"t":"s","q":"我国对待核武器的政策（）？","o":["A、不首先使用核武器","B、主动首先使用","C、随意核威慑","D、大量对外输出核技术"],"a":"A"},{"t":"s","q":"《孙子兵法》作者是（）？","o":["A、孙武","B、孙膑","C、吴起","D、韩信"],"a":"A"},{"t":"s","q":"我国陆地国土面积大约（）万平方公里？","o":["A、900","B、960","C、1000","D、1200"],"a":"B"},{"t":"s","q":"公民发现有人窃取军事秘密应当（）？","o":["A、及时向国家安全机关报告","B、装作没看见","C、主动参与","D、到处传播"],"a":"A"},{"t":"s","q":"总体国家安全观的宗旨是（）？","o":["A、人民安全","B、政治安全","C、国土安全","D、军事安全"],"a":"A"},{"t":"s","q":"我国领海宽度是（）海里？","o":["A、12","B、24","C、100","D、200"],"a":"A"},{"t":"s","q":"新时代强军目标不包括（）？","o":["A、称霸世界","B、听党指挥","C、能打胜仗","D、作风优良"],"a":"A"},{"t":"s","q":"民兵属于我国（）的组成部分？","o":["A、公安队伍","B、政府部门","C、武装力量","D、事业单位"],"a":"C"},{"t":"s","q":"“不战而屈人之兵”出自（）？","o":["A、《论语》","B、《史记》","C、《孙子兵法》","D、《六韬》"],"a":"C"},{"t":"s","q":"我国武装力量组成不包含（）？","o":["A、解放军","B、私人保安","C、武警","D、民兵"],"a":"B"},{"t":"s","q":"我国全民国防教育日是（）？","o":["A、9月第一个周六","B、9月第二个周六","C、9月第三个星期六","D、10月第一个周六"],"a":"C"},{"t":"s","q":"下面哪一个不属于总体国家安全观涵盖领域（）？","o":["A、网络安全","B、生态安全","C、娱乐安全","D、科技安全"],"a":"C"},{"t":"s","q":"火箭军主要执行（）任务？","o":["A、海上登陆","B、城市治安","C、核反击与导弹打击","D、边防巡逻"],"a":"C"},{"t":"s","q":"我国主张管辖海域大约（）万平方公里？","o":["A、200","B、260","C、300","D、400"],"a":"C"},{"t":"s","q":"人民军队诞生于哪次起义（）？","o":["A、南昌起义","B、秋收起义","C、广州起义","D、武昌起义"],"a":"A"},{"t":"s","q":"我国的武装力量属于（）？","o":["A、国防部","B、政府","C、人民","D、军队"],"a":"C"},{"t":"s","q":"身上携带军事基地照片随意发给外国人，属于（）？","o":["A、正常分享","B、个人爱好","C、无所谓","D、危害国家安全"],"a":"D"},{"t":"s","q":"信息化战争的主导要素是（）？","o":["A、士兵数量","B、火炮多少","C、体力","D、信息"],"a":"D"},{"t":"s","q":"总体国家安全观的根本是（）？","o":["A、人民安全","B、政治安全","C、经济安全","D、网络安全"],"a":"B"},{"t":"s","q":"我国最高军事领导机构是（）？","o":["A、国防部","B、国务院","C、全国人大","D、中央军事委员会"],"a":"D"},{"t":"s","q":"下面哪项属于危害国家安全行为（）？","o":["A、参加军训","B、学习国防知识","C、保守秘密","D、向境外人员泄露国家秘密"],"a":"D"},{"t":"s","q":"我国第一大岛是（）？","o":["A、海南岛","B、崇明岛","C、台湾岛","D、舟山岛"],"a":"C"},{"t":"s","q":"专属经济区从领海基线向外（）海里？","o":["A、12","B、24","C、100","D、200"],"a":"D"},{"t":"s","q":"国家安全举报电话是（）？","o":["A、12339","B、110","C、12345","D、119"],"a":"A"},{"t":"s","q":"解决台湾问题基本方针（）？","o":["A、武力占领","B、一中一台","C、民族自决","D、和平统一、一国两制"],"a":"D"},{"t":"s","q":"我国国防类型属于（）？","o":["A、扩张型","B、自卫防御型","C、联盟型","D、中立型"],"a":"B"},{"t":"s","q":"中国人民解放军建军节是（）？","o":["A、7月1日","B、8月1日","C、9月3日","D、10月1日"],"a":"B"},{"t":"s","q":"人民军队的根本原则（）？","o":["A、军队国家化","B、党对军队绝对领导","C、军队中立","D、军政分离"],"a":"B"},{"t":"s","q":"火箭军的前身是（）？","o":["A、第二炮兵","B、战略支援部队","C、武警部队","D、陆军炮兵"],"a":"A"},{"t":"s","q":"下面不属于解放军军种的是（）？","o":["A、陆军","B、海军","C、空军","D、武警部队"],"a":"D"},{"t":"s","q":"下列属于新型作战空间的是（）？","o":["A、山地","B、网络空间","C、平原","D、海洋"],"a":"B"},{"t":"s","q":"下列哪一项不是公民国防义务（）？","o":["A、接受国防教育","B、保护国防设施","C、拒绝了解国防知识","D、依法服兵役"],"a":"C"},{"t":"s","q":"我国陆上邻国有多少个（）？","o":["A、12","B、14","C、16","D、18"],"a":"B"},{"t":"s","q":"（）是军队的生命线？","o":["A、武器装备","B、思想政治工作","C、伙食保障","D、军事演习"],"a":"B"},{"t":"s","q":"精确制导武器主要特点（）？","o":["A、价格便宜","B、发射速度慢","C、命中精度高","D、只能打地面目标"],"a":"C"},{"t":"s","q":"现代国防斗争手段，说法正确的是（）？","o":["A、只有打仗","B、只有军事演习","C、只有外交","D、军事、政治、经济、网络多种手段"],"a":"D"},{"t":"s","q":"《国防法》规定，公民应当（）国防教育。","o":["A、接受","B、拒绝","C、选择性","D、无所谓"],"a":"A"},{"t":"s","q":"网络安全属于国家安全组成部分（）？","o":["A、错误","B、正确","C、不确定","D、看情况"],"a":"B"},{"t":"s","q":"新时代我国国家安全以（）为基础？","o":["A、军事安全","B、国土安全","C、经济安全","D、社会安全"],"a":"C"},{"t":"s","q":"战略支援部队属于（）？","o":["A、解放军军种","B、公安","C、民兵","D、武警"],"a":"A"},{"t":"s","q":"抗日战争胜利纪念日是（）？","o":["A、8月1日","B、9月3日","C、10月1日","D、12月13日"],"a":"B"},{"t":"s","q":"南京大屠杀死难者国家公祭日（）？","o":["A、9月3日","B、8月1日","C、12月13日","D、7月7日"],"a":"C"},{"t":"s","q":"下面哪一项是信息化战争特点（）？","o":["A、战场多维化","B、只靠骑兵作战","C、只有地面战斗","D、不需要电子设备"],"a":"A"},{"t":"s","q":"我国兵役制度，下面说法正确（）？","o":["A、所有人必须强制当兵","B、只有城市青年当兵","C、只有农村青年当兵","D、年满18周岁公民有服兵役义务"],"a":"D"},{"t":"s","q":"隐身技术主要作用（）？","o":["A、肉眼看不见","B、降低被探测设备发现概率","C、完全无声","D、刀枪不入"],"a":"B"},{"t":"s","q":"夜视技术主要依靠（）？","o":["A、红外线","B、太阳光","C、灯光","D、声音"],"a":"A"},{"t":"s","q":"国家主权，下面理解正确（）？","o":["A、别国可以随意干涉我国内政","B、领土可以随意分割","C、国家对内对外独立的最高权力","D、主权可以交易"],"a":"C"},{"t":"s","q":"南海诸岛，说法正确（）？","o":["A、不属于中国","B、属于周边外国","C、属于公共海域","D、自古以来是中国领土"],"a":"D"},{"t":"s","q":"中学生维护国家安全，做法正确（）？","o":["A、学习国家安全知识，保守秘密","B、网络随意转发军事照片","C、好奇打听军事机密","D、和境外网友随意聊国内军事"],"a":"A"},{"t":"s","q":"总体国家安全观提出的时间是（）？","o":["A、2012年","B、2014年","C、2016年","D、2018年"],"a":"B"},{"t":"m","q":"国防教育主要形式（）？","o":["A、课堂学习国防知识","B、参加军训","C、参观国防教育基地","D、国防宣传活动"],"a":"ABCD"},{"t":"m","q":"我国武装力量包括（）？","o":["A、中国人民解放军","B、武警部队","C、民兵","D、私人保安"],"a":"ABC"},{"t":"m","q":"总体国家安全观包含下面哪些安全（）？","o":["A、政治安全","B、国土安全","C、网络安全","D、军事安全"],"a":"ABCD"},{"t":"m","q":"公民维护国家安全义务（）？","o":["A、保守国家秘密","B、及时报告危害国家安全行为","C、不非法提供国家资料","D、支持国家安全工作"],"a":"ABCD"},{"t":"m","q":"未来战争发展趋势（）？","o":["A、无人装备增多","B、网络对抗越来越重要","C、完全不需要武器","D、回到冷兵器时代"],"a":"AB"},{"t":"m","q":"下面哪些属于危害国家安全行为（）？","o":["A、窃取军事秘密","B、向境外泄露国家情报","C、分裂国家言论","D、学习国防知识"],"a":"ABC"},{"t":"m","q":"信息化战争特点（）？","o":["A、信息主导","B、多维战场","C、节奏快","D、网络对抗突出"],"a":"ABCD"},{"t":"m","q":"精确制导武器有（）？","o":["A、导弹","B、制导炸弹","C、制导炮弹","D、普通手榴弹"],"a":"ABC"},{"t":"m","q":"领海主权国家拥有哪些权力（）？","o":["A、管辖领海海域","B、管控外国船只","C、保卫领海安全","D、别国可以随便驶入"],"a":"ABC"},{"t":"m","q":"我国核政策内容（）？","o":["A、不首先使用核武器","B、不对无核国家使用核武器","C、主动核打击","D、大量输出核武"],"a":"AB"},{"t":"m","q":"民兵的作用（）？","o":["A、配合军队作战","B、抢险救灾","C、维护地方治安","D、经商赚钱"],"a":"ABC"},{"t":"m","q":"解放军五大军种是（）？","o":["A、陆军","B、海军","C、空军","D、火箭军","E、战略支援部队"],"a":"ABCDE"},{"t":"m","q":"公民国防义务有（）？","o":["A、接受国防教育","B、保护国防设施","C、保守国防秘密","D、依法服兵役"],"a":"ABCD"},{"t":"m","q":"属于我国固有领土的（）？","o":["A、台湾岛","B、海南岛","C、南海诸岛","D、钓鱼岛"],"a":"ABCD"},{"t":"m","q":"《孙子兵法》军事思想（）？","o":["A、知己知彼，百战不殆","B、不战而屈人之兵","C、崇尚穷兵黩武","D、好战必赢"],"a":"AB"},{"t":"m","q":"新时代强军目标（）？","o":["A、听党指挥","B、能打胜仗","C、作风优良","D、称霸全球"],"a":"ABC"},{"t":"m","q":"现代国防斗争手段包含（）？","o":["A、军事手段","B、政治手段","C、经济手段","D、外交网络手段"],"a":"ABCD"},{"t":"m","q":"火箭军可以执行哪些任务（）？","o":["A、核反击作战","B、常规导弹打击","C、城市治安巡逻","D、交通疏导"],"a":"AB"},{"t":"m","q":"我国周边安全面临的挑战（）？","o":["A、领土边界争端","B、海洋权益问题","C、外部势力干涉","D、完全没有任何风险"],"a":"ABC"},{"t":"m","q":"中学生可以做哪些维护国家安全的事（）？","o":["A、学习国家安全知识","B、不随意拍军事设施","C、发现可疑情况及时报告","D、保守国家秘密"],"a":"ABCD"},{"t":"m","q":"领土完整包含（）？","o":["A、陆地领土","B、领海","C、领空","D、他国领土"],"a":"ABC"},{"t":"m","q":"网络安全重要性体现在（）？","o":["A、关乎国家信息安全","B、关乎社会稳定","C、关乎个人信息","D、属于国家安全一部分"],"a":"ABCD"},{"t":"m","q":"下面哪些纪念日是我国国防相关纪念日（）？","o":["A、八一建军节","B、9・3 抗战胜利纪念日","C、12・13 国家公祭日","D、双十一购物节"],"a":"ABC"},{"t":"m","q":"人民军队建设思想包括（）？","o":["A、党对军队绝对领导","B、为人民服务","C、思想政治建设","D、军队私人化"],"a":"ABC"},{"t":"m","q":"总体国家安全观中，安全保障包含（）？","o":["A、军事安全","B、科技安全","C、文化安全","D、社会安全"],"a":"ABCD"},{"t":"j","q":"国防只是军人的事，普通学生不用关心。（）","a":"错误"},{"t":"j","q":"中华人民共和国武装力量坚持党的绝对领导。（）","a":"正确"},{"t":"j","q":"台湾是中国不可分割的一部分。（）","a":"正确"},{"t":"j","q":"外国军舰可以不经允许随便进入我国 12 海里领海。（）","a":"错误"},{"t":"j","q":"总体国家安全观，人民安全是宗旨。（）","a":"正确"},{"t":"j","q":"12339 是国家安全举报电话。（）","a":"正确"},{"t":"j","q":"网络空间不属于国家安全范围。（）","a":"错误"},{"t":"j","q":"全民国防教育日为每年 9 月第三个星期六。（）","a":"正确"},{"t":"j","q":"火箭军前身是第二炮兵。（）","a":"正确"},{"t":"j","q":"隐身飞机就是肉眼完全看不见。（）","a":"错误"},{"t":"j","q":"信息化战争，信息是重要作战资源。（）","a":"正确"},{"t":"j","q":"我国奉行不首先使用核武器政策。（）","a":"正确"},{"t":"j","q":"民兵不属于我国武装力量。（）","a":"错误"},{"t":"j","q":"随意拍摄军事基地照片发给外国人，是危害国家安全。（）","a":"正确"},{"t":"j","q":"《孙子兵法》是我国古代著名军事著作。（）","a":"正确"},{"t":"j","q":"维护国家安全只是大人的事情，中学生不用管。（）","a":"错误"},{"t":"j","q":"南海诸岛是中国固有领土。（）","a":"正确"},{"t":"j","q":"我国国防属于自卫防御型国防。（）","a":"正确"},{"t":"j","q":"解决台湾问题基本方针是和平统一、一国两制。（）","a":"正确"},{"t":"j","q":"保守国家秘密是每个公民的义务。（）","a":"正确"},{"t":"j","q":"钓鱼岛是中国固有领土。（）","a":"正确"},{"t":"j","q":"军人可以不受国家法律约束。（）","a":"错误"},{"t":"j","q":"经济安全是总体国家安全观的基础。（）","a":"正确"},{"t":"j","q":"境外人员索要我国地理、军事资料可以随意提供。（）","a":"错误"},{"t":"j","q":"新时代强军目标要求军队作风优良。（）","a":"正确"}]};
+const STORE_KEY = 'dfquiz.v1';
+let S = load();
+function load(){
+  try{
+    const o = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+    return {seen:o.seen||{}, wrong:o.wrong||[], hist:o.hist||[]};
+  }catch(e){ return {seen:{}, wrong:[], hist:[]}; }
+}
+function save(){ try{ localStorage.setItem(STORE_KEY, JSON.stringify(S)); }catch(e){} }
+</script>
+<script id="mainflow">
+/* ---------- 基础工具 ---------- */
+const Q = DATA.q;
+const LETTERS = 'ABCDEFG';
+const app = document.getElementById('app');
+const topbar = document.getElementById('topbar');
+const bar = document.getElementById('bar');
+const barFill = document.getElementById('barFill');
+const tbTitle = document.getElementById('tbTitle');
+const tbCount = document.getElementById('tbCount');
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function shuffle(a){ for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+/* 选项乱序：每次开始答题/速览都重新打乱选项位置，正确答案随之变动，不再是固定位置 */
+function randomizeOptions(){
+  const strip = s => String(s).replace(/^[A-G]\s*[、.．]\s*/, '');
+  DATA.q.forEach(q => {
+    if(q.t === 'j'){ q.o = shuffle(['正确','错误'].slice()); return; }
+    const texts = q.o.map(strip);
+    const corr = {};
+    q.a.split('').forEach(c => { corr[LETTERS.indexOf(c)] = 1; });
+    const idx = texts.map((_, i) => i);
+    shuffle(idx);
+    q.o = idx.map((oldI, i) => LETTERS[i] + '、' + texts[oldI]);
+    q.a = idx.map((oldI, i) => corr[oldI] ? LETTERS[i] : '').join('');
+  });
+}
+function fmtTime(ms){ const s=Math.round(ms/1000); return s<60 ? s+' 秒' : Math.floor(s/60)+' 分 '+(s%60)+' 秒'; }
+function typeName(t){ return t==='s'?'单选题':t==='m'?'多选题':'判断题'; }
+function typeTag(t){ return t==='s'?'<span class="tag">单选</span>':t==='m'?'<span class="tag m">多选</span>':'<span class="tag j">判断</span>'; }
+function optsOf(q){ return q.t==='j' ? (q.o || ['正确','错误']) : q.o; }
+function ansText(q){
+  if(q.t==='j') return q.a;
+  if(q.t==='m') return q.a;
+  const i = LETTERS.indexOf(q.a);
+  return q.a + '、' + (q.o[i]||'').replace(/^[A-E]\s*[、.．]\s*/, '');
+}
+
+function setTop(show, title, count, pct){
+  topbar.style.display = show ? 'flex' : 'none';
+  bar.style.display = show ? 'block' : 'none';
+  if(show){ tbTitle.textContent = title || ''; tbCount.textContent = count || ''; barFill.style.width = (pct||0)+'%'; }
+}
+
+/* ---------- 状态 ---------- */
+let run = null;
+
+/* ---------- 首页 ---------- */
+function renderHome(){
+  setTop(false);
+  const keys = Object.keys(S.seen);
+  let ok=0, tot=0, mastered=0;
+  keys.forEach(k=>{ const v=S.seen[k]; ok+=v.r||0; tot+=(v.r||0)+(v.w||0); if((v.r||0)>0) mastered++; });
+  const acc = tot ? Math.round(ok*100/tot) : 0;
+  const wc = S.wrong.length;
+  const cnt = {s:0,m:0,j:0};
+  Q.forEach(q=>cnt[q.t]++);
+  app.innerHTML = `
+  <div class="wrap">
+    <h1>国防教育 · 刷题</h1>
+    <p class="sub">${Q.length} 题题库 · 随机抽题 · 答错自动进错题本</p>
+    <div class="card statgrid">
+      <div><b>${tot}</b><span>已答</span></div>
+      <div><b>${acc}%</b><span>正确率</span></div>
+      <div><b>${mastered}</b><span>已答对</span></div>
+      <div><b style="color:${wc?'#dc2626':'inherit'}">${wc}</b><span>错题本</span></div>
+    </div>
+    <div class="sect">随机测试</div>
+    <button class="btn" data-act="start" data-n="10">快速热身<em>10 题 · 约 3 分钟</em></button>
+    <button class="btn" data-act="start" data-n="25">半场测验<em>25 题 · 约 8 分钟</em></button>
+    <button class="btn dark" data-act="start" data-n="0">全真模拟<em>全部 ${Q.length} 题</em></button>
+    <button class="btn warn" data-act="wrong" ${wc?'':'disabled'}>错题重练<em>${wc?wc+' 题在手':'暂无错题'}</em></button>
+    <div class="sect">按题型练</div>
+    <button class="btn ghost" data-act="type" data-t="s">单选专项<em>${cnt.s} 题</em></button>
+    <button class="btn ghost" data-act="type" data-t="m">多选专项<em>${cnt.m} 题（最易错）</em></button>
+    <button class="btn ghost" data-act="type" data-t="j">判断专项<em>${cnt.j} 题</em></button>
+    <div class="sect">考前速览</div>
+    <button class="btn ghost" data-act="list">答案速览<em>100 题 · 扫一遍再进考场</em></button>
+    <div style="text-align:center;margin-top:16px">
+      <a href="#" data-act="reset" style="color:#9ca3af;font-size:12.5px;text-decoration:none">清空本机记录</a>
+    </div>
+  </div>`;
+}
+
+/* ---------- 抽题 ---------- */
+function pickPool(pool, n, preferWrong){
+  const w = new Set(S.wrong);
+  let out = [];
+  if(preferWrong){
+    const cand = pool.filter(i => w.has(i));
+    shuffle(cand);
+    out = cand.slice(0, Math.min(cand.length, Math.ceil(n*0.4)));
+  }
+  const rest = pool.filter(i => out.indexOf(i) < 0);
+  shuffle(rest);
+  while(out.length < n && rest.length) out.push(rest.pop());
+  shuffle(out);
+  return out;
+}
+
+function startQuiz(title, pool, n, preferWrong){
+  randomizeOptions();
+  const total = Math.min(n, pool.length);
+  const list = pickPool(pool, total, preferWrong);
+  run = { title, items: list.map(qi => ({qi, retry:0})), i:0, sel:[], locked:false,
+          t0:Date.now(), firstTotal:0, firstOk:0, revealed:0, wrongThisRound:[] };
+  renderQuiz();
+}
+
+/* ---------- 答题 ---------- */
+function currentQ(){ return Q[run.items[run.i].qi]; }
+
+function renderQuiz(){
+  if(run.i >= run.items.length) return renderResult();
+  const it = run.items[run.i];
+  const q = currentQ();
+  const opts = optsOf(q);
+  const multi = q.t === 'm';
+  setTop(true, run.title, (run.i+1)+' / '+run.items.length, run.i*100/run.items.length);
+  app.innerHTML = `
+  <div class="wrap" style="padding-top:16px">
+    <div class="qtags">${typeTag(q.t)}
+      ${it.retry?'<span class="tag" style="background:#fee2e2;color:#991b1b">重做</span>':''}
+      <span class="tag idx">第 ${run.i+1} 题</span></div>
+    <div class="stem">${esc(q.q)}</div>
+    <div id="opts">${opts.map((o,i)=>`
+      <button class="opt" data-opt="${esc(q.t==='j'?o:LETTERS[i])}">
+        ${q.t==='j'?'':`<span class="k">${LETTERS[i]}</span>`}<span>${esc(o)}</span>
+      </button>`).join('')}
+    </div>
+    <div id="fb"></div>
+    ${multi?'<button class="btn" id="confirm" disabled>确认答案<em>可多选</em></button>':''}
+    <button class="btn ghost" data-act="reveal" id="revealBtn">不会，直接看答案</button>
+    <button class="btn dark" data-act="next" id="nextBtn" style="display:none">下一题</button>
+  </div>`;
+  run.sel = [];
+  run.locked = false;
+}
+
+function paintOpts(chosen, q){
+  const btns = document.querySelectorAll('#opts .opt');
+  const correct = new Set(q.t==='j' ? [q.a] : q.a.split(''));
+  btns.forEach(b => {
+    const v = b.dataset.opt;
+    b.disabled = true;
+    if(correct.has(v)) b.classList.add('ok');
+    else if(chosen.indexOf(v) >= 0) b.classList.add('bad');
+    b.classList.toggle('sel', chosen.indexOf(v) >= 0 && correct.has(v));
+  });
+}
+
+function grade(chosen, revealed){
+  const it = run.items[run.i];
+  const q = currentQ();
+  const qi = it.qi;
+  let ok, note = '';
+  if(revealed){
+    ok = false;
+  } else if(q.t === 'm'){
+    const s = chosen.slice().sort().join(''), a = q.a.split('').sort().join('');
+    ok = s === a;
+    if(!ok){
+      const miss = q.a.split('').filter(c => chosen.indexOf(c) < 0);
+      const over = chosen.filter(c => q.a.indexOf(c) < 0);
+      const p = [];
+      if(miss.length) p.push('漏选 ' + miss.join(''));
+      if(over.length) p.push('多选 ' + over.join(''));
+      note = p.join(' · ');
+    }
+  } else {
+    ok = chosen[0] === q.a;
+  }
+
+  // 统计
+  const v = S.seen[qi] || {r:0, w:0};
+  if(it.retry === 0 && !revealed){
+    run.firstTotal++;
+    if(ok) run.firstOk++;
+  }
+  if(ok){
+    v.r = (v.r||0) + 1;
+    const k = S.wrong.indexOf(qi);
+    if(k >= 0) S.wrong.splice(k, 1);
+  } else {
+    v.w = (v.w||0) + 1;
+    if(S.wrong.indexOf(qi) < 0) S.wrong.push(qi);
+    if(revealed) run.revealed++;
+    else run.wrongThisRound.push(qi);
+    if(it.retry === 0) run.items.push({qi, retry:1});   // 本轮末尾重做一次
+  }
+  S.seen[qi] = v;
+  save();
+
+  // 反馈
+  paintOpts(chosen, q);
+  const fb = document.getElementById('fb');
+  if(ok){
+    fb.innerHTML = `<div class="fb ok">✓ 答对了${it.retry?'<small>这题之前错了，这次记住了</small>':''}</div>`;
+  } else {
+    fb.innerHTML = `<div class="fb bad">${revealed?'答案在这里':'✗ 答错了'}
+      <small>正确答案：${esc(ansText(q))}${note?'（'+note+'）':''}</small></div>`;
+  }
+  document.getElementById('revealBtn').style.display = 'none';
+  const nx = document.getElementById('nextBtn');
+  nx.style.display = 'block';
+  nx.textContent = (run.i + 1 >= run.items.length) ? '看结果' : '下一题';
+  const c = document.getElementById('confirm');
+  if(c) c.style.display = 'none';
+  run.locked = true;
+  save();
+}
+
+/* ---------- 结果页 ---------- */
+function renderResult(){
+  setTop(true, run.title, '完成', 100);
+  const used = Date.now() - run.t0;
+  const acc = run.firstTotal ? Math.round(run.firstOk*100/run.firstTotal) : 0;
+  const wrongs = run.wrongThisRound.slice();
+  const color = acc >= 80 ? '#16a34a' : acc >= 60 ? '#d97706' : '#dc2626';
+  const tip = acc >= 90 ? '稳了，明天正常发挥就行。' :
+              acc >= 70 ? '基本盘可以，把下面几道错题再看两遍。' :
+              acc >= 50 ? '还有漏洞，错题重练一轮再收工。' :
+                          '先别做题了，把课本过一遍，回来再练。';
+  app.innerHTML = `
+  <div class="wrap" style="padding-top:16px">
+    <div class="card result-hero">
+      <div class="pct" style="color:${color}">${acc}%</div>
+      <div class="lbl">本轮正确率 · 首次作答 ${run.firstOk}/${run.firstTotal} 题</div>
+      <div class="lbl">用时 ${fmtTime(used)}${run.revealed?' · 直接看答案 '+run.revealed+' 题':''}</div>
+    </div>
+    <div class="card" style="padding:12px 14px;font-size:14.5px;color:#374151">${tip}</div>
+    ${wrongs.length ? `<div class="sect">本轮错题（${wrongs.length}）</div>` + wrongs.map(qi=>{
+      const q = Q[qi];
+      return `<div class="wrongitem"><div class="q">${esc(q.q)}</div>
+        <div class="a">答案：${esc(ansText(q))}</div></div>`;
+    }).join('') : `<div class="card empty">本轮没有错题 🎯</div>`}
+    ${wrongs.length ? '<button class="btn warn" data-act="redo">重练本轮错题<em>'+wrongs.length+' 题</em></button>' : ''}
+    <button class="btn" data-act="start" data-n="10">再来 10 题随机</button>
+    <button class="btn ghost" data-act="home">返回首页</button>
+  </div>`;
+}
+
+/* ---------- 答案速览 ---------- */
+function renderList(){
+  randomizeOptions();
+  setTop(true, '答案速览', Q.length + ' 题', 100);
+  let h = '<div class="wrap" style="padding-top:14px">';
+  ['s','m','j'].forEach(t => {
+    h += '<div class="sect">' + typeName(t) + '</div>';
+    let n = 0;
+    Q.forEach(q => {
+      if(q.t !== t) return;
+      n++;
+      h += '<div class="wrongitem" style="border-left-color:#2f6fed">' +
+           '<div class="q">' + n + '. ' + esc(q.q) + '</div>' +
+           (q.t === 'j' ? '' : q.o.map(o => '<div style="font-size:13.5px;color:#4b5563;padding-left:2px">' + esc(o) + '</div>').join('')) +
+           '<div class="a">答案：' + esc(ansText(q)) + '</div></div>';
+    });
+  });
+  h += '<button class="btn ghost" data-act="home">返回首页</button></div>';
+  app.innerHTML = h;
+}
+
+/* ---------- 事件 ---------- */
+document.addEventListener('click', e => {
+  const btn = e.target.closest('[data-opt],[data-act]');
+  if(!btn) return;
+  const act = btn.dataset.act;
+
+  if(btn.dataset.opt !== undefined && !btn.dataset.act){
+    if(!run || run.locked) return;
+    const q = currentQ();
+    if(q.t === 'm'){
+      const v = btn.dataset.opt;
+      const k = run.sel.indexOf(v);
+      if(k >= 0){ run.sel.splice(k,1); btn.classList.remove('sel'); }
+      else { run.sel.push(v); btn.classList.add('sel'); }
+      document.getElementById('confirm').disabled = run.sel.length === 0;
+      return;
+    }
+    run.sel = [btn.dataset.opt];
+    grade(run.sel, false);
+    return;
+  }
+
+  if(act === 'reveal'){ if(run && !run.locked){ run.sel = []; grade([], true); } return; }
+  if(act === 'next'){
+    run.i++;
+    if(run.i >= run.items.length) renderResult(); else renderQuiz();
+    return;
+  }
+  if(act === 'home'){ run = null; renderHome(); return; }
+  if(act === 'redo'){
+    const list = run.wrongThisRound.slice();
+    run = null;
+    startQuiz('错题重练', list, list.length, false);
+    return;
+  }
+  if(act === 'start'){
+    const n = parseInt(btn.dataset.n, 10);
+    const all = Q.map((_,i)=>i);
+    startQuiz(n ? '随机 '+n+' 题' : '全真模拟', all, n || Q.length, true);
+    return;
+  }
+  if(act === 'type'){
+    const t = btn.dataset.t;
+    const pool = Q.map((_,i)=>i).filter(i => Q[i].t === t);
+    startQuiz(typeName(t) + '专项', pool, pool.length, false);
+    return;
+  }
+  if(act === 'wrong'){
+    const pool = S.wrong.slice();
+    if(!pool.length) return;
+    startQuiz('错题重练', pool, pool.length, false);
+    return;
+  }
+  if(act === 'list'){ run = null; renderList(); return; }
+  if(act === 'reset'){
+    if(confirm('清空本机的练习记录和错题本？')){
+      S = {seen:{}, wrong:[], hist:[]}; save(); renderHome();
+    }
+    return;
+  }
+});
+
+document.addEventListener('click', e => {
+  if(e.target.closest('#confirm')){
+    if(run && !run.locked && run.sel.length) grade(run.sel, false);
+  }
+}, true);
+
+renderHome();
+
+</script>
+</body>
+</html>

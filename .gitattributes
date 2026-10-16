@@ -1,0 +1,20 @@
+# 统一换行，避免跨平台整文件 diff
+* text=auto eol=lf
+
+# 媒体与二进制：不做文本处理、diff 里折叠
+*.mp4 binary -diff
+*.jpg binary -diff
+*.jpeg binary -diff
+*.png binary -diff
+*.webp binary -diff
+*.ico binary -diff
+*.pdf binary -diff
+*.apk binary -diff
+*.ipa binary -diff
+*.exe binary -diff
+*.zip binary -diff
+
+# 生成物标注
+study-data/manifest.*.js linguist-generated=true
+study-data/c/*.js linguist-generated=true
+learn/searchidx.js linguist-generated=true
